@@ -1,5 +1,6 @@
 package com.fuyuvulpes.yoamod.registries;
 
+import com.fuyuvulpes.yoamod.custom.block.ForgingTableBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -17,7 +18,7 @@ public class BlocksModReg {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
 
 
-    public static final DeferredBlock<Block> EXAMPLE_BLOCK = registerBlock("example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
+    public static final DeferredBlock<Block> FORGING_TABLE = registerBlock("forging_table", ForgingTableBlock.Properties.of().mapColor(MapColor.STONE));
 
 
 

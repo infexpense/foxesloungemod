@@ -1,8 +1,12 @@
 package com.fuyuvulpes.yoamod;
 
+import com.fuyuvulpes.yoamod.client.entities.renderers.ForgingTableRenderer;
+import com.fuyuvulpes.yoamod.registries.BlockEntitiesModReg;
 import com.fuyuvulpes.yoamod.registries.BlocksModReg;
 import com.fuyuvulpes.yoamod.registries.ItemsModReg;
+import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -12,6 +16,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
@@ -42,11 +47,12 @@ public class YOAMod
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
-        // Register the Deferred Register to the mod event bus so blocks get registered
+
         BlocksModReg.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so items get registered
+
         ItemsModReg.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so tabs get registered
+        BlockEntitiesModReg.register(modEventBus);
+
         CREATIVE_MODE_TABS.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
@@ -67,9 +73,10 @@ public class YOAMod
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        /*if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
+        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS){
+            event.accept(BlocksModReg.FORGING_TABLE);
 
-        }*/
+        }
     }
 
 
@@ -87,6 +94,15 @@ public class YOAMod
         public static void onClientSetup(FMLClientSetupEvent event)
         {
 
+        }
+        @SubscribeEvent
+        public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event){
+            event.registerBlockEntityRenderer(BlockEntitiesModReg.FORGING_TABLE.get(), ForgingTableRenderer::new);
+        }
+
+        @SubscribeEvent
+        public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event){
+            event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(MODID, "forging_table"),"main"), ForgingTableRenderer.ForgingTableModel::createBodyLayer);
         }
     }
 }
