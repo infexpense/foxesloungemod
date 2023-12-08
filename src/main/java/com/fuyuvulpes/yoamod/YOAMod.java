@@ -1,13 +1,13 @@
 package com.fuyuvulpes.yoamod;
 
-import com.fuyuvulpes.yoamod.client.entities.renderers.ForgingTableRenderer;
+import com.fuyuvulpes.yoamod.client.entities.renderers.HammeringStationRenderer;
 import com.fuyuvulpes.yoamod.registries.BlockEntitiesModReg;
 import com.fuyuvulpes.yoamod.registries.BlocksModReg;
 import com.fuyuvulpes.yoamod.registries.ItemsModReg;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -74,7 +74,9 @@ public class YOAMod
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS){
-            event.accept(BlocksModReg.FORGING_TABLE);
+            event.accept(BlocksModReg.HAMMERING_STATION);
+            event.accept(BlocksModReg.AUGMENTING_STATION);
+            event.accept(BlocksModReg.MELTING_POT);
 
         }
     }
@@ -97,12 +99,12 @@ public class YOAMod
         }
         @SubscribeEvent
         public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event){
-            event.registerBlockEntityRenderer(BlockEntitiesModReg.FORGING_TABLE.get(), ForgingTableRenderer::new);
+            event.registerBlockEntityRenderer(BlockEntitiesModReg.HAMMERING_STATION.get(), HammeringStationRenderer::new);
         }
+
 
         @SubscribeEvent
         public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event){
-            event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(MODID, "forging_table"),"main"), ForgingTableRenderer.ForgingTableModel::createBodyLayer);
         }
     }
 }

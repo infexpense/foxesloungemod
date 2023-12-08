@@ -1,3 +1,5 @@
 {
-  "block.yoamod.forging_table": "Forging Table"
+  "block.yoamod.hammering_station": "Hammering Station",
+  "block.yoamod.augmenting_station": "Augmenting Station",
+  "block.yoamod.melting_pot": "Melting Pot"
 }

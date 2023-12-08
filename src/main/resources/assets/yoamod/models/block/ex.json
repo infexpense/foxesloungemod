@@ -1,0 +1,82 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"texture_size": [32, 32],
+	"textures": {
+		"1": "yoamod:block/forging_table_b",
+		"3": "yoamod:block/forging_table_d"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 1],
+			"to": [14, 11, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 5.5, 6, 11], "texture": "#3"},
+				"east": {"uv": [7.5, 0, 0, 5.5], "texture": "#3"},
+				"south": {"uv": [0.5, 0, 6.5, 5.5], "texture": "#3"},
+				"west": {"uv": [0, 0, 7.5, 5.5], "texture": "#3"},
+				"up": {"uv": [6, 8.5, 12, 16], "texture": "#3"},
+				"down": {"uv": [7.5, 0, 13.5, 7.5], "texture": "#3"}
+			}
+		},
+		{
+			"from": [3, 11, 12],
+			"to": [13, 21, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [12.5, 2.5, 11.5, 7.5], "texture": "#1"},
+				"east": {"uv": [12.5, 2.5, 13.5, 7.5], "texture": "#1"},
+				"south": {"uv": [11.5, 2.5, 12.5, 7.5], "texture": "#1"},
+				"west": {"uv": [10.5, 2.5, 11.5, 7.5], "texture": "#1"},
+				"up": {"uv": [9.5, 2.5, 10.5, 3.5], "texture": "#1"},
+				"down": {"uv": [9.5, 2.5, 10.5, 3.5], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [-164.15, 69.47, 141.66],
+			"translation": [0.75, 1.5, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-164.15, 69.47, 141.66],
+			"translation": [0.75, 1.5, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [-150.74, -62.08, -179.54],
+			"translation": [0.5, 0.75, 0],
+			"scale": [0.49984, 0.49984, 0.49984]
+		},
+		"head": {
+			"translation": [0, 1.75, 0]
+		},
+		"fixed": {
+			"scale": [0.5, 0.5, 0.5]
+		}
+	},
+	"groups": [
+		{
+			"name": "VoxelShapes",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}

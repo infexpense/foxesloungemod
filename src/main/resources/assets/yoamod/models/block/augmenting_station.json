@@ -1,0 +1,88 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"2": "yoamod:block/augmenting_station_top",
+		"4": "yoamod:block/augmenting_station_back",
+		"5": "yoamod:block/augmenting_station_bottom",
+		"6": "yoamod:block/augmenting_station_details",
+		"7": "yoamod:block/augmenting_station_front",
+		"8": "yoamod:block/augmenting_station_sides",
+		"particle": "minecraft:block/netherite_block"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 1],
+			"to": [14, 11, 16],
+			"faces": {
+				"north": {"uv": [0, 5, 12, 16], "texture": "#7"},
+				"east": {"uv": [15, 5, 0, 16], "texture": "#8"},
+				"south": {"uv": [0, 5, 12, 16], "texture": "#4"},
+				"west": {"uv": [0, 5, 15, 16], "texture": "#8"},
+				"up": {"uv": [0, 1, 12, 16], "texture": "#2"},
+				"down": {"uv": [0, 1, 12, 16], "texture": "#5"}
+			}
+		},
+		{
+			"from": [9, 11, 5],
+			"to": [13, 12, 9],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 1], "texture": "#6"},
+				"east": {"uv": [0, 0, 4, 1], "texture": "#6"},
+				"south": {"uv": [0, 0, 4, 1], "texture": "#6"},
+				"west": {"uv": [0, 0, 4, 1], "texture": "#6"},
+				"up": {"uv": [0, 1, 4, 5], "texture": "#6"},
+				"down": {"uv": [0, 1, 4, 5], "texture": "#6"}
+			}
+		},
+		{
+			"from": [3, 11, 5],
+			"to": [7, 12, 9],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 1], "texture": "#6"},
+				"east": {"uv": [0, 0, 4, 1], "texture": "#6"},
+				"south": {"uv": [0, 0, 4, 1], "texture": "#6"},
+				"west": {"uv": [0, 0, 4, 1], "texture": "#6"},
+				"up": {"uv": [0, 1, 4, 5], "texture": "#6"},
+				"down": {"uv": [0, 1, 4, 5], "texture": "#6"}
+			}
+		},
+		{
+			"from": [3, 11, 12],
+			"to": [5, 21, 14],
+			"faces": {
+				"north": {"uv": [14, 6, 12, 16], "texture": "#6"},
+				"east": {"uv": [10, 6, 12, 16], "texture": "#6"},
+				"south": {"uv": [8, 6, 10, 16], "texture": "#6"},
+				"west": {"uv": [14, 6, 16, 16], "texture": "#6"},
+				"up": {"uv": [14, 0, 16, 2], "texture": "#6"},
+				"down": {"uv": [14, 0, 16, 2], "texture": "#6"}
+			}
+		},
+		{
+			"from": [5, 19, 12],
+			"to": [11, 20, 14],
+			"faces": {
+				"north": {"uv": [0, 9, 6, 10], "texture": "#6"},
+				"east": {"uv": [4, 11, 6, 12], "texture": "#6"},
+				"south": {"uv": [0, 9, 6, 10], "texture": "#6"},
+				"west": {"uv": [4, 11, 6, 12], "texture": "#6"},
+				"up": {"uv": [0, 13, 6, 15], "texture": "#6"},
+				"down": {"uv": [0, 10, 6, 12], "texture": "#6"}
+			}
+		},
+		{
+			"from": [11, 11, 12],
+			"to": [13, 21, 14],
+			"faces": {
+				"north": {"uv": [12, 6, 14, 16], "texture": "#6"},
+				"east": {"uv": [10, 6, 12, 16], "texture": "#6"},
+				"south": {"uv": [10, 6, 8, 16], "texture": "#6"},
+				"west": {"uv": [14, 6, 16, 16], "texture": "#6"},
+				"up": {"uv": [16, 0, 14, 2], "texture": "#6"},
+				"down": {"uv": [14, 0, 16, 2], "texture": "#6"}
+			}
+		}
+	],
+	"render_type": "cutout"
+}

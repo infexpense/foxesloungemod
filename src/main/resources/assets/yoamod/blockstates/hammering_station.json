@@ -1,0 +1,19 @@
+{
+	"variants": {
+		"facing=east": {
+			"model": "yoamod:block/hammering_station",
+			"y": 90
+		},
+		"facing=north": {
+			"model": "yoamod:block/hammering_station"
+		},
+		"facing=south": {
+			"model": "yoamod:block/hammering_station",
+			"y": 180
+		},
+		"facing=west": {
+			"model":"yoamod:block/hammering_station",
+			"y": 270
+		}
+	}
+}

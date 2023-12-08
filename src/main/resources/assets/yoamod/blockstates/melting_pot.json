@@ -1,0 +1,19 @@
+{
+	"variants": {
+		"facing=east": {
+			"model": "yoamod:block/melting_pot",
+			"y": 90
+		},
+		"facing=north": {
+			"model": "yoamod:block/melting_pot"
+		},
+		"facing=south": {
+			"model": "yoamod:block/melting_pot",
+			"y": 180
+		},
+		"facing=west": {
+			"model": "yoamod:block/melting_pot",
+			"y": 270
+		}
+	}
+}
