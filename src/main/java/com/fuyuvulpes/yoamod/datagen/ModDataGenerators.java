@@ -1,0 +1,36 @@
+package com.fuyuvulpes.yoamod.datagen;
+
+
+import com.fuyuvulpes.yoamod.datagen.generators.*;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
+
+import java.util.concurrent.CompletableFuture;
+
+import static com.fuyuvulpes.yoamod.YOAMod.MODID;
+
+@Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+public class ModDataGenerators {
+    @SubscribeEvent
+    public static void gatherData(GatherDataEvent event){
+        DataGenerator generator = event.getGenerator();
+        PackOutput packOutput = generator.getPackOutput();
+        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+
+        generator.addProvider(event.includeServer(), new RecipeGen(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), LootTablesGen.create(packOutput));
+
+        generator.addProvider(event.includeClient(), new BlockStateGen(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new ItemModelGen(packOutput, existingFileHelper));
+
+        BlockTagsGen blockTagGenerator = generator.addProvider(event.includeServer(),
+                new BlockTagsGen(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeServer(), new ItemTagsGen(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper));
+    }
+}
