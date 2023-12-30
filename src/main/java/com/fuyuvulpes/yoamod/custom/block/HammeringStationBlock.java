@@ -1,6 +1,7 @@
 package com.fuyuvulpes.yoamod.custom.block;
 
 import com.fuyuvulpes.yoamod.registries.BlockEntitiesModReg;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -16,6 +17,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 public class HammeringStationBlock extends BaseEntityBlock {
+    public static final MapCodec<HammeringStationBlock> CODEC = simpleCodec(HammeringStationBlock::new);
+
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final VoxelShape SHAPE_COMMON = Block.box(0, 0, 0, 16, 13, 16);
     public HammeringStationBlock(Properties p_55926_) {
@@ -23,6 +26,11 @@ public class HammeringStationBlock extends BaseEntityBlock {
         this.registerDefaultState(
                 this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return CODEC;
     }
 
     @Override

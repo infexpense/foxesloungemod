@@ -1,5 +1,6 @@
 package com.fuyuvulpes.yoamod.custom.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -14,6 +15,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 public class MeltingPotBlock extends BaseEntityBlock {
+    public static final MapCodec<MeltingPotBlock> CODEC = simpleCodec(MeltingPotBlock::new);
+
     public static final VoxelShape SHAPE_COMMON = Block.box(2, 0, 2, 14, 10, 14);
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -23,6 +26,11 @@ public class MeltingPotBlock extends BaseEntityBlock {
         this.registerDefaultState(
                 this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return CODEC;
     }
 
     public RenderShape getRenderShape(BlockState p_54559_) {

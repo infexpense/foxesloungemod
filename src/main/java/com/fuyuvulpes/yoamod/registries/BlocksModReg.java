@@ -39,7 +39,7 @@ public class BlocksModReg {
 
 
     private static  DeferredBlock<Block> registerBlock(String name, BlockBehaviour.Properties block){
-        DeferredBlock<Block> toReturn = BLOCKS.registerBlock(name,block);
+        DeferredBlock<Block> toReturn = BLOCKS.registerSimpleBlock(name,block);
         registerBlockItem(name, toReturn);
         return toReturn;
     } private static  DeferredBlock<Block> registerBlock(String name, Function<BlockBehaviour.Properties, ? extends Block> func, BlockBehaviour.Properties block){
@@ -48,10 +48,10 @@ public class BlocksModReg {
         return toReturn;
     }
     private static <T extends Block> DeferredItem<BlockItem> registerBlockItem(String name, DeferredBlock<T> block){
-        return ItemsModReg.ITEMS.registerBlockItem(name, block);
+        return ItemsModReg.ITEMS.registerSimpleBlockItem(name, block);
     }
     private static DeferredBlock<Block> registerCustomItemPropertiesBlock(String name, BlockBehaviour.Properties block, Item.Properties properties){
-        DeferredBlock<Block>  toReturn = BLOCKS.registerBlock(name,block);
+        DeferredBlock<Block>  toReturn = BLOCKS.registerSimpleBlock(name,block);
         registerCustomBlockItem(name, toReturn, properties);
         return toReturn;
     }
