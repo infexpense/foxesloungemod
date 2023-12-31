@@ -11,8 +11,8 @@ import net.minecraft.world.item.enchantment.Enchantment;
 public class BaseModWeapon extends Item implements Vanishable{
 //WIP
 
-    public BaseModWeapon(Tier tier,int baseDamage, float baseAttackSpeed, float range, Properties p_41383_) {
-        super(p_41383_);
+    public BaseModWeapon(Tier tier,int baseDamage, float baseAttackSpeed, float range, Properties properties) {
+        super(properties);
 
     }
 

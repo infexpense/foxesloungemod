@@ -16,6 +16,62 @@ public class ItemsModReg {
 
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
 
+
+
+
+
+    public static final DeferredItem<Item> ADAMANTITE_INGOT = ITEMS.registerSimpleItem("adamantite_ingot", new Item.Properties());
+    public static final DeferredItem<Item> ADAMANTITE_NUGGET = ITEMS.registerSimpleItem("adamantite_nugget", new Item.Properties());
+    public static final DeferredItem<Item> RAW_ADAMANTITE = ITEMS.registerSimpleItem("raw_adamantite", new Item.Properties());
+
+
+    public static final DeferredItem<Item> ALEXANDRITE = ITEMS.registerSimpleItem("alexandrite", new Item.Properties());
+    public static final DeferredItem<Item> ALEXANDRITE_SHARD = ITEMS.registerSimpleItem("alexandrite_shard", new Item.Properties());
+
+
+    public static final DeferredItem<Item> BISMUTH = ITEMS.registerSimpleItem("bismuth", new Item.Properties());
+    public static final DeferredItem<Item> BISMUTH_SHARD = ITEMS.registerSimpleItem("bismuth_shard", new Item.Properties());
+    public static final DeferredItem<Item> RAW_BISMUTH = ITEMS.registerSimpleItem("raw_bismuth", new Item.Properties());
+
+
+    public static final DeferredItem<Item> BRASS_INGOT = ITEMS.registerSimpleItem("brass_ingot", new Item.Properties());
+    public static final DeferredItem<Item> BRASS_NUGGET = ITEMS.registerSimpleItem("brass_nugget", new Item.Properties());
+
+
+    public static final DeferredItem<Item> BRONZE_INGOT = ITEMS.registerSimpleItem("bronze_ingot", new Item.Properties());
+    public static final DeferredItem<Item> BRONZE_NUGGET = ITEMS.registerSimpleItem("bronze_nugget", new Item.Properties());
+
+
+    public static final DeferredItem<Item> IOLITE = ITEMS.registerSimpleItem("iolite", new Item.Properties());
+    public static final DeferredItem<Item> IOLITE_SHARD = ITEMS.registerSimpleItem("iolite_shard", new Item.Properties());
+
+
+    public static final DeferredItem<Item> SILVER_INGOT = ITEMS.registerSimpleItem("silver_ingot", new Item.Properties());
+    public static final DeferredItem<Item> SILVER_NUGGET = ITEMS.registerSimpleItem("silver_nugget", new Item.Properties());
+    public static final DeferredItem<Item> RAW_SILVER = ITEMS.registerSimpleItem("raw_silver", new Item.Properties());
+
+
+    public static final DeferredItem<Item> STEEL_INGOT = ITEMS.registerSimpleItem("steel_ingot", new Item.Properties());
+    public static final DeferredItem<Item> STEEL_NUGGET = ITEMS.registerSimpleItem("steel_nugget", new Item.Properties());
+
+
+    public static final DeferredItem<Item> TITANIUM_INGOT = ITEMS.registerSimpleItem("titanium_ingot", new Item.Properties());
+    public static final DeferredItem<Item> TITANIUM_NUGGET = ITEMS.registerSimpleItem("titanium_nugget", new Item.Properties());
+    public static final DeferredItem<Item> RAW_TITANIUM = ITEMS.registerSimpleItem("raw_titanium", new Item.Properties());
+
+
+    public static final DeferredItem<Item> WITHERITE = ITEMS.registerSimpleItem("witherite", new Item.Properties());
+    public static final DeferredItem<Item> WITHERITE_SHARD = ITEMS.registerSimpleItem("witherite_shard", new Item.Properties());
+
+    public static final DeferredItem<Item> DIAMOND_SHARD = ITEMS.registerSimpleItem("diamond_shard", new Item.Properties());
+    public static final DeferredItem<Item> NETHERITE_NUGGET = ITEMS.registerSimpleItem("netherite_nugget", new Item.Properties());
+
+
+
+
+    //WEAPONS
+
+
     //BELL
     public static final DeferredItem<BaseModWeapon> BRONZE_BELL = ITEMS.register("bronze_" + WeaponStats.BELL.weaponId(), () -> new BaseModWeapon(ModToolTiers.BRONZE,WeaponStats.BELL.attackDmg(),WeaponStats.BELL.attackSpeed(), WeaponStats.BELL.range(), new Item.Properties()));
     public static final DeferredItem<BaseModWeapon> GOLD_BELL = ITEMS.register("gold_" + WeaponStats.BELL.weaponId(), () -> new BaseModWeapon(Tiers.GOLD,WeaponStats.BELL.attackDmg(),WeaponStats.BELL.attackSpeed(), WeaponStats.BELL.range(), new Item.Properties()));
@@ -196,19 +252,8 @@ public class ItemsModReg {
     public static final DeferredItem<BaseModWeapon> ADAMANTITE_LANCE = ITEMS.register("adamantite_" + WeaponStats.LANCE.weaponId(), () -> new BaseModWeapon(ModToolTiers.ADAMANTITE,WeaponStats.LANCE.attackDmg(),WeaponStats.LANCE.attackSpeed(), WeaponStats.LANCE.range(), new Item.Properties()));
 
 
-    //LONGBOW
-    public static final DeferredItem<BaseModWeapon> BRONZE_LONGBOW = ITEMS.register("bronze_" + WeaponStats.LONGBOW.weaponId(), () -> new BaseModWeapon(ModToolTiers.BRONZE,WeaponStats.LONGBOW.attackDmg(),WeaponStats.LONGBOW.attackSpeed(), WeaponStats.LONGBOW.range(), new Item.Properties()));
-    public static final DeferredItem<BaseModWeapon> GOLD_LONGBOW = ITEMS.register("gold_" + WeaponStats.LONGBOW.weaponId(), () -> new BaseModWeapon(Tiers.GOLD,WeaponStats.LONGBOW.attackDmg(),WeaponStats.LONGBOW.attackSpeed(), WeaponStats.LONGBOW.range(), new Item.Properties()));
-    public static final DeferredItem<BaseModWeapon> SILVER_LONGBOW = ITEMS.register("silver_" + WeaponStats.LONGBOW.weaponId(), () -> new BaseModWeapon(ModToolTiers.SILVER,WeaponStats.LONGBOW.attackDmg(),WeaponStats.LONGBOW.attackSpeed(), WeaponStats.LONGBOW.range(), new Item.Properties()));
-    public static final DeferredItem<BaseModWeapon> IRON_LONGBOW = ITEMS.register("iron_" + WeaponStats.LONGBOW.weaponId(), () -> new BaseModWeapon(Tiers.IRON,WeaponStats.LONGBOW.attackDmg(),WeaponStats.LONGBOW.attackSpeed(), WeaponStats.LONGBOW.range(), new Item.Properties()));
-    public static final DeferredItem<BaseModWeapon> STEEL_LONGBOW = ITEMS.register("steel_" + WeaponStats.LONGBOW.weaponId(), () -> new BaseModWeapon(ModToolTiers.STEEL,WeaponStats.LONGBOW.attackDmg(),WeaponStats.LONGBOW.attackSpeed(), WeaponStats.LONGBOW.range(), new Item.Properties()));
-    public static final DeferredItem<BaseModWeapon> BISMUTH_LONGBOW = ITEMS.register("bismuth_" + WeaponStats.LONGBOW.weaponId(), () -> new BaseModWeapon(ModToolTiers.BISMUTH,WeaponStats.LONGBOW.attackDmg(),WeaponStats.LONGBOW.attackSpeed(), WeaponStats.LONGBOW.range(), new Item.Properties()));
-    public static final DeferredItem<BaseModWeapon> DIAMOND_LONGBOW = ITEMS.register("diamond_" + WeaponStats.LONGBOW.weaponId(), () -> new BaseModWeapon(Tiers.DIAMOND,WeaponStats.LONGBOW.attackDmg(),WeaponStats.LONGBOW.attackSpeed(), WeaponStats.LONGBOW.range(), new Item.Properties()));
-    public static final DeferredItem<BaseModWeapon> NETHERITE_LONGBOW = ITEMS.register("netherite_" + WeaponStats.LONGBOW.weaponId(), () -> new BaseModWeapon(Tiers.NETHERITE,WeaponStats.LONGBOW.attackDmg(),WeaponStats.LONGBOW.attackSpeed(), WeaponStats.LONGBOW.range(), new Item.Properties()));
-    public static final DeferredItem<BaseModWeapon> TITANIUM_LONGBOW = ITEMS.register("titanium_" + WeaponStats.LONGBOW.weaponId(), () -> new BaseModWeapon(ModToolTiers.TITANIUM,WeaponStats.LONGBOW.attackDmg(),WeaponStats.LONGBOW.attackSpeed(), WeaponStats.LONGBOW.range(), new Item.Properties()));
-    public static final DeferredItem<BaseModWeapon> IOLITE_LONGBOW = ITEMS.register("iolite_" + WeaponStats.LONGBOW.weaponId(), () -> new BaseModWeapon(ModToolTiers.IOLITE,WeaponStats.LONGBOW.attackDmg(),WeaponStats.LONGBOW.attackSpeed(), WeaponStats.LONGBOW.range(), new Item.Properties()));
-    public static final DeferredItem<BaseModWeapon> ALEXANDRITE_LONGBOW = ITEMS.register("alexandrite_" + WeaponStats.LONGBOW.weaponId(), () -> new BaseModWeapon(ModToolTiers.ALEXANDRITE,WeaponStats.LONGBOW.attackDmg(),WeaponStats.LONGBOW.attackSpeed(), WeaponStats.LONGBOW.range(), new Item.Properties()));
-    public static final DeferredItem<BaseModWeapon> ADAMANTITE_LONGBOW = ITEMS.register("adamantite_" + WeaponStats.LONGBOW.weaponId(), () -> new BaseModWeapon(ModToolTiers.ADAMANTITE,WeaponStats.LONGBOW.attackDmg(),WeaponStats.LONGBOW.attackSpeed(), WeaponStats.LONGBOW.range(), new Item.Properties()));
+    //Bows and Crossbows
+    public static final DeferredItem<BaseModWeapon> LONGBOW = ITEMS.register("bronze_" + WeaponStats.LONGBOW.weaponId(), () -> new BaseModWeapon(ModToolTiers.BRONZE,WeaponStats.LONGBOW.attackDmg(),WeaponStats.LONGBOW.attackSpeed(), WeaponStats.LONGBOW.range(), new Item.Properties()));
 
 
     //LYRE
@@ -344,7 +389,7 @@ public class ItemsModReg {
     public static final DeferredItem<BaseModWeapon> ALEXANDRITE_SCYTHE = ITEMS.register("alexandrite_" + WeaponStats.SCYTHE.weaponId(), () -> new BaseModWeapon(ModToolTiers.ALEXANDRITE,WeaponStats.SCYTHE.attackDmg(),WeaponStats.SCYTHE.attackSpeed(), WeaponStats.SCYTHE.range(), new Item.Properties()));
     public static final DeferredItem<BaseModWeapon> ADAMANTITE_SCYTHE = ITEMS.register("adamantite_" + WeaponStats.SCYTHE.weaponId(), () -> new BaseModWeapon(ModToolTiers.ADAMANTITE,WeaponStats.SCYTHE.attackDmg(),WeaponStats.SCYTHE.attackSpeed(), WeaponStats.SCYTHE.range(), new Item.Properties()));
 
-
+/*
     //SHOTGUN_SHIELD
     public static final DeferredItem<BaseModWeapon> BRONZE_SHOTGUN_SHIELD = ITEMS.register("bronze_" + WeaponStats.SHOTGUN_SHIELD.weaponId(), () -> new BaseModWeapon(ModToolTiers.BRONZE,WeaponStats.SHOTGUN_SHIELD.attackDmg(),WeaponStats.SHOTGUN_SHIELD.attackSpeed(), WeaponStats.SHOTGUN_SHIELD.range(), new Item.Properties()));
     public static final DeferredItem<BaseModWeapon> GOLD_SHOTGUN_SHIELD = ITEMS.register("gold_" + WeaponStats.SHOTGUN_SHIELD.weaponId(), () -> new BaseModWeapon(Tiers.GOLD,WeaponStats.SHOTGUN_SHIELD.attackDmg(),WeaponStats.SHOTGUN_SHIELD.attackSpeed(), WeaponStats.SHOTGUN_SHIELD.range(), new Item.Properties()));
@@ -358,7 +403,7 @@ public class ItemsModReg {
     public static final DeferredItem<BaseModWeapon> IOLITE_SHOTGUN_SHIELD = ITEMS.register("iolite_" + WeaponStats.SHOTGUN_SHIELD.weaponId(), () -> new BaseModWeapon(ModToolTiers.IOLITE,WeaponStats.SHOTGUN_SHIELD.attackDmg(),WeaponStats.SHOTGUN_SHIELD.attackSpeed(), WeaponStats.SHOTGUN_SHIELD.range(), new Item.Properties()));
     public static final DeferredItem<BaseModWeapon> ALEXANDRITE_SHOTGUN_SHIELD = ITEMS.register("alexandrite_" + WeaponStats.SHOTGUN_SHIELD.weaponId(), () -> new BaseModWeapon(ModToolTiers.ALEXANDRITE,WeaponStats.SHOTGUN_SHIELD.attackDmg(),WeaponStats.SHOTGUN_SHIELD.attackSpeed(), WeaponStats.SHOTGUN_SHIELD.range(), new Item.Properties()));
     public static final DeferredItem<BaseModWeapon> ADAMANTITE_SHOTGUN_SHIELD = ITEMS.register("adamantite_" + WeaponStats.SHOTGUN_SHIELD.weaponId(), () -> new BaseModWeapon(ModToolTiers.ADAMANTITE,WeaponStats.SHOTGUN_SHIELD.attackDmg(),WeaponStats.SHOTGUN_SHIELD.attackSpeed(), WeaponStats.SHOTGUN_SHIELD.range(), new Item.Properties()));
-
+*/
 
     //SHURIKEN
     public static final DeferredItem<BaseModWeapon> BRONZE_SHURIKEN = ITEMS.register("bronze_" + WeaponStats.SHURIKEN.weaponId(), () -> new BaseModWeapon(ModToolTiers.BRONZE,WeaponStats.SHURIKEN.attackDmg(),WeaponStats.SHURIKEN.attackSpeed(), WeaponStats.SHURIKEN.range(), new Item.Properties()));
@@ -463,6 +508,15 @@ public class ItemsModReg {
     public static final DeferredItem<BaseModWeapon> IOLITE_WHIP_SWORD = ITEMS.register("iolite_" + WeaponStats.WHIP_SWORD.weaponId(), () -> new BaseModWeapon(ModToolTiers.IOLITE,WeaponStats.WHIP_SWORD.attackDmg(),WeaponStats.WHIP_SWORD.attackSpeed(), WeaponStats.WHIP_SWORD.range(), new Item.Properties()));
     public static final DeferredItem<BaseModWeapon> ALEXANDRITE_WHIP_SWORD = ITEMS.register("alexandrite_" + WeaponStats.WHIP_SWORD.weaponId(), () -> new BaseModWeapon(ModToolTiers.ALEXANDRITE,WeaponStats.WHIP_SWORD.attackDmg(),WeaponStats.WHIP_SWORD.attackSpeed(), WeaponStats.WHIP_SWORD.range(), new Item.Properties()));
     public static final DeferredItem<BaseModWeapon> ADAMANTITE_WHIP_SWORD = ITEMS.register("adamantite_" + WeaponStats.WHIP_SWORD.weaponId(), () -> new BaseModWeapon(ModToolTiers.ADAMANTITE,WeaponStats.WHIP_SWORD.attackDmg(),WeaponStats.WHIP_SWORD.attackSpeed(), WeaponStats.WHIP_SWORD.range(), new Item.Properties()));
+
+
+
+
+
+
+
+
+
 
 
 

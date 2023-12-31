@@ -26,26 +26,26 @@ public class ModToolTiers {
             ,new ResourceLocation(MODID,"silver"), List.of(ModToolTiers.BRONZE),List.of(Tiers.IRON));
 
     public static final Tier STEEL = TierSortingRegistry.registerTier(
-            new SimpleTier(2,152,5.0F,1.2F,5, TagRegistry.Blocks.NEEDS_STEEL_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
+            new SimpleTier(2,680,6.5F,2.2F,8, TagRegistry.Blocks.NEEDS_STEEL_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
             ,new ResourceLocation(MODID,"steel"), List.of(Tiers.IRON),List.of());
 
     public static final Tier BISMUTH = TierSortingRegistry.registerTier(
-            new SimpleTier(2,152,5.0F,1.2F,5, TagRegistry.Blocks.NEEDS_BISMUTH_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
+            new SimpleTier(2,1120,7.0F,2.6F,16, TagRegistry.Blocks.NEEDS_BISMUTH_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
             ,new ResourceLocation(MODID,"bismuth"), List.of(ModToolTiers.STEEL),List.of(Tiers.DIAMOND));
 
     public static final Tier TITANIUM = TierSortingRegistry.registerTier(
-            new SimpleTier(5,152,5.0F,1.2F,5, TagRegistry.Blocks.NEEDS_TITANIUM_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
+            new SimpleTier(5,3216,9.5F,5.0F,10, TagRegistry.Blocks.NEEDS_TITANIUM_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
             ,new ResourceLocation(MODID,"titanium"), List.of(Tiers.NETHERITE),List.of());
 
     public static final Tier IOLITE = TierSortingRegistry.registerTier(
-            new SimpleTier(6,152,5.0F,1.2F,5, TagRegistry.Blocks.NEEDS_IOLITE_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
+            new SimpleTier(6,4252,11.0F,7.0F,18, TagRegistry.Blocks.NEEDS_IOLITE_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
             ,new ResourceLocation(MODID,"iolite"), List.of(ModToolTiers.TITANIUM),List.of());
 
     public static final Tier ALEXANDRITE = TierSortingRegistry.registerTier(
-            new SimpleTier(7,152,5.0F,1.2F,5, TagRegistry.Blocks.NEEDS_ALEXANDRITE_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
+            new SimpleTier(7,5600,13.0F,9.5F,16, TagRegistry.Blocks.NEEDS_ALEXANDRITE_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
             ,new ResourceLocation(MODID,"alexandrite"), List.of(ModToolTiers.IOLITE),List.of());
 
     public static final Tier ADAMANTITE = TierSortingRegistry.registerTier(
-            new SimpleTier(8,152,5.0F,1.2F,5, TagRegistry.Blocks.NEEDS_ADAMANTITE_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
+            new SimpleTier(8,8016,15.0F,12.0F,22, TagRegistry.Blocks.NEEDS_ADAMANTITE_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
             ,new ResourceLocation(MODID,"adamantite"), List.of(ModToolTiers.ALEXANDRITE),List.of());
 }

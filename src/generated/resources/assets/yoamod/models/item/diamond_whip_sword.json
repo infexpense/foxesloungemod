@@ -1,0 +1,6 @@
+{
+  "parent": "yoamod:item/handheld_big",
+  "textures": {
+    "layer0": "yoamod:item/diamond_whip_sword"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "yoamod:item/bronze_runic_blade"
+  }
+}

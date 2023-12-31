@@ -3,7 +3,6 @@ package com.fuyuvulpes.yoamod.datagen.generators;
 import com.fuyuvulpes.yoamod.registries.ItemsModReg;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -18,6 +17,40 @@ public class ItemModelGen extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+
+        simpleItem(ItemsModReg.ADAMANTITE_INGOT);
+        simpleItem(ItemsModReg.ADAMANTITE_NUGGET);
+        simpleItem(ItemsModReg.RAW_ADAMANTITE);
+        simpleItem(ItemsModReg.ALEXANDRITE);
+        simpleItem(ItemsModReg.ALEXANDRITE_SHARD);
+        simpleItem(ItemsModReg.BISMUTH);
+        simpleItem(ItemsModReg.BISMUTH_SHARD);
+        simpleItem(ItemsModReg.RAW_BISMUTH);
+        simpleItem(ItemsModReg.BRASS_INGOT);
+        simpleItem(ItemsModReg.BRASS_NUGGET);
+        simpleItem(ItemsModReg.BRONZE_INGOT);
+        simpleItem(ItemsModReg.BRONZE_NUGGET);
+        simpleItem(ItemsModReg.IOLITE);
+        simpleItem(ItemsModReg.IOLITE_SHARD);
+        simpleItem(ItemsModReg.SILVER_INGOT);
+        simpleItem(ItemsModReg.SILVER_NUGGET);
+        simpleItem(ItemsModReg.RAW_SILVER);
+        simpleItem(ItemsModReg.STEEL_INGOT);
+        simpleItem(ItemsModReg.STEEL_NUGGET);
+        simpleItem(ItemsModReg.TITANIUM_INGOT);
+        simpleItem(ItemsModReg.TITANIUM_NUGGET);
+        simpleItem(ItemsModReg.RAW_TITANIUM);
+        simpleItem(ItemsModReg.WITHERITE);
+        simpleItem(ItemsModReg.WITHERITE_SHARD);
+        simpleItem(ItemsModReg.DIAMOND_SHARD);
+        simpleItem(ItemsModReg.NETHERITE_NUGGET);
+
+
+
+        //Bows
+        //simpleItem(ItemsModReg.LONGBOW);
+
+        //WEAPONS
         simpleItem(ItemsModReg.SILVER_BELL);
         simpleItem(ItemsModReg.SILVER_BLOW_DART);
         handheldItem(ItemsModReg.SILVER_BOOMERANG);
@@ -30,7 +63,6 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.SILVER_HOLY_RIFLE);
         handheldItem(ItemsModReg.SILVER_KATANA);
         handheldBigItem(ItemsModReg.SILVER_LANCE);
-        simpleItem(ItemsModReg.SILVER_LONGBOW);
         handheldItem(ItemsModReg.SILVER_LYRE);
         simpleItem(ItemsModReg.SILVER_MAGICIAN_WAND);
         handheldItem(ItemsModReg.SILVER_RAPIER);
@@ -40,7 +72,7 @@ public class ItemModelGen extends ItemModelProvider {
         handheldBigItem(ItemsModReg.SILVER_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.SILVER_SINGLE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.SILVER_SCYTHE);
-        simpleItem(ItemsModReg.SILVER_SHOTGUN_SHIELD);
+        //simpleItem(ItemsModReg.SILVER_SHOTGUN_SHIELD);
         simpleItem(ItemsModReg.SILVER_SHURIKEN);
         handheldBigItem(ItemsModReg.SILVER_SPELLCASTER_STAFF);
         simpleItem(ItemsModReg.SILVER_TALISMAN);
@@ -61,7 +93,6 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.GOLD_HOLY_RIFLE);
         handheldItem(ItemsModReg.GOLD_KATANA);
         handheldBigItem(ItemsModReg.GOLD_LANCE);
-        simpleItem(ItemsModReg.GOLD_LONGBOW);
         handheldItem(ItemsModReg.GOLD_LYRE);
         simpleItem(ItemsModReg.GOLD_MAGICIAN_WAND);
         handheldItem(ItemsModReg.GOLD_RAPIER);
@@ -71,7 +102,7 @@ public class ItemModelGen extends ItemModelProvider {
         handheldBigItem(ItemsModReg.GOLD_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.GOLD_SINGLE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.GOLD_SCYTHE);
-        simpleItem(ItemsModReg.GOLD_SHOTGUN_SHIELD);
+        //simpleItem(ItemsModReg.GOLD_SHOTGUN_SHIELD);
         simpleItem(ItemsModReg.GOLD_SHURIKEN);
         handheldBigItem(ItemsModReg.GOLD_SPELLCASTER_STAFF);
         simpleItem(ItemsModReg.GOLD_TALISMAN);
@@ -92,7 +123,6 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.BRONZE_HOLY_RIFLE);
         handheldItem(ItemsModReg.BRONZE_KATANA);
         handheldBigItem(ItemsModReg.BRONZE_LANCE);
-        simpleItem(ItemsModReg.BRONZE_LONGBOW);
         handheldItem(ItemsModReg.BRONZE_LYRE);
         simpleItem(ItemsModReg.BRONZE_MAGICIAN_WAND);
         handheldItem(ItemsModReg.BRONZE_RAPIER);
@@ -102,7 +132,7 @@ public class ItemModelGen extends ItemModelProvider {
         handheldBigItem(ItemsModReg.BRONZE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.BRONZE_SINGLE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.BRONZE_SCYTHE);
-        simpleItem(ItemsModReg.BRONZE_SHOTGUN_SHIELD);
+        //simpleItem(ItemsModReg.BRONZE_SHOTGUN_SHIELD);
         simpleItem(ItemsModReg.BRONZE_SHURIKEN);
         handheldBigItem(ItemsModReg.BRONZE_SPELLCASTER_STAFF);
         simpleItem(ItemsModReg.BRONZE_TALISMAN);
@@ -123,7 +153,6 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.IRON_HOLY_RIFLE);
         handheldItem(ItemsModReg.IRON_KATANA);
         handheldBigItem(ItemsModReg.IRON_LANCE);
-        simpleItem(ItemsModReg.IRON_LONGBOW);
         handheldItem(ItemsModReg.IRON_LYRE);
         simpleItem(ItemsModReg.IRON_MAGICIAN_WAND);
         handheldItem(ItemsModReg.IRON_RAPIER);
@@ -133,7 +162,7 @@ public class ItemModelGen extends ItemModelProvider {
         handheldBigItem(ItemsModReg.IRON_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.IRON_SINGLE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.IRON_SCYTHE);
-        simpleItem(ItemsModReg.IRON_SHOTGUN_SHIELD);
+        //simpleItem(ItemsModReg.IRON_SHOTGUN_SHIELD);
         simpleItem(ItemsModReg.IRON_SHURIKEN);
         handheldBigItem(ItemsModReg.IRON_SPELLCASTER_STAFF);
         simpleItem(ItemsModReg.IRON_TALISMAN);
@@ -154,7 +183,6 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.STEEL_HOLY_RIFLE);
         handheldItem(ItemsModReg.STEEL_KATANA);
         handheldBigItem(ItemsModReg.STEEL_LANCE);
-        simpleItem(ItemsModReg.STEEL_LONGBOW);
         handheldItem(ItemsModReg.STEEL_LYRE);
         simpleItem(ItemsModReg.STEEL_MAGICIAN_WAND);
         handheldItem(ItemsModReg.STEEL_RAPIER);
@@ -164,7 +192,7 @@ public class ItemModelGen extends ItemModelProvider {
         handheldBigItem(ItemsModReg.STEEL_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.STEEL_SINGLE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.STEEL_SCYTHE);
-        simpleItem(ItemsModReg.STEEL_SHOTGUN_SHIELD);
+        //simpleItem(ItemsModReg.STEEL_SHOTGUN_SHIELD);
         simpleItem(ItemsModReg.STEEL_SHURIKEN);
         handheldBigItem(ItemsModReg.STEEL_SPELLCASTER_STAFF);
         simpleItem(ItemsModReg.STEEL_TALISMAN);
@@ -185,7 +213,6 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.BISMUTH_HOLY_RIFLE);
         handheldItem(ItemsModReg.BISMUTH_KATANA);
         handheldBigItem(ItemsModReg.BISMUTH_LANCE);
-        simpleItem(ItemsModReg.BISMUTH_LONGBOW);
         handheldItem(ItemsModReg.BISMUTH_LYRE);
         simpleItem(ItemsModReg.BISMUTH_MAGICIAN_WAND);
         handheldItem(ItemsModReg.BISMUTH_RAPIER);
@@ -195,7 +222,7 @@ public class ItemModelGen extends ItemModelProvider {
         handheldBigItem(ItemsModReg.BISMUTH_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.BISMUTH_SINGLE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.BISMUTH_SCYTHE);
-        simpleItem(ItemsModReg.BISMUTH_SHOTGUN_SHIELD);
+        //simpleItem(ItemsModReg.BISMUTH_SHOTGUN_SHIELD);
         simpleItem(ItemsModReg.BISMUTH_SHURIKEN);
         handheldBigItem(ItemsModReg.BISMUTH_SPELLCASTER_STAFF);
         simpleItem(ItemsModReg.BISMUTH_TALISMAN);
@@ -216,7 +243,6 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.DIAMOND_HOLY_RIFLE);
         handheldItem(ItemsModReg.DIAMOND_KATANA);
         handheldBigItem(ItemsModReg.DIAMOND_LANCE);
-        simpleItem(ItemsModReg.DIAMOND_LONGBOW);
         handheldItem(ItemsModReg.DIAMOND_LYRE);
         simpleItem(ItemsModReg.DIAMOND_MAGICIAN_WAND);
         handheldItem(ItemsModReg.DIAMOND_RAPIER);
@@ -226,7 +252,7 @@ public class ItemModelGen extends ItemModelProvider {
         handheldBigItem(ItemsModReg.DIAMOND_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.DIAMOND_SINGLE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.DIAMOND_SCYTHE);
-        simpleItem(ItemsModReg.DIAMOND_SHOTGUN_SHIELD);
+        //simpleItem(ItemsModReg.DIAMOND_SHOTGUN_SHIELD);
         simpleItem(ItemsModReg.DIAMOND_SHURIKEN);
         handheldBigItem(ItemsModReg.DIAMOND_SPELLCASTER_STAFF);
         simpleItem(ItemsModReg.DIAMOND_TALISMAN);
@@ -247,7 +273,6 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.NETHERITE_HOLY_RIFLE);
         handheldItem(ItemsModReg.NETHERITE_KATANA);
         handheldBigItem(ItemsModReg.NETHERITE_LANCE);
-        simpleItem(ItemsModReg.NETHERITE_LONGBOW);
         handheldItem(ItemsModReg.NETHERITE_LYRE);
         simpleItem(ItemsModReg.NETHERITE_MAGICIAN_WAND);
         handheldItem(ItemsModReg.NETHERITE_RAPIER);
@@ -257,7 +282,7 @@ public class ItemModelGen extends ItemModelProvider {
         handheldBigItem(ItemsModReg.NETHERITE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.NETHERITE_SINGLE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.NETHERITE_SCYTHE);
-        simpleItem(ItemsModReg.NETHERITE_SHOTGUN_SHIELD);
+        //simpleItem(ItemsModReg.NETHERITE_SHOTGUN_SHIELD);
         simpleItem(ItemsModReg.NETHERITE_SHURIKEN);
         handheldBigItem(ItemsModReg.NETHERITE_SPELLCASTER_STAFF);
         simpleItem(ItemsModReg.NETHERITE_TALISMAN);
@@ -278,7 +303,6 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.TITANIUM_HOLY_RIFLE);
         handheldItem(ItemsModReg.TITANIUM_KATANA);
         handheldBigItem(ItemsModReg.TITANIUM_LANCE);
-        simpleItem(ItemsModReg.TITANIUM_LONGBOW);
         handheldItem(ItemsModReg.TITANIUM_LYRE);
         simpleItem(ItemsModReg.TITANIUM_MAGICIAN_WAND);
         handheldItem(ItemsModReg.TITANIUM_RAPIER);
@@ -288,7 +312,7 @@ public class ItemModelGen extends ItemModelProvider {
         handheldBigItem(ItemsModReg.TITANIUM_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.TITANIUM_SINGLE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.TITANIUM_SCYTHE);
-        simpleItem(ItemsModReg.TITANIUM_SHOTGUN_SHIELD);
+        //simpleItem(ItemsModReg.TITANIUM_SHOTGUN_SHIELD);
         simpleItem(ItemsModReg.TITANIUM_SHURIKEN);
         handheldBigItem(ItemsModReg.TITANIUM_SPELLCASTER_STAFF);
         simpleItem(ItemsModReg.TITANIUM_TALISMAN);
@@ -309,7 +333,6 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.IOLITE_HOLY_RIFLE);
         handheldItem(ItemsModReg.IOLITE_KATANA);
         handheldBigItem(ItemsModReg.IOLITE_LANCE);
-        simpleItem(ItemsModReg.IOLITE_LONGBOW);
         handheldItem(ItemsModReg.IOLITE_LYRE);
         simpleItem(ItemsModReg.IOLITE_MAGICIAN_WAND);
         handheldItem(ItemsModReg.IOLITE_RAPIER);
@@ -319,7 +342,7 @@ public class ItemModelGen extends ItemModelProvider {
         handheldBigItem(ItemsModReg.IOLITE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.IOLITE_SINGLE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.IOLITE_SCYTHE);
-        simpleItem(ItemsModReg.IOLITE_SHOTGUN_SHIELD);
+        //simpleItem(ItemsModReg.IOLITE_SHOTGUN_SHIELD);
         simpleItem(ItemsModReg.IOLITE_SHURIKEN);
         handheldBigItem(ItemsModReg.IOLITE_SPELLCASTER_STAFF);
         simpleItem(ItemsModReg.IOLITE_TALISMAN);
@@ -340,7 +363,6 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.ALEXANDRITE_HOLY_RIFLE);
         handheldItem(ItemsModReg.ALEXANDRITE_KATANA);
         handheldBigItem(ItemsModReg.ALEXANDRITE_LANCE);
-        simpleItem(ItemsModReg.ALEXANDRITE_LONGBOW);
         handheldItem(ItemsModReg.ALEXANDRITE_LYRE);
         simpleItem(ItemsModReg.ALEXANDRITE_MAGICIAN_WAND);
         handheldItem(ItemsModReg.ALEXANDRITE_RAPIER);
@@ -350,7 +372,7 @@ public class ItemModelGen extends ItemModelProvider {
         handheldBigItem(ItemsModReg.ALEXANDRITE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.ALEXANDRITE_SINGLE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.ALEXANDRITE_SCYTHE);
-        simpleItem(ItemsModReg.ALEXANDRITE_SHOTGUN_SHIELD);
+        //simpleItem(ItemsModReg.ALEXANDRITE_SHOTGUN_SHIELD);
         simpleItem(ItemsModReg.ALEXANDRITE_SHURIKEN);
         handheldBigItem(ItemsModReg.ALEXANDRITE_SPELLCASTER_STAFF);
         simpleItem(ItemsModReg.ALEXANDRITE_TALISMAN);
@@ -371,7 +393,6 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.ADAMANTITE_HOLY_RIFLE);
         handheldItem(ItemsModReg.ADAMANTITE_KATANA);
         handheldBigItem(ItemsModReg.ADAMANTITE_LANCE);
-        simpleItem(ItemsModReg.ADAMANTITE_LONGBOW);
         handheldItem(ItemsModReg.ADAMANTITE_LYRE);
         simpleItem(ItemsModReg.ADAMANTITE_MAGICIAN_WAND);
         handheldItem(ItemsModReg.ADAMANTITE_RAPIER);
@@ -381,7 +402,7 @@ public class ItemModelGen extends ItemModelProvider {
         handheldBigItem(ItemsModReg.ADAMANTITE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.ADAMANTITE_SINGLE_SCISSORS_SWORD);
         handheldBigItem(ItemsModReg.ADAMANTITE_SCYTHE);
-        simpleItem(ItemsModReg.ADAMANTITE_SHOTGUN_SHIELD);
+        //simpleItem(ItemsModReg.ADAMANTITE_SHOTGUN_SHIELD);
         simpleItem(ItemsModReg.ADAMANTITE_SHURIKEN);
         handheldBigItem(ItemsModReg.ADAMANTITE_SPELLCASTER_STAFF);
         simpleItem(ItemsModReg.ADAMANTITE_TALISMAN);
