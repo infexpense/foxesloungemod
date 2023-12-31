@@ -10,5 +10,8 @@ public interface WeaponStat {
 
     float range();
 
+    boolean isAgile();
+
+    boolean isHeavy();
 
 }
