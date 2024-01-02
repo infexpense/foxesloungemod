@@ -3,6 +3,20 @@
   "block.yoamod.augmenting_station": "Augmenting Station",
   "block.yoamod.melting_pot": "Melting Pot",
 
+  "block.yoamod.creakstone": "Creakstone",
+  "block.yoamod.creakstone_fracture": "Creakstone Fracture",
+  "block.yoamod.overgrown_creakstone": "Overgrown Creakstone",
+  "block.yoamod.silver_ore": "Silver Ore",
+  "block.yoamod.deepslate_silver_ore": "Deepslate Silver Ore",
+  "block.yoamod.titanium_ore": "Titanium Ore",
+  "block.yoamod.deepslate_titanium_ore": "Deepslate Titanium Ore",
+  "block.yoamod.bismuth_ore": "Bismuth Ore",
+  "block.yoamod.deepslate_bismuth_ore": "Deepslate Bismuth Ore",
+  "block.yoamod.witherite_ore": "Witherite Ore",
+  "block.yoamod.iolite_ore": "Iolite Ore",
+  "block.yoamod.alexandrite_ore": "Alexandrite Ore",
+  "block.yoamod.adamantite_ore": "Adamantite Ore",
+
 
 
   "item.yoamod.adamantite_ingot": "Adamantite Ingot",

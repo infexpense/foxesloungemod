@@ -27,6 +27,23 @@ public class CreativeTabRegistry {
                 output.accept(BlocksModReg.AUGMENTING_STATION);
                 output.accept(BlocksModReg.MELTING_POT);
 
+                output.accept(BlocksModReg.CREAKSTONE);
+                output.accept(BlocksModReg.CREAKSTONE_FRACTURE);
+                output.accept(BlocksModReg.OVERGROWN_CREAKSTONE);
+
+
+                output.accept(BlocksModReg.SILVER_ORE);
+                output.accept(BlocksModReg.DEEPSLATE_SILVER_ORE);
+                output.accept(BlocksModReg.TITANIUM_ORE);
+                output.accept(BlocksModReg.DEEPSLATE_TITANIUM_ORE);
+                output.accept(BlocksModReg.BISMUTH_ORE);
+                output.accept(BlocksModReg.DEEPSLATE_BISMUTH_ORE);
+                output.accept(BlocksModReg.WITHERITE_ORE);
+                output.accept(BlocksModReg.IOLITE_ORE);
+                output.accept(BlocksModReg.ALEXANDRITE_ORE);
+                output.accept(BlocksModReg.ADAMANTITE_ORE);
+
+
                 output.accept(ItemsModReg.ADAMANTITE_INGOT.get());
                 output.accept(ItemsModReg.ADAMANTITE_NUGGET.get());
                 output.accept(ItemsModReg.RAW_ADAMANTITE.get());

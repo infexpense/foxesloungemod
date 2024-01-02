@@ -1,5 +1,6 @@
 package com.fuyuvulpes.yoamod.datagen.generators;
 
+import com.fuyuvulpes.yoamod.registries.BlocksModReg;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
@@ -15,7 +16,21 @@ public class BlockStateGen extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        blockWithItem(BlocksModReg.CREAKSTONE);
+        blockWithItem(BlocksModReg.CREAKSTONE_FRACTURE);
 
+
+
+        blockWithItem(BlocksModReg.SILVER_ORE);
+        blockWithItem(BlocksModReg.DEEPSLATE_SILVER_ORE);
+        blockWithItem(BlocksModReg.TITANIUM_ORE);
+        blockWithItem(BlocksModReg.DEEPSLATE_TITANIUM_ORE);
+        blockWithItem(BlocksModReg.BISMUTH_ORE);
+        blockWithItem(BlocksModReg.DEEPSLATE_BISMUTH_ORE);
+        blockWithItem(BlocksModReg.WITHERITE_ORE);
+        blockWithItem(BlocksModReg.IOLITE_ORE);
+        blockWithItem(BlocksModReg.ALEXANDRITE_ORE);
+        blockWithItem(BlocksModReg.ADAMANTITE_ORE);
     }
 
 

@@ -1,6 +1,5 @@
 package com.fuyuvulpes.yoamod.core;
 
-import com.fuyuvulpes.yoamod.YOAMod;
 import com.fuyuvulpes.yoamod.registries.ItemsModReg;
 import com.fuyuvulpes.yoamod.registries.TagRegistry;
 import net.minecraft.resources.ResourceLocation;
@@ -8,7 +7,6 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.SimpleTier;
-import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.TierSortingRegistry;
 
 import java.util.List;
@@ -34,18 +32,18 @@ public class ModToolTiers {
             ,new ResourceLocation(MODID,"bismuth"), List.of(ModToolTiers.STEEL),List.of(Tiers.DIAMOND));
 
     public static final Tier TITANIUM = TierSortingRegistry.registerTier(
-            new SimpleTier(5,3216,9.5F,5.0F,10, TagRegistry.Blocks.NEEDS_TITANIUM_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
+            new SimpleTier(5,5216,9.5F,6.0F,10, TagRegistry.Blocks.NEEDS_TITANIUM_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
             ,new ResourceLocation(MODID,"titanium"), List.of(Tiers.NETHERITE),List.of());
 
     public static final Tier IOLITE = TierSortingRegistry.registerTier(
-            new SimpleTier(6,4252,11.0F,7.0F,18, TagRegistry.Blocks.NEEDS_IOLITE_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
+            new SimpleTier(6,7252,11.0F,9.0F,18, TagRegistry.Blocks.NEEDS_IOLITE_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
             ,new ResourceLocation(MODID,"iolite"), List.of(ModToolTiers.TITANIUM),List.of());
 
     public static final Tier ALEXANDRITE = TierSortingRegistry.registerTier(
-            new SimpleTier(7,5600,13.0F,9.5F,16, TagRegistry.Blocks.NEEDS_ALEXANDRITE_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
+            new SimpleTier(7,9600,13.0F,14.0F,16, TagRegistry.Blocks.NEEDS_ALEXANDRITE_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
             ,new ResourceLocation(MODID,"alexandrite"), List.of(ModToolTiers.IOLITE),List.of());
 
     public static final Tier ADAMANTITE = TierSortingRegistry.registerTier(
-            new SimpleTier(8,8016,15.0F,12.0F,22, TagRegistry.Blocks.NEEDS_ADAMANTITE_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
+            new SimpleTier(8,12016,15.0F,19.0F,22, TagRegistry.Blocks.NEEDS_ADAMANTITE_TOOL,() -> Ingredient.of(ItemsModReg.EXAMPLE_ITEM.get()))
             ,new ResourceLocation(MODID,"adamantite"), List.of(ModToolTiers.ALEXANDRITE),List.of());
 }
