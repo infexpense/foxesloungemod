@@ -22,5 +22,8 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
 
         nineBlockStorageRecipes(output, RecipeCategory.MISC, ItemsModReg.CRYSTALIC_SHARD.get(), RecipeCategory.REDSTONE, BlocksModReg.CRYSTALIC_REMNANTS.get());
 
+
+
+        //Put It Here Dum Dum
     }
 }
