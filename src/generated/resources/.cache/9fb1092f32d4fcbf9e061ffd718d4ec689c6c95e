@@ -1,1 +1,5 @@
-// 1.20.4	2023-12-30T23:08:28.9591067	Recipes
+// 1.20.4	2024-01-04T22:11:18.5830053	Recipes
+a6f5534c18f2b1c59e258760b053a35e545ece74 data/minecraft/advancements/recipes/misc/crystalic_shard.json
+305f09e73012184c250e794416d637de2b2e699e data/minecraft/advancements/recipes/redstone/crystalic_remnants.json
+cd284d33d51ea0c8ecb6c8712a527d10cf614690 data/minecraft/recipes/crystalic_remnants.json
+a24f00c8f4ae688391300713bf96aa49e16ba6b6 data/minecraft/recipes/crystalic_shard.json

@@ -1,9 +1,8 @@
 {
   "values": [
+    "yoamod:titanium_ore",
+    "yoamod:crystalic_remnants",
     "yoamod:witherite_ore",
-    "yoamod:iolite_ore",
-    "yoamod:creakstone",
-    "yoamod:creakstone_fracture",
-    "yoamod:overgrown_creakstone"
+    "yoamod:pointed_creakstone"
   ]
 }

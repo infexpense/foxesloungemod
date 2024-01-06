@@ -23,25 +23,9 @@ public class CreativeTabRegistry {
 
             .displayItems((parameters, output) -> {
 
-                output.accept(BlocksModReg.HAMMERING_STATION);
-                output.accept(BlocksModReg.AUGMENTING_STATION);
-                output.accept(BlocksModReg.MELTING_POT);
-
-                output.accept(BlocksModReg.CREAKSTONE);
-                output.accept(BlocksModReg.CREAKSTONE_FRACTURE);
-                output.accept(BlocksModReg.OVERGROWN_CREAKSTONE);
-
-
-                output.accept(BlocksModReg.SILVER_ORE);
-                output.accept(BlocksModReg.DEEPSLATE_SILVER_ORE);
-                output.accept(BlocksModReg.TITANIUM_ORE);
-                output.accept(BlocksModReg.DEEPSLATE_TITANIUM_ORE);
-                output.accept(BlocksModReg.BISMUTH_ORE);
-                output.accept(BlocksModReg.DEEPSLATE_BISMUTH_ORE);
-                output.accept(BlocksModReg.WITHERITE_ORE);
-                output.accept(BlocksModReg.IOLITE_ORE);
-                output.accept(BlocksModReg.ALEXANDRITE_ORE);
-                output.accept(BlocksModReg.ADAMANTITE_ORE);
+                BlocksModReg.BLOCKS.getEntries().forEach(blockDeferredHolder -> {
+                    output.accept(blockDeferredHolder.get());
+                });
 
 
                 output.accept(ItemsModReg.ADAMANTITE_INGOT.get());
@@ -74,8 +58,71 @@ public class CreativeTabRegistry {
 
             }).build());
 
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> YOA_WEAPONS = TABS.register("yoa_weapons", () -> CreativeModeTab.builder()
+
+
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> YOA_WORLDGEN = TABS.register("yoa_wgen", () -> CreativeModeTab.builder()
             .withTabsBefore(YOA_MAIN.getKey())
+            .icon(BlocksModReg.IOLITE_ORE.asItem()::getDefaultInstance)
+            .title(Component.translatable("itemGroup.yoa_wgen"))
+            .displayItems((parameters, output) -> {
+
+                output.accept(BlocksModReg.CREAKSTONE);
+                output.accept(BlocksModReg.CREAKSTONE_FRACTURE);
+                output.accept(BlocksModReg.OVERGROWN_CREAKSTONE);
+                output.accept(BlocksModReg.CRYSTALIC_REMNANTS);
+                output.accept(BlocksModReg.POINTED_CREAKSTONE);
+
+
+                output.accept(BlocksModReg.CREAKSTONE_IRON_ORE);
+                output.accept(BlocksModReg.CREAKSTONE_DIAMOND_ORE);
+                output.accept(BlocksModReg.SILVER_ORE);
+                output.accept(BlocksModReg.DEEPSLATE_SILVER_ORE);
+                output.accept(BlocksModReg.TITANIUM_ORE);
+                output.accept(BlocksModReg.DEEPSLATE_TITANIUM_ORE);
+                output.accept(BlocksModReg.CREAKSTONE_TITANIUM_ORE);
+                output.accept(BlocksModReg.BISMUTH_ORE);
+                output.accept(BlocksModReg.DEEPSLATE_BISMUTH_ORE);
+                output.accept(BlocksModReg.WITHERITE_ORE);
+                output.accept(BlocksModReg.IOLITE_ORE);
+                output.accept(BlocksModReg.ALEXANDRITE_ORE);
+                output.accept(BlocksModReg.ADAMANTITE_ORE);
+
+            }).build());
+
+
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> YOA_GEAR = TABS.register("yoa_tools_gear", () -> CreativeModeTab.builder()
+            .withTabsBefore(YOA_WORLDGEN.getKey())
+            .icon(ItemsModReg.TITANIUM_PICKAXE.get()::getDefaultInstance)
+            .title(Component.translatable("itemGroup.yoa_tools_gear"))
+            .displayItems((parameters, output) -> {
+
+                output.accept(ItemsModReg.TITANIUM_AXE.get());
+                output.accept(ItemsModReg.TITANIUM_PICKAXE.get());
+                output.accept(ItemsModReg.TITANIUM_HOE.get());
+                output.accept(ItemsModReg.TITANIUM_SHOVEL.get());
+
+                output.accept(ItemsModReg.IOLITE_AXE.get());
+                output.accept(ItemsModReg.IOLITE_PICKAXE.get());
+                output.accept(ItemsModReg.IOLITE_HOE.get());
+                output.accept(ItemsModReg.IOLITE_SHOVEL.get());
+
+                output.accept(ItemsModReg.ALEXANDRITE_AXE.get());
+                output.accept(ItemsModReg.ALEXANDRITE_PICKAXE.get());
+                output.accept(ItemsModReg.ALEXANDRITE_HOE.get());
+                output.accept(ItemsModReg.ALEXANDRITE_SHOVEL.get());
+
+                output.accept(ItemsModReg.ADAMANTITE_AXE.get());
+                output.accept(ItemsModReg.ADAMANTITE_PICKAXE.get());
+                output.accept(ItemsModReg.ADAMANTITE_HOE.get());
+                output.accept(ItemsModReg.ADAMANTITE_SHOVEL.get());
+            }).build());
+
+
+
+
+
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> YOA_WEAPONS = TABS.register("yoa_weapons", () -> CreativeModeTab.builder()
+            .withTabsBefore(YOA_GEAR.getKey())
             .icon(ItemsModReg.ADAMANTITE_GREAT_AXE.get()::getDefaultInstance)
             .title(Component.translatable("itemGroup.yoa_weapons"))
             .displayItems((parameters, output) -> {

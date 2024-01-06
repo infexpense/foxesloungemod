@@ -3,6 +3,7 @@ package com.fuyuvulpes.yoamod.registries;
 import com.fuyuvulpes.yoamod.custom.block.AugmentingTableBlock;
 import com.fuyuvulpes.yoamod.custom.block.HammeringStationBlock;
 import com.fuyuvulpes.yoamod.custom.block.MeltingPotBlock;
+import com.fuyuvulpes.yoamod.custom.block.PointedCreakstone;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -32,7 +33,7 @@ public class BlocksModReg {
 
     public static final DeferredBlock<Block> CREAKSTONE = registerBlock("creakstone", () -> new Block(BlockBehaviour.Properties.of()
             .requiresCorrectToolForDrops()
-            .strength(8.0F, 14.0F)
+            .strength(24.0F, 32.0F)
             .sound(SoundType.DEEPSLATE)));
 
     public static final DeferredBlock<Block> CREAKSTONE_FRACTURE = registerBlock("creakstone_fracture", () -> new DropExperienceBlock(UniformInt.of(5, 70),
@@ -40,12 +41,26 @@ public class BlocksModReg {
 
     public static final DeferredBlock<Block> OVERGROWN_CREAKSTONE = registerBlock("overgrown_creakstone", () -> new Block(BlockBehaviour.Properties.ofLegacyCopy(BlocksModReg.CREAKSTONE.get())));
 
+    public static final DeferredBlock<Block> CRYSTALIC_REMNANTS = registerBlock("crystalic_remnants", () -> new Block(BlockBehaviour.Properties.ofLegacyCopy(Blocks.AMETHYST_BLOCK).lightLevel((f) -> 14 ).strength(8.0F,12.0F)));
+
+    public static final DeferredBlock<Block> POINTED_CREAKSTONE = registerBlock("pointed_creakstone", () -> new PointedCreakstone(BlockBehaviour.Properties.ofLegacyCopy(Blocks.POINTED_DRIPSTONE).strength(4.0F,6.0F)));
+
+
+
+
+
+    public static final DeferredBlock<Block> CREAKSTONE_IRON_ORE = registerBlock("creakstone_iron_ore", Block.Properties.ofLegacyCopy(Blocks.DEEPSLATE_IRON_ORE).strength(24.0F, 32.0F));
+
+    public static final DeferredBlock<Block> CREAKSTONE_DIAMOND_ORE = registerBlock("creakstone_diamond_ore", Block.Properties.ofLegacyCopy(Blocks.DEEPSLATE_DIAMOND_ORE).strength(24.0F, 32.0F));
+
+
 
     public static final DeferredBlock<Block> SILVER_ORE = registerBlock("silver_ore", Block.Properties.ofLegacyCopy(Blocks.IRON_ORE).requiresCorrectToolForDrops());
     public static final DeferredBlock<Block> DEEPSLATE_SILVER_ORE = registerBlock("deepslate_silver_ore", Block.Properties.ofLegacyCopy(Blocks.DEEPSLATE_IRON_ORE));
 
     public static final DeferredBlock<Block> TITANIUM_ORE = registerBlock("titanium_ore", Block.Properties.ofLegacyCopy(Blocks.IRON_ORE).requiresCorrectToolForDrops());
     public static final DeferredBlock<Block> DEEPSLATE_TITANIUM_ORE = registerBlock("deepslate_titanium_ore", Block.Properties.ofLegacyCopy(Blocks.DEEPSLATE_IRON_ORE));
+    public static final DeferredBlock<Block> CREAKSTONE_TITANIUM_ORE = registerBlock("creakstone_titanium_ore", Block.Properties.ofLegacyCopy(Blocks.DEEPSLATE_IRON_ORE).strength(24.0F, 32.0F));
 
     public static final DeferredBlock<Block> BISMUTH_ORE = registerBlock("bismuth_ore", Block.Properties.ofLegacyCopy(Blocks.DIAMOND_ORE).requiresCorrectToolForDrops());
     public static final DeferredBlock<Block> DEEPSLATE_BISMUTH_ORE = registerBlock("deepslate_bismuth_ore", Block.Properties.ofLegacyCopy(Blocks.DEEPSLATE_DIAMOND_ORE));
@@ -55,11 +70,11 @@ public class BlocksModReg {
     public static final DeferredBlock<Block> IOLITE_ORE = registerBlock("iolite_ore", () -> new DropExperienceBlock(UniformInt.of(5, 30),BlockBehaviour.Properties.ofLegacyCopy(Blocks.END_STONE)));
 
     public static final DeferredBlock<Block> ALEXANDRITE_ORE = registerBlock("alexandrite_ore", () -> new DropExperienceBlock(UniformInt.of(10, 60),BlockBehaviour.Properties.ofLegacyCopy(BlocksModReg.CREAKSTONE.get())
-            .strength(10.0F, 22.0F)
+            .strength(22.0F, 36.0F)
     ));
 
     public static final DeferredBlock<Block> ADAMANTITE_ORE = registerBlock("adamantite_ore", () -> new DropExperienceBlock(UniformInt.of(30, 200),BlockBehaviour.Properties.ofLegacyCopy(BlocksModReg.CREAKSTONE.get())
-            .strength(15.0F, 36.0F)
+            .strength(30.0F, 42.0F)
     ));
 
 

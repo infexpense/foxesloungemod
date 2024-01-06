@@ -17,6 +17,7 @@ public class ItemModelGen extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        simpleItem(ItemsModReg.CRYSTALIC_SHARD);
 
         simpleItem(ItemsModReg.ADAMANTITE_INGOT);
         simpleItem(ItemsModReg.ADAMANTITE_NUGGET);
@@ -45,7 +46,25 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.DIAMOND_SHARD);
         simpleItem(ItemsModReg.NETHERITE_NUGGET);
 
+        handheldItem(ItemsModReg.TITANIUM_AXE);
+        handheldItem(ItemsModReg.TITANIUM_PICKAXE);
+        handheldItem(ItemsModReg.TITANIUM_HOE);
+        handheldItem(ItemsModReg.TITANIUM_SHOVEL);
 
+        handheldItem(ItemsModReg.IOLITE_AXE);
+        handheldItem(ItemsModReg.IOLITE_PICKAXE);
+        handheldItem(ItemsModReg.IOLITE_HOE);
+        handheldItem(ItemsModReg.IOLITE_SHOVEL);
+
+        handheldItem(ItemsModReg.ALEXANDRITE_AXE);
+        handheldItem(ItemsModReg.ALEXANDRITE_PICKAXE);
+        handheldItem(ItemsModReg.ALEXANDRITE_HOE);
+        handheldItem(ItemsModReg.ALEXANDRITE_SHOVEL);
+
+        handheldItem(ItemsModReg.ADAMANTITE_AXE);
+        handheldItem(ItemsModReg.ADAMANTITE_PICKAXE);
+        handheldItem(ItemsModReg.ADAMANTITE_HOE);
+        handheldItem(ItemsModReg.ADAMANTITE_SHOVEL);
 
         //Bows
         //simpleItem(ItemsModReg.LONGBOW);

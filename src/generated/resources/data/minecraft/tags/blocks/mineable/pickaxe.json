@@ -6,6 +6,7 @@
     "yoamod:creakstone",
     "yoamod:creakstone_fracture",
     "yoamod:overgrown_creakstone",
+    "yoamod:pointed_creakstone",
     "yoamod:silver_ore",
     "yoamod:deepslate_silver_ore",
     "yoamod:titanium_ore",
@@ -14,6 +15,10 @@
     "yoamod:deepslate_bismuth_ore",
     "yoamod:witherite_ore",
     "yoamod:iolite_ore",
+    "yoamod:creakstone_iron_ore",
+    "yoamod:creakstone_diamond_ore",
+    "yoamod:creakstone_titanium_ore",
+    "yoamod:crystalic_remnants",
     "yoamod:alexandrite_ore",
     "yoamod:adamantite_ore"
   ]

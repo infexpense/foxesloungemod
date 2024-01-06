@@ -5,8 +5,15 @@ import com.fuyuvulpes.yoamod.registries.ItemsModReg;
 import net.minecraft.core.Holder;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.storage.loot.IntRange;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.LimitCount;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -21,14 +28,31 @@ public class ModBlockLoot extends BlockLootSubProvider {
         this.dropSelf(BlocksModReg.AUGMENTING_STATION.get());
         this.dropSelf(BlocksModReg.HAMMERING_STATION.get());
         this.dropSelf(BlocksModReg.MELTING_POT.get());
+        this.dropSelf(BlocksModReg.POINTED_CREAKSTONE.get());
+        this.add(BlocksModReg.CRYSTALIC_REMNANTS.get(), block -> {
+            return createSilkTouchDispatchTable(
+                    block,
+                    this.applyExplosionDecay(
+                            block,
+                            LootItem.lootTableItem(ItemsModReg.CRYSTALIC_SHARD)
+                                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(4.0F, 8.0F)))
+                                    .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))
+                                    .apply(LimitCount.limitCount(IntRange.range(1, 12)))
+                    )
+            );
+        });
 
         this.dropSelf(BlocksModReg.CREAKSTONE.get());
         this.add(BlocksModReg.OVERGROWN_CREAKSTONE.get(), block -> this.createSingleItemTableWithSilkTouch(block, BlocksModReg.CREAKSTONE.get()));
+        this.add(BlocksModReg.CREAKSTONE_IRON_ORE.get(), block -> this.createOreDrop(block, Items.RAW_IRON));
+        this.add(BlocksModReg.CREAKSTONE_DIAMOND_ORE.get(), block -> this.createOreDrop(block, Items.DIAMOND));
+
 
         this.add(BlocksModReg.SILVER_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_SILVER.get()));
         this.add(BlocksModReg.DEEPSLATE_SILVER_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_SILVER.get()));
         this.add(BlocksModReg.TITANIUM_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_TITANIUM.get()));
         this.add(BlocksModReg.DEEPSLATE_TITANIUM_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_TITANIUM.get()));
+        this.add(BlocksModReg.CREAKSTONE_TITANIUM_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_TITANIUM.get()));
         this.add(BlocksModReg.BISMUTH_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_BISMUTH.get()));
         this.add(BlocksModReg.DEEPSLATE_BISMUTH_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_BISMUTH.get()));
         this.add(BlocksModReg.WITHERITE_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.WITHERITE.get()));

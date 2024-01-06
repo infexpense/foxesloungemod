@@ -1,8 +1,18 @@
 package com.fuyuvulpes.yoamod.datagen.generators;
 
 import com.fuyuvulpes.yoamod.registries.BlocksModReg;
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.data.models.blockstates.PropertyDispatch;
+import net.minecraft.data.models.blockstates.Variant;
+import net.minecraft.data.models.blockstates.VariantProperties;
+import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DripstoneThickness;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -18,9 +28,13 @@ public class BlockStateGen extends BlockStateProvider {
     protected void registerStatesAndModels() {
         blockWithItem(BlocksModReg.CREAKSTONE);
         blockWithItem(BlocksModReg.CREAKSTONE_FRACTURE);
+        blockWithItem(BlocksModReg.CRYSTALIC_REMNANTS);
 
 
 
+        blockWithItem(BlocksModReg.CREAKSTONE_IRON_ORE);
+        blockWithItem(BlocksModReg.CREAKSTONE_DIAMOND_ORE);
+        blockWithItem(BlocksModReg.CREAKSTONE_TITANIUM_ORE);
         blockWithItem(BlocksModReg.SILVER_ORE);
         blockWithItem(BlocksModReg.DEEPSLATE_SILVER_ORE);
         blockWithItem(BlocksModReg.TITANIUM_ORE);
@@ -37,5 +51,7 @@ public class BlockStateGen extends BlockStateProvider {
     private void blockWithItem(DeferredBlock<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
     }
+
+
 
 }

@@ -6,10 +6,17 @@
   "block.yoamod.creakstone": "Creakstone",
   "block.yoamod.creakstone_fracture": "Creakstone Fracture",
   "block.yoamod.overgrown_creakstone": "Overgrown Creakstone",
+  "block.yoamod.crystalic_remnants": "Crystalic Remnants",
+  "block.yoamod.pointed_creakstone": "Pointed Creakstone",
+
+
   "block.yoamod.silver_ore": "Silver Ore",
   "block.yoamod.deepslate_silver_ore": "Deepslate Silver Ore",
+  "block.yoamod.creakstone_iron_ore": "Creakstone Iron Ore",
+  "block.yoamod.creakstone_diamond_ore": "Creakstone Diamond Ore",
   "block.yoamod.titanium_ore": "Titanium Ore",
   "block.yoamod.deepslate_titanium_ore": "Deepslate Titanium Ore",
+  "block.yoamod.creakstone_titanium_ore": "Creakstone Titanium Ore",
   "block.yoamod.bismuth_ore": "Bismuth Ore",
   "block.yoamod.deepslate_bismuth_ore": "Deepslate Bismuth Ore",
   "block.yoamod.witherite_ore": "Witherite Ore",
@@ -19,6 +26,7 @@
 
 
 
+  "item.yoamod.crystalic_shard": "Crystalic Shard",
   "item.yoamod.adamantite_ingot": "Adamantite Ingot",
   "item.yoamod.adamantite_nugget": "Adamantite Nugget",
   "item.yoamod.raw_adamantite": "Raw Adamantite",
@@ -418,8 +426,30 @@
   "item.yoamod.adamantite_war_fan": "Adamantite War Fan",
   "item.yoamod.adamantite_whip_sword": "Adamantite Whip Sword",
 
+  "item.yoamod.titanium_pickaxe": "Titanium Pickaxe",
+  "item.yoamod.titanium_axe": "Titanium Axe",
+  "item.yoamod.titanium_hoe": "Titanium Hoe",
+  "item.yoamod.titanium_shovel": "Titanium Shovel",
+
+  "item.yoamod.iolite_pickaxe": "Iolite Pickaxe",
+  "item.yoamod.iolite_axe": "Iolite Axe",
+  "item.yoamod.iolite_hoe": "Iolite Hoe",
+  "item.yoamod.iolite_shovel": "Iolite Shovel",
+
+  "item.yoamod.alexandrite_pickaxe": "Alexandrite Pickaxe",
+  "item.yoamod.alexandrite_axe": "Alexandrite Axe",
+  "item.yoamod.alexandrite_hoe": "Alexandrite Hoe",
+  "item.yoamod.alexandrite_shovel": "Alexandrite Shovel",
+
+  "item.yoamod.adamantite_pickaxe": "Adamantite Pickaxe",
+  "item.yoamod.adamantite_axe": "Adamantite Axe",
+  "item.yoamod.adamantite_hoe": "Adamantite Hoe",
+  "item.yoamod.adamantite_shovel": "Adamantite Shovel",
+
 
 
   "itemGroup.yoa_main": "Your Own Adventure: Main",
+  "itemGroup.yoa_wgen": "Your Own Adventure: World Gen",
+  "itemGroup.yoa_tools_gear": "Your Own Adventure: Tools & Gear",
   "itemGroup.yoa_weapons": "Your Own Adventure: Weaponry"
 }

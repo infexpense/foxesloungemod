@@ -1,0 +1,6 @@
+{
+  "parent": "yoamod:block/pointed_creakstone",
+  "textures": {
+    "cross": "yoamod:block/pointed_creakstone_down_tip"
+  }
+}	

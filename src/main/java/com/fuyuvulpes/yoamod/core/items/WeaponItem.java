@@ -18,7 +18,7 @@ public class WeaponItem extends BaseToolItem{
 
     public WeaponItem(Tier tier, WeaponStat weapon, Properties properties) {
         super(tier,properties);
-        this.attackDamage = (float)weapon.attackDmg() + tier.getAttackDamageBonus();
+        this.attackDamage = (float)(weapon.attackDmg() * tier.getLevel()) + tier.getAttackDamageBonus();
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(
                 Attributes.ATTACK_DAMAGE,
