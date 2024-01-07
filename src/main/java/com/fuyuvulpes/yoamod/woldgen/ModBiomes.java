@@ -1,4 +1,4 @@
-package com.fuyuvulpes.yoamod.woldgen.biome;
+package com.fuyuvulpes.yoamod.woldgen;
 
 import com.fuyuvulpes.yoamod.woldgen.features.ModBiomeFeatures;
 import net.minecraft.core.particles.ParticleTypes;

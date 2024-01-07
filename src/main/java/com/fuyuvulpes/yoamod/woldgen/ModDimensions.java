@@ -1,7 +1,6 @@
-package com.fuyuvulpes.yoamod.woldgen.dimension;
+package com.fuyuvulpes.yoamod.woldgen;
 
 import com.fuyuvulpes.yoamod.registries.NoiseRegistry;
-import com.fuyuvulpes.yoamod.woldgen.biome.ModBiomes;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -24,16 +23,16 @@ import java.util.OptionalLong;
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
 public class ModDimensions {
-    public static final ResourceKey<LevelStem> DIMKEY = ResourceKey.create(Registries.LEVEL_STEM,
-            new ResourceLocation(MODID, "yoadim"));
-    public static final ResourceKey<Level> LEVEL_KEY = ResourceKey.create(Registries.DIMENSION,
-            new ResourceLocation(MODID, "yoadim"));
-    public static final ResourceKey<DimensionType> DIM_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE,
-            new ResourceLocation(MODID, "yoadim_type"));
+    public static final ResourceKey<LevelStem> THE_CREAKS_KEY = ResourceKey.create(Registries.LEVEL_STEM,
+            new ResourceLocation(MODID, "the_creaks"));
+    public static final ResourceKey<Level> THE_CREAKS_LEVEL_KEY = ResourceKey.create(Registries.DIMENSION,
+            new ResourceLocation(MODID, "the_creaks"));
+    public static final ResourceKey<DimensionType> THE_CREAKS_DIM_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE,
+            new ResourceLocation(MODID, "the_creaks"));
 
 
     public static void bootstrapType(BootstapContext<DimensionType> context) {
-        context.register(DIM_TYPE, new DimensionType(
+        context.register(THE_CREAKS_DIM_TYPE, new DimensionType(
                 OptionalLong.of(12000), // fixedTime
                 true, // hasSkylight
                 true, // hasCeiling
@@ -75,9 +74,9 @@ public class ModDimensions {
                         ))),
                 noiseGenSettings.getOrThrow(NoiseRegistry.CREAKS));
 
-        LevelStem stem = new LevelStem(dimTypes.getOrThrow(ModDimensions.DIM_TYPE), noiseBasedChunkGenerator);
+        LevelStem stem = new LevelStem(dimTypes.getOrThrow(ModDimensions.THE_CREAKS_DIM_TYPE), noiseBasedChunkGenerator);
 
-        context.register(DIMKEY, stem);
+        context.register(THE_CREAKS_KEY, stem);
     }
 
 
