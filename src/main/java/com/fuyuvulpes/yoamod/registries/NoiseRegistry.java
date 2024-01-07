@@ -1,4 +1,4 @@
-package com.fuyuvulpes.yoamod.woldgen;
+package com.fuyuvulpes.yoamod.registries;
 
 import com.fuyuvulpes.yoamod.YOAMod;
 import net.minecraft.core.registries.Registries;

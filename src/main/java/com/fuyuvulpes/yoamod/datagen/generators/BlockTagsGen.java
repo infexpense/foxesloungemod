@@ -5,7 +5,6 @@ import com.fuyuvulpes.yoamod.registries.TagRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
@@ -46,14 +45,19 @@ public class BlockTagsGen extends BlockTagsProvider {
                         BlocksModReg.CREAKSTONE_TITANIUM_ORE.get(),
                         BlocksModReg.CRYSTALIC_REMNANTS.get(),
                         BlocksModReg.ALEXANDRITE_ORE.get(),
-                        BlocksModReg.ADAMANTITE_ORE.get()
+                        BlocksModReg.ADAMANTITE_ORE.get(),
+
+                        BlocksModReg.RUNE_CRYSTAL_CLUSTER.get(),
+                        BlocksModReg.RUNE_CRYSTAL_BLOCK.get()
                         );
 
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(BlocksModReg.AUGMENTING_STATION.get(),
                         BlocksModReg.HAMMERING_STATION.get(),
-                        BlocksModReg.MELTING_POT.get()
+                        BlocksModReg.MELTING_POT.get(),
+                        BlocksModReg.RUNE_CRYSTAL_CLUSTER.get(),
+                        BlocksModReg.RUNE_CRYSTAL_BLOCK.get()
                 );
 
 

@@ -18,6 +18,7 @@ public class ItemModelGen extends ItemModelProvider {
     @Override
     protected void registerModels() {
         simpleItem(ItemsModReg.CRYSTALIC_SHARD);
+        simpleItem(ItemsModReg.RUNE_CRYSTAL);
 
         simpleItem(ItemsModReg.ADAMANTITE_INGOT);
         simpleItem(ItemsModReg.ADAMANTITE_NUGGET);

@@ -28,6 +28,7 @@ public class CreativeTabRegistry {
                 });
 
 
+                output.accept(ItemsModReg.RUNE_CRYSTAL.get());
                 output.accept(ItemsModReg.ADAMANTITE_INGOT.get());
                 output.accept(ItemsModReg.ADAMANTITE_NUGGET.get());
                 output.accept(ItemsModReg.RAW_ADAMANTITE.get());
@@ -71,6 +72,9 @@ public class CreativeTabRegistry {
                 output.accept(BlocksModReg.OVERGROWN_CREAKSTONE);
                 output.accept(BlocksModReg.CRYSTALIC_REMNANTS);
                 output.accept(BlocksModReg.POINTED_CREAKSTONE);
+
+                output.accept(BlocksModReg.RUNE_CRYSTAL_CLUSTER);
+                output.accept(BlocksModReg.RUNE_CRYSTAL_BLOCK);
 
 
                 output.accept(BlocksModReg.CREAKSTONE_IRON_ORE);

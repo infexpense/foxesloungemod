@@ -17,6 +17,7 @@ public class ItemsModReg {
 
 
     public static final DeferredItem<Item> CRYSTALIC_SHARD = ITEMS.registerSimpleItem("crystalic_shard", new Item.Properties());
+    public static final DeferredItem<Item> RUNE_CRYSTAL = ITEMS.registerSimpleItem("rune_crystal", new Item.Properties());
 
 
 

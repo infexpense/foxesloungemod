@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "yoamod:block/rune_crystal"
+  },
+  "render_type": "cutout"
+}

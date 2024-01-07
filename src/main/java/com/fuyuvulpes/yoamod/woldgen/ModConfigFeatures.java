@@ -6,16 +6,24 @@ import com.fuyuvulpes.yoamod.registries.FeatureModRegistry;
 import com.fuyuvulpes.yoamod.woldgen.features.configuration.CreakstoneClusterConfiguration;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ClampedNormalFloat;
 import net.minecraft.util.valueproviders.UniformFloat;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.GeodeBlockSettings;
+import net.minecraft.world.level.levelgen.GeodeCrackSettings;
+import net.minecraft.world.level.levelgen.GeodeLayerSettings;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.GeodeConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
@@ -40,7 +48,10 @@ public class ModConfigFeatures {
     public static final ResourceKey<ConfiguredFeature<?,?>> CREAKS_FRACTURE_KEY = registerKey("creaks_fracture");
     public static final ResourceKey<ConfiguredFeature<?,?>> CREAKS_CRYSTAL_KEY = registerKey("creaks_crystal");
 
+    public static final ResourceKey<ConfiguredFeature<?,?>> RUNE_GEODE = registerKey("rune_geode");
+
     public static final ResourceKey<ConfiguredFeature<?,?>> CREAKSTONE_CLUSTER = registerKey("creakstone_cluster");
+    public static final ResourceKey<ConfiguredFeature<?,?>> RUNE_CLUSTER_RANDOM = registerKey("rune_cluster_random");
 
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
@@ -98,6 +109,45 @@ public class ModConfigFeatures {
 
         register(context, ADAMANTITE_ORE_KEY, Feature.ORE, new OreConfiguration(creakReplaceables,
                 BlocksModReg.ADAMANTITE_ORE.get().defaultBlockState(), 3));
+
+        register(context,RUNE_GEODE, Feature.GEODE, new GeodeConfiguration(
+                new GeodeBlockSettings(
+                        BlockStateProvider.simple(Blocks.AIR),
+                        BlockStateProvider.simple(BlocksModReg.RUNE_CRYSTAL_BLOCK.get()),
+                        BlockStateProvider.simple(BlocksModReg.RUNE_CRYSTAL_BLOCK.get()),
+                        BlockStateProvider.simple(Blocks.CALCITE),
+                        BlockStateProvider.simple(Blocks.OBSIDIAN),
+                        List.of(
+                                BlocksModReg.RUNE_CRYSTAL_CLUSTER.get().defaultBlockState()
+                        ),
+                        BlockTags.FEATURES_CANNOT_REPLACE,
+                        BlockTags.GEODE_INVALID_BLOCKS
+                ),
+                new GeodeLayerSettings(1.7, 2.2, 3.2, 4.2),
+                new GeodeCrackSettings(0.95, 2.0, 2),
+                0.35,
+                0.083,
+                true,
+                UniformInt.of(4, 10),
+                UniformInt.of(2, 5),
+                UniformInt.of(1, 3),
+                -36,
+                26,
+                0.02,
+                1
+        ));
+
+        register(context, RUNE_CLUSTER_RANDOM, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK,
+                new SimpleBlockConfiguration(
+                        BlockStateProvider.simple(BlocksModReg.RUNE_CRYSTAL_CLUSTER.get())),
+                List.of(
+                        Blocks.STONE,
+                        Blocks.DEEPSLATE,
+                        Blocks.ANDESITE,
+                        Blocks.DIORITE,
+                        Blocks.GRANITE,
+                        BlocksModReg.CREAKSTONE.get())));
+
 
 
         register(context,CREAKSTONE_CLUSTER, FeatureModRegistry.CREAKSTONE_CLUSTER, new CreakstoneClusterConfiguration(

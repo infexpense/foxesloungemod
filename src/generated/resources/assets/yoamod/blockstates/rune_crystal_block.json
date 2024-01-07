@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "yoamod:block/rune_crystal_block"
+    }
+  }
+}

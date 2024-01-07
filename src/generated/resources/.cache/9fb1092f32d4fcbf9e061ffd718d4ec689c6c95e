@@ -1,5 +1,7 @@
-// 1.20.4	2024-01-04T22:11:18.5830053	Recipes
+// 1.20.4	2024-01-07T16:40:33.1310915	Recipes
+305f09e73012184c250e794416d637de2b2e699e data/minecraft/advancements/recipes/misc/crystalic_remnants.json
 a6f5534c18f2b1c59e258760b053a35e545ece74 data/minecraft/advancements/recipes/misc/crystalic_shard.json
-305f09e73012184c250e794416d637de2b2e699e data/minecraft/advancements/recipes/redstone/crystalic_remnants.json
-cd284d33d51ea0c8ecb6c8712a527d10cf614690 data/minecraft/recipes/crystalic_remnants.json
+829dde3138a6e998213a7f9ecb295048176ff43a data/minecraft/recipes/crystalic_remnants.json
 a24f00c8f4ae688391300713bf96aa49e16ba6b6 data/minecraft/recipes/crystalic_shard.json
+d9421e81d2dec0d2638da26e5c6039955bb3ce53 data/yoamod/advancements/recipes/misc/rune_crystal_block.json
+41d17028c3681fa901bf421e3d06fd77c1096237 data/yoamod/recipes/rune_crystal_block.json

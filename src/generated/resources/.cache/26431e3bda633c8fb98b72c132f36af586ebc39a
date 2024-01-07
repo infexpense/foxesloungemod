@@ -1,10 +1,10 @@
-// 1.20.4	2024-01-05T17:52:38.0900706	Tags for minecraft:block mod id yoamod
+// 1.20.4	2024-01-07T16:21:19.1718196	Tags for minecraft:block mod id yoamod
 4f04c16f48f796dc26e7a0b2e0381f6adffe8ba1 data/forge/tags/blocks/needs_netherite_tool.json
 2cebd62654f56e5efc65dadbbea84752262c944d data/minecraft/tags/blocks/base_stone_overworld.json
-d05e7787ef6d7fc6434a829f93cce60ba700bfd2 data/minecraft/tags/blocks/mineable/pickaxe.json
+83362f52bcf07cd93dcbccf2c904f6cee2dc4176 data/minecraft/tags/blocks/mineable/pickaxe.json
 a98f677a85ec6cf45c48ad84bf2f4f2741d2880a data/minecraft/tags/blocks/needs_diamond_tool.json
 7c89d66dd28e58c14252f9e0920d54a54ae297f9 data/minecraft/tags/blocks/needs_iron_tool.json
-782457847c281580f242d083c95070f278b081c1 data/minecraft/tags/blocks/needs_stone_tool.json
+0ce29a57ec921ab93254849aa23e69dc476eace5 data/minecraft/tags/blocks/needs_stone_tool.json
 97ca0029730ee69a89dfc4c21d070357be4e6be6 data/yoamod/tags/blocks/creak_ore_replaceables.json
 9994f212884e8264af96eaba34aa7e89696d8994 data/yoamod/tags/blocks/end_ore_replaceables.json
 d0b5db1877da23fe30b9be182968b588cf0bd65f data/yoamod/tags/blocks/needs_alexandrite_tool.json

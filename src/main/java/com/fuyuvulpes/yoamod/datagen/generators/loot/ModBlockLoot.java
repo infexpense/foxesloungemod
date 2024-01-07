@@ -2,8 +2,10 @@ package com.fuyuvulpes.yoamod.datagen.generators.loot;
 
 import com.fuyuvulpes.yoamod.registries.BlocksModReg;
 import com.fuyuvulpes.yoamod.registries.ItemsModReg;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -13,6 +15,8 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.LimitCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.Set;
@@ -46,7 +50,20 @@ public class ModBlockLoot extends BlockLootSubProvider {
         this.add(BlocksModReg.OVERGROWN_CREAKSTONE.get(), block -> this.createSingleItemTableWithSilkTouch(block, BlocksModReg.CREAKSTONE.get()));
         this.add(BlocksModReg.CREAKSTONE_IRON_ORE.get(), block -> this.createOreDrop(block, Items.RAW_IRON));
         this.add(BlocksModReg.CREAKSTONE_DIAMOND_ORE.get(), block -> this.createOreDrop(block, Items.DIAMOND));
+        this.dropSelf(BlocksModReg.RUNE_CRYSTAL_BLOCK.get());
 
+        this.add(BlocksModReg.RUNE_CRYSTAL_CLUSTER.get(), block -> createSilkTouchDispatchTable(
+                block,
+                (LootItem.lootTableItem(ItemsModReg.RUNE_CRYSTAL.get())
+                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F)))
+                        .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))
+                        .when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(ItemTags.CLUSTER_MAX_HARVESTABLES))))
+                        .otherwise(
+                                this.applyExplosionDecay(
+                                        block, LootItem.lootTableItem(ItemsModReg.RUNE_CRYSTAL.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3.0F)))
+                                )
+                        )
+        ));
 
         this.add(BlocksModReg.SILVER_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_SILVER.get()));
         this.add(BlocksModReg.DEEPSLATE_SILVER_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_SILVER.get()));

@@ -8,6 +8,8 @@
   "block.yoamod.overgrown_creakstone": "Overgrown Creakstone",
   "block.yoamod.crystalic_remnants": "Crystalic Remnants",
   "block.yoamod.pointed_creakstone": "Pointed Creakstone",
+  "block.yoamod.rune_crystal_cluster": "Rune Crystal Cluster",
+  "block.yoamod.rune_crystal_block": "Rune Crystal Block",
 
 
   "block.yoamod.silver_ore": "Silver Ore",
@@ -25,7 +27,7 @@
   "block.yoamod.adamantite_ore": "Adamantite Ore",
 
 
-
+  "item.yoamod.rune_crystal": "Rune Crystal",
   "item.yoamod.crystalic_shard": "Crystalic Shard",
   "item.yoamod.adamantite_ingot": "Adamantite Ingot",
   "item.yoamod.adamantite_nugget": "Adamantite Nugget",

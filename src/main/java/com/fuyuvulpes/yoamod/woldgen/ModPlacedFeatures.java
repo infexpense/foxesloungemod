@@ -33,7 +33,12 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> CREAKS_CRYSTAL_KEY_PLACED = registerKey("creaks_crystal_placed");
 
 
+    public static final ResourceKey<PlacedFeature> RUNE_CLUSTER_PLACED = registerKey("rune_cluster_placed");
+
+
     public static final ResourceKey<PlacedFeature> CREAKSTONE_CLUSTER_PLACED = registerKey("creakstone_cluster_placed");
+    public static final ResourceKey<PlacedFeature> RUNE_GEODE_PLACED = registerKey("rune_geode_placed");
+    public static final ResourceKey<PlacedFeature> RUNE_GEODE_CREAK_PLACED = registerKey("rune_geode_creak_placed");
 
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
@@ -101,6 +106,21 @@ public class ModPlacedFeatures {
         register(context,CREAKSTONE_CLUSTER_PLACED, configuredFeatures.getOrThrow(ModConfigFeatures.CREAKSTONE_CLUSTER),
                 CountPlacement.of(UniformInt.of(12, 46)),
                 InSquarePlacement.spread(),PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT
+        );
+
+        register(context,RUNE_GEODE_PLACED,configuredFeatures.getOrThrow(ModConfigFeatures.RUNE_GEODE),
+                RarityFilter.onAverageOnceEvery(32),
+                InSquarePlacement.spread(),
+                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(12), VerticalAnchor.absolute(17)
+                ));
+
+        register(context,RUNE_GEODE_CREAK_PLACED,configuredFeatures.getOrThrow(ModConfigFeatures.RUNE_GEODE),
+                RarityFilter.onAverageOnceEvery(18),
+                InSquarePlacement.spread(),PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT
+        );
+        register(context,RUNE_CLUSTER_PLACED,configuredFeatures.getOrThrow(ModConfigFeatures.RUNE_CLUSTER_RANDOM),
+                CountPlacement.of(UniformInt.of(2,12)),
+                InSquarePlacement.spread(),PlacementUtils.FULL_RANGE
         );
 
 

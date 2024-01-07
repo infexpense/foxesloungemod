@@ -20,8 +20,8 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
     @Override
     protected void buildRecipes(RecipeOutput output) {
 
-        nineBlockStorageRecipes(output, RecipeCategory.MISC, ItemsModReg.CRYSTALIC_SHARD.get(), RecipeCategory.REDSTONE, BlocksModReg.CRYSTALIC_REMNANTS.get());
-
+        nineBlockStorageRecipes(output, RecipeCategory.MISC, ItemsModReg.CRYSTALIC_SHARD.get(), RecipeCategory.MISC, BlocksModReg.CRYSTALIC_REMNANTS.get());
+        twoByTwoPacker(output,RecipeCategory.MISC,BlocksModReg.RUNE_CRYSTAL_BLOCK.get(),ItemsModReg.RUNE_CRYSTAL.get());
 
 
         //Put It Here Dum Dum

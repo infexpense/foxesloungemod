@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.woldgen.dimension;
 
-import com.fuyuvulpes.yoamod.woldgen.NoiseRegistry;
+import com.fuyuvulpes.yoamod.registries.NoiseRegistry;
 import com.fuyuvulpes.yoamod.woldgen.biome.ModBiomes;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.HolderGetter;

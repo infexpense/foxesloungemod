@@ -1,4 +1,4 @@
-// 1.20.4	2024-01-05T17:52:38.0920649	Loot Tables
+// 1.20.4	2024-01-07T16:31:02.2685972	Loot Tables
 19f6849d5043a4fce3581d275e14d1810e5819b8 data/yoamod/loot_tables/blocks/adamantite_ore.json
 e8f2ccc7bfe607c5873756297e5bb768118bc99a data/yoamod/loot_tables/blocks/alexandrite_ore.json
 5a6c391638d4649d088df433d48e19b89469c279 data/yoamod/loot_tables/blocks/augmenting_station.json
@@ -16,6 +16,8 @@ fe2093ae776c66152d6deb377a9f66bc503476fe data/yoamod/loot_tables/blocks/deepslat
 6bffe8d90922e5250cc39c34a2c09c8731a71553 data/yoamod/loot_tables/blocks/melting_pot.json
 80fa96e6f38f57ff62f73e817cae6e4fd04fa4b5 data/yoamod/loot_tables/blocks/overgrown_creakstone.json
 ec50ddb89c9e94b012575e5a4c0e3ac75f94a1df data/yoamod/loot_tables/blocks/pointed_creakstone.json
+22ec01f34b78f78881314c1b5dfdad4d5e4fa637 data/yoamod/loot_tables/blocks/rune_crystal_block.json
+89ec5059e6cfe18a7e3cecac8f26a259ea273f41 data/yoamod/loot_tables/blocks/rune_crystal_cluster.json
 e55a33e4b0660735390b1ef4a0c56360b2d0d60a data/yoamod/loot_tables/blocks/silver_ore.json
 a5b6b96d30ebad4454040ef9c366af7b2c0d888f data/yoamod/loot_tables/blocks/titanium_ore.json
 48f1317b17487b6be71d48fffcf48066cebffb8a data/yoamod/loot_tables/blocks/witherite_ore.json

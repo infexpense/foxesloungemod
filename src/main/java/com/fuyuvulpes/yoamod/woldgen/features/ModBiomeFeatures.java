@@ -6,6 +6,9 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 
 public class ModBiomeFeatures {
     public static void addCreakOres(BiomeGenerationSettings.Builder biomeBuilder) {
+
+        biomeBuilder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, ModPlacedFeatures.RUNE_GEODE_CREAK_PLACED);
+
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ModPlacedFeatures.CREAKSTONE_CLUSTER_PLACED);
 
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModPlacedFeatures.CREAKS_FRACTURE_PLACED);
@@ -16,6 +19,7 @@ public class ModBiomeFeatures {
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModPlacedFeatures.TITANIUM_CREAK_PLACED_KEY);
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModPlacedFeatures.ALEXANDRITE_ORE_PLACED_KEY);
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModPlacedFeatures.ADAMANTITE_ORE_PLACED_KEY);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModPlacedFeatures.RUNE_CLUSTER_PLACED);
     }
 
     public static void addOvergrownGrottoFeatures(BiomeGenerationSettings.Builder biomeBuilder){

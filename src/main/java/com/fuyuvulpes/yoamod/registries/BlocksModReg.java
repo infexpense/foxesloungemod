@@ -1,15 +1,13 @@
 package com.fuyuvulpes.yoamod.registries;
 
-import com.fuyuvulpes.yoamod.custom.block.AugmentingTableBlock;
-import com.fuyuvulpes.yoamod.custom.block.HammeringStationBlock;
-import com.fuyuvulpes.yoamod.custom.block.MeltingPotBlock;
-import com.fuyuvulpes.yoamod.custom.block.PointedCreakstone;
+import com.fuyuvulpes.yoamod.custom.block.*;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -42,6 +40,10 @@ public class BlocksModReg {
     public static final DeferredBlock<Block> OVERGROWN_CREAKSTONE = registerBlock("overgrown_creakstone", () -> new Block(BlockBehaviour.Properties.ofLegacyCopy(BlocksModReg.CREAKSTONE.get())));
 
     public static final DeferredBlock<Block> CRYSTALIC_REMNANTS = registerBlock("crystalic_remnants", () -> new Block(BlockBehaviour.Properties.ofLegacyCopy(Blocks.AMETHYST_BLOCK).lightLevel((f) -> 14 ).strength(8.0F,12.0F)));
+
+
+    public static final DeferredBlock<Block> RUNE_CRYSTAL_CLUSTER = registerBlock("rune_crystal_cluster", () -> new RuneCrystalClusterBlock(BlockBehaviour.Properties.ofLegacyCopy(Blocks.AMETHYST_CLUSTER).lightLevel((f) -> 4 ).strength(2.0F,0.0F).pushReaction(PushReaction.DESTROY)));
+    public static final DeferredBlock<Block> RUNE_CRYSTAL_BLOCK = registerBlock("rune_crystal_block", () -> new Block(BlockBehaviour.Properties.ofLegacyCopy(Blocks.AMETHYST_BLOCK).lightLevel((f) -> 6 ).strength(6.0F,3.0F)));
 
     public static final DeferredBlock<Block> POINTED_CREAKSTONE = registerBlock("pointed_creakstone", () -> new PointedCreakstone(BlockBehaviour.Properties.ofLegacyCopy(Blocks.POINTED_DRIPSTONE).strength(4.0F,6.0F)));
 

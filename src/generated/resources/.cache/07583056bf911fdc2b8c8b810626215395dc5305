@@ -1,4 +1,4 @@
-// 1.20.4	2024-01-04T22:37:21.646731	Block States: yoamod
+// 1.20.4	2024-01-07T16:21:19.1688279	Block States: yoamod
 5561fd88d289e9da42bf004f3d534126ad95556e assets/yoamod/blockstates/adamantite_ore.json
 4f5a79bf9778a7649581d263460a3b7fcff3ff35 assets/yoamod/blockstates/alexandrite_ore.json
 1334e9caea7e25a1d84878db399e239fed3d9622 assets/yoamod/blockstates/bismuth_ore.json
@@ -12,6 +12,7 @@ edff233ae6ad2c95097ddd9a30713cfc9fae36eb assets/yoamod/blockstates/crystalic_rem
 1a0a8724461ef31040e12649d51b45b0b5ea80f3 assets/yoamod/blockstates/deepslate_silver_ore.json
 1e68ff1ff20361e12128af0b6985b22f3a30cb4f assets/yoamod/blockstates/deepslate_titanium_ore.json
 df7c44cc3e958b595ee5250952d6556dbf20d800 assets/yoamod/blockstates/iolite_ore.json
+647853830d3d20c0ced0f847ae1868e10f1cb1e2 assets/yoamod/blockstates/rune_crystal_block.json
 2c60cf40dc8fd55153df4fd696a8a110cbf16227 assets/yoamod/blockstates/silver_ore.json
 2995a10e187b8c5f97a7e9c73d119462716cc10c assets/yoamod/blockstates/titanium_ore.json
 aa57371fa577932840d8842d3323bbf0d0a6d6f5 assets/yoamod/blockstates/witherite_ore.json
@@ -28,6 +29,7 @@ dc7d055dee4fec2c78bb69ce7fec365d79f2c46d assets/yoamod/models/block/creakstone.j
 b64641b17154d7f7dc322fe752d7fdde497acb85 assets/yoamod/models/block/deepslate_silver_ore.json
 e09be1285d6c72f28fd98dfc454d944862c02699 assets/yoamod/models/block/deepslate_titanium_ore.json
 8bf2e4a0dac0a99a261a4ac525cb0983887a0ad9 assets/yoamod/models/block/iolite_ore.json
+bc4c281d6eb5396dd45e59effadf3d82ab037705 assets/yoamod/models/block/rune_crystal_block.json
 43380e633683c43ab9abc663db0a04a6681d0fb8 assets/yoamod/models/block/silver_ore.json
 10443bcd0f5a3109a12d60b3da7e549d593b6196 assets/yoamod/models/block/titanium_ore.json
 ab5c1ace19a137c530a46bc61be83f708f351077 assets/yoamod/models/block/witherite_ore.json
@@ -44,6 +46,7 @@ f947354f9bf9684c0a86093b7da8fe64f78354ed assets/yoamod/models/item/crystalic_rem
 c39cf2752e1db4830a81ee96ee764af2dc88dc96 assets/yoamod/models/item/deepslate_silver_ore.json
 1fdbc66ce6945e5e623db25ded001097ec491c86 assets/yoamod/models/item/deepslate_titanium_ore.json
 ba7fbfe592facbac72593c777a0c8f5811705a81 assets/yoamod/models/item/iolite_ore.json
+9aeba497c9aedc563ef461d7d27f70279d898fab assets/yoamod/models/item/rune_crystal_block.json
 f2389690ded2b6c6f002a89c416bb827c869b22f assets/yoamod/models/item/silver_ore.json
 835f83b1040bf0c33d93b9265c8216ea37040d34 assets/yoamod/models/item/titanium_ore.json
 e97eb68cf1ca3d8b6e8814c7fb29b6a79e7d9352 assets/yoamod/models/item/witherite_ore.json

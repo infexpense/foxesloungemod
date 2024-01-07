@@ -2,6 +2,8 @@
   "values": [
     "yoamod:augmenting_station",
     "yoamod:hammering_station",
-    "yoamod:melting_pot"
+    "yoamod:melting_pot",
+    "yoamod:rune_crystal_cluster",
+    "yoamod:rune_crystal_block"
   ]
 }

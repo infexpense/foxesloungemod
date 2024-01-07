@@ -30,6 +30,8 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_DIAMOND_CREAK = registerKey("add_diamond_creaks");
     public static final ResourceKey<BiomeModifier> ADD_TITANIUM_CREAK = registerKey("add_titanium_creaks");
     public static final ResourceKey<BiomeModifier> ADD_CREAKS_FRACTURE = registerKey("add_creaks_fracture");
+    public static final ResourceKey<BiomeModifier> ADD_RUNE_GEODE = registerKey("add_rune_geode");
+    public static final ResourceKey<BiomeModifier> ADD_RUNE_CLUSTERS = registerKey("add_rune_clusters");
 
 
 
@@ -60,6 +62,16 @@ public class ModBiomeModifiers {
         context.register(ADD_IOLITE_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_END),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.IOLITE_ORE_PLACED_KEY)),
+                GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        context.register(ADD_RUNE_GEODE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.RUNE_GEODE_PLACED)),
+                GenerationStep.Decoration.LOCAL_MODIFICATIONS));
+
+        context.register(ADD_RUNE_CLUSTERS, new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.RUNE_CLUSTER_PLACED)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
 
