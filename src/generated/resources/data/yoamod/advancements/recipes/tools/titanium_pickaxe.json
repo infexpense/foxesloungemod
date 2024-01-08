@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "yoamod:titanium_pickaxe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_titanium-ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:titanium_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_titanium-ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "yoamod:titanium_pickaxe"
+    ]
+  }
+}
