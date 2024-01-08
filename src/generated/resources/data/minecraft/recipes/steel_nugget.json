@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "yoamod:steel_ingot"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "yoamod:steel_nugget"
+  }
+}

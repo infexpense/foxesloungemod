@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "yoamod:iolite"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "yoamod:iolite_shard"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "yoamod:witherite"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "yoamod:witherite_shard"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:witherite_shard"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_witherite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:witherite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_witherite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:witherite_shard"
+    ]
+  }
+}
