@@ -10,9 +10,9 @@
     }
   },
   "pattern": [
-    " X",
-    " #",
-    " #"
+    "X",
+    "#",
+    "#"
   ],
   "result": {
     "item": "yoamod:alexandrite_shovel"

@@ -3,6 +3,7 @@ package com.fuyuvulpes.yoamod.registries;
 import com.fuyuvulpes.yoamod.core.ModToolTiers;
 import com.fuyuvulpes.yoamod.core.items.WeaponItem;
 import com.fuyuvulpes.yoamod.core.items.WeaponStats;
+import com.fuyuvulpes.yoamod.custom.item.ModSmithingTemplateItem;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
@@ -24,6 +25,7 @@ public class ItemsModReg {
     public static final DeferredItem<Item> ADAMANTITE_INGOT = ITEMS.registerSimpleItem("adamantite_ingot", new Item.Properties());
     public static final DeferredItem<Item> ADAMANTITE_NUGGET = ITEMS.registerSimpleItem("adamantite_nugget", new Item.Properties());
     public static final DeferredItem<Item> RAW_ADAMANTITE = ITEMS.registerSimpleItem("raw_adamantite", new Item.Properties());
+    public static final DeferredItem<Item> ADAMANTITE_TEMPLATE = ITEMS.register("adamantite_upgrade_smithing_template", ModSmithingTemplateItem::createAdamantiteUpgradeTemplate);
 
 
     public static final DeferredItem<Item> ALEXANDRITE = ITEMS.registerSimpleItem("alexandrite", new Item.Properties());

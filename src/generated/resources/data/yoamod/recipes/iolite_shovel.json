@@ -10,9 +10,9 @@
     }
   },
   "pattern": [
-    " X",
-    " #",
-    " #"
+    "X",
+    "#",
+    "#"
   ],
   "result": {
     "item": "yoamod:iolite_shovel"

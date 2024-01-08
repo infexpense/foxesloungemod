@@ -1,4 +1,4 @@
-// 1.20.4	2024-01-07T20:51:27.092892	Recipes
+// 1.20.4	2024-01-08T08:07:06.3747389	Recipes
 b22ddc45beb348b3256065c9963352ce1542e281 data/minecraft/advancements/recipes/misc/adamantite_ingot.json
 13f8e88e29e039494ebfa2f5548b6cfa8dd76be8 data/minecraft/advancements/recipes/misc/adamantite_nugget.json
 682ba4eceeb720dead16d3c10bc95ea78c0dfd87 data/minecraft/advancements/recipes/misc/alexandrite.json
@@ -58,18 +58,18 @@ f35adcfea79655dfaad9e9660a24ef9923113d34 data/yoamod/advancements/recipes/tools/
 8233132247cfed39a10872f05ab20a720a2ca70f data/yoamod/advancements/recipes/tools/iolite_shovel.json
 347450e75b80dd62ed21df9edddf8fa03bda17e0 data/yoamod/advancements/recipes/tools/titanium_axe.json
 6fc8098293b0c4fe1e9ddc7928745b83cacd4ac7 data/yoamod/advancements/recipes/tools/titanium_hoe.json
-627d0d1c4a3b63a7d3a6e836e7883c3cf01dc243 data/yoamod/advancements/recipes/tools/titanium_pickaxe.json
-b34152c89435d3deaba0361ccb65d100ed43dbcc data/yoamod/advancements/recipes/tools/titanium_shovel.json
+35a8a8d215bafb9f8966a6b69b2c7b4274b4faf1 data/yoamod/advancements/recipes/tools/titanium_pickaxe.json
+b2c2951583cb39166d444528e6dc5c4e7ed382a6 data/yoamod/advancements/recipes/tools/titanium_shovel.json
 b86d1d6fc8ebd3b0a9dac053ab2c95a40909547f data/yoamod/recipes/alexandrite_axe.json
 69061db6819bc971c51bb86caf8e9192451fa830 data/yoamod/recipes/alexandrite_hoe.json
 8b75c2291623e51de72ae8a4ad329560219d23f5 data/yoamod/recipes/alexandrite_pickaxe.json
-6c9dbeebf9797177e806a2ba4bdec3d4cf0d83f3 data/yoamod/recipes/alexandrite_shovel.json
+4f65b7e2624d1bd50b04e748ebdfd3d55c33659a data/yoamod/recipes/alexandrite_shovel.json
 17b3630f87ae0f7270d52ef88a2169f2709d003b data/yoamod/recipes/iolite_axe.json
 0d4ff467970284260840677a43f5c738269e8de4 data/yoamod/recipes/iolite_hoe.json
 0d3404dd8e7583c792387d2eb1036b94c302a6d9 data/yoamod/recipes/iolite_pickaxe.json
-5a916cc087c3f1028fd8deb457178fe7bc95688d data/yoamod/recipes/iolite_shovel.json
+c14feaac53209bf41b3a97e08b3e68bfca492c30 data/yoamod/recipes/iolite_shovel.json
 41d17028c3681fa901bf421e3d06fd77c1096237 data/yoamod/recipes/rune_crystal_block.json
 14da2db29054401b3dc42971d7cc4491c7837092 data/yoamod/recipes/titanium_axe.json
 3ab3222c91b0c8fa006316c829d10d7641383b3b data/yoamod/recipes/titanium_hoe.json
 1402e4c1d4a9c9c545b9a700bbae64c9bd2cf736 data/yoamod/recipes/titanium_pickaxe.json
-cba3cf6713c677a68941e87c3efbbe78a137f831 data/yoamod/recipes/titanium_shovel.json
+f744edf3869bf27006b60c4cd19c6f93fac81d8b data/yoamod/recipes/titanium_shovel.json

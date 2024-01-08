@@ -27,6 +27,7 @@ public class CreativeTabRegistry {
                     output.accept(blockDeferredHolder.get());
                 });
 
+                output.accept(ItemsModReg.ADAMANTITE_TEMPLATE.get());
 
                 output.accept(ItemsModReg.RUNE_CRYSTAL.get());
                 output.accept(ItemsModReg.ADAMANTITE_INGOT.get());

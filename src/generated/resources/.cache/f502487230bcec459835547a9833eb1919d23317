@@ -1,4 +1,4 @@
-// 1.20.4	2024-01-07T16:21:19.1847847	Item Models: yoamod
+// 1.20.4	2024-01-08T08:07:06.3936877	Item Models: yoamod
 78143e17b3644d28969b1ebc10cfe54a94f19ef4 assets/yoamod/models/item/adamantite_axe.json
 e0f8fc30666d077db00723a7c74325579fc6ce18 assets/yoamod/models/item/adamantite_bell.json
 d52314b706972fb47ecda874271b06ecedffe7dd assets/yoamod/models/item/adamantite_blow_dart.json
@@ -31,6 +31,7 @@ ff89284cca78f976dd937d4529ff7008edfadd5f assets/yoamod/models/item/adamantite_sp
 5029ade2def71c9d371bc2d884d2023934c813d4 assets/yoamod/models/item/adamantite_talisman.json
 758ac0285671ebccedff6eb085e9f18d91ba1432 assets/yoamod/models/item/adamantite_throwing_knife.json
 5d4a1a431f919da666d71b6ffe6fc2a01448b60a assets/yoamod/models/item/adamantite_tome.json
+74c3687ae59d712a8c5879b9fc380c7a9b879832 assets/yoamod/models/item/adamantite_upgrade_smithing_template.json
 bce0e8760b6e605a528f42509a84858f4beddaf6 assets/yoamod/models/item/adamantite_war_fan.json
 c904f88a63f90ec95eb8e8ccf75b30d5eb0a10e7 assets/yoamod/models/item/adamantite_whip_sword.json
 1b80019ff81ec8541d48f7e3ae8e0061a0982dee assets/yoamod/models/item/alexandrite.json

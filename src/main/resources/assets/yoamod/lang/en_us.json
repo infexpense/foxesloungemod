@@ -26,10 +26,15 @@
   "block.yoamod.alexandrite_ore": "Alexandrite Ore",
   "block.yoamod.adamantite_ore": "Adamantite Ore",
 
+  "item.minecraft.smithing_template.adamantite_upgrade.additions_slot_description": "Add Adamantite Ingot",
+  "item.minecraft.smithing_template.adamantite_upgrade.applies_to": "Alexandrite Equipment",
+  "item.minecraft.smithing_template.adamantite_upgrade.base_slot_description": "Add Alexandrite armor, weapon, or tool",
+  "item.minecraft.smithing_template.adamantite_upgrade.ingredients": "Adamantite Ingot",
 
   "item.yoamod.rune_crystal": "Rune Crystal",
   "item.yoamod.crystalic_shard": "Crystalic Shard",
   "item.yoamod.adamantite_ingot": "Adamantite Ingot",
+  "item.yoamod.adamantite_upgrade_smithing_template": "Smithing Template",
   "item.yoamod.adamantite_nugget": "Adamantite Nugget",
   "item.yoamod.raw_adamantite": "Raw Adamantite",
   "item.yoamod.alexandrite": "Alexandrite",
@@ -453,5 +458,7 @@
   "itemGroup.yoa_main": "Your Own Adventure: Main",
   "itemGroup.yoa_wgen": "Your Own Adventure: World Gen",
   "itemGroup.yoa_tools_gear": "Your Own Adventure: Tools & Gear",
-  "itemGroup.yoa_weapons": "Your Own Adventure: Weaponry"
+  "itemGroup.yoa_weapons": "Your Own Adventure: Weaponry",
+
+  "upgrade.minecraft.adamantite_upgrade": "Adamantite Upgrade"
 }
