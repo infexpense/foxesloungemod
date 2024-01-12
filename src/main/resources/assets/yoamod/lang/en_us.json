@@ -453,7 +453,30 @@
   "item.yoamod.adamantite_hoe": "Adamantite Hoe",
   "item.yoamod.adamantite_shovel": "Adamantite Shovel",
 
+  "item.yoamod.silver_helmet": "Silver Helmet",
+  "item.yoamod.silver_chestplate": "Silver Chestplate",
+  "item.yoamod.silver_leggings": "Silver Leggings",
+  "item.yoamod.silver_boots": "Silver Boots",
 
+  "item.yoamod.witherite_helmet": "Witherite Helmet",
+  "item.yoamod.witherite_chestplate": "Witherite Chestplate",
+  "item.yoamod.witherite_leggings": "Witherite Leggings",
+  "item.yoamod.witherite_boots": "Witherite Boots",
+
+  "item.yoamod.iolite_helmet": "Iolite Helmet",
+  "item.yoamod.iolite_chestplate": "Iolite Chestplate",
+  "item.yoamod.silver_leggings": "Iolite Leggings",
+  "item.yoamod.silver_boots": "Iolite Boots",
+
+  "item.yoamod.alexandrite_helmet": "Alexandrite Helmet",
+  "item.yoamod.alexandrite_chestplate": "Alexandrite Chestplate",
+  "item.yoamod.alexandrite_leggings": "Alexandrite Leggings",
+  "item.yoamod.alexandrite_boots": "Alexandrite Boots",
+
+  "item.yoamod.adamantite_helmet": "Adamantite Helmet",
+  "item.yoamod.adamantite_chestplate": "Adamantite Chestplate",
+  "item.yoamod.adamantite_leggings": "Adamantite Leggings",
+  "item.yoamod.adamantite_boots": "Adamantite Boots",
 
   "itemGroup.yoa_main": "Your Own Adventure: Main",
   "itemGroup.yoa_wgen": "Your Own Adventure: World Gen",

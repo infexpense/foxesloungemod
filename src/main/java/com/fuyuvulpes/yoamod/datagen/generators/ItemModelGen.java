@@ -1,16 +1,41 @@
 package com.fuyuvulpes.yoamod.datagen.generators;
 
+import com.fuyuvulpes.yoamod.YOAMod;
 import com.fuyuvulpes.yoamod.registries.ItemsModReg;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.armortrim.TrimMaterial;
+import net.minecraft.world.item.armortrim.TrimMaterials;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredItem;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
 public class ItemModelGen extends ItemModelProvider {
+
+    private static LinkedHashMap<ResourceKey<TrimMaterial>, Float> trimMaterials = new LinkedHashMap<>();
+    static {
+        trimMaterials.put(TrimMaterials.QUARTZ, 0.1F);
+        trimMaterials.put(TrimMaterials.IRON, 0.2F);
+        trimMaterials.put(TrimMaterials.NETHERITE, 0.3F);
+        trimMaterials.put(TrimMaterials.REDSTONE, 0.4F);
+        trimMaterials.put(TrimMaterials.COPPER, 0.5F);
+        trimMaterials.put(TrimMaterials.GOLD, 0.6F);
+        trimMaterials.put(TrimMaterials.EMERALD, 0.7F);
+        trimMaterials.put(TrimMaterials.DIAMOND, 0.8F);
+        trimMaterials.put(TrimMaterials.LAPIS, 0.9F);
+        trimMaterials.put(TrimMaterials.AMETHYST, 1.0F);
+    }
+
     public ItemModelGen(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, MODID, existingFileHelper);
     }
@@ -67,6 +92,31 @@ public class ItemModelGen extends ItemModelProvider {
         handheldItem(ItemsModReg.ADAMANTITE_PICKAXE);
         handheldItem(ItemsModReg.ADAMANTITE_HOE);
         handheldItem(ItemsModReg.ADAMANTITE_SHOVEL);
+
+        simpleItem(ItemsModReg.SILVER_HELMET);
+        simpleItem(ItemsModReg.SILVER_CHESTPLATE);
+        simpleItem(ItemsModReg.SILVER_LEGGINGS);
+        simpleItem(ItemsModReg.SILVER_BOOTS);
+
+        simpleItem(ItemsModReg.WITHERITE_HELMET);
+        simpleItem(ItemsModReg.WITHERITE_CHESTPLATE);
+        simpleItem(ItemsModReg.WITHERITE_LEGGINGS);
+        simpleItem(ItemsModReg.WITHERITE_BOOTS);
+
+        simpleItem(ItemsModReg.IOLITE_HELMET);
+        simpleItem(ItemsModReg.IOLITE_CHESTPLATE);
+        simpleItem(ItemsModReg.IOLITE_LEGGINGS);
+        simpleItem(ItemsModReg.IOLITE_BOOTS);
+
+        simpleItem(ItemsModReg.ALEXANDRITE_HELMET);
+        simpleItem(ItemsModReg.ALEXANDRITE_CHESTPLATE);
+        simpleItem(ItemsModReg.ALEXANDRITE_LEGGINGS);
+        simpleItem(ItemsModReg.ALEXANDRITE_BOOTS);
+
+        simpleItem(ItemsModReg.ADAMANTITE_HELMET);
+        simpleItem(ItemsModReg.ADAMANTITE_CHESTPLATE);
+        simpleItem(ItemsModReg.ADAMANTITE_LEGGINGS);
+        simpleItem(ItemsModReg.ADAMANTITE_BOOTS);
 
         //Bows
         //simpleItem(ItemsModReg.LONGBOW);
@@ -432,6 +482,54 @@ public class ItemModelGen extends ItemModelProvider {
         handheldItem(ItemsModReg.ADAMANTITE_WAR_FAN);
         handheldBigItem(ItemsModReg.ADAMANTITE_WHIP_SWORD);
     }
+
+    private void trimmedArmorItem(DeferredItem<?> itemRegistryObject) {
+        final String MODID = YOAMod.MODID; // Change this to your mod id
+
+        if(itemRegistryObject.get() instanceof ArmorItem armorItem) {
+            for (Map.Entry<ResourceKey<TrimMaterial>, Float> entry : trimMaterials.entrySet()) {
+                ResourceKey<TrimMaterial> trimMaterial = entry.getKey();
+                Float value = entry.getValue();
+                float trimValue = value;
+
+                String armorType = switch (armorItem.getEquipmentSlot()) {
+                    case HEAD -> "helmet";
+                    case CHEST -> "chestplate";
+                    case LEGS -> "leggings";
+                    case FEET -> "boots";
+                    default -> "";
+                };
+
+                String armorItemPath = "item/" + armorItem;
+                String trimPath = "trims/items/" + armorType + "_trim_" + trimMaterial.location().getPath();
+                String currentTrimName = armorItemPath + "_" + trimMaterial.location().getPath() + "_trim";
+                ResourceLocation armorItemResLoc = new ResourceLocation(MODID, armorItemPath);
+                ResourceLocation trimResLoc = new ResourceLocation(trimPath); // minecraft namespace
+                ResourceLocation trimNameResLoc = new ResourceLocation(MODID, currentTrimName);
+
+                // This is used for making the ExistingFileHelper acknowledge that this texture exist, so this will
+                // avoid an IllegalArgumentException
+                existingFileHelper.trackGenerated(trimResLoc, PackType.CLIENT_RESOURCES, ".png", "textures");
+
+                // Trimmed armorItem files
+                getBuilder(currentTrimName)
+                        .parent(new ModelFile.UncheckedModelFile("item/generated"))
+                        .texture("layer0", armorItemResLoc)
+                        .texture("layer1", trimResLoc);
+
+                // Non-trimmed armorItem file (normal variant)
+                this.withExistingParent(itemRegistryObject.getId().getPath(),
+                                mcLoc("item/generated"))
+                        .override()
+                        .model(new ModelFile.UncheckedModelFile(trimNameResLoc))
+                        .predicate(mcLoc("trim_type"), trimValue).end()
+                        .texture("layer0",
+                                new ResourceLocation(MODID,
+                                        "item/" + itemRegistryObject.getId().getPath()));
+            }
+        }
+    }
+
 
     private ItemModelBuilder simpleItem(DeferredItem<?> item) {
         return withExistingParent(item.getId().getPath(),

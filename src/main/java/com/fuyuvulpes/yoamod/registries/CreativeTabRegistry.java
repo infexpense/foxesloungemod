@@ -120,6 +120,31 @@ public class CreativeTabRegistry {
                 output.accept(ItemsModReg.ADAMANTITE_PICKAXE.get());
                 output.accept(ItemsModReg.ADAMANTITE_HOE.get());
                 output.accept(ItemsModReg.ADAMANTITE_SHOVEL.get());
+
+                output.accept(ItemsModReg.SILVER_HELMET.get());
+                output.accept(ItemsModReg.SILVER_CHESTPLATE.get());
+                output.accept(ItemsModReg.SILVER_LEGGINGS.get());
+                output.accept(ItemsModReg.SILVER_BOOTS.get());
+
+                output.accept(ItemsModReg.WITHERITE_HELMET.get());
+                output.accept(ItemsModReg.WITHERITE_CHESTPLATE.get());
+                output.accept(ItemsModReg.WITHERITE_LEGGINGS.get());
+                output.accept(ItemsModReg.WITHERITE_BOOTS.get());
+
+                output.accept(ItemsModReg.IOLITE_HELMET.get());
+                output.accept(ItemsModReg.IOLITE_CHESTPLATE.get());
+                output.accept(ItemsModReg.IOLITE_LEGGINGS.get());
+                output.accept(ItemsModReg.IOLITE_BOOTS.get());
+
+                output.accept(ItemsModReg.ALEXANDRITE_HELMET.get());
+                output.accept(ItemsModReg.ALEXANDRITE_CHESTPLATE.get());
+                output.accept(ItemsModReg.ALEXANDRITE_LEGGINGS.get());
+                output.accept(ItemsModReg.ALEXANDRITE_BOOTS.get());
+
+                output.accept(ItemsModReg.ADAMANTITE_HELMET.get());
+                output.accept(ItemsModReg.ADAMANTITE_CHESTPLATE.get());
+                output.accept(ItemsModReg.ADAMANTITE_LEGGINGS.get());
+                output.accept(ItemsModReg.ADAMANTITE_BOOTS.get());
             }).build());
 
 

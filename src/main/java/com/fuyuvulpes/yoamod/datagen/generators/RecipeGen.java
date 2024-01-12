@@ -91,6 +91,10 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
                 pattern("#").
                 pattern("#").unlockedBy("has_titanium_ingot", has(ItemsModReg.TITANIUM_INGOT)).save(output);
 
+        makeArmorRecipe(output, ItemsModReg.SILVER_INGOT.get(), ItemsModReg.SILVER_HELMET.get(), ItemsModReg.SILVER_CHESTPLATE, ItemsModReg.SILVER_LEGGINGS, ItemsModReg.SILVER_BOOTS);
+        makeArmorRecipe(output, ItemsModReg.WITHERITE.get(), ItemsModReg.WITHERITE_HELMET.get(), ItemsModReg.WITHERITE_CHESTPLATE, ItemsModReg.WITHERITE_LEGGINGS, ItemsModReg.WITHERITE_BOOTS);
+        makeArmorRecipe(output, ItemsModReg.IOLITE.get(), ItemsModReg.IOLITE_HELMET.get(), ItemsModReg.IOLITE_CHESTPLATE, ItemsModReg.IOLITE_LEGGINGS, ItemsModReg.IOLITE_BOOTS);
+        makeArmorRecipe(output, ItemsModReg.ALEXANDRITE.get(), ItemsModReg.ALEXANDRITE_HELMET.get(), ItemsModReg.ALEXANDRITE_CHESTPLATE , ItemsModReg.ALEXANDRITE_LEGGINGS, ItemsModReg.ALEXANDRITE_BOOTS);
 
 
 

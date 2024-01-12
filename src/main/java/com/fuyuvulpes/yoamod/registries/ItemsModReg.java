@@ -1,6 +1,7 @@
 package com.fuyuvulpes.yoamod.registries;
 
 import com.fuyuvulpes.yoamod.core.ModToolTiers;
+import com.fuyuvulpes.yoamod.core.items.ModArmorMats;
 import com.fuyuvulpes.yoamod.core.items.WeaponItem;
 import com.fuyuvulpes.yoamod.core.items.WeaponStats;
 import com.fuyuvulpes.yoamod.custom.item.ModSmithingTemplateItem;
@@ -91,6 +92,32 @@ public class ItemsModReg {
     public static final DeferredItem<AxeItem> ADAMANTITE_AXE = ITEMS.register("adamantite_axe", () -> new AxeItem(ModToolTiers.ADAMANTITE,5.0F, -3.0F, new Item.Properties()));
     public static final DeferredItem<HoeItem> ADAMANTITE_HOE = ITEMS.register("adamantite_hoe", () -> new HoeItem(ModToolTiers.ADAMANTITE,-3, 0.0F, new Item.Properties()));
     public static final DeferredItem<ShovelItem> ADAMANTITE_SHOVEL = ITEMS.register("adamantite_shovel", () -> new ShovelItem(ModToolTiers.ADAMANTITE,1.5F, -3.0F, new Item.Properties()));
+
+    public static final DeferredItem<ArmorItem> ADAMANTITE_HELMET = ITEMS.register("adamantite_helmet", () -> new ArmorItem(ModArmorMats.ADAMANTITE, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> ADAMANTITE_CHESTPLATE = ITEMS.register("adamantite_chestplate", () -> new ArmorItem(ModArmorMats.ADAMANTITE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> ADAMANTITE_LEGGINGS = ITEMS.register("adamantite_leggings", () -> new ArmorItem(ModArmorMats.ADAMANTITE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> ADAMANTITE_BOOTS = ITEMS.register("adamantite_boots", () -> new ArmorItem(ModArmorMats.ADAMANTITE, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final DeferredItem<ArmorItem> ALEXANDRITE_HELMET = ITEMS.register("alexandrite_helmet", () -> new ArmorItem(ModArmorMats.ALEXANDRITE, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> ALEXANDRITE_CHESTPLATE = ITEMS.register("alexandrite_chestplate", () -> new ArmorItem(ModArmorMats.ALEXANDRITE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> ALEXANDRITE_LEGGINGS = ITEMS.register("alexandrite_leggings", () -> new ArmorItem(ModArmorMats.ALEXANDRITE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> ALEXANDRITE_BOOTS = ITEMS.register("alexandrite_boots", () -> new ArmorItem(ModArmorMats.ALEXANDRITE, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final DeferredItem<ArmorItem> IOLITE_HELMET = ITEMS.register("iolite_helmet", () -> new ArmorItem(ModArmorMats.IOLITE, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> IOLITE_CHESTPLATE = ITEMS.register("iolite_chestplate", () -> new ArmorItem(ModArmorMats.IOLITE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> IOLITE_LEGGINGS = ITEMS.register("iolite_leggings", () -> new ArmorItem(ModArmorMats.IOLITE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> IOLITE_BOOTS = ITEMS.register("iolite_boots", () -> new ArmorItem(ModArmorMats.IOLITE, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final DeferredItem<ArmorItem> SILVER_HELMET = ITEMS.register("silver_helmet", () -> new ArmorItem(ModArmorMats.SILVER, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> SILVER_CHESTPLATE = ITEMS.register("silver_chestplate", () -> new ArmorItem(ModArmorMats.SILVER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> SILVER_LEGGINGS = ITEMS.register("silver_leggings", () -> new ArmorItem(ModArmorMats.SILVER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> SILVER_BOOTS = ITEMS.register("silver_boots", () -> new ArmorItem(ModArmorMats.SILVER, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final DeferredItem<ArmorItem> WITHERITE_HELMET = ITEMS.register("witherite_helmet", () -> new ArmorItem(ModArmorMats.WITHERITE, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> WITHERITE_CHESTPLATE = ITEMS.register("witherite_chestplate", () -> new ArmorItem(ModArmorMats.WITHERITE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> WITHERITE_LEGGINGS = ITEMS.register("witherite_leggings", () -> new ArmorItem(ModArmorMats.WITHERITE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> WITHERITE_BOOTS = ITEMS.register("witherite_boots", () -> new ArmorItem(ModArmorMats.WITHERITE, ArmorItem.Type.BOOTS, new Item.Properties()));
+
 
 
 
