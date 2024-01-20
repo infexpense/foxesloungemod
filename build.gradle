@@ -11,6 +11,10 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
+    maven {
+        url = "https://www.cursemaven.com"
+        allowInsecureProtocol = true
+    }
 }
 
 base {
@@ -78,6 +82,8 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
+
+    implementation "curse.maven:selene-499980:${moonlight_version}"
 
     //implementation "com.github.glitchfiend:TerraBlender-forge:${minecraft_version}-${terrablender_version}"
 
