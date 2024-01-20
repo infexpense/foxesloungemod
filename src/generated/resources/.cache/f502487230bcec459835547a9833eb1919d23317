@@ -1,4 +1,4 @@
-// 1.20.4	2024-01-11T19:12:58.3740786	Item Models: yoamod
+// 1.20.4	2024-01-19T17:57:38.1336172	Item Models: yoamod
 78143e17b3644d28969b1ebc10cfe54a94f19ef4 assets/yoamod/models/item/adamantite_axe.json
 e0f8fc30666d077db00723a7c74325579fc6ce18 assets/yoamod/models/item/adamantite_bell.json
 d52314b706972fb47ecda874271b06ecedffe7dd assets/yoamod/models/item/adamantite_blow_dart.json
@@ -262,6 +262,16 @@ d8dc8bffc388755fb20a73c50c191a7b93ab0e49 assets/yoamod/models/item/iron_throwing
 3180acc11224e32ad72cf633d699a66125a31d46 assets/yoamod/models/item/iron_tome.json
 924c6daa7b871d4dfda12a207b23700d5b5d5c47 assets/yoamod/models/item/iron_war_fan.json
 e4df8aa59f9db6026d34304d87f91186c4e40e91 assets/yoamod/models/item/iron_whip_sword.json
+2d0d9bfc8526e2a445f66f39b07f8d16410ce1f0 assets/yoamod/models/item/molten_alexandrite.json
+6fadfcd4f2ef6596228bb84f5f12af98f3af8830 assets/yoamod/models/item/molten_bismuth.json
+d3ad33eff01bfa752d4e75dfb56b297373e49336 assets/yoamod/models/item/molten_bronze.json
+0f0e4d68490f4c808894b63e9567b92749fb4019 assets/yoamod/models/item/molten_diamond.json
+3aa79004e7d1bcc1e9284a6133b01dcac42ba302 assets/yoamod/models/item/molten_gold.json
+806fde1467813b60c2f55796ad5e60189183e950 assets/yoamod/models/item/molten_iolite.json
+b0a520d17992ae5546147a0d83e8f0d789a3ddb7 assets/yoamod/models/item/molten_iron.json
+69cb7f8cb5997e8591026bb4cfd77e07c9fa4551 assets/yoamod/models/item/molten_silver.json
+9072ecaabc0f5bee5ebd3307a482699429c14420 assets/yoamod/models/item/molten_steel.json
+f4cc0c8b62a599b76e04343e974f80814c60af8a assets/yoamod/models/item/molten_titanium.json
 740e25d47c090aff6c695e36cbeaefac22e3fcbc assets/yoamod/models/item/netherite_bell.json
 00ff7fd457726707d66b2e4b25db6132976f37c6 assets/yoamod/models/item/netherite_blow_dart.json
 810335d5812efb11e296a9d38add437f04bae4bb assets/yoamod/models/item/netherite_boomerang.json

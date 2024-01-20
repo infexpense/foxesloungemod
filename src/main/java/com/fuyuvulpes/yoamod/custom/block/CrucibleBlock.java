@@ -14,14 +14,14 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class MeltingPotBlock extends BaseEntityBlock {
-    public static final MapCodec<MeltingPotBlock> CODEC = simpleCodec(MeltingPotBlock::new);
+public class CrucibleBlock extends BaseEntityBlock {
+    public static final MapCodec<CrucibleBlock> CODEC = simpleCodec(CrucibleBlock::new);
 
     public static final VoxelShape SHAPE_COMMON = Block.box(2, 0, 2, 14, 10, 14);
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
-    public MeltingPotBlock(Properties p_49224_) {
+    public CrucibleBlock(Properties p_49224_) {
         super(p_49224_);
         this.registerDefaultState(
                 this.stateDefinition.any().setValue(FACING, Direction.NORTH));

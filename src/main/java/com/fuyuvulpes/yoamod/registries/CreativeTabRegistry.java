@@ -35,26 +35,36 @@ public class CreativeTabRegistry {
                 output.accept(ItemsModReg.RAW_ADAMANTITE.get());
                 output.accept(ItemsModReg.ALEXANDRITE.get());
                 output.accept(ItemsModReg.ALEXANDRITE_SHARD.get());
+                output.accept(ItemsModReg.MOLTEN_ALEXANDRITE.get());
                 output.accept(ItemsModReg.BISMUTH.get());
                 output.accept(ItemsModReg.BISMUTH_SHARD.get());
                 output.accept(ItemsModReg.RAW_BISMUTH.get());
+                output.accept(ItemsModReg.MOLTEN_BISMUTH.get());
                 output.accept(ItemsModReg.BRASS_INGOT.get());
                 output.accept(ItemsModReg.BRASS_NUGGET.get());
                 output.accept(ItemsModReg.BRONZE_INGOT.get());
                 output.accept(ItemsModReg.BRONZE_NUGGET.get());
+                output.accept(ItemsModReg.MOLTEN_BRONZE.get());
                 output.accept(ItemsModReg.IOLITE.get());
                 output.accept(ItemsModReg.IOLITE_SHARD.get());
+                output.accept(ItemsModReg.MOLTEN_IOLITE.get());
                 output.accept(ItemsModReg.SILVER_INGOT.get());
                 output.accept(ItemsModReg.SILVER_NUGGET.get());
                 output.accept(ItemsModReg.RAW_SILVER.get());
+                output.accept(ItemsModReg.MOLTEN_SILVER.get());
                 output.accept(ItemsModReg.STEEL_INGOT.get());
                 output.accept(ItemsModReg.STEEL_NUGGET.get());
+                output.accept(ItemsModReg.MOLTEN_STEEL.get());
                 output.accept(ItemsModReg.TITANIUM_INGOT.get());
                 output.accept(ItemsModReg.TITANIUM_NUGGET.get());
                 output.accept(ItemsModReg.RAW_TITANIUM.get());
+                output.accept(ItemsModReg.MOLTEN_TITANIUM.get());
                 output.accept(ItemsModReg.WITHERITE.get());
                 output.accept(ItemsModReg.WITHERITE_SHARD.get());
+                output.accept(ItemsModReg.MOLTEN_IRON.get());
+                output.accept(ItemsModReg.MOLTEN_GOLD.get());
                 output.accept(ItemsModReg.DIAMOND_SHARD.get());
+                output.accept(ItemsModReg.MOLTEN_DIAMOND.get());
                 output.accept(ItemsModReg.NETHERITE_NUGGET.get());
 
 

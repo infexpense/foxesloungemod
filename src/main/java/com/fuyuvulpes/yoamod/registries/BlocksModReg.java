@@ -27,7 +27,7 @@ public class BlocksModReg {
 
     public static final DeferredBlock<Block> AUGMENTING_STATION = registerBlock("augmenting_station", AugmentingTableBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).noOcclusion());
 
-    public static final DeferredBlock<Block> MELTING_POT = registerBlock("melting_pot", MeltingPotBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).noOcclusion());
+    public static final DeferredBlock<Block> CRUCIBLE = registerBlock("crucible", CrucibleBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).noOcclusion());
 
     public static final DeferredBlock<Block> CREAKSTONE = registerBlock("creakstone", () -> new Block(BlockBehaviour.Properties.of()
             .requiresCorrectToolForDrops()

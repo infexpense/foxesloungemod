@@ -26,7 +26,7 @@ public class BlockTagsGen extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(BlocksModReg.AUGMENTING_STATION.get(),
                         BlocksModReg.HAMMERING_STATION.get(),
-                        BlocksModReg.MELTING_POT.get(),
+                        BlocksModReg.CRUCIBLE.get(),
                         BlocksModReg.CREAKSTONE.get(),
                         BlocksModReg.CREAKSTONE_FRACTURE.get(),
                         BlocksModReg.OVERGROWN_CREAKSTONE.get(),
@@ -55,7 +55,7 @@ public class BlockTagsGen extends BlockTagsProvider {
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(BlocksModReg.AUGMENTING_STATION.get(),
                         BlocksModReg.HAMMERING_STATION.get(),
-                        BlocksModReg.MELTING_POT.get(),
+                        BlocksModReg.CRUCIBLE.get(),
                         BlocksModReg.RUNE_CRYSTAL_CLUSTER.get(),
                         BlocksModReg.RUNE_CRYSTAL_BLOCK.get()
                 );

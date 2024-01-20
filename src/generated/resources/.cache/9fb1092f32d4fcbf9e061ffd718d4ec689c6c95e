@@ -1,4 +1,4 @@
-// 1.20.4	2024-01-11T19:31:50.1003464	Recipes
+// 1.20.4	2024-01-19T17:57:38.1316232	Recipes
 b22ddc45beb348b3256065c9963352ce1542e281 data/minecraft/advancements/recipes/misc/adamantite_ingot.json
 13f8e88e29e039494ebfa2f5548b6cfa8dd76be8 data/minecraft/advancements/recipes/misc/adamantite_nugget.json
 682ba4eceeb720dead16d3c10bc95ea78c0dfd87 data/minecraft/advancements/recipes/misc/alexandrite.json
@@ -49,19 +49,19 @@ d212baf1bc79359b166d095f5214bca0d2ada6c3 data/minecraft/recipes/titanium_nugget.
 3b2a6664157dca35a32a464cd1f6c26222352f5b data/minecraft/recipes/witherite_shard.json
 890f4f86015bf6611da2c2dd2d78fa8a3394aa1c data/yoamod/advancements/recipes/combat/alexandrite_boots.json
 560794163a265d40ea8197376375a09058f0fbd7 data/yoamod/advancements/recipes/combat/alexandrite_chestplate.json
-0f79c284ede4beb0728ad5e29422ce6d815c68e0 data/yoamod/advancements/recipes/combat/alexandrite_helmet.json
+695b0cfa2a653e4479c3d8dedda04790c2ffd406 data/yoamod/advancements/recipes/combat/alexandrite_helmet.json
 998d0d9cdb804e5e7d5b3d946e226be2ed4eabc4 data/yoamod/advancements/recipes/combat/alexandrite_leggings.json
 07a69f6e11228fc707ccb08723f923e81369841e data/yoamod/advancements/recipes/combat/iolite_boots.json
 c9bf39037ed4d7717fcdc6c24a2cfbd87ac13eb5 data/yoamod/advancements/recipes/combat/iolite_chestplate.json
-c3c133fbb0e774020d80b8b05d84ea2ae0bd815e data/yoamod/advancements/recipes/combat/iolite_helmet.json
+fd333c1192e6df481aadd8fad36a8b8f2f7d6d0c data/yoamod/advancements/recipes/combat/iolite_helmet.json
 b7f4d7fea9bcd00bd7bc9ca317b5e68650a906ae data/yoamod/advancements/recipes/combat/iolite_leggings.json
 d554a605af0c3f5b58d84bc76a695683cd984671 data/yoamod/advancements/recipes/combat/silver_boots.json
 15d7df631cb10d77532c68472af98658123ff38e data/yoamod/advancements/recipes/combat/silver_chestplate.json
-b8b5fe97208fd79570494ec67160bad5658b541b data/yoamod/advancements/recipes/combat/silver_helmet.json
+d018ca34c6dfdcae0c60af23d2a0c78177b365f7 data/yoamod/advancements/recipes/combat/silver_helmet.json
 acdcb1dd2e564ba6cca1bd161b64944991f729b3 data/yoamod/advancements/recipes/combat/silver_leggings.json
 1e06c00d445db9c86843c47a4d144bd137ef52cf data/yoamod/advancements/recipes/combat/witherite_boots.json
 d2b5461b6d39f41e6576d6a1fa21b2662ddbe3b7 data/yoamod/advancements/recipes/combat/witherite_chestplate.json
-de4519cecd62ffe3a8788459603009ebfe1eb05d data/yoamod/advancements/recipes/combat/witherite_helmet.json
+4ac9aef90dc5fd259b07db6c71898592f40caebc data/yoamod/advancements/recipes/combat/witherite_helmet.json
 5323fdb839719da5e7a1754f690c08fa22e8ce04 data/yoamod/advancements/recipes/combat/witherite_leggings.json
 d9421e81d2dec0d2638da26e5c6039955bb3ce53 data/yoamod/advancements/recipes/misc/rune_crystal_block.json
 95946691c61ef4e5954cea9ae42af7d333d95780 data/yoamod/advancements/recipes/tools/alexandrite_axe.json

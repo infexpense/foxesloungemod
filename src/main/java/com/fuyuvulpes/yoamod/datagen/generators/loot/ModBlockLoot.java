@@ -31,7 +31,7 @@ public class ModBlockLoot extends BlockLootSubProvider {
     protected void generate() {
         this.dropSelf(BlocksModReg.AUGMENTING_STATION.get());
         this.dropSelf(BlocksModReg.HAMMERING_STATION.get());
-        this.dropSelf(BlocksModReg.MELTING_POT.get());
+        this.dropSelf(BlocksModReg.CRUCIBLE.get());
         this.dropSelf(BlocksModReg.POINTED_CREAKSTONE.get());
         this.add(BlocksModReg.CRYSTALIC_REMNANTS.get(), block -> {
             return createSilkTouchDispatchTable(

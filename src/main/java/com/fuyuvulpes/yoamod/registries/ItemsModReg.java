@@ -31,11 +31,13 @@ public class ItemsModReg {
 
     public static final DeferredItem<Item> ALEXANDRITE = ITEMS.registerSimpleItem("alexandrite", new Item.Properties());
     public static final DeferredItem<Item> ALEXANDRITE_SHARD = ITEMS.registerSimpleItem("alexandrite_shard", new Item.Properties());
+    public static final DeferredItem<Item> MOLTEN_ALEXANDRITE = ITEMS.registerSimpleItem("molten_alexandrite", new Item.Properties());
 
 
     public static final DeferredItem<Item> BISMUTH = ITEMS.registerSimpleItem("bismuth", new Item.Properties());
     public static final DeferredItem<Item> BISMUTH_SHARD = ITEMS.registerSimpleItem("bismuth_shard", new Item.Properties());
     public static final DeferredItem<Item> RAW_BISMUTH = ITEMS.registerSimpleItem("raw_bismuth", new Item.Properties());
+    public static final DeferredItem<Item> MOLTEN_BISMUTH = ITEMS.registerSimpleItem("molten_bismuth", new Item.Properties());
 
 
     public static final DeferredItem<Item> BRASS_INGOT = ITEMS.registerSimpleItem("brass_ingot", new Item.Properties());
@@ -44,30 +46,40 @@ public class ItemsModReg {
 
     public static final DeferredItem<Item> BRONZE_INGOT = ITEMS.registerSimpleItem("bronze_ingot", new Item.Properties());
     public static final DeferredItem<Item> BRONZE_NUGGET = ITEMS.registerSimpleItem("bronze_nugget", new Item.Properties());
+    public static final DeferredItem<Item> MOLTEN_BRONZE = ITEMS.registerSimpleItem("molten_bronze", new Item.Properties());
 
 
     public static final DeferredItem<Item> IOLITE = ITEMS.registerSimpleItem("iolite", new Item.Properties());
     public static final DeferredItem<Item> IOLITE_SHARD = ITEMS.registerSimpleItem("iolite_shard", new Item.Properties());
+    public static final DeferredItem<Item> MOLTEN_IOLITE = ITEMS.registerSimpleItem("molten_iolite", new Item.Properties());
 
 
     public static final DeferredItem<Item> SILVER_INGOT = ITEMS.registerSimpleItem("silver_ingot", new Item.Properties());
     public static final DeferredItem<Item> SILVER_NUGGET = ITEMS.registerSimpleItem("silver_nugget", new Item.Properties());
     public static final DeferredItem<Item> RAW_SILVER = ITEMS.registerSimpleItem("raw_silver", new Item.Properties());
+    public static final DeferredItem<Item> MOLTEN_SILVER = ITEMS.registerSimpleItem("molten_silver", new Item.Properties());
 
 
     public static final DeferredItem<Item> STEEL_INGOT = ITEMS.registerSimpleItem("steel_ingot", new Item.Properties());
     public static final DeferredItem<Item> STEEL_NUGGET = ITEMS.registerSimpleItem("steel_nugget", new Item.Properties());
+    public static final DeferredItem<Item> MOLTEN_STEEL = ITEMS.registerSimpleItem("molten_steel", new Item.Properties());
 
 
     public static final DeferredItem<Item> TITANIUM_INGOT = ITEMS.registerSimpleItem("titanium_ingot", new Item.Properties());
     public static final DeferredItem<Item> TITANIUM_NUGGET = ITEMS.registerSimpleItem("titanium_nugget", new Item.Properties());
     public static final DeferredItem<Item> RAW_TITANIUM = ITEMS.registerSimpleItem("raw_titanium", new Item.Properties());
+    public static final DeferredItem<Item> MOLTEN_TITANIUM = ITEMS.registerSimpleItem("molten_titanium", new Item.Properties());
 
 
     public static final DeferredItem<Item> WITHERITE = ITEMS.registerSimpleItem("witherite", new Item.Properties());
     public static final DeferredItem<Item> WITHERITE_SHARD = ITEMS.registerSimpleItem("witherite_shard", new Item.Properties());
 
+    public static final DeferredItem<Item> MOLTEN_IRON = ITEMS.registerSimpleItem("molten_iron", new Item.Properties());
+
+    public static final DeferredItem<Item> MOLTEN_GOLD = ITEMS.registerSimpleItem("molten_gold", new Item.Properties());
+
     public static final DeferredItem<Item> DIAMOND_SHARD = ITEMS.registerSimpleItem("diamond_shard", new Item.Properties());
+    public static final DeferredItem<Item> MOLTEN_DIAMOND = ITEMS.registerSimpleItem("molten_diamond", new Item.Properties());
     public static final DeferredItem<Item> NETHERITE_NUGGET = ITEMS.registerSimpleItem("netherite_nugget", new Item.Properties().fireResistant());
 
     public static final DeferredItem<PickaxeItem> TITANIUM_PICKAXE = ITEMS.register("titanium_pickaxe", () -> new PickaxeItem(ModToolTiers.TITANIUM,1, -2.8F, new Item.Properties()));

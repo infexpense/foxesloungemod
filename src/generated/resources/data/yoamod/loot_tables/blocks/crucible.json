@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "yoamod:melting_pot"
+          "name": "yoamod:crucible"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "yoamod:blocks/melting_pot"
+  "random_sequence": "yoamod:blocks/crucible"
 }

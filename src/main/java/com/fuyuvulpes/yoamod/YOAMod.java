@@ -64,7 +64,7 @@ public class YOAMod
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS){
             event.accept(BlocksModReg.HAMMERING_STATION);
             event.accept(BlocksModReg.AUGMENTING_STATION);
-            event.accept(BlocksModReg.MELTING_POT);
+            event.accept(BlocksModReg.CRUCIBLE);
 
         }
 

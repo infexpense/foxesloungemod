@@ -1,7 +1,7 @@
 {
   "block.yoamod.hammering_station": "Hammering Station",
   "block.yoamod.augmenting_station": "Augmenting Station",
-  "block.yoamod.melting_pot": "Melting Pot",
+  "block.yoamod.crucible": "Crucible",
 
   "block.yoamod.creakstone": "Creakstone",
   "block.yoamod.creakstone_fracture": "Creakstone Fracture",
@@ -477,6 +477,17 @@
   "item.yoamod.adamantite_chestplate": "Adamantite Chestplate",
   "item.yoamod.adamantite_leggings": "Adamantite Leggings",
   "item.yoamod.adamantite_boots": "Adamantite Boots",
+
+  "item.yoamod.molten_alexandrite": "Bucket of Molten Alexandrite",
+  "item.yoamod.molten_bismuth": "Bucket of Molten Bismuth",
+  "item.yoamod.molten_bronze": "Bucket of Molten Bronze",
+  "item.yoamod.molten_diamond": "Bucket of Molten Diamond",
+  "item.yoamod.molten_gold": "Bucket of Molten Gold",
+  "item.yoamod.molten_iolite": "Bucket of Molten Iolite",
+  "item.yoamod.molten_iron": "Bucket of Molten Iron",
+  "item.yoamod.molten_silver": "Bucket of Molten Silver",
+  "item.yoamod.molten_steel": "Bucket ofMolten Steel",
+  "item.yoamod.molten_titanium": "Bucket of Molten Titanium",
 
   "itemGroup.yoa_main": "Your Own Adventure: Main",
   "itemGroup.yoa_wgen": "Your Own Adventure: World Gen",
