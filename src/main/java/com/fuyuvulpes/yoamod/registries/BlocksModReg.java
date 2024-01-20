@@ -6,6 +6,8 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
@@ -15,6 +17,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
+import java.util.function.ToIntFunction;
 
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
@@ -27,7 +30,9 @@ public class BlocksModReg {
 
     public static final DeferredBlock<Block> AUGMENTING_STATION = registerBlock("augmenting_station", AugmentingTableBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).noOcclusion());
 
-    public static final DeferredBlock<Block> CRUCIBLE = registerBlock("crucible", CrucibleBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).noOcclusion());
+    public static final DeferredBlock<Block> CRUCIBLE = registerBlock("crucible", CrucibleBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).noOcclusion()
+            .sound(SoundType.NETHERITE_BLOCK)
+            .lightLevel(litBlockEmission(15)));
 
     public static final DeferredBlock<Block> CREAKSTONE = registerBlock("creakstone", () -> new Block(BlockBehaviour.Properties.of()
             .requiresCorrectToolForDrops()
@@ -109,6 +114,11 @@ public class BlocksModReg {
     }
     private static <T extends Block> DeferredItem<BlockItem> registerCustomBlockItem(String name, DeferredBlock<T> block, Item.Properties properties){
         return ItemsModReg.ITEMS.register(name, () -> new BlockItem(block.get(), properties));
+    }
+
+
+    protected static ToIntFunction<BlockState> litBlockEmission(int pLightValue) {
+        return blockState -> blockState.getValue(BlockStateProperties.LIT) ? pLightValue : 0;
     }
 
 
