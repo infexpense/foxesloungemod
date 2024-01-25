@@ -12,12 +12,13 @@ import java.util.function.Supplier;
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
 public enum ModArmorMats  implements ArmorMaterial {
-    ADAMANTITE("adamantite", 72, new int[]{ 1, 1, 1, 1 }, 1, SoundEvents.ARMOR_EQUIP_NETHERITE, 1f, 1f, () -> Ingredient.of(ItemsModReg.ADAMANTITE_INGOT.get())),
-    ALEXANDRITE("alexandrite", 59, new int[]{ 1, 1, 1, 1 }, 1, SoundEvents.ARMOR_EQUIP_DIAMOND, 1f, 1f, () -> Ingredient.of(ItemsModReg.ALEXANDRITE.get())),
-    IOLITE("iolite", 50, new int[]{ 1, 1, 1, 1 }, 1, SoundEvents.ARMOR_EQUIP_DIAMOND, 1f, 1f, () -> Ingredient.of(ItemsModReg.IOLITE.get())),
-    SILVER("silver", 12, new int[]{ 1, 1, 1, 1 }, 1, SoundEvents.ARMOR_EQUIP_IRON, 1f, 1f, () -> Ingredient.of(ItemsModReg.WITHERITE.get())),
-    WITHERITE("witherite", 41, new int[]{ 1, 1, 1, 1 }, 1, SoundEvents.ARMOR_EQUIP_GOLD, 1f, 1f, () -> Ingredient.of(ItemsModReg.SILVER_INGOT.get()));
+    SILVER("silver", 12, new int[]{2, 4, 3, 1}, 4, SoundEvents.ARMOR_EQUIP_IRON, 0.0f, 0.0f, () -> Ingredient.of(ItemsModReg.WITHERITE.get())),
+    WITHERITE("witherite", 41, new int[]{3,8,6,3}, 14, SoundEvents.ARMOR_EQUIP_GOLD, 2.0f, 0.05f, () -> Ingredient.of(ItemsModReg.SILVER_INGOT.get())),
+    IOLITE("iolite", 60, new int[]{3,8,6,3}, 27, SoundEvents.ARMOR_EQUIP_DIAMOND, 3.0f, 0.0f, () -> Ingredient.of(ItemsModReg.IOLITE.get())),
+    ALEXANDRITE("alexandrite", 78, new int[]{3,8,6,3}, 18, SoundEvents.ARMOR_EQUIP_DIAMOND, 4.0f, 0.05f, () -> Ingredient.of(ItemsModReg.ALEXANDRITE.get())),
+    ADAMANTITE("adamantite", 106, new int[]{3,8,6,3}, 24, SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0f, 0.2f, () -> Ingredient.of(ItemsModReg.ADAMANTITE_INGOT.get()))
 
+;
     private final String name;
     private final int durabilityMultplier;
     private final int[] protectionAmounts;

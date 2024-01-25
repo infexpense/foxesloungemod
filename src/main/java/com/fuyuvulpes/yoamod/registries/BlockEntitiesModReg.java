@@ -1,5 +1,6 @@
 package com.fuyuvulpes.yoamod.registries;
 
+import com.fuyuvulpes.yoamod.custom.entity.block.CrucibleBlockEntity;
 import com.fuyuvulpes.yoamod.custom.entity.block.HammeringStationBlockEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -16,6 +17,10 @@ public class BlockEntitiesModReg {
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<HammeringStationBlockEntity>> HAMMERING_STATION = BL_ENTITY.register("hammering_station",
             () -> BlockEntityType.Builder.of(HammeringStationBlockEntity::new,BlocksModReg.HAMMERING_STATION.get()).build(null));
+
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CrucibleBlockEntity>> CRUCIBLE = BL_ENTITY.register("crucible",
+            () -> BlockEntityType.Builder.of(CrucibleBlockEntity::new,BlocksModReg.CRUCIBLE.get()).build(null));
 
     public static void register(IEventBus eventBus){
         BL_ENTITY.register(eventBus);

@@ -1,4 +1,4 @@
-package com.fuyuvulpes.yoamod.woldgen;
+package com.fuyuvulpes.yoamod.game.woldgen;
 
 import com.fuyuvulpes.yoamod.registries.NoiseRegistry;
 import com.mojang.datafixers.util.Pair;

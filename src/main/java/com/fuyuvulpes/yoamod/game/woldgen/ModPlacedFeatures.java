@@ -1,4 +1,4 @@
-package com.fuyuvulpes.yoamod.woldgen;
+package com.fuyuvulpes.yoamod.game.woldgen;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;

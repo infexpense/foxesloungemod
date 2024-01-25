@@ -1,10 +1,10 @@
 package com.fuyuvulpes.yoamod.datagen.generators;
 
-import com.fuyuvulpes.yoamod.woldgen.ModBiomeModifiers;
-import com.fuyuvulpes.yoamod.woldgen.ModConfigFeatures;
-import com.fuyuvulpes.yoamod.woldgen.ModPlacedFeatures;
-import com.fuyuvulpes.yoamod.woldgen.ModBiomes;
-import com.fuyuvulpes.yoamod.woldgen.ModDimensions;
+import com.fuyuvulpes.yoamod.game.woldgen.ModBiomeModifiers;
+import com.fuyuvulpes.yoamod.game.woldgen.ModConfigFeatures;
+import com.fuyuvulpes.yoamod.game.woldgen.ModPlacedFeatures;
+import com.fuyuvulpes.yoamod.game.woldgen.ModBiomes;
+import com.fuyuvulpes.yoamod.game.woldgen.ModDimensions;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;

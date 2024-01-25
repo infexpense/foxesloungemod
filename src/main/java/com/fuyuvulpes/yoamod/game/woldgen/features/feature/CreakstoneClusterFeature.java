@@ -1,8 +1,8 @@
-package com.fuyuvulpes.yoamod.woldgen.features.feature;
+package com.fuyuvulpes.yoamod.game.woldgen.features.feature;
 
 import com.fuyuvulpes.yoamod.registries.BlocksModReg;
-import com.fuyuvulpes.yoamod.woldgen.features.configuration.CreakstoneClusterConfiguration;
-import com.fuyuvulpes.yoamod.woldgen.features.util.CreakstoneUtils;
+import com.fuyuvulpes.yoamod.game.woldgen.features.configuration.CreakstoneClusterConfiguration;
+import com.fuyuvulpes.yoamod.game.woldgen.features.util.CreakstoneUtils;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

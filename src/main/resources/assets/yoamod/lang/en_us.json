@@ -465,8 +465,8 @@
 
   "item.yoamod.iolite_helmet": "Iolite Helmet",
   "item.yoamod.iolite_chestplate": "Iolite Chestplate",
-  "item.yoamod.silver_leggings": "Iolite Leggings",
-  "item.yoamod.silver_boots": "Iolite Boots",
+  "item.yoamod.iolite_leggings": "Iolite Leggings",
+  "item.yoamod.iolite_boots": "Iolite Boots",
 
   "item.yoamod.alexandrite_helmet": "Alexandrite Helmet",
   "item.yoamod.alexandrite_chestplate": "Alexandrite Chestplate",
@@ -493,6 +493,9 @@
   "itemGroup.yoa_wgen": "Your Own Adventure: World Gen",
   "itemGroup.yoa_tools_gear": "Your Own Adventure: Tools & Gear",
   "itemGroup.yoa_weapons": "Your Own Adventure: Weaponry",
+
+  "container.yoamod.crucible": "Crucible",
+  "container.yoamod.hammering_station": "Crucible",
 
   "upgrade.minecraft.adamantite_upgrade": "Adamantite Upgrade"
 }

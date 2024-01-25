@@ -1,11 +1,7 @@
 package com.fuyuvulpes.yoamod;
 
-import com.fuyuvulpes.yoamod.client.entities.renderers.HammeringStationRenderer;
-import com.fuyuvulpes.yoamod.registries.BlockEntitiesModReg;
-import com.fuyuvulpes.yoamod.registries.BlocksModReg;
-import com.fuyuvulpes.yoamod.registries.CreativeTabRegistry;
-import com.fuyuvulpes.yoamod.registries.ItemsModReg;
-import com.fuyuvulpes.yoamod.registries.FeatureModRegistry;
+import com.fuyuvulpes.yoamod.game.client.entities.renderers.HammeringStationRenderer;
+import com.fuyuvulpes.yoamod.registries.*;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -35,6 +31,7 @@ public class YOAMod
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
         FeatureModRegistry.register(modEventBus);
+        RecipesModReg.register(modEventBus);
 
         BlocksModReg.register(modEventBus);
 

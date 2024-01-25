@@ -1,6 +1,6 @@
-package com.fuyuvulpes.yoamod.woldgen.features;
+package com.fuyuvulpes.yoamod.game.woldgen.features;
 
-import com.fuyuvulpes.yoamod.woldgen.ModPlacedFeatures;
+import com.fuyuvulpes.yoamod.game.woldgen.ModPlacedFeatures;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 

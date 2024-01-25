@@ -1,4 +1,4 @@
-package com.fuyuvulpes.yoamod.woldgen.features.configuration;
+package com.fuyuvulpes.yoamod.game.woldgen.features.configuration;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

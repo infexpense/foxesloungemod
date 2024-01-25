@@ -1,12 +1,10 @@
 package com.fuyuvulpes.yoamod.registries;
 
-import com.fuyuvulpes.yoamod.woldgen.features.configuration.CreakstoneClusterConfiguration;
-import com.fuyuvulpes.yoamod.woldgen.features.feature.CreakstoneClusterFeature;
+import com.fuyuvulpes.yoamod.game.woldgen.features.configuration.CreakstoneClusterConfiguration;
+import com.fuyuvulpes.yoamod.game.woldgen.features.feature.CreakstoneClusterFeature;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.SculkPatchFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.SculkPatchConfiguration;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 

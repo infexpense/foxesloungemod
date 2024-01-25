@@ -1,4 +1,4 @@
-package com.fuyuvulpes.yoamod.woldgen.features.util;
+package com.fuyuvulpes.yoamod.game.woldgen.features.util;
 
 import com.fuyuvulpes.yoamod.custom.block.PointedCreakstone;
 import com.fuyuvulpes.yoamod.registries.BlocksModReg;
