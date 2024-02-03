@@ -1,7 +1,7 @@
 package com.fuyuvulpes.yoamod.core.items;
 
 public enum WeaponStats implements WeaponStat{
-    PLACEHOLDER("placeholder", 0, -0.0F, 0.0F, false, false),
+    PLACEHOLDER("placeholder", 0, 0.0F, 0.0F, false, false),
     BELL("bell", 4, 0.0F, 3.0F, false, false),
     BLOW_DART("blow_dart", 2, 0.0F, 0.0F, false, false),
     BOOMERANG("boomerang", 5, 0.0F, 0.0F, false, false),

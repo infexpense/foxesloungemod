@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "yoamod:item/titanium_war_fan_open"
+  }
+}

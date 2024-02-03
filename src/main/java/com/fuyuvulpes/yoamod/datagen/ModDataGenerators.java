@@ -23,7 +23,7 @@ public class ModDataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new RecipeGen(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new RecipeGen(packOutput));
         generator.addProvider(event.includeServer(), LootTablesGen.create(packOutput));
 
         generator.addProvider(event.includeClient(), new BlockStateGen(packOutput, existingFileHelper));

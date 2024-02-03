@@ -1,5 +1,13 @@
 {
   "parent": "minecraft:item/handheld",
+  "overrides": [
+    {
+      "model": "yoamod:item/gold_war_fan_open",
+      "predicate": {
+        "yoamod:open": 1.0
+      }
+    }
+  ],
   "textures": {
     "layer0": "yoamod:item/gold_war_fan"
   }

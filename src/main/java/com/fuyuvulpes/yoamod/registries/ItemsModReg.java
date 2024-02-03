@@ -5,6 +5,9 @@ import com.fuyuvulpes.yoamod.core.items.ModArmorMats;
 import com.fuyuvulpes.yoamod.core.items.WeaponItem;
 import com.fuyuvulpes.yoamod.core.items.WeaponStats;
 import com.fuyuvulpes.yoamod.custom.item.ModSmithingTemplateItem;
+import com.fuyuvulpes.yoamod.custom.item.weaponry.LongBow;
+import com.fuyuvulpes.yoamod.custom.item.weaponry.RapierItem;
+import com.fuyuvulpes.yoamod.custom.item.weaponry.WarFanItem;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
@@ -320,7 +323,7 @@ public class ItemsModReg {
 
 
     //Bows and Crossbows
-    public static final DeferredItem<WeaponItem> LONGBOW = ITEMS.register("bronze_" + WeaponStats.LONGBOW.weaponId(), () -> new WeaponItem(ModToolTiers.BRONZE,WeaponStats.LONGBOW, new Item.Properties()));
+    public static final DeferredItem<LongBow> LONGBOW = ITEMS.register(WeaponStats.LONGBOW.weaponId(), () -> new LongBow(new Item.Properties()));
 
 
     //LYRE
@@ -354,18 +357,18 @@ public class ItemsModReg {
 
 
     //RAPIER
-    public static final DeferredItem<WeaponItem> BRONZE_RAPIER = ITEMS.register("bronze_" + WeaponStats.RAPIER.weaponId(), () -> new WeaponItem(ModToolTiers.BRONZE,WeaponStats.RAPIER, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> GOLD_RAPIER = ITEMS.register("gold_" + WeaponStats.RAPIER.weaponId(), () -> new WeaponItem(Tiers.GOLD,WeaponStats.RAPIER, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> SILVER_RAPIER = ITEMS.register("silver_" + WeaponStats.RAPIER.weaponId(), () -> new WeaponItem(ModToolTiers.SILVER,WeaponStats.RAPIER, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> IRON_RAPIER = ITEMS.register("iron_" + WeaponStats.RAPIER.weaponId(), () -> new WeaponItem(Tiers.IRON,WeaponStats.RAPIER, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> STEEL_RAPIER = ITEMS.register("steel_" + WeaponStats.RAPIER.weaponId(), () -> new WeaponItem(ModToolTiers.STEEL,WeaponStats.RAPIER, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> BISMUTH_RAPIER = ITEMS.register("bismuth_" + WeaponStats.RAPIER.weaponId(), () -> new WeaponItem(ModToolTiers.BISMUTH,WeaponStats.RAPIER, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> DIAMOND_RAPIER = ITEMS.register("diamond_" + WeaponStats.RAPIER.weaponId(), () -> new WeaponItem(Tiers.DIAMOND,WeaponStats.RAPIER, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> NETHERITE_RAPIER = ITEMS.register("netherite_" + WeaponStats.RAPIER.weaponId(), () -> new WeaponItem(Tiers.NETHERITE,WeaponStats.RAPIER, new Item.Properties().fireResistant()));
-    public static final DeferredItem<WeaponItem> TITANIUM_RAPIER = ITEMS.register("titanium_" + WeaponStats.RAPIER.weaponId(), () -> new WeaponItem(ModToolTiers.TITANIUM,WeaponStats.RAPIER, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> IOLITE_RAPIER = ITEMS.register("iolite_" + WeaponStats.RAPIER.weaponId(), () -> new WeaponItem(ModToolTiers.IOLITE,WeaponStats.RAPIER, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> ALEXANDRITE_RAPIER = ITEMS.register("alexandrite_" + WeaponStats.RAPIER.weaponId(), () -> new WeaponItem(ModToolTiers.ALEXANDRITE,WeaponStats.RAPIER, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> ADAMANTITE_RAPIER = ITEMS.register("adamantite_" + WeaponStats.RAPIER.weaponId(), () -> new WeaponItem(ModToolTiers.ADAMANTITE,WeaponStats.RAPIER, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> BRONZE_RAPIER = ITEMS.register("bronze_" + WeaponStats.RAPIER.weaponId(), () -> new RapierItem(ModToolTiers.BRONZE, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> GOLD_RAPIER = ITEMS.register("gold_" + WeaponStats.RAPIER.weaponId(), () -> new RapierItem(Tiers.GOLD, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> SILVER_RAPIER = ITEMS.register("silver_" + WeaponStats.RAPIER.weaponId(), () -> new RapierItem(ModToolTiers.SILVER, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> IRON_RAPIER = ITEMS.register("iron_" + WeaponStats.RAPIER.weaponId(), () -> new RapierItem(Tiers.IRON, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> STEEL_RAPIER = ITEMS.register("steel_" + WeaponStats.RAPIER.weaponId(), () -> new RapierItem(ModToolTiers.STEEL, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> BISMUTH_RAPIER = ITEMS.register("bismuth_" + WeaponStats.RAPIER.weaponId(), () -> new RapierItem(ModToolTiers.BISMUTH, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> DIAMOND_RAPIER = ITEMS.register("diamond_" + WeaponStats.RAPIER.weaponId(), () -> new RapierItem(Tiers.DIAMOND, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> NETHERITE_RAPIER = ITEMS.register("netherite_" + WeaponStats.RAPIER.weaponId(), () -> new RapierItem(Tiers.NETHERITE, new Item.Properties().fireResistant()));
+    public static final DeferredItem<WeaponItem> TITANIUM_RAPIER = ITEMS.register("titanium_" + WeaponStats.RAPIER.weaponId(), () -> new RapierItem(ModToolTiers.TITANIUM, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> IOLITE_RAPIER = ITEMS.register("iolite_" + WeaponStats.RAPIER.weaponId(), () -> new RapierItem(ModToolTiers.IOLITE, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> ALEXANDRITE_RAPIER = ITEMS.register("alexandrite_" + WeaponStats.RAPIER.weaponId(), () -> new RapierItem(ModToolTiers.ALEXANDRITE, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> ADAMANTITE_RAPIER = ITEMS.register("adamantite_" + WeaponStats.RAPIER.weaponId(), () -> new RapierItem(ModToolTiers.ADAMANTITE, new Item.Properties()));
 
 
     //RUNIC_AXE
@@ -548,18 +551,18 @@ public class ItemsModReg {
 
 
     //WAR_FAN
-    public static final DeferredItem<WeaponItem> BRONZE_WAR_FAN = ITEMS.register("bronze_" + WeaponStats.WAR_FAN.weaponId(), () -> new WeaponItem(ModToolTiers.BRONZE,WeaponStats.WAR_FAN, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> GOLD_WAR_FAN = ITEMS.register("gold_" + WeaponStats.WAR_FAN.weaponId(), () -> new WeaponItem(Tiers.GOLD,WeaponStats.WAR_FAN, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> SILVER_WAR_FAN = ITEMS.register("silver_" + WeaponStats.WAR_FAN.weaponId(), () -> new WeaponItem(ModToolTiers.SILVER,WeaponStats.WAR_FAN, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> IRON_WAR_FAN = ITEMS.register("iron_" + WeaponStats.WAR_FAN.weaponId(), () -> new WeaponItem(Tiers.IRON,WeaponStats.WAR_FAN, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> STEEL_WAR_FAN = ITEMS.register("steel_" + WeaponStats.WAR_FAN.weaponId(), () -> new WeaponItem(ModToolTiers.STEEL,WeaponStats.WAR_FAN, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> BISMUTH_WAR_FAN = ITEMS.register("bismuth_" + WeaponStats.WAR_FAN.weaponId(), () -> new WeaponItem(ModToolTiers.BISMUTH,WeaponStats.WAR_FAN, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> DIAMOND_WAR_FAN = ITEMS.register("diamond_" + WeaponStats.WAR_FAN.weaponId(), () -> new WeaponItem(Tiers.DIAMOND,WeaponStats.WAR_FAN, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> NETHERITE_WAR_FAN = ITEMS.register("netherite_" + WeaponStats.WAR_FAN.weaponId(), () -> new WeaponItem(Tiers.NETHERITE,WeaponStats.WAR_FAN, new Item.Properties().fireResistant()));
-    public static final DeferredItem<WeaponItem> TITANIUM_WAR_FAN = ITEMS.register("titanium_" + WeaponStats.WAR_FAN.weaponId(), () -> new WeaponItem(ModToolTiers.TITANIUM,WeaponStats.WAR_FAN, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> IOLITE_WAR_FAN = ITEMS.register("iolite_" + WeaponStats.WAR_FAN.weaponId(), () -> new WeaponItem(ModToolTiers.IOLITE,WeaponStats.WAR_FAN, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> ALEXANDRITE_WAR_FAN = ITEMS.register("alexandrite_" + WeaponStats.WAR_FAN.weaponId(), () -> new WeaponItem(ModToolTiers.ALEXANDRITE,WeaponStats.WAR_FAN, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> ADAMANTITE_WAR_FAN = ITEMS.register("adamantite_" + WeaponStats.WAR_FAN.weaponId(), () -> new WeaponItem(ModToolTiers.ADAMANTITE,WeaponStats.WAR_FAN, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> BRONZE_WAR_FAN = ITEMS.register("bronze_" + WeaponStats.WAR_FAN.weaponId(), () -> new WarFanItem(ModToolTiers.BRONZE, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> GOLD_WAR_FAN = ITEMS.register("gold_" + WeaponStats.WAR_FAN.weaponId(), () -> new WarFanItem(Tiers.GOLD, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> SILVER_WAR_FAN = ITEMS.register("silver_" + WeaponStats.WAR_FAN.weaponId(), () -> new WarFanItem(ModToolTiers.SILVER, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> IRON_WAR_FAN = ITEMS.register("iron_" + WeaponStats.WAR_FAN.weaponId(), () -> new WarFanItem(Tiers.IRON, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> STEEL_WAR_FAN = ITEMS.register("steel_" + WeaponStats.WAR_FAN.weaponId(), () -> new WarFanItem(ModToolTiers.STEEL, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> BISMUTH_WAR_FAN = ITEMS.register("bismuth_" + WeaponStats.WAR_FAN.weaponId(), () -> new WarFanItem(ModToolTiers.BISMUTH, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> DIAMOND_WAR_FAN = ITEMS.register("diamond_" + WeaponStats.WAR_FAN.weaponId(), () -> new WarFanItem(Tiers.DIAMOND, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> NETHERITE_WAR_FAN = ITEMS.register("netherite_" + WeaponStats.WAR_FAN.weaponId(), () -> new WarFanItem(Tiers.NETHERITE, new Item.Properties().fireResistant()));
+    public static final DeferredItem<WeaponItem> TITANIUM_WAR_FAN = ITEMS.register("titanium_" + WeaponStats.WAR_FAN.weaponId(), () -> new WarFanItem(ModToolTiers.TITANIUM, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> IOLITE_WAR_FAN = ITEMS.register("iolite_" + WeaponStats.WAR_FAN.weaponId(), () -> new WarFanItem(ModToolTiers.IOLITE, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> ALEXANDRITE_WAR_FAN = ITEMS.register("alexandrite_" + WeaponStats.WAR_FAN.weaponId(), () -> new WarFanItem(ModToolTiers.ALEXANDRITE, new Item.Properties()));
+    public static final DeferredItem<WeaponItem> ADAMANTITE_WAR_FAN = ITEMS.register("adamantite_" + WeaponStats.WAR_FAN.weaponId(), () -> new WarFanItem(ModToolTiers.ADAMANTITE, new Item.Properties()));
 
 
     //WHIP_SWORD

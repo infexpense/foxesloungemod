@@ -15,8 +15,8 @@ import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import java.util.concurrent.CompletableFuture;
 
 public class RecipeGen extends RecipeProvider implements IConditionBuilder {
-    public RecipeGen(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(packOutput, lookupProvider);
+    public RecipeGen(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override

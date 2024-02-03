@@ -12,25 +12,15 @@ group = mod_group_id
 repositories {
     mavenLocal()
 
-    maven { url "https://maven.parchmentmc.org" }
-
     maven {
-        url = "https://www.cursemaven.com"
-        allowInsecureProtocol = true
-    }
-
-    maven {
-        url "https://maven.firstdarkdev.xyz/snapshots"
-    }
-    maven { url 'https://jitpack.io' }
-
-    maven {
-        name = "TerraformersMC"
-        url = "https://maven.terraformersmc.com/"
+        // location of the maven that hosts JEI files since January 2023
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
     }
     maven {
-        name = 'Ladysnake Mods'
-        url = 'https://maven.ladysnake.org/releases'
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
     }
     maven {
         url = 'https://maven.neoforged.net'
@@ -103,8 +93,10 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
 
-    //implementation "com.github.glitchfiend:TerraBlender-forge:${minecraft_version}-${terrablender_version}"
 
+    compileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
+    runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
 
 }
 
@@ -117,6 +109,7 @@ tasks.withType(ProcessResources).configureEach {
     var replaceProperties = [
             minecraft_version   : minecraft_version, minecraft_version_range: minecraft_version_range,
             neo_version         : neo_version, neo_version_range: neo_version_range,
+            jei_version         : jei_version, jei_version_range: jei_version_range,
             loader_version_range: loader_version_range,
             mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
             mod_authors         : mod_authors, mod_description: mod_description, pack_format_number: pack_format_number,

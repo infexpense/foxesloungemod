@@ -497,5 +497,12 @@
   "container.yoamod.crucible": "Crucible",
   "container.yoamod.hammering_station": "Crucible",
 
-  "upgrade.minecraft.adamantite_upgrade": "Adamantite Upgrade"
+  "upgrade.minecraft.adamantite_upgrade": "Adamantite Upgrade",
+
+  "effect.yoamod.bleeding": "Bleeding",
+  "effect.yoamod.stun": "Stun",
+
+  "death.attack.bleeding.item": "%1$s bled too much from the wound %2$s made using %3$s",
+  "death.attack.bleeding.player": "%1$s bled out whilst fighting %2$s",
+  "death.attack.bleeding": "%1$s couldn't cover their wound, and bled out"
 }

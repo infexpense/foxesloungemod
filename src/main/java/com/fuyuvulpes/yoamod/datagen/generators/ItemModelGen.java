@@ -159,7 +159,7 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.SILVER_TALISMAN);
         handheldItem(ItemsModReg.SILVER_THROWING_KNIFE);
         handheldItem(ItemsModReg.SILVER_TOME);
-        handheldItem(ItemsModReg.SILVER_WAR_FAN);
+        warFanItem(ItemsModReg.SILVER_WAR_FAN);
         handheldBigItem(ItemsModReg.SILVER_WHIP_SWORD);
 
         simpleItem(ItemsModReg.GOLD_BELL);
@@ -189,7 +189,7 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.GOLD_TALISMAN);
         handheldItem(ItemsModReg.GOLD_THROWING_KNIFE);
         handheldItem(ItemsModReg.GOLD_TOME);
-        handheldItem(ItemsModReg.GOLD_WAR_FAN);
+        warFanItem(ItemsModReg.GOLD_WAR_FAN);
         handheldBigItem(ItemsModReg.GOLD_WHIP_SWORD);
 
         simpleItem(ItemsModReg.BRONZE_BELL);
@@ -219,7 +219,7 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.BRONZE_TALISMAN);
         handheldItem(ItemsModReg.BRONZE_THROWING_KNIFE);
         handheldItem(ItemsModReg.BRONZE_TOME);
-        handheldItem(ItemsModReg.BRONZE_WAR_FAN);
+        warFanItem(ItemsModReg.BRONZE_WAR_FAN);
         handheldBigItem(ItemsModReg.BRONZE_WHIP_SWORD);
 
         simpleItem(ItemsModReg.IRON_BELL);
@@ -249,7 +249,7 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.IRON_TALISMAN);
         handheldItem(ItemsModReg.IRON_THROWING_KNIFE);
         handheldItem(ItemsModReg.IRON_TOME);
-        handheldItem(ItemsModReg.IRON_WAR_FAN);
+        warFanItem(ItemsModReg.IRON_WAR_FAN);
         handheldBigItem(ItemsModReg.IRON_WHIP_SWORD);
 
         simpleItem(ItemsModReg.STEEL_BELL);
@@ -279,7 +279,7 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.STEEL_TALISMAN);
         handheldItem(ItemsModReg.STEEL_THROWING_KNIFE);
         handheldItem(ItemsModReg.STEEL_TOME);
-        handheldItem(ItemsModReg.STEEL_WAR_FAN);
+        warFanItem(ItemsModReg.STEEL_WAR_FAN);
         handheldBigItem(ItemsModReg.STEEL_WHIP_SWORD);
 
         simpleItem(ItemsModReg.BISMUTH_BELL);
@@ -309,7 +309,7 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.BISMUTH_TALISMAN);
         handheldItem(ItemsModReg.BISMUTH_THROWING_KNIFE);
         handheldItem(ItemsModReg.BISMUTH_TOME);
-        handheldItem(ItemsModReg.BISMUTH_WAR_FAN);
+        warFanItem(ItemsModReg.BISMUTH_WAR_FAN);
         handheldBigItem(ItemsModReg.BISMUTH_WHIP_SWORD);
 
         simpleItem(ItemsModReg.DIAMOND_BELL);
@@ -339,7 +339,7 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.DIAMOND_TALISMAN);
         handheldItem(ItemsModReg.DIAMOND_THROWING_KNIFE);
         handheldItem(ItemsModReg.DIAMOND_TOME);
-        handheldItem(ItemsModReg.DIAMOND_WAR_FAN);
+        warFanItem(ItemsModReg.DIAMOND_WAR_FAN);
         handheldBigItem(ItemsModReg.DIAMOND_WHIP_SWORD);
 
         simpleItem(ItemsModReg.NETHERITE_BELL);
@@ -369,7 +369,7 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.NETHERITE_TALISMAN);
         handheldItem(ItemsModReg.NETHERITE_THROWING_KNIFE);
         handheldItem(ItemsModReg.NETHERITE_TOME);
-        handheldItem(ItemsModReg.NETHERITE_WAR_FAN);
+        warFanItem(ItemsModReg.NETHERITE_WAR_FAN);
         handheldBigItem(ItemsModReg.NETHERITE_WHIP_SWORD);
 
         simpleItem(ItemsModReg.TITANIUM_BELL);
@@ -399,7 +399,7 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.TITANIUM_TALISMAN);
         handheldItem(ItemsModReg.TITANIUM_THROWING_KNIFE);
         handheldItem(ItemsModReg.TITANIUM_TOME);
-        handheldItem(ItemsModReg.TITANIUM_WAR_FAN);
+        warFanItem(ItemsModReg.TITANIUM_WAR_FAN);
         handheldBigItem(ItemsModReg.TITANIUM_WHIP_SWORD);
 
         simpleItem(ItemsModReg.IOLITE_BELL);
@@ -429,7 +429,7 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.IOLITE_TALISMAN);
         handheldItem(ItemsModReg.IOLITE_THROWING_KNIFE);
         handheldItem(ItemsModReg.IOLITE_TOME);
-        handheldItem(ItemsModReg.IOLITE_WAR_FAN);
+        warFanItem(ItemsModReg.IOLITE_WAR_FAN);
         handheldBigItem(ItemsModReg.IOLITE_WHIP_SWORD);
 
         simpleItem(ItemsModReg.ALEXANDRITE_BELL);
@@ -459,7 +459,7 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.ALEXANDRITE_TALISMAN);
         handheldItem(ItemsModReg.ALEXANDRITE_THROWING_KNIFE);
         handheldItem(ItemsModReg.ALEXANDRITE_TOME);
-        handheldItem(ItemsModReg.ALEXANDRITE_WAR_FAN);
+        warFanItem(ItemsModReg.ALEXANDRITE_WAR_FAN);
         handheldBigItem(ItemsModReg.ALEXANDRITE_WHIP_SWORD);
 
         simpleItem(ItemsModReg.ADAMANTITE_BELL);
@@ -489,7 +489,7 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.ADAMANTITE_TALISMAN);
         handheldItem(ItemsModReg.ADAMANTITE_THROWING_KNIFE);
         handheldItem(ItemsModReg.ADAMANTITE_TOME);
-        handheldItem(ItemsModReg.ADAMANTITE_WAR_FAN);
+        warFanItem(ItemsModReg.ADAMANTITE_WAR_FAN);
         handheldBigItem(ItemsModReg.ADAMANTITE_WHIP_SWORD);
     }
 
@@ -557,5 +557,22 @@ public class ItemModelGen extends ItemModelProvider {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation(MODID,"item/handheld_big")).texture("layer0",
                 new ResourceLocation(MODID,"item/" + item.getId().getPath()));
+    }
+
+
+
+    private ItemModelBuilder warFanItem(DeferredItem<?> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/handheld")).texture("layer0",
+                new ResourceLocation(MODID,"item/" + item.getId().getPath()))
+                .override().predicate(new ResourceLocation(MODID, "open"),1.0F)
+                .model(openWarFan(item)).end();
+    }
+
+
+    private ItemModelBuilder openWarFan(DeferredItem<?> item) {
+        return withExistingParent(item.getId().getPath() + "_open",
+                new ResourceLocation("item/handheld")).texture("layer0",
+                new ResourceLocation(MODID,"item/" + item.getId().getPath() + "_open"));
     }
 }

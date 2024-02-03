@@ -1,4 +1,4 @@
-// 1.20.4	2024-01-19T17:57:38.1336172	Item Models: yoamod
+// 1.20.4	2024-01-31T18:00:58.1996977	Item Models: yoamod
 78143e17b3644d28969b1ebc10cfe54a94f19ef4 assets/yoamod/models/item/adamantite_axe.json
 e0f8fc30666d077db00723a7c74325579fc6ce18 assets/yoamod/models/item/adamantite_bell.json
 d52314b706972fb47ecda874271b06ecedffe7dd assets/yoamod/models/item/adamantite_blow_dart.json
@@ -36,7 +36,8 @@ ff89284cca78f976dd937d4529ff7008edfadd5f assets/yoamod/models/item/adamantite_sp
 758ac0285671ebccedff6eb085e9f18d91ba1432 assets/yoamod/models/item/adamantite_throwing_knife.json
 5d4a1a431f919da666d71b6ffe6fc2a01448b60a assets/yoamod/models/item/adamantite_tome.json
 74c3687ae59d712a8c5879b9fc380c7a9b879832 assets/yoamod/models/item/adamantite_upgrade_smithing_template.json
-bce0e8760b6e605a528f42509a84858f4beddaf6 assets/yoamod/models/item/adamantite_war_fan.json
+881f8f3a278413cf6568a5fd7960da8b5dfad624 assets/yoamod/models/item/adamantite_war_fan.json
+5ded2c99fb7f9b3630f4a5b3ae675452d501915f assets/yoamod/models/item/adamantite_war_fan_open.json
 c904f88a63f90ec95eb8e8ccf75b30d5eb0a10e7 assets/yoamod/models/item/adamantite_whip_sword.json
 1b80019ff81ec8541d48f7e3ae8e0061a0982dee assets/yoamod/models/item/alexandrite.json
 2eafbc9f9669392fa431028dcebe174408aae39f assets/yoamod/models/item/alexandrite_axe.json
@@ -74,7 +75,8 @@ b4b0d63127199d9d79467106c0ef7998c9286d67 assets/yoamod/models/item/alexandrite_s
 b93608620ac8d337b9955ae065619468745d14f8 assets/yoamod/models/item/alexandrite_talisman.json
 f72b27ae6eee2b0d82e3d40d72d93ef4c0ff06f6 assets/yoamod/models/item/alexandrite_throwing_knife.json
 a6e43587459fcc32c00f8c31134487c093486352 assets/yoamod/models/item/alexandrite_tome.json
-cf976e142aa8a155eefae950cd87add5b6dd6777 assets/yoamod/models/item/alexandrite_war_fan.json
+d52a5f664c89230b2ac5a22e3e4e2c139df41fd2 assets/yoamod/models/item/alexandrite_war_fan.json
+8f11bb601e3c38f2052415f6023bd2afdabb6a98 assets/yoamod/models/item/alexandrite_war_fan_open.json
 7ba8bdc2ba630a708e988880d94b861142496063 assets/yoamod/models/item/alexandrite_whip_sword.json
 9de161956d93b27507d7b29b25eba40eee6e8d8b assets/yoamod/models/item/bismuth.json
 f4cc3c5576103b7acda26db95860961d28bfdfa3 assets/yoamod/models/item/bismuth_bell.json
@@ -104,7 +106,8 @@ e7f81de33a9b398ad7948d19dc87a2a7d12d1188 assets/yoamod/models/item/bismuth_singl
 fd212f2d8e109aa8f2733b9c5ffba1517b07b010 assets/yoamod/models/item/bismuth_talisman.json
 0f40179890ffbea8adfc121fd50f7c8c2c1887ec assets/yoamod/models/item/bismuth_throwing_knife.json
 5b589dc056188f8acd9c710a5beb6b8d404dde21 assets/yoamod/models/item/bismuth_tome.json
-72c02e34772bd2a5f295bddbce469ccf72242df3 assets/yoamod/models/item/bismuth_war_fan.json
+cfbffadd84f54d7ae8e09666ade957f8ee33ac59 assets/yoamod/models/item/bismuth_war_fan.json
+2d37f593ab00589e1a93455e85a615d463ab1457 assets/yoamod/models/item/bismuth_war_fan_open.json
 9cb8f2384a09776c8dfaa91797594d093469550c assets/yoamod/models/item/bismuth_whip_sword.json
 9bec19355f90d03326767decd96c8249a350248c assets/yoamod/models/item/brass_ingot.json
 dd53d8330bab1ced7e1bdc17e08db605ebcffa17 assets/yoamod/models/item/brass_nugget.json
@@ -136,7 +139,8 @@ cfc9283516eb7d49e96d760da28239919a725a06 assets/yoamod/models/item/bronze_spellc
 4e2f2953f40567a5cfad3c224046dea9a771b476 assets/yoamod/models/item/bronze_talisman.json
 9ca6f6a7d85b12c3349b61c467bf1bd31b517797 assets/yoamod/models/item/bronze_throwing_knife.json
 1c66ce1e210b0a509afb6fbdbca34e7a85097ea4 assets/yoamod/models/item/bronze_tome.json
-9d628b43dbd6f05c61240b3b0ab77265bd1ced8d assets/yoamod/models/item/bronze_war_fan.json
+9355e31b67f003423939d6b0216eabf8900ac107 assets/yoamod/models/item/bronze_war_fan.json
+882776a006589ee4ce5e5c88727bb6450f1a2a35 assets/yoamod/models/item/bronze_war_fan_open.json
 246ef238f1954c866005fa0166e01d11e75f7b07 assets/yoamod/models/item/bronze_whip_sword.json
 1b3cc090a2312ae9b9589a33d347b6221f213a75 assets/yoamod/models/item/crystalic_shard.json
 91319e4cac16f67a8f3371c74c9b0290c79309b2 assets/yoamod/models/item/diamond_bell.json
@@ -166,7 +170,8 @@ b274a31b099fe56b984cb3cb2a1c01237676438a assets/yoamod/models/item/diamond_shuri
 4e0300a31aa2fd2b5b394c8bd6498ee430f36f2d assets/yoamod/models/item/diamond_talisman.json
 6631785e9b11ca9ac6b43fc7903b56bca6385175 assets/yoamod/models/item/diamond_throwing_knife.json
 c6fb6766e0823aa964446b58831904c7170094c6 assets/yoamod/models/item/diamond_tome.json
-543d63004d5adc1a75ad834dff6f3b9517f72809 assets/yoamod/models/item/diamond_war_fan.json
+235199ef0d876e9397d64fed9a45bd61a08d4523 assets/yoamod/models/item/diamond_war_fan.json
+2e8a4969bdeb3b64e8e7d758f41d4889047b9f65 assets/yoamod/models/item/diamond_war_fan_open.json
 8fa6f4b6f7925ad4a69987fcf07209c8166aef93 assets/yoamod/models/item/diamond_whip_sword.json
 8c4f3f796e94088cd59d5eb9c60cb1a51e24b095 assets/yoamod/models/item/gold_bell.json
 6583d8c6553405269c5364bae2caf855cb65eea8 assets/yoamod/models/item/gold_blow_dart.json
@@ -194,7 +199,8 @@ a17b3803b83c628d397a180a3156cfd527edd78a assets/yoamod/models/item/gold_shuriken
 a41e91d929e8a7aa8fa0025a0dbb2e326d962ed5 assets/yoamod/models/item/gold_talisman.json
 71fec383a8999b0feb5378ed61bf17cef8da8e54 assets/yoamod/models/item/gold_throwing_knife.json
 f153233b21de09d402df0f56366218411017b009 assets/yoamod/models/item/gold_tome.json
-606a7df9f76f0d421c47fcccd8f645007e26808e assets/yoamod/models/item/gold_war_fan.json
+5ea27b0031cbb0ac016226299e1a2bf0121a32bb assets/yoamod/models/item/gold_war_fan.json
+1eb882c5793094fd5b3cfd24d39426c947427885 assets/yoamod/models/item/gold_war_fan_open.json
 d95eb1e6dd969c983b50d601ce0f10fe080d2d84 assets/yoamod/models/item/gold_whip_sword.json
 b06f120169a2f1ed582ff8fa955ad17d7b60c1f2 assets/yoamod/models/item/iolite.json
 b4e7d609b45c4acef172c0dccf7a636f881d3f7f assets/yoamod/models/item/iolite_axe.json
@@ -232,7 +238,8 @@ a51f2ab1b16dc2c03495e447e81f7ffc8410a74d assets/yoamod/models/item/iolite_spellc
 b3b5470bd389a3b7f1dcf007eacae4be4f182063 assets/yoamod/models/item/iolite_talisman.json
 9a4888c90be5447f846c5c5dea326328f91b7991 assets/yoamod/models/item/iolite_throwing_knife.json
 70a734ddb9f7a291a559d79ae51eb4a418c9afc5 assets/yoamod/models/item/iolite_tome.json
-97ecef0af95c8964d1d13dfd20af50dc00e21ac7 assets/yoamod/models/item/iolite_war_fan.json
+2ac763810453f16724269d5edec320319fb53fe6 assets/yoamod/models/item/iolite_war_fan.json
+12f43badfafa54aa65b7da114a7126ff26418893 assets/yoamod/models/item/iolite_war_fan_open.json
 ccd0f47f13f6dc1cefd84fa7eec37214c7a122bf assets/yoamod/models/item/iolite_whip_sword.json
 12a4180e9b6b4c7172f1aa52228747a3706cae88 assets/yoamod/models/item/iron_bell.json
 dc46e41842e8fe192405aed597deca4a03e3766a assets/yoamod/models/item/iron_blow_dart.json
@@ -260,7 +267,8 @@ d08a8169ef3c43071017cae0aa189177407ac935 assets/yoamod/models/item/iron_spellcas
 4676f31f6ac5ca7d27d9903e72b620e21e15b6ea assets/yoamod/models/item/iron_talisman.json
 d8dc8bffc388755fb20a73c50c191a7b93ab0e49 assets/yoamod/models/item/iron_throwing_knife.json
 3180acc11224e32ad72cf633d699a66125a31d46 assets/yoamod/models/item/iron_tome.json
-924c6daa7b871d4dfda12a207b23700d5b5d5c47 assets/yoamod/models/item/iron_war_fan.json
+2e84841ab72dfd0278391c2633fa9c6ea94f12cf assets/yoamod/models/item/iron_war_fan.json
+cfd6c4149b1e5f101d9a32f871492abd4c2398cb assets/yoamod/models/item/iron_war_fan_open.json
 e4df8aa59f9db6026d34304d87f91186c4e40e91 assets/yoamod/models/item/iron_whip_sword.json
 2d0d9bfc8526e2a445f66f39b07f8d16410ce1f0 assets/yoamod/models/item/molten_alexandrite.json
 6fadfcd4f2ef6596228bb84f5f12af98f3af8830 assets/yoamod/models/item/molten_bismuth.json
@@ -299,7 +307,8 @@ dbc79e1f9ece263d1c0cb31a29a5cd1c01475998 assets/yoamod/models/item/netherite_sin
 c0c1cab0badbbb783668bf9af5632e0d0695c84e assets/yoamod/models/item/netherite_talisman.json
 7d44076eeb83e761963fb283b01965d2b1cb3003 assets/yoamod/models/item/netherite_throwing_knife.json
 f78fa3199e74c0bec5093ebf3c8bed12a4183983 assets/yoamod/models/item/netherite_tome.json
-2b86a8394351004e4a9c35a7da88ad55390efa30 assets/yoamod/models/item/netherite_war_fan.json
+f853aedfa9a7f178c3bd7deb9e09929d139ba793 assets/yoamod/models/item/netherite_war_fan.json
+152dec9cbda75fea57ab992e025ac9abb861c343 assets/yoamod/models/item/netherite_war_fan_open.json
 3c819078bd0c4fdd5e8634624a2a666d805eebf5 assets/yoamod/models/item/netherite_whip_sword.json
 c457dc97c02db83b91706bf119456b9d5dfc86d0 assets/yoamod/models/item/raw_adamantite.json
 df9637e270af3a93add4827bc44c5476245b4f34 assets/yoamod/models/item/raw_bismuth.json
@@ -338,7 +347,8 @@ a97b86f93ab65ce47488b1393fc26988523be475 assets/yoamod/models/item/silver_single
 c80e99d5be1f21be7af0eb1f2f4bc0642a562d37 assets/yoamod/models/item/silver_talisman.json
 6649642fcb06e985936524c77bfcadb4f294328e assets/yoamod/models/item/silver_throwing_knife.json
 d0eb28e8ab349afd0fd3aa7acd85d1352b903346 assets/yoamod/models/item/silver_tome.json
-c1b06bc6f8319bdeda467689189f95e9ad6e86c7 assets/yoamod/models/item/silver_war_fan.json
+9858f04f7a589589859a5f419b5e78acd2d8a345 assets/yoamod/models/item/silver_war_fan.json
+bde9263fcf024de654a24219218b16c1366b29bb assets/yoamod/models/item/silver_war_fan_open.json
 49c403d0f7291afa46829d345fcd058baee4d042 assets/yoamod/models/item/silver_whip_sword.json
 db3935494abdd62975680079bc80fbda1307ee66 assets/yoamod/models/item/steel_bell.json
 eb3fd9628e574a9fc277085d7791cd8ae605a180 assets/yoamod/models/item/steel_blow_dart.json
@@ -368,7 +378,8 @@ da03ab9fa4d5c2c853f13a35d5ceb7bc9ceadf13 assets/yoamod/models/item/steel_scissor
 8be8773006a42be760e7aec084f229f04c60ea2b assets/yoamod/models/item/steel_talisman.json
 a59ed14dbbbb79f290f9a35b6de1de18d101e140 assets/yoamod/models/item/steel_throwing_knife.json
 456860fe65b21123000d7da43f0442c1c78995ff assets/yoamod/models/item/steel_tome.json
-57855ddce62a3b043d4122e114794e4a16d4738f assets/yoamod/models/item/steel_war_fan.json
+663832d32681ac6b8db26b73f900c7ce6abd059a assets/yoamod/models/item/steel_war_fan.json
+a3292ac188e7be88ece281c97a011c4180664afe assets/yoamod/models/item/steel_war_fan_open.json
 42b52e9b34c6c067e5bc228d84a0afd5f3dea043 assets/yoamod/models/item/steel_whip_sword.json
 38e15bdd9ee78416481c808969d9406cc9a76cd8 assets/yoamod/models/item/titanium_axe.json
 86f6bb60102bf7d1290d15f2f6acadc7155ee361 assets/yoamod/models/item/titanium_bell.json
@@ -402,7 +413,8 @@ eabf8ebe605b60931edc19828d65619fc34bc2b7 assets/yoamod/models/item/titanium_shur
 a206a9a3b713eac663a7af24a316fa1816cd5749 assets/yoamod/models/item/titanium_talisman.json
 b4529cc9eb4065df4eba89f359a6906136f1cc6c assets/yoamod/models/item/titanium_throwing_knife.json
 726fcd49abfdacfde674ae02e6d79bcf1c2af557 assets/yoamod/models/item/titanium_tome.json
-6f5dd4b1a16e5af1a0805b321fa8917edb5ed6b8 assets/yoamod/models/item/titanium_war_fan.json
+74d16c5b8027a4b3795d78ea49fc25f7479fedeb assets/yoamod/models/item/titanium_war_fan.json
+c52ca4d5c66bcc08df527a13bbd603c7a0d413ee assets/yoamod/models/item/titanium_war_fan_open.json
 3cd991529f43dce7f2135d612c2b77b46498d637 assets/yoamod/models/item/titanium_whip_sword.json
 518e070155b9b03cab5865240cbbdbbf5909d6dc assets/yoamod/models/item/witherite.json
 04b11d43a1b5d3d2444a42fb7c800bbd597fae9e assets/yoamod/models/item/witherite_boots.json
