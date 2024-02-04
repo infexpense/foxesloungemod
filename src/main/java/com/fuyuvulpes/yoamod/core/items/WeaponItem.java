@@ -63,7 +63,7 @@ public class WeaponItem extends BaseToolItem{
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(
                 Attributes.ATTACK_DAMAGE,
-                new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", (double)this.attackDamage, AttributeModifier.Operation.ADDITION)
+                new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", (double)this.getDamage(), AttributeModifier.Operation.ADDITION)
         );
         builder.put(
                 Attributes.ATTACK_SPEED,
@@ -109,6 +109,9 @@ public class WeaponItem extends BaseToolItem{
             public boolean applyForgeHandTransform(PoseStack poseStack, LocalPlayer player, HumanoidArm arm, ItemStack item, float partialTick, float equipProcess, float swingProcess) {
                 int i = arm == HumanoidArm.RIGHT ? 1 : -1;
                 if (player.swinging) {
+
+
+
                     if (getAttackAnimation(item) == AttackAnimEnum.STAB) {
                         float stabPos = swingProcess <= 0.36 ? (float) Math.pow(7, swingProcess) : (float) (1 - Math.pow(swingProcess, 2));
                         poseStack.translate(0.1, -0.52, -0.52 - stabPos);
@@ -117,15 +120,19 @@ public class WeaponItem extends BaseToolItem{
                         poseStack.mulPose(Axis.ZP.rotationDegrees(-90.0F));
                         poseStack.scale(1.5F, 1.5F, 1.5F);
                         return true;
+
+
                     } else if (getAttackAnimation(item) == AttackAnimEnum.SWING) {
-                        float swing_pos = (1 - (2 * swingProcess)) * i;
-                        float swing_angle = (-90 + (220 * (float) Math.pow(swingProcess, 2))) * i;
+                        float swing_pos = (1 - (3 * swingProcess)) * i;
+                        float swing_angle = (-90 + (220 * (float) Math.min(Math.pow(swingProcess + 0.5, 4),1))) * i;
                         poseStack.translate(swing_pos, -0.52, -1.52);
                         poseStack.mulPose(Axis.YP.rotationDegrees(110.0F + swing_angle));
                         poseStack.mulPose(Axis.XP.rotationDegrees(arm == HumanoidArm.RIGHT ? 0.0F : 180.0F));
                         poseStack.mulPose(Axis.ZP.rotationDegrees(-90.0F));
                         poseStack.scale(1.5F, 1.5F, 1.5F);
                         return true;
+
+
                     } else if (getAttackAnimation(item) == AttackAnimEnum.SLAM) {
                         float slamPos = (1.50F - (1 * swingProcess));
                         float slamAngle = -30.0F + -50.0F * swingProcess;

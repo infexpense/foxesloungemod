@@ -47,7 +47,6 @@ public class WarFanItem extends WeaponItem {
     public AttackAnim getAttackAnimation(ItemStack itemStack) {
         return isOpen(itemStack) ? AttackAnimEnum.SWING : AttackAnimEnum.STAB;
     }
-
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
        ItemStack stack = pPlayer.getItemInHand(pUsedHand);

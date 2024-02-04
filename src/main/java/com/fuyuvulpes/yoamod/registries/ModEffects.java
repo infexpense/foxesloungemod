@@ -23,7 +23,7 @@ public class ModEffects {
     public static final DeferredHolder<MobEffect,MobEffect> STUNNED = MOB_EFFECTS.register("stun",
             () -> new StunEffect(MobEffectCategory.HARMFUL,5196096)
             .addAttributeModifier(Attributes.MOVEMENT_SPEED, "d2837724-8bf0-43c4-ae6c-7e9169602b37", 0.0F,
-                    AttributeModifier.Operation.MULTIPLY_BASE));
+                    AttributeModifier.Operation.MULTIPLY_TOTAL));
 
 
 

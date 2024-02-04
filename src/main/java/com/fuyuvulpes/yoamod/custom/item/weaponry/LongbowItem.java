@@ -16,12 +16,12 @@ import net.minecraft.world.level.Level;
 
 import java.util.function.Predicate;
 
-public class LongBow extends ProjectileWeaponItem implements Vanishable {
+public class LongbowItem extends ProjectileWeaponItem implements Vanishable {
 
     public static final int drawLimit = 30;
     public static final int baseRange = 32;
 
-    public LongBow(Properties pProperties) {
+    public LongbowItem(Properties pProperties) {
         super(pProperties.durability(2060));
     }
 

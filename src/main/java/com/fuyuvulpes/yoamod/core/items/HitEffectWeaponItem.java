@@ -10,6 +10,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.neoforged.fml.common.Mod;
 
+import java.util.Objects;
+
 public class HitEffectWeaponItem extends WeaponItem {
 
     public final MobEffect effect;
@@ -32,7 +34,11 @@ public class HitEffectWeaponItem extends WeaponItem {
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
         pStack.hurtAndBreak(1, pAttacker, p_43296_ -> p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
         if (canBleed && pAttacker.level().random.nextFloat() < bleedChance * 2){
-            pTarget.addEffect(new MobEffectInstance(ModEffects.BLEEDING.get(),140,0,false,true));
+            if (pTarget.hasEffect(ModEffects.BLEEDING.get())) {
+                pTarget.addEffect(new MobEffectInstance(ModEffects.BLEEDING.get(),140, Objects.requireNonNull(pTarget.getEffect(ModEffects.BLEEDING.get())).getAmplifier() + 1,false,true));
+            }else {
+                pTarget.addEffect(new MobEffectInstance(ModEffects.BLEEDING.get(), 140, 0, false, true));
+            }
         }
         if (effect != null && pAttacker.level().random.nextFloat() < chance * 2) {
             pTarget.addEffect(new MobEffectInstance(effect,40,0,false,false));

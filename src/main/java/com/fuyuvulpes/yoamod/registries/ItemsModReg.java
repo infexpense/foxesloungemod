@@ -5,7 +5,8 @@ import com.fuyuvulpes.yoamod.core.items.ModArmorMats;
 import com.fuyuvulpes.yoamod.core.items.WeaponItem;
 import com.fuyuvulpes.yoamod.core.items.WeaponStats;
 import com.fuyuvulpes.yoamod.custom.item.ModSmithingTemplateItem;
-import com.fuyuvulpes.yoamod.custom.item.weaponry.LongBow;
+import com.fuyuvulpes.yoamod.custom.item.weaponry.BlowDartItem;
+import com.fuyuvulpes.yoamod.custom.item.weaponry.LongbowItem;
 import com.fuyuvulpes.yoamod.custom.item.weaponry.RapierItem;
 import com.fuyuvulpes.yoamod.custom.item.weaponry.WarFanItem;
 import net.minecraft.world.food.FoodProperties;
@@ -158,18 +159,18 @@ public class ItemsModReg {
 
 
     //BLOW_DART
-    public static final DeferredItem<WeaponItem> BRONZE_BLOW_DART = ITEMS.register("bronze_" + WeaponStats.BLOW_DART.weaponId(), () -> new WeaponItem(ModToolTiers.BRONZE,WeaponStats.BLOW_DART, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> GOLD_BLOW_DART = ITEMS.register("gold_" + WeaponStats.BLOW_DART.weaponId(), () -> new WeaponItem(Tiers.GOLD,WeaponStats.BLOW_DART, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> SILVER_BLOW_DART = ITEMS.register("silver_" + WeaponStats.BLOW_DART.weaponId(), () -> new WeaponItem(ModToolTiers.SILVER,WeaponStats.BLOW_DART, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> IRON_BLOW_DART = ITEMS.register("iron_" + WeaponStats.BLOW_DART.weaponId(), () -> new WeaponItem(Tiers.IRON,WeaponStats.BLOW_DART, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> STEEL_BLOW_DART = ITEMS.register("steel_" + WeaponStats.BLOW_DART.weaponId(), () -> new WeaponItem(ModToolTiers.STEEL,WeaponStats.BLOW_DART, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> BISMUTH_BLOW_DART = ITEMS.register("bismuth_" + WeaponStats.BLOW_DART.weaponId(), () -> new WeaponItem(ModToolTiers.BISMUTH,WeaponStats.BLOW_DART, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> DIAMOND_BLOW_DART = ITEMS.register("diamond_" + WeaponStats.BLOW_DART.weaponId(), () -> new WeaponItem(Tiers.DIAMOND,WeaponStats.BLOW_DART, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> NETHERITE_BLOW_DART = ITEMS.register("netherite_" + WeaponStats.BLOW_DART.weaponId(), () -> new WeaponItem(Tiers.NETHERITE,WeaponStats.BLOW_DART, new Item.Properties().fireResistant()));
-    public static final DeferredItem<WeaponItem> TITANIUM_BLOW_DART = ITEMS.register("titanium_" + WeaponStats.BLOW_DART.weaponId(), () -> new WeaponItem(ModToolTiers.TITANIUM,WeaponStats.BLOW_DART, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> IOLITE_BLOW_DART = ITEMS.register("iolite_" + WeaponStats.BLOW_DART.weaponId(), () -> new WeaponItem(ModToolTiers.IOLITE,WeaponStats.BLOW_DART, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> ALEXANDRITE_BLOW_DART = ITEMS.register("alexandrite_" + WeaponStats.BLOW_DART.weaponId(), () -> new WeaponItem(ModToolTiers.ALEXANDRITE,WeaponStats.BLOW_DART, new Item.Properties()));
-    public static final DeferredItem<WeaponItem> ADAMANTITE_BLOW_DART = ITEMS.register("adamantite_" + WeaponStats.BLOW_DART.weaponId(), () -> new WeaponItem(ModToolTiers.ADAMANTITE,WeaponStats.BLOW_DART, new Item.Properties()));
+    public static final DeferredItem<BlowDartItem> BRONZE_BLOW_DART = ITEMS.register("bronze_" + WeaponStats.BLOW_DART.weaponId(), () -> new BlowDartItem(ModToolTiers.BRONZE, new Item.Properties()));
+    public static final DeferredItem<BlowDartItem> GOLD_BLOW_DART = ITEMS.register("gold_" + WeaponStats.BLOW_DART.weaponId(), () -> new BlowDartItem(Tiers.GOLD, new Item.Properties()));
+    public static final DeferredItem<BlowDartItem> SILVER_BLOW_DART = ITEMS.register("silver_" + WeaponStats.BLOW_DART.weaponId(), () -> new BlowDartItem(ModToolTiers.SILVER, new Item.Properties()));
+    public static final DeferredItem<BlowDartItem> IRON_BLOW_DART = ITEMS.register("iron_" + WeaponStats.BLOW_DART.weaponId(), () -> new BlowDartItem(Tiers.IRON, new Item.Properties()));
+    public static final DeferredItem<BlowDartItem> STEEL_BLOW_DART = ITEMS.register("steel_" + WeaponStats.BLOW_DART.weaponId(), () -> new BlowDartItem(ModToolTiers.STEEL, new Item.Properties()));
+    public static final DeferredItem<BlowDartItem> BISMUTH_BLOW_DART = ITEMS.register("bismuth_" + WeaponStats.BLOW_DART.weaponId(), () -> new BlowDartItem(ModToolTiers.BISMUTH, new Item.Properties()));
+    public static final DeferredItem<BlowDartItem> DIAMOND_BLOW_DART = ITEMS.register("diamond_" + WeaponStats.BLOW_DART.weaponId(), () -> new BlowDartItem(Tiers.DIAMOND, new Item.Properties()));
+    public static final DeferredItem<BlowDartItem> NETHERITE_BLOW_DART = ITEMS.register("netherite_" + WeaponStats.BLOW_DART.weaponId(), () -> new BlowDartItem(Tiers.NETHERITE, new Item.Properties().fireResistant()));
+    public static final DeferredItem<BlowDartItem> TITANIUM_BLOW_DART = ITEMS.register("titanium_" + WeaponStats.BLOW_DART.weaponId(), () -> new BlowDartItem(ModToolTiers.TITANIUM, new Item.Properties()));
+    public static final DeferredItem<BlowDartItem> IOLITE_BLOW_DART = ITEMS.register("iolite_" + WeaponStats.BLOW_DART.weaponId(), () -> new BlowDartItem(ModToolTiers.IOLITE, new Item.Properties()));
+    public static final DeferredItem<BlowDartItem> ALEXANDRITE_BLOW_DART = ITEMS.register("alexandrite_" + WeaponStats.BLOW_DART.weaponId(), () -> new BlowDartItem(ModToolTiers.ALEXANDRITE, new Item.Properties()));
+    public static final DeferredItem<BlowDartItem> ADAMANTITE_BLOW_DART = ITEMS.register("adamantite_" + WeaponStats.BLOW_DART.weaponId(), () -> new BlowDartItem(ModToolTiers.ADAMANTITE, new Item.Properties()));
 
 
     //BOOMERANG
@@ -323,7 +324,7 @@ public class ItemsModReg {
 
 
     //Bows and Crossbows
-    public static final DeferredItem<LongBow> LONGBOW = ITEMS.register(WeaponStats.LONGBOW.weaponId(), () -> new LongBow(new Item.Properties()));
+    public static final DeferredItem<LongbowItem> LONGBOW = ITEMS.register(WeaponStats.LONGBOW.weaponId(), () -> new LongbowItem(new Item.Properties()));
 
 
     //LYRE
