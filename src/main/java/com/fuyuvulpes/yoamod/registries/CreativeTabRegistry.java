@@ -23,13 +23,16 @@ public class CreativeTabRegistry {
 
             .displayItems((parameters, output) -> {
 
+                output.accept(ItemsModReg.RETURN_TALISMAN.get());
+
                 BlocksModReg.BLOCKS.getEntries().forEach(blockDeferredHolder -> {
                     output.accept(blockDeferredHolder.get());
                 });
 
-                output.accept(ItemsModReg.ADAMANTITE_TEMPLATE.get());
 
                 output.accept(ItemsModReg.RUNE_CRYSTAL.get());
+                output.accept(ItemsModReg.CRYSTALIC_SHARD.get());
+                output.accept(ItemsModReg.ADAMANTITE_TEMPLATE.get());
                 output.accept(ItemsModReg.ADAMANTITE_INGOT.get());
                 output.accept(ItemsModReg.ADAMANTITE_NUGGET.get());
                 output.accept(ItemsModReg.RAW_ADAMANTITE.get());

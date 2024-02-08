@@ -5,6 +5,7 @@ import com.fuyuvulpes.yoamod.core.items.ModArmorMats;
 import com.fuyuvulpes.yoamod.core.items.WeaponItem;
 import com.fuyuvulpes.yoamod.core.items.WeaponStats;
 import com.fuyuvulpes.yoamod.custom.item.ModSmithingTemplateItem;
+import com.fuyuvulpes.yoamod.custom.item.ReturnTalismanItem;
 import com.fuyuvulpes.yoamod.custom.item.weaponry.*;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
@@ -17,6 +18,9 @@ import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 public class ItemsModReg {
 
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
+
+
+    public static final DeferredItem<Item> RETURN_TALISMAN =  ITEMS.register("return_talisman", () -> new ReturnTalismanItem(new Item.Properties()));
 
 
     public static final DeferredItem<Item> CRYSTALIC_SHARD = ITEMS.registerSimpleItem("crystalic_shard", new Item.Properties());
@@ -416,7 +420,7 @@ public class ItemsModReg {
 
     //SCISSORS_COMBINED
     public static final DeferredItem<ScissorsSwordItem> BRONZE_SCISSORS_SWORD = ITEMS.register("bronze_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ModToolTiers.BRONZE, new Item.Properties()));
-    public static final DeferredItem<ScissorsSwordItem> GOLD_SCISSORS_SWORD = ITEMS.register("gold_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(Tiers.GOLD,, new Item.Properties()));
+    public static final DeferredItem<ScissorsSwordItem> GOLD_SCISSORS_SWORD = ITEMS.register("gold_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(Tiers.GOLD, new Item.Properties()));
     public static final DeferredItem<ScissorsSwordItem> SILVER_SCISSORS_SWORD = ITEMS.register("silver_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ModToolTiers.SILVER, new Item.Properties()));
     public static final DeferredItem<ScissorsSwordItem> IRON_SCISSORS_SWORD = ITEMS.register("iron_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(Tiers.IRON, new Item.Properties()));
     public static final DeferredItem<ScissorsSwordItem> STEEL_SCISSORS_SWORD = ITEMS.register("steel_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ModToolTiers.STEEL, new Item.Properties()));

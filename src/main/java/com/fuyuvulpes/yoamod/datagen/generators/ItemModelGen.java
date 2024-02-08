@@ -45,6 +45,7 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ItemsModReg.CRYSTALIC_SHARD);
         simpleItem(ItemsModReg.RUNE_CRYSTAL);
         simpleItem(ItemsModReg.ADAMANTITE_TEMPLATE);
+        simpleItem(ItemsModReg.RETURN_TALISMAN);
 
         simpleItem(ItemsModReg.ADAMANTITE_INGOT);
         simpleItem(ItemsModReg.ADAMANTITE_NUGGET);

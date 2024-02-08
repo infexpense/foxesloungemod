@@ -2,12 +2,12 @@ package com.fuyuvulpes.yoamod.datagen.generators;
 
 import com.fuyuvulpes.yoamod.registries.BlocksModReg;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.models.blockstates.MultiVariantGenerator;
-import net.minecraft.data.models.blockstates.Variant;
-import net.minecraft.data.models.blockstates.VariantProperties;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.data.models.model.TextureMapping;
+import net.minecraft.data.models.model.TextureSlot;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -26,6 +26,8 @@ public class BlockStateGen extends BlockStateProvider {
         blockWithItem(BlocksModReg.CRYSTALIC_REMNANTS);
         blockWithItem(BlocksModReg.RUNE_CRYSTAL_BLOCK);
 
+        axisBlock((RotatedPillarBlock) BlocksModReg.CREAKS_GATE.get(),new ResourceLocation(MODID,"block/creakstone"), new ResourceLocation(MODID, "block/creaks_gate"));
+        simpleBlockItem(BlocksModReg.CREAKS_GATE.get(), cubeAll(BlocksModReg.CREAKS_GATE.get()));
 
 
         blockWithItem(BlocksModReg.CREAKSTONE_IRON_ORE);
@@ -45,8 +47,10 @@ public class BlockStateGen extends BlockStateProvider {
     }
 
 
-    private void blockWithItem(DeferredBlock<Block> blockRegistryObject) {
-        simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+
+    private void blockWithItem(DeferredBlock<Block> deferredBlock) {
+        simpleBlockWithItem(deferredBlock.get(), cubeAll(deferredBlock.get()));
+
     }
 
 

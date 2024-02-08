@@ -3,6 +3,7 @@
   "block.yoamod.augmenting_station": "Augmenting Station",
   "block.yoamod.crucible": "Crucible",
 
+  "block.yoamod.creaks_gate": "The Creaks Gate",
   "block.yoamod.creakstone": "Creakstone",
   "block.yoamod.creakstone_fracture": "Creakstone Fracture",
   "block.yoamod.overgrown_creakstone": "Overgrown Creakstone",
@@ -31,6 +32,7 @@
   "item.minecraft.smithing_template.adamantite_upgrade.base_slot_description": "Add Alexandrite armor, weapon, or tool",
   "item.minecraft.smithing_template.adamantite_upgrade.ingredients": "Adamantite Ingot",
 
+  "item.yoamod.return_talisman": "Talisman of Returnal",
   "item.yoamod.rune_crystal": "Rune Crystal",
   "item.yoamod.crystalic_shard": "Crystalic Shard",
   "item.yoamod.adamantite_ingot": "Adamantite Ingot",

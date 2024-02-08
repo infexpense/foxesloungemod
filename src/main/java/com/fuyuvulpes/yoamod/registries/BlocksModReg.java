@@ -34,6 +34,12 @@ public class BlocksModReg {
             .sound(SoundType.NETHERITE_BLOCK)
             .lightLevel(litBlockEmission(15)));
 
+    public static final DeferredBlock<Block> CREAKS_GATE = registerBlock("creaks_gate", () -> new CreaksGateBlock(BlockBehaviour.Properties.of()
+            .strength(80.0F,1200F)
+            .sound(SoundType.DEEPSLATE).noLootTable()));
+
+
+
     public static final DeferredBlock<Block> CREAKSTONE = registerBlock("creakstone", () -> new Block(BlockBehaviour.Properties.of()
             .requiresCorrectToolForDrops()
             .strength(24.0F, 32.0F)
