@@ -1,4 +1,4 @@
-// 1.20.4	2024-01-31T18:00:58.1996977	Item Models: yoamod
+// 1.20.4	2024-02-04T18:01:21.1642556	Item Models: yoamod
 78143e17b3644d28969b1ebc10cfe54a94f19ef4 assets/yoamod/models/item/adamantite_axe.json
 e0f8fc30666d077db00723a7c74325579fc6ce18 assets/yoamod/models/item/adamantite_bell.json
 d52314b706972fb47ecda874271b06ecedffe7dd assets/yoamod/models/item/adamantite_blow_dart.json
@@ -314,6 +314,7 @@ c457dc97c02db83b91706bf119456b9d5dfc86d0 assets/yoamod/models/item/raw_adamantit
 df9637e270af3a93add4827bc44c5476245b4f34 assets/yoamod/models/item/raw_bismuth.json
 8a6adbacbcb21fe31f1c4d51061386ce4a242880 assets/yoamod/models/item/raw_silver.json
 0a7ab642181b7b652bdafb15b978847e583b8433 assets/yoamod/models/item/raw_titanium.json
+63b50bf99e7ec7b1408e82ac0b8d473de4902761 assets/yoamod/models/item/return_talisman.json
 006fbda951d7870823ed7ecadf7e82188525f65e assets/yoamod/models/item/rune_crystal.json
 ba068f6f935057601a0503cf21bcb6f7399363c0 assets/yoamod/models/item/silver_bell.json
 5b54c8c69dd83462253426c8184d7f67db3ad9ab assets/yoamod/models/item/silver_blow_dart.json
