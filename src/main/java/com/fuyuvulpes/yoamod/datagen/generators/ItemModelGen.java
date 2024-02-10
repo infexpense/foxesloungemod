@@ -1,6 +1,7 @@
 package com.fuyuvulpes.yoamod.datagen.generators;
 
 import com.fuyuvulpes.yoamod.YOAMod;
+import com.fuyuvulpes.yoamod.registries.BlocksModReg;
 import com.fuyuvulpes.yoamod.registries.ItemsModReg;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
@@ -13,7 +14,9 @@ import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -492,6 +495,7 @@ public class ItemModelGen extends ItemModelProvider {
         handheldItem(ItemsModReg.ADAMANTITE_TOME);
         warFanItem(ItemsModReg.ADAMANTITE_WAR_FAN);
         handheldBigItem(ItemsModReg.ADAMANTITE_WHIP_SWORD);
+
     }
 
     private void trimmedArmorItem(DeferredItem<?> itemRegistryObject) {
@@ -562,6 +566,7 @@ public class ItemModelGen extends ItemModelProvider {
 
 
 
+
     private ItemModelBuilder warFanItem(DeferredItem<?> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/handheld")).texture("layer0",
@@ -576,4 +581,23 @@ public class ItemModelGen extends ItemModelProvider {
                 new ResourceLocation("item/handheld")).texture("layer0",
                 new ResourceLocation(MODID,"item/" + item.getId().getPath() + "_open"));
     }
+
+    private ItemModelBuilder simpleBlockItem(DeferredBlock<?> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(MODID,"item/" + item.getId().getPath()));
+    }
+    private ItemModelBuilder wallItem(DeferredBlock<?> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("block/generated")).texture("layer0",
+                new ResourceLocation(MODID,"block/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder slabItem(DeferredBlock<?> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("block/generated")).texture("layer0",
+                new ResourceLocation(MODID,"block/" + item.getId().getPath()));
+    }
+
+
 }

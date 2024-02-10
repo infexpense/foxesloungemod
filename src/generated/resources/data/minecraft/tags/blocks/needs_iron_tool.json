@@ -1,7 +1,9 @@
 {
   "values": [
-    "yoamod:deepslate_titanium_ore",
+    "yoamod:steel_block",
     "yoamod:bismuth_ore",
-    "yoamod:deepslate_bismuth_ore"
+    "yoamod:deepslate_bismuth_ore",
+    "yoamod:bismuth_block",
+    "yoamod:raw_bismuth_block"
   ]
 }

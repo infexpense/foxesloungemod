@@ -1,5 +1,7 @@
 {
   "values": [
-    "yoamod:adamantite_ore"
+    "yoamod:adamantite_ore",
+    "yoamod:adamantite_block",
+    "yoamod:raw_adamantite_block"
   ]
 }

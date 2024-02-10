@@ -47,6 +47,9 @@ public class ModBlockLoot extends BlockLootSubProvider {
         });
 
         this.dropSelf(BlocksModReg.CREAKSTONE.get());
+        this.dropSelf(BlocksModReg.CREAKSTONE_STAIRS.get());
+        this.add(BlocksModReg.CREAKSTONE_SLAB.get(), block -> createSlabItemTable(BlocksModReg.CREAKSTONE_SLAB.get()));
+        this.dropSelf(BlocksModReg.CREAKSTONE_WALL.get());
         this.add(BlocksModReg.OVERGROWN_CREAKSTONE.get(), block -> this.createSingleItemTableWithSilkTouch(block, BlocksModReg.CREAKSTONE.get()));
         this.add(BlocksModReg.CREAKSTONE_IRON_ORE.get(), block -> this.createOreDrop(block, Items.RAW_IRON));
         this.add(BlocksModReg.CREAKSTONE_DIAMOND_ORE.get(), block -> this.createOreDrop(block, Items.DIAMOND));
@@ -76,6 +79,21 @@ public class ModBlockLoot extends BlockLootSubProvider {
         this.add(BlocksModReg.IOLITE_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.IOLITE.get()));
         this.add(BlocksModReg.ALEXANDRITE_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.ALEXANDRITE.get()));
         this.add(BlocksModReg.ADAMANTITE_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_ADAMANTITE.get()));
+
+        this.dropSelf(BlocksModReg.BRASS_BLOCK.get());
+        this.dropSelf(BlocksModReg.SILVER_BLOCK.get());
+        this.dropSelf(BlocksModReg.RAW_SILVER_BLOCK.get());
+        this.dropSelf(BlocksModReg.BRONZE_BLOCK.get());
+        this.dropSelf(BlocksModReg.STEEL_BLOCK.get());
+        this.dropSelf(BlocksModReg.BISMUTH_BLOCK.get());
+        this.dropSelf(BlocksModReg.RAW_BISMUTH_BLOCK.get());
+        this.dropSelf(BlocksModReg.TITANIUM_BLOCK.get());
+        this.dropSelf(BlocksModReg.RAW_TITANIUM_BLOCK.get());
+        this.dropSelf(BlocksModReg.WITHERITE_BLOCK.get());
+        this.dropSelf(BlocksModReg.IOLITE_BLOCK.get());
+        this.dropSelf(BlocksModReg.ALEXANDRITE_BLOCK.get());
+        this.dropSelf(BlocksModReg.ADAMANTITE_BLOCK.get());
+        this.dropSelf(BlocksModReg.RAW_ADAMANTITE_BLOCK.get());
 
     }
 

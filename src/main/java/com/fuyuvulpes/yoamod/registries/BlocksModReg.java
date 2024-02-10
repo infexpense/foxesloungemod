@@ -7,6 +7,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
@@ -44,6 +45,23 @@ public class BlocksModReg {
             .requiresCorrectToolForDrops()
             .strength(24.0F, 32.0F)
             .sound(SoundType.DEEPSLATE)));
+
+    public static final DeferredBlock<Block> CREAKSTONE_STAIRS = registerBlock("creakstone_stairs", () -> new StairBlock(() -> BlocksModReg.CREAKSTONE.get().defaultBlockState(), (BlockBehaviour.Properties.of()
+            .requiresCorrectToolForDrops()
+            .strength(24.0F, 32.0F)
+            .sound(SoundType.DEEPSLATE))));
+
+    public static final DeferredBlock<Block> CREAKSTONE_SLAB = registerBlock("creakstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.of()
+            .requiresCorrectToolForDrops()
+            .strength(24.0F, 32.0F)
+            .sound(SoundType.DEEPSLATE)));
+
+
+    public static final DeferredBlock<Block> CREAKSTONE_WALL = registerBlock("creakstone_wall", () -> new WallBlock(BlockBehaviour.Properties.of()
+            .requiresCorrectToolForDrops()
+            .strength(24.0F, 32.0F)
+            .sound(SoundType.DEEPSLATE)));
+
 
     public static final DeferredBlock<Block> CREAKSTONE_FRACTURE = registerBlock("creakstone_fracture", () -> new DropExperienceBlock(UniformInt.of(5, 70),
             BlockBehaviour.Properties.ofLegacyCopy(BlocksModReg.CREAKSTONE.get()).noLootTable()));
@@ -89,6 +107,21 @@ public class BlocksModReg {
     public static final DeferredBlock<Block> ADAMANTITE_ORE = registerBlock("adamantite_ore", () -> new DropExperienceBlock(UniformInt.of(30, 200),BlockBehaviour.Properties.ofLegacyCopy(BlocksModReg.CREAKSTONE.get())
             .strength(30.0F, 42.0F)
     ));
+
+    public static final DeferredBlock<Block> BRASS_BLOCK = registerBlock("brass_block", Block.Properties.ofLegacyCopy(Blocks.IRON_ORE).requiresCorrectToolForDrops());
+    public static final DeferredBlock<Block> SILVER_BLOCK = registerBlock("silver_block", Block.Properties.ofLegacyCopy(Blocks.IRON_ORE).requiresCorrectToolForDrops());
+    public static final DeferredBlock<Block> RAW_SILVER_BLOCK = registerBlock("raw_silver_block", Block.Properties.ofLegacyCopy(Blocks.IRON_ORE).requiresCorrectToolForDrops());
+    public static final DeferredBlock<Block> BRONZE_BLOCK = registerBlock("bronze_block", Block.Properties.ofLegacyCopy(Blocks.IRON_ORE).requiresCorrectToolForDrops());
+    public static final DeferredBlock<Block> STEEL_BLOCK = registerBlock("steel_block", Block.Properties.ofLegacyCopy(Blocks.IRON_ORE).requiresCorrectToolForDrops());
+    public static final DeferredBlock<Block> BISMUTH_BLOCK = registerBlock("bismuth_block", Block.Properties.ofLegacyCopy(Blocks.IRON_ORE).requiresCorrectToolForDrops());
+    public static final DeferredBlock<Block> RAW_BISMUTH_BLOCK = registerBlock("raw_bismuth_block", Block.Properties.ofLegacyCopy(Blocks.IRON_ORE).requiresCorrectToolForDrops());
+    public static final DeferredBlock<Block> TITANIUM_BLOCK = registerBlock("titanium_block", Block.Properties.ofLegacyCopy(Blocks.IRON_ORE).requiresCorrectToolForDrops());
+    public static final DeferredBlock<Block> RAW_TITANIUM_BLOCK = registerBlock("raw_titanium_block", Block.Properties.ofLegacyCopy(Blocks.IRON_ORE).requiresCorrectToolForDrops());
+    public static final DeferredBlock<Block> WITHERITE_BLOCK = registerBlock("witherite_block", Block.Properties.ofLegacyCopy(Blocks.IRON_ORE).requiresCorrectToolForDrops());
+    public static final DeferredBlock<Block> IOLITE_BLOCK = registerBlock("iolite_block", Block.Properties.ofLegacyCopy(Blocks.IRON_ORE).requiresCorrectToolForDrops());
+    public static final DeferredBlock<Block> ALEXANDRITE_BLOCK = registerBlock("alexandrite_block", Block.Properties.ofLegacyCopy(Blocks.IRON_ORE).requiresCorrectToolForDrops());
+    public static final DeferredBlock<Block> ADAMANTITE_BLOCK = registerBlock("adamantite_block", Block.Properties.ofLegacyCopy(Blocks.IRON_ORE).requiresCorrectToolForDrops());
+    public static final DeferredBlock<Block> RAW_ADAMANTITE_BLOCK = registerBlock("raw_adamantite_block", Block.Properties.ofLegacyCopy(Blocks.IRON_ORE).requiresCorrectToolForDrops());
 
 
 

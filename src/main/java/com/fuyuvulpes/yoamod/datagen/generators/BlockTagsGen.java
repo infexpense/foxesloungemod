@@ -48,7 +48,22 @@ public class BlockTagsGen extends BlockTagsProvider {
                         BlocksModReg.ADAMANTITE_ORE.get(),
 
                         BlocksModReg.RUNE_CRYSTAL_CLUSTER.get(),
-                        BlocksModReg.RUNE_CRYSTAL_BLOCK.get()
+                        BlocksModReg.RUNE_CRYSTAL_BLOCK.get(),
+
+                        BlocksModReg.BRASS_BLOCK.get(),
+                        BlocksModReg.SILVER_BLOCK.get(),
+                        BlocksModReg.RAW_SILVER_BLOCK.get(),
+                        BlocksModReg.BRONZE_BLOCK.get(),
+                        BlocksModReg.STEEL_BLOCK.get(),
+                        BlocksModReg.BISMUTH_BLOCK.get(),
+                        BlocksModReg.RAW_BISMUTH_BLOCK.get(),
+                        BlocksModReg.TITANIUM_BLOCK.get(),
+                        BlocksModReg.RAW_TITANIUM_BLOCK.get(),
+                        BlocksModReg.WITHERITE_BLOCK.get(),
+                        BlocksModReg.IOLITE_BLOCK.get(),
+                        BlocksModReg.ALEXANDRITE_BLOCK.get(),
+                        BlocksModReg.ADAMANTITE_BLOCK.get(),
+                        BlocksModReg.RAW_ADAMANTITE_BLOCK.get()
                         );
 
 
@@ -57,24 +72,34 @@ public class BlockTagsGen extends BlockTagsProvider {
                         BlocksModReg.HAMMERING_STATION.get(),
                         BlocksModReg.CRUCIBLE.get(),
                         BlocksModReg.RUNE_CRYSTAL_CLUSTER.get(),
-                        BlocksModReg.RUNE_CRYSTAL_BLOCK.get()
+                        BlocksModReg.RUNE_CRYSTAL_BLOCK.get(),
+                        BlocksModReg.BRASS_BLOCK.get(),
+                        BlocksModReg.SILVER_BLOCK.get(),
+                        BlocksModReg.RAW_SILVER_BLOCK.get(),
+                        BlocksModReg.BRONZE_BLOCK.get()
                 );
 
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(
-                        BlocksModReg.DEEPSLATE_TITANIUM_ORE.get(),
+                        BlocksModReg.STEEL_BLOCK.get(),
                         BlocksModReg.BISMUTH_ORE.get(),
-                        BlocksModReg.DEEPSLATE_BISMUTH_ORE.get()
+                        BlocksModReg.DEEPSLATE_BISMUTH_ORE.get(),
+                        BlocksModReg.BISMUTH_BLOCK.get(),
+                        BlocksModReg.RAW_BISMUTH_BLOCK.get()
 
                 );
 
 
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(
+                        BlocksModReg.DEEPSLATE_TITANIUM_ORE.get(),
                         BlocksModReg.TITANIUM_ORE.get(),
+                        BlocksModReg.TITANIUM_BLOCK.get(),
+                        BlocksModReg.RAW_TITANIUM_BLOCK.get(),
                         BlocksModReg.CRYSTALIC_REMNANTS.get(),
                         BlocksModReg.WITHERITE_ORE.get(),
+                        BlocksModReg.WITHERITE_BLOCK.get(),
                         BlocksModReg.POINTED_CREAKSTONE.get()
 
                 );
@@ -82,7 +107,8 @@ public class BlockTagsGen extends BlockTagsProvider {
 
         this.tag(Tags.Blocks.NEEDS_NETHERITE_TOOL)
                 .add(
-                        BlocksModReg.IOLITE_ORE.get()
+                        BlocksModReg.IOLITE_ORE.get(),
+                        BlocksModReg.IOLITE_BLOCK.get()
                 );
 
         this.tag(TagRegistry.Blocks.NEEDS_TITANIUM_TOOL)
@@ -98,13 +124,16 @@ public class BlockTagsGen extends BlockTagsProvider {
         this.tag(TagRegistry.Blocks.NEEDS_IOLITE_TOOL)
                 .add(
                         BlocksModReg.CREAKSTONE_DIAMOND_ORE.get(),
-                        BlocksModReg.ALEXANDRITE_ORE.get()
+                        BlocksModReg.ALEXANDRITE_ORE.get(),
+                        BlocksModReg.ALEXANDRITE_BLOCK.get()
 
                 );
 
         this.tag(TagRegistry.Blocks.NEEDS_ALEXANDRITE_TOOL)
                 .add(
-                        BlocksModReg.ADAMANTITE_ORE.get()
+                        BlocksModReg.ADAMANTITE_ORE.get(),
+                        BlocksModReg.ADAMANTITE_BLOCK.get(),
+                        BlocksModReg.RAW_ADAMANTITE_BLOCK.get()
 
                 );
 
@@ -132,6 +161,11 @@ public class BlockTagsGen extends BlockTagsProvider {
                 .add(
                         BlocksModReg.CREAKSTONE.get()
 
+                );
+
+        this.tag(BlockTags.WALLS)
+                .add(
+                        BlocksModReg.CREAKSTONE_WALL.get()
                 );
     }
 

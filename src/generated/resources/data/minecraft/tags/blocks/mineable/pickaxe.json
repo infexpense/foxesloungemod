@@ -22,6 +22,20 @@
     "yoamod:alexandrite_ore",
     "yoamod:adamantite_ore",
     "yoamod:rune_crystal_cluster",
-    "yoamod:rune_crystal_block"
+    "yoamod:rune_crystal_block",
+    "yoamod:brass_block",
+    "yoamod:silver_block",
+    "yoamod:raw_silver_block",
+    "yoamod:bronze_block",
+    "yoamod:steel_block",
+    "yoamod:bismuth_block",
+    "yoamod:raw_bismuth_block",
+    "yoamod:titanium_block",
+    "yoamod:raw_titanium_block",
+    "yoamod:witherite_block",
+    "yoamod:iolite_block",
+    "yoamod:alexandrite_block",
+    "yoamod:adamantite_block",
+    "yoamod:raw_adamantite_block"
   ]
 }

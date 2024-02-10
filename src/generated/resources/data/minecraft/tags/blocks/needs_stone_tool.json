@@ -4,6 +4,10 @@
     "yoamod:hammering_station",
     "yoamod:crucible",
     "yoamod:rune_crystal_cluster",
-    "yoamod:rune_crystal_block"
+    "yoamod:rune_crystal_block",
+    "yoamod:brass_block",
+    "yoamod:silver_block",
+    "yoamod:raw_silver_block",
+    "yoamod:bronze_block"
   ]
 }

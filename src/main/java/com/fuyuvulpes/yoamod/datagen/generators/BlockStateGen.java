@@ -6,9 +6,9 @@ import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.data.models.model.TextureSlot;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 
@@ -21,7 +21,11 @@ public class BlockStateGen extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+
         blockWithItem(BlocksModReg.CREAKSTONE);
+        stairsBlock(((StairBlock) BlocksModReg.CREAKSTONE_STAIRS.get()), blockTexture(BlocksModReg.CREAKSTONE.get()));
+        slabBlock(((SlabBlock) BlocksModReg.CREAKSTONE_SLAB.get()), blockTexture(BlocksModReg.CREAKSTONE.get()), blockTexture(BlocksModReg.CREAKSTONE.get()));
+        wallBlock(((WallBlock) BlocksModReg.CREAKSTONE_WALL.get()), blockTexture(BlocksModReg.CREAKSTONE.get()));
         blockWithItem(BlocksModReg.CREAKSTONE_FRACTURE);
         blockWithItem(BlocksModReg.CRYSTALIC_REMNANTS);
         blockWithItem(BlocksModReg.RUNE_CRYSTAL_BLOCK);
@@ -43,6 +47,21 @@ public class BlockStateGen extends BlockStateProvider {
         blockWithItem(BlocksModReg.IOLITE_ORE);
         blockWithItem(BlocksModReg.ALEXANDRITE_ORE);
         blockWithItem(BlocksModReg.ADAMANTITE_ORE);
+
+        blockWithItem(BlocksModReg.BRASS_BLOCK);
+        blockWithItem(BlocksModReg.SILVER_BLOCK);
+        blockWithItem(BlocksModReg.RAW_SILVER_BLOCK);
+        blockWithItem(BlocksModReg.BRONZE_BLOCK);
+        blockWithItem(BlocksModReg.STEEL_BLOCK);
+        blockWithItem(BlocksModReg.BISMUTH_BLOCK);
+        blockWithItem(BlocksModReg.RAW_BISMUTH_BLOCK);
+        blockWithItem(BlocksModReg.TITANIUM_BLOCK);
+        blockWithItem(BlocksModReg.RAW_TITANIUM_BLOCK);
+        blockWithItem(BlocksModReg.WITHERITE_BLOCK);
+        blockWithItem(BlocksModReg.IOLITE_BLOCK);
+        blockWithItem(BlocksModReg.ALEXANDRITE_BLOCK);
+        blockWithItem(BlocksModReg.ADAMANTITE_BLOCK);
+        blockWithItem(BlocksModReg.RAW_ADAMANTITE_BLOCK);
 
     }
 
