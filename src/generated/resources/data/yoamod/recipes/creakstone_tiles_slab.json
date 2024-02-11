@@ -3,15 +3,14 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "yoamod:crystalic_shard"
+      "item": "yoamod:creakstone_tiles"
     }
   },
   "pattern": [
-    "###",
-    "###",
     "###"
   ],
   "result": {
-    "item": "yoamod:crystalic_remnants"
+    "count": 6,
+    "item": "yoamod:creakstone_tiles_slab"
   }
 }

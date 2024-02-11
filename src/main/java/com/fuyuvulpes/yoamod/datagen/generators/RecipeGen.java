@@ -2,6 +2,7 @@ package com.fuyuvulpes.yoamod.datagen.generators;
 
 import com.fuyuvulpes.yoamod.registries.BlocksModReg;
 import com.fuyuvulpes.yoamod.registries.ItemsModReg;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -9,12 +10,25 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
 import java.util.concurrent.CompletableFuture;
 
 public class RecipeGen extends RecipeProvider implements IConditionBuilder {
+    public static final ImmutableList<ItemLike> IRON_SMELTABLES;
+    public static final ImmutableList<ItemLike> DIAMOND_SMELTABLES;
+    public static final ImmutableList<ItemLike> SILVER_SMELTABLES;
+    public static final ImmutableList<ItemLike> BISMUTH_SMELTABLES;
+    public static final ImmutableList<ItemLike> TITANIUM_SMELTABLES;
+    public static final ImmutableList<ItemLike> IOLITE_SMELTABLES;
+    public static final ImmutableList<ItemLike> WITHERITE_SMELTABLES;
+    public static final ImmutableList<ItemLike> ALEXANDRITE_SMELTABLES;
+    public static final ImmutableList<ItemLike> ADAMANTITE_SMELTABLES;
+
     public RecipeGen(PackOutput packOutput) {
         super(packOutput);
     }
@@ -22,8 +36,12 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
     @Override
     protected void buildRecipes(RecipeOutput output) {
 
-        nineBlockStorageRecipes(output, RecipeCategory.MISC, ItemsModReg.CRYSTALIC_SHARD.get(), RecipeCategory.MISC, BlocksModReg.CRYSTALIC_REMNANTS.get());
-        twoByTwoPacker(output,RecipeCategory.MISC,BlocksModReg.RUNE_CRYSTAL_BLOCK.get(),ItemsModReg.RUNE_CRYSTAL.get());
+        makeStoneSetRecipe(output, BlocksModReg.CREAKSTONE.get(), BlocksModReg.CREAKSTONE_STAIRS.get(), BlocksModReg.CREAKSTONE_SLAB, BlocksModReg.CREAKSTONE_WALL);
+        makeStoneSetRecipe(output, BlocksModReg.CREAKSTONE_TILES.get(), BlocksModReg.CREAKSTONE_TILES_STAIRS.get(), BlocksModReg.CREAKSTONE_TILES_SLAB, BlocksModReg.CREAKSTONE_TILES_WALL);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES, 4).define('#', BlocksModReg.CREAKSTONE_TILES).define('X', ItemsModReg.CRYSTALIC_SHARD).
+                pattern("#X").
+                pattern("X#").unlockedBy("has_crystalic_shard", has(ItemsModReg.CRYSTALIC_SHARD)).save(output);
+        makeStoneSetRecipe(output, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES.get(), BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_STAIRS.get(), BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_SLAB, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL);
         nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, ItemsModReg.ADAMANTITE_NUGGET.get(), RecipeCategory.MISC, ItemsModReg.ADAMANTITE_INGOT, "adamantite_ingot_from_nuggets", "adamantite_ingot");
         nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ItemsModReg.ADAMANTITE_INGOT, RecipeCategory.MISC, BlocksModReg.ADAMANTITE_BLOCK, "adamantite_ingot_from_adamantite_block", "adamantite_ingot");
         nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, ItemsModReg.ALEXANDRITE_SHARD.get(), RecipeCategory.MISC, ItemsModReg.ALEXANDRITE, "alexandrite_from_shards", "alexandrite");
@@ -50,6 +68,40 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
         nineBlockStorageRecipes(output, RecipeCategory.MISC, ItemsModReg.RAW_TITANIUM.get(), RecipeCategory.MISC, BlocksModReg.RAW_TITANIUM_BLOCK.get());
         nineBlockStorageRecipes(output, RecipeCategory.MISC, ItemsModReg.RAW_ADAMANTITE.get(), RecipeCategory.MISC, BlocksModReg.RAW_ADAMANTITE_BLOCK.get());
 
+
+        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_STAIRS, BlocksModReg.CREAKSTONE);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_SLAB, BlocksModReg.CREAKSTONE, 2);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_WALL, BlocksModReg.CREAKSTONE);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_TILES, BlocksModReg.CREAKSTONE);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_TILES_STAIRS, BlocksModReg.CREAKSTONE);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_TILES_SLAB, BlocksModReg.CREAKSTONE, 2);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_TILES_WALL, BlocksModReg.CREAKSTONE);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_TILES_STAIRS, BlocksModReg.CREAKSTONE_TILES);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_TILES_SLAB, BlocksModReg.CREAKSTONE_TILES, 2);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_TILES_WALL, BlocksModReg.CREAKSTONE_TILES);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_STAIRS, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_SLAB, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES, 2);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES);
+
+        oreSmelting(output, IRON_SMELTABLES, RecipeCategory.MISC, Items.IRON_INGOT, 0.1F, 200, "iron_ingot");
+        oreSmelting(output, DIAMOND_SMELTABLES, RecipeCategory.MISC, Items.DIAMOND, 0.1F, 200, "diamond");
+        oreSmelting(output, SILVER_SMELTABLES, RecipeCategory.MISC, ItemsModReg.SILVER_INGOT, 0.1F, 200, "silver_ingot");
+        oreSmelting(output, BISMUTH_SMELTABLES, RecipeCategory.MISC, ItemsModReg.BISMUTH, 0.1F, 200, "bismuth_ingot");
+        oreSmelting(output, TITANIUM_SMELTABLES, RecipeCategory.MISC, ItemsModReg.TITANIUM_INGOT, 0.1F, 200, "titanium_ingot");
+        oreSmelting(output, WITHERITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.WITHERITE, 0.1F, 200, "witherite");
+        oreSmelting(output, IOLITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.IOLITE, 0.1F, 200, "iolite");
+        oreSmelting(output, ALEXANDRITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.ALEXANDRITE, 0.1F, 200, "alexandrite");
+        oreSmelting(output, ADAMANTITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.RAW_ADAMANTITE, 0.1F, 200, "raw_adamantite");
+
+        oreBlasting(output, IRON_SMELTABLES, RecipeCategory.MISC, Items.IRON_INGOT, 0.7F, 100, "iron_ingot");
+        oreBlasting(output, DIAMOND_SMELTABLES, RecipeCategory.MISC, Items.DIAMOND, 0.7F, 100, "diamond");
+        oreBlasting(output, SILVER_SMELTABLES, RecipeCategory.MISC, ItemsModReg.SILVER_INGOT, 0.7F, 100, "silver_ingot");
+        oreBlasting(output, BISMUTH_SMELTABLES, RecipeCategory.MISC, ItemsModReg.BISMUTH, 0.7F, 100, "bismuth_ingot");
+        oreBlasting(output, TITANIUM_SMELTABLES, RecipeCategory.MISC, ItemsModReg.TITANIUM_INGOT, 0.7F, 100, "titanium_ingot");
+        oreBlasting(output, WITHERITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.WITHERITE, 0.7F, 100, "witherite");
+        oreBlasting(output, IOLITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.IOLITE, 0.7F, 100, "iolite");
+        oreBlasting(output, ALEXANDRITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.ALEXANDRITE, 0.7F, 100, "alexandrite");
+        oreBlasting(output, ADAMANTITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.RAW_ADAMANTITE, 0.7F, 100, "raw_adamantite");
 
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemsModReg.ALEXANDRITE_AXE).define('#', Items.STICK).define('X', ItemsModReg.ALEXANDRITE).
@@ -98,8 +150,8 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
                 pattern(" #").unlockedBy("has_titanium_ingot", has(ItemsModReg.TITANIUM_INGOT)).save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemsModReg.TITANIUM_PICKAXE).define('#', Items.STICK).define('X', ItemsModReg.TITANIUM_INGOT).
                 pattern("XXX").
-                pattern(" # " ).
-                pattern(" # " ).unlockedBy("has_titanium_ingot", has(ItemsModReg.TITANIUM_INGOT)).save(output);
+                pattern(" # ").
+                pattern(" # ").unlockedBy("has_titanium_ingot", has(ItemsModReg.TITANIUM_INGOT)).save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemsModReg.TITANIUM_SHOVEL).define('#', Items.STICK).define('X', ItemsModReg.TITANIUM_INGOT).
                 pattern("X").
                 pattern("#").
@@ -108,36 +160,57 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
         makeArmorRecipe(output, ItemsModReg.SILVER_INGOT.get(), ItemsModReg.SILVER_HELMET.get(), ItemsModReg.SILVER_CHESTPLATE, ItemsModReg.SILVER_LEGGINGS, ItemsModReg.SILVER_BOOTS);
         makeArmorRecipe(output, ItemsModReg.WITHERITE.get(), ItemsModReg.WITHERITE_HELMET.get(), ItemsModReg.WITHERITE_CHESTPLATE, ItemsModReg.WITHERITE_LEGGINGS, ItemsModReg.WITHERITE_BOOTS);
         makeArmorRecipe(output, ItemsModReg.IOLITE.get(), ItemsModReg.IOLITE_HELMET.get(), ItemsModReg.IOLITE_CHESTPLATE, ItemsModReg.IOLITE_LEGGINGS, ItemsModReg.IOLITE_BOOTS);
-        makeArmorRecipe(output, ItemsModReg.ALEXANDRITE.get(), ItemsModReg.ALEXANDRITE_HELMET.get(), ItemsModReg.ALEXANDRITE_CHESTPLATE , ItemsModReg.ALEXANDRITE_LEGGINGS, ItemsModReg.ALEXANDRITE_BOOTS);
-
-
-
+        makeArmorRecipe(output, ItemsModReg.ALEXANDRITE.get(), ItemsModReg.ALEXANDRITE_HELMET.get(), ItemsModReg.ALEXANDRITE_CHESTPLATE, ItemsModReg.ALEXANDRITE_LEGGINGS, ItemsModReg.ALEXANDRITE_BOOTS);
 
 
     }
 
 
-
-    public static void makeArmorRecipe(RecipeOutput output, ItemLike material, ItemLike helmet, ItemLike chestplate, ItemLike leggings, ItemLike boots){
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT,helmet).define('#',material)
+    public static void makeArmorRecipe(RecipeOutput output, ItemLike material, ItemLike helmet, ItemLike chestplate, ItemLike leggings, ItemLike boots) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, helmet).define('#', material)
                 .pattern("###")
                 .pattern("# #")
-                .unlockedBy("has_material",has(material)).save(output);
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT,chestplate).define('#',material)
+                .unlockedBy("has_material", has(material)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, chestplate).define('#', material)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
-                .unlockedBy("has_material",has(material)).save(output);
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT,leggings).define('#',material)
+                .unlockedBy("has_material", has(material)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, leggings).define('#', material)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
-                .unlockedBy("has_material",has(material)).save(output);
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT,boots).define('#',material)
+                .unlockedBy("has_material", has(material)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, boots).define('#', material)
                 .pattern("# #")
                 .pattern("# #")
-                .unlockedBy("has_material",has(material)).save(output);
+                .unlockedBy("has_material", has(material)).save(output);
     }
 
+    public static void makeStoneSetRecipe(RecipeOutput output, ItemLike material, ItemLike stair, ItemLike slab, ItemLike wall) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, stair, 4).define('#', material)
+                .pattern("#  ")
+                .pattern("## ")
+                .pattern("###")
+                .unlockedBy("has_material", has(material)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, slab, 6).define('#', material)
+                .pattern("###")
+                .unlockedBy("has_material", has(material)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, wall, 6).define('#', material)
+                .pattern("###")
+                .pattern("###")
+                .unlockedBy("has_material", has(material)).save(output);
+    }
 
+    static {
+        IRON_SMELTABLES = ImmutableList.of(BlocksModReg.CREAKSTONE_IRON_ORE);
+        DIAMOND_SMELTABLES = ImmutableList.of(BlocksModReg.CREAKSTONE_DIAMOND_ORE);
+        SILVER_SMELTABLES = ImmutableList.of(BlocksModReg.SILVER_ORE, BlocksModReg.DEEPSLATE_SILVER_ORE, ItemsModReg.RAW_SILVER);
+        BISMUTH_SMELTABLES = ImmutableList.of(BlocksModReg.BISMUTH_ORE, BlocksModReg.DEEPSLATE_BISMUTH_ORE, ItemsModReg.RAW_BISMUTH);
+        TITANIUM_SMELTABLES = ImmutableList.of(Items.COPPER_ORE, Items.DEEPSLATE_COPPER_ORE, Items.RAW_COPPER);
+        WITHERITE_SMELTABLES = ImmutableList.of(BlocksModReg.WITHERITE_ORE);
+        IOLITE_SMELTABLES = ImmutableList.of(BlocksModReg.IOLITE_ORE);
+        ALEXANDRITE_SMELTABLES = ImmutableList.of(BlocksModReg.ALEXANDRITE_ORE);
+        ADAMANTITE_SMELTABLES = ImmutableList.of(BlocksModReg.ADAMANTITE_ORE);
+    }
 }

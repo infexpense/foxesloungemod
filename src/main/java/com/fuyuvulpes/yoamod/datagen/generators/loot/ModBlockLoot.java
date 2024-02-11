@@ -50,10 +50,18 @@ public class ModBlockLoot extends BlockLootSubProvider {
         this.dropSelf(BlocksModReg.CREAKSTONE_STAIRS.get());
         this.add(BlocksModReg.CREAKSTONE_SLAB.get(), block -> createSlabItemTable(BlocksModReg.CREAKSTONE_SLAB.get()));
         this.dropSelf(BlocksModReg.CREAKSTONE_WALL.get());
+        this.dropSelf(BlocksModReg.CREAKSTONE_TILES.get());
+        this.dropSelf(BlocksModReg.CREAKSTONE_TILES_STAIRS.get());
+        this.add(BlocksModReg.CREAKSTONE_TILES_SLAB.get(), block -> createSlabItemTable(BlocksModReg.CREAKSTONE_SLAB.get()));
+        this.dropSelf(BlocksModReg.CREAKSTONE_TILES_WALL.get());
         this.add(BlocksModReg.OVERGROWN_CREAKSTONE.get(), block -> this.createSingleItemTableWithSilkTouch(block, BlocksModReg.CREAKSTONE.get()));
         this.add(BlocksModReg.CREAKSTONE_IRON_ORE.get(), block -> this.createOreDrop(block, Items.RAW_IRON));
         this.add(BlocksModReg.CREAKSTONE_DIAMOND_ORE.get(), block -> this.createOreDrop(block, Items.DIAMOND));
         this.dropSelf(BlocksModReg.RUNE_CRYSTAL_BLOCK.get());
+        this.dropSelf(BlocksModReg.CRYSTALIC_CREAKSTONE_TILES.get());
+        this.dropSelf(BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_STAIRS.get());
+        this.add(BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_SLAB.get(), block -> createSlabItemTable(BlocksModReg.CREAKSTONE_SLAB.get()));
+        this.dropSelf(BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL.get());
 
         this.add(BlocksModReg.RUNE_CRYSTAL_CLUSTER.get(), block -> createSilkTouchDispatchTable(
                 block,
@@ -94,6 +102,8 @@ public class ModBlockLoot extends BlockLootSubProvider {
         this.dropSelf(BlocksModReg.ALEXANDRITE_BLOCK.get());
         this.dropSelf(BlocksModReg.ADAMANTITE_BLOCK.get());
         this.dropSelf(BlocksModReg.RAW_ADAMANTITE_BLOCK.get());
+
+        this.dropSelf(BlocksModReg.HAUNTED_LAMP.get());
 
     }
 

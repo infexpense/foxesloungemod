@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "group": "bismuth_ingot",
+  "ingredient": {
+    "item": "yoamod:deepslate_bismuth_ore"
+  },
+  "result": "yoamod:bismuth"
+}

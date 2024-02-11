@@ -28,6 +28,13 @@ public class BlockTagsGen extends BlockTagsProvider {
                         BlocksModReg.HAMMERING_STATION.get(),
                         BlocksModReg.CRUCIBLE.get(),
                         BlocksModReg.CREAKSTONE.get(),
+                        BlocksModReg.CREAKSTONE_STAIRS.get(),
+                        BlocksModReg.CREAKSTONE_SLAB.get(),
+                        BlocksModReg.CREAKSTONE_WALL.get(),
+                        BlocksModReg.CREAKSTONE_TILES.get(),
+                        BlocksModReg.CREAKSTONE_TILES_STAIRS.get(),
+                        BlocksModReg.CREAKSTONE_TILES_SLAB.get(),
+                        BlocksModReg.CREAKSTONE_TILES_WALL.get(),
                         BlocksModReg.CREAKSTONE_FRACTURE.get(),
                         BlocksModReg.OVERGROWN_CREAKSTONE.get(),
                         BlocksModReg.POINTED_CREAKSTONE.get(),
@@ -49,6 +56,10 @@ public class BlockTagsGen extends BlockTagsProvider {
 
                         BlocksModReg.RUNE_CRYSTAL_CLUSTER.get(),
                         BlocksModReg.RUNE_CRYSTAL_BLOCK.get(),
+                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES.get(),
+                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_STAIRS.get(),
+                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_SLAB.get(),
+                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL.get(),
 
                         BlocksModReg.BRASS_BLOCK.get(),
                         BlocksModReg.SILVER_BLOCK.get(),
@@ -63,7 +74,9 @@ public class BlockTagsGen extends BlockTagsProvider {
                         BlocksModReg.IOLITE_BLOCK.get(),
                         BlocksModReg.ALEXANDRITE_BLOCK.get(),
                         BlocksModReg.ADAMANTITE_BLOCK.get(),
-                        BlocksModReg.RAW_ADAMANTITE_BLOCK.get()
+                        BlocksModReg.RAW_ADAMANTITE_BLOCK.get(),
+
+                        BlocksModReg.HAUNTED_LAMP.get()
                         );
 
 
@@ -76,7 +89,8 @@ public class BlockTagsGen extends BlockTagsProvider {
                         BlocksModReg.BRASS_BLOCK.get(),
                         BlocksModReg.SILVER_BLOCK.get(),
                         BlocksModReg.RAW_SILVER_BLOCK.get(),
-                        BlocksModReg.BRONZE_BLOCK.get()
+                        BlocksModReg.BRONZE_BLOCK.get(),
+                        BlocksModReg.HAUNTED_LAMP.get()
                 );
 
 
@@ -115,10 +129,21 @@ public class BlockTagsGen extends BlockTagsProvider {
                 .add(
 
                         BlocksModReg.CREAKSTONE.get(),
+                        BlocksModReg.CREAKSTONE_STAIRS.get(),
+                        BlocksModReg.CREAKSTONE_SLAB.get(),
+                        BlocksModReg.CREAKSTONE_WALL.get(),
                         BlocksModReg.CREAKSTONE_FRACTURE.get(),
                         BlocksModReg.OVERGROWN_CREAKSTONE.get(),
                         BlocksModReg.CREAKSTONE_IRON_ORE.get(),
-                        BlocksModReg.CREAKSTONE_TITANIUM_ORE.get()
+                        BlocksModReg.CREAKSTONE_TITANIUM_ORE.get(),
+                        BlocksModReg.CREAKSTONE_TILES.get(),
+                        BlocksModReg.CREAKSTONE_TILES_STAIRS.get(),
+                        BlocksModReg.CREAKSTONE_TILES_SLAB.get(),
+                        BlocksModReg.CREAKSTONE_TILES_WALL.get(),
+                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES.get(),
+                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_STAIRS.get(),
+                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_SLAB.get(),
+                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL.get()
                 );
 
         this.tag(TagRegistry.Blocks.NEEDS_IOLITE_TOOL)
@@ -165,7 +190,9 @@ public class BlockTagsGen extends BlockTagsProvider {
 
         this.tag(BlockTags.WALLS)
                 .add(
-                        BlocksModReg.CREAKSTONE_WALL.get()
+                        BlocksModReg.CREAKSTONE_WALL.get(),
+                        BlocksModReg.CREAKSTONE_TILES_WALL.get(),
+                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL.get()
                 );
     }
 

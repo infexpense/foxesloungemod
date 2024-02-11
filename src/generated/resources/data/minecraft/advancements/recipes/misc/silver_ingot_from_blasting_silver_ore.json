@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_rune_crystal": {
+    "has_silver_ore": {
       "conditions": {
         "items": [
           {
             "items": [
-              "yoamod:rune_crystal"
+              "yoamod:silver_ore"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "yoamod:rune_crystal_block"
+        "recipe": "minecraft:silver_ingot_from_blasting_silver_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -23,12 +23,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_rune_crystal"
+      "has_silver_ore"
     ]
   ],
   "rewards": {
     "recipes": [
-      "yoamod:rune_crystal_block"
+      "minecraft:silver_ingot_from_blasting_silver_ore"
     ]
   }
 }

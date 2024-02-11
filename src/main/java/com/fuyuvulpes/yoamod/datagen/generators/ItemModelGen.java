@@ -496,6 +496,8 @@ public class ItemModelGen extends ItemModelProvider {
         warFanItem(ItemsModReg.ADAMANTITE_WAR_FAN);
         handheldBigItem(ItemsModReg.ADAMANTITE_WHIP_SWORD);
 
+
+
     }
 
     private void trimmedArmorItem(DeferredItem<?> itemRegistryObject) {

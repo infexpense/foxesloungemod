@@ -27,9 +27,17 @@ public class BlockStateGen extends BlockStateProvider {
 
         makeStoneSet(BlocksModReg.CREAKSTONE, BlocksModReg.CREAKSTONE, BlocksModReg.CREAKSTONE_STAIRS, BlocksModReg.CREAKSTONE_WALL, BlocksModReg.CREAKSTONE_SLAB);
 
+        blockWithItem(BlocksModReg.CREAKSTONE_TILES);
+
+        makeStoneSet(BlocksModReg.CREAKSTONE_TILES, BlocksModReg.CREAKSTONE_TILES, BlocksModReg.CREAKSTONE_TILES_STAIRS, BlocksModReg.CREAKSTONE_TILES_WALL, BlocksModReg.CREAKSTONE_TILES_SLAB);
+
         blockWithItem(BlocksModReg.CREAKSTONE_FRACTURE);
         blockWithItem(BlocksModReg.CRYSTALIC_REMNANTS);
         blockWithItem(BlocksModReg.RUNE_CRYSTAL_BLOCK);
+        blockWithItem(BlocksModReg.CRYSTALIC_CREAKSTONE_TILES);
+
+        makeStoneSet(BlocksModReg.CRYSTALIC_CREAKSTONE_TILES, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_STAIRS, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_SLAB);
+
 
         axisBlock((RotatedPillarBlock) BlocksModReg.CREAKS_GATE.get(),new ResourceLocation(MODID,"block/creakstone"), new ResourceLocation(MODID, "block/creaks_gate"));
         blockItem(BlocksModReg.CREAKS_GATE);
@@ -63,6 +71,8 @@ public class BlockStateGen extends BlockStateProvider {
         blockWithItem(BlocksModReg.ALEXANDRITE_BLOCK);
         blockWithItem(BlocksModReg.ADAMANTITE_BLOCK);
         blockWithItem(BlocksModReg.RAW_ADAMANTITE_BLOCK);
+
+        blockWithItem((BlocksModReg.HAUNTED_LAMP));
 
     }
 

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "yoamod:block/crystalic_creakstone_tiles_slab"
+    },
+    "type=double": {
+      "model": "yoamod:block/crystalic_creakstone_tiles"
+    },
+    "type=top": {
+      "model": "yoamod:block/crystalic_creakstone_tiles_slab_top"
+    }
+  }
+}

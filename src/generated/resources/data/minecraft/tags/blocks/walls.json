@@ -1,5 +1,7 @@
 {
   "values": [
-    "yoamod:creakstone_wall"
+    "yoamod:creakstone_wall",
+    "yoamod:creakstone_tiles_wall",
+    "yoamod:crystalic_creakstone_tiles_wall"
   ]
 }

@@ -3,14 +3,14 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "yoamod:rune_crystal"
+      "item": "yoamod:creakstone"
     }
   },
   "pattern": [
-    "##",
-    "##"
+    "###"
   ],
   "result": {
-    "item": "yoamod:rune_crystal_block"
+    "count": 6,
+    "item": "yoamod:creakstone_slab"
   }
 }

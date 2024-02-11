@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_crystalic_remnants": {
+    "has_raw_silver": {
       "conditions": {
         "items": [
           {
             "items": [
-              "yoamod:crystalic_remnants"
+              "yoamod:raw_silver"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:crystalic_shard"
+        "recipe": "minecraft:silver_ingot_from_blasting_raw_silver"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -23,12 +23,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_crystalic_remnants"
+      "has_raw_silver"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:crystalic_shard"
+      "minecraft:silver_ingot_from_blasting_raw_silver"
     ]
   }
 }

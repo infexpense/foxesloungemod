@@ -4,6 +4,13 @@
     "yoamod:hammering_station",
     "yoamod:crucible",
     "yoamod:creakstone",
+    "yoamod:creakstone_stairs",
+    "yoamod:creakstone_slab",
+    "yoamod:creakstone_wall",
+    "yoamod:creakstone_tiles",
+    "yoamod:creakstone_tiles_stairs",
+    "yoamod:creakstone_tiles_slab",
+    "yoamod:creakstone_tiles_wall",
     "yoamod:creakstone_fracture",
     "yoamod:overgrown_creakstone",
     "yoamod:pointed_creakstone",
@@ -23,6 +30,10 @@
     "yoamod:adamantite_ore",
     "yoamod:rune_crystal_cluster",
     "yoamod:rune_crystal_block",
+    "yoamod:crystalic_creakstone_tiles",
+    "yoamod:crystalic_creakstone_tiles_stairs",
+    "yoamod:crystalic_creakstone_tiles_slab",
+    "yoamod:crystalic_creakstone_tiles_wall",
     "yoamod:brass_block",
     "yoamod:silver_block",
     "yoamod:raw_silver_block",
@@ -36,6 +47,7 @@
     "yoamod:iolite_block",
     "yoamod:alexandrite_block",
     "yoamod:adamantite_block",
-    "yoamod:raw_adamantite_block"
+    "yoamod:raw_adamantite_block",
+    "yoamod:haunted_lamp"
   ]
 }

@@ -1,9 +1,20 @@
 {
   "values": [
     "yoamod:creakstone",
+    "yoamod:creakstone_stairs",
+    "yoamod:creakstone_slab",
+    "yoamod:creakstone_wall",
     "yoamod:creakstone_fracture",
     "yoamod:overgrown_creakstone",
     "yoamod:creakstone_iron_ore",
-    "yoamod:creakstone_titanium_ore"
+    "yoamod:creakstone_titanium_ore",
+    "yoamod:creakstone_tiles",
+    "yoamod:creakstone_tiles_stairs",
+    "yoamod:creakstone_tiles_slab",
+    "yoamod:creakstone_tiles_wall",
+    "yoamod:crystalic_creakstone_tiles",
+    "yoamod:crystalic_creakstone_tiles_stairs",
+    "yoamod:crystalic_creakstone_tiles_slab",
+    "yoamod:crystalic_creakstone_tiles_wall"
   ]
 }

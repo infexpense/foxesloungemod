@@ -8,12 +8,20 @@
   "block.yoamod.creakstone_stairs": "Creakstone Stairs",
   "block.yoamod.creakstone_slab": "Creakstone Slab",
   "block.yoamod.creakstone_wall": "Creakstone Wall",
+  "block.yoamod.creakstone_tiles": "Creakstone Tiles",
+  "block.yoamod.creakstone_tiles_stairs": "Creakstone Tiles Stairs",
+  "block.yoamod.creakstone_tiles_slab": "Creakstone Tiles Slab",
+  "block.yoamod.creakstone_tiles_wall": "Creakstone Tiles Wall",
   "block.yoamod.creakstone_fracture": "Creakstone Fracture",
   "block.yoamod.overgrown_creakstone": "Overgrown Creakstone",
   "block.yoamod.crystalic_remnants": "Crystalic Remnants",
   "block.yoamod.pointed_creakstone": "Pointed Creakstone",
   "block.yoamod.rune_crystal_cluster": "Rune Crystal Cluster",
   "block.yoamod.rune_crystal_block": "Rune Crystal Block",
+  "block.yoamod.crystalic_creakstone_tiles": "Crystalic Creakstone Tiles",
+  "block.yoamod.crystalic_creakstone_tiles_stairs": "Crystalic Creakstone Tiles Stairs",
+  "block.yoamod.crystalic_creakstone_tiles_slab": "Crystalic Creakstone Tiles Slab",
+  "block.yoamod.crystalic_creakstone_tiles_wall": "Crystalic Creakstone Tiles Wall",
 
 
   "block.yoamod.silver_ore": "Silver Ore",
@@ -507,6 +515,9 @@
   "block.yoamod.steel_block": "Steel Block",
   "block.yoamod.titanium_block": "Titanium Block",
   "block.yoamod.raw_titanium_block": "Raw Titanium Block",
+  "block.yoamod.witherite_block": "Witherite Block",
+
+  "block.yoamod.haunted_lamp": "Haunted Lamp",
 
   "itemGroup.yoa_main": "Your Own Adventure: Main",
   "itemGroup.yoa_wgen": "Your Own Adventure: World Gen",

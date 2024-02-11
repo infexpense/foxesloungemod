@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "witherite",
+  "ingredient": {
+    "item": "yoamod:witherite_ore"
+  },
+  "result": "yoamod:witherite"
+}
