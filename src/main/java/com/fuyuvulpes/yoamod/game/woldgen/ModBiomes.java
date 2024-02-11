@@ -43,17 +43,20 @@ public class ModBiomes {
         BiomeDefaultFeatures.addDefaultMonsterRoom(biomeBuilder);
 
         ModBiomeFeatures.addCreakOres(biomeBuilder);
+
     }
+
+
 
 
     public static Biome desolate_creaks(BootstapContext<Biome> context) {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.caveSpawns(spawnBuilder);
-
+        ModBiomeFeatures.addCreakBaseSpawns(spawnBuilder);
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
 
         globalCreaksGeneration(biomeBuilder);
+
 
 
         return new Biome.BiomeBuilder()
@@ -79,7 +82,7 @@ public class ModBiomes {
 
     public static Biome overgrown_grotto(BootstapContext<Biome> context) {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.caveSpawns(spawnBuilder);
+        ModBiomeFeatures.addCreakBaseSpawns(spawnBuilder);
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));

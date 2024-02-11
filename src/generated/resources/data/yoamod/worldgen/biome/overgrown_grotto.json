@@ -77,7 +77,32 @@
     "axolotls": [],
     "creature": [],
     "misc": [],
-    "monster": [],
+    "monster": [
+      {
+        "type": "minecraft:slime",
+        "maxCount": 6,
+        "minCount": 2,
+        "weight": 50
+      },
+      {
+        "type": "minecraft:magma_cube",
+        "maxCount": 5,
+        "minCount": 3,
+        "weight": 50
+      },
+      {
+        "type": "minecraft:enderman",
+        "maxCount": 4,
+        "minCount": 1,
+        "weight": 20
+      },
+      {
+        "type": "minecraft:phantom",
+        "maxCount": 8,
+        "minCount": 1,
+        "weight": 60
+      }
+    ],
     "underground_water_creature": [
       {
         "type": "minecraft:glow_squid",

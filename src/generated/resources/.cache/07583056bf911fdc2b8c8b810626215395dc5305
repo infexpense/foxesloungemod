@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-09T19:20:14.4548194	Block States: yoamod
+// 1.20.4	2024-02-10T21:16:33.0604856	Block States: yoamod
 abd2f77abefb6abd67ecf9968f80d511a3e6dbde assets/yoamod/blockstates/adamantite_block.json
 5561fd88d289e9da42bf004f3d534126ad95556e assets/yoamod/blockstates/adamantite_ore.json
 266002b8ba9b0f07a11a74c0f8548f6985bab965 assets/yoamod/blockstates/alexandrite_block.json
@@ -52,6 +52,7 @@ e8b26b7a16d6a97e630678bf89eb1ccd1c9964d8 assets/yoamod/models/block/creakstone_s
 097ea8c4394f4ab8f92f59eb5ded11415ae77f92 assets/yoamod/models/block/creakstone_stairs_inner.json
 cf45a39e9a934542343bcc31ee4328c9e4d23ada assets/yoamod/models/block/creakstone_stairs_outer.json
 0c0d13d43c7eddfb36e1a1b0543c2b20f92a5f04 assets/yoamod/models/block/creakstone_titanium_ore.json
+1beea8524e7ac5a94dccf17fd15fe44c6e6868bf assets/yoamod/models/block/creakstone_wall_inventory.json
 d7825277a0244ec429269f35b13185a64c1fde88 assets/yoamod/models/block/creakstone_wall_post.json
 e92a4a0bb3ea0747a9eccfea1e5ff3843cf1fdc7 assets/yoamod/models/block/creakstone_wall_side.json
 39d92321aae1cfe4b6c76f400b0efbbce7c379d8 assets/yoamod/models/block/creakstone_wall_side_tall.json
@@ -87,7 +88,10 @@ db55965f84a75880746cc5d997c07d36b8ec4693 assets/yoamod/models/item/creakstone.js
 fd0ba4579404194876574ab354f0b4e2dbe24192 assets/yoamod/models/item/creakstone_diamond_ore.json
 2494fe7e69ddcc01168d0830db22795836270004 assets/yoamod/models/item/creakstone_fracture.json
 026bb985f72969c6f3e1496fb5292091d764aec5 assets/yoamod/models/item/creakstone_iron_ore.json
+709d182950620c199c6eadb6ea456d35ae1b9c61 assets/yoamod/models/item/creakstone_slab.json
+980d2d1bb2a58fa86cd09df34ed1f0dcb66e83f9 assets/yoamod/models/item/creakstone_stairs.json
 421266bf723d3cc710ebd236643eebc0b8a4b4e8 assets/yoamod/models/item/creakstone_titanium_ore.json
+4458ce763c78d612ee29f82bddf0be9747fcbada assets/yoamod/models/item/creakstone_wall.json
 7d86de702d1678b119f1c5fae6e959e606f08606 assets/yoamod/models/item/creaks_gate.json
 f947354f9bf9684c0a86093b7da8fe64f78354ed assets/yoamod/models/item/crystalic_remnants.json
 6f8499e76c71c3c19cac55d9407433b4547c0c7a assets/yoamod/models/item/deepslate_bismuth_ore.json

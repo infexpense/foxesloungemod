@@ -1,6 +1,7 @@
 package com.fuyuvulpes.yoamod.datagen.generators;
 
 import com.fuyuvulpes.yoamod.registries.BlocksModReg;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.data.models.model.TextureMapping;
@@ -23,15 +24,15 @@ public class BlockStateGen extends BlockStateProvider {
     protected void registerStatesAndModels() {
 
         blockWithItem(BlocksModReg.CREAKSTONE);
-        stairsBlock(((StairBlock) BlocksModReg.CREAKSTONE_STAIRS.get()), blockTexture(BlocksModReg.CREAKSTONE.get()));
-        slabBlock(((SlabBlock) BlocksModReg.CREAKSTONE_SLAB.get()), blockTexture(BlocksModReg.CREAKSTONE.get()), blockTexture(BlocksModReg.CREAKSTONE.get()));
-        wallBlock(((WallBlock) BlocksModReg.CREAKSTONE_WALL.get()), blockTexture(BlocksModReg.CREAKSTONE.get()));
+
+        makeStoneSet(BlocksModReg.CREAKSTONE, BlocksModReg.CREAKSTONE, BlocksModReg.CREAKSTONE_STAIRS, BlocksModReg.CREAKSTONE_WALL, BlocksModReg.CREAKSTONE_SLAB);
+
         blockWithItem(BlocksModReg.CREAKSTONE_FRACTURE);
         blockWithItem(BlocksModReg.CRYSTALIC_REMNANTS);
         blockWithItem(BlocksModReg.RUNE_CRYSTAL_BLOCK);
 
         axisBlock((RotatedPillarBlock) BlocksModReg.CREAKS_GATE.get(),new ResourceLocation(MODID,"block/creakstone"), new ResourceLocation(MODID, "block/creaks_gate"));
-        simpleBlockItem(BlocksModReg.CREAKS_GATE.get(), cubeAll(BlocksModReg.CREAKS_GATE.get()));
+        blockItem(BlocksModReg.CREAKS_GATE);
 
 
         blockWithItem(BlocksModReg.CREAKSTONE_IRON_ORE);
@@ -71,6 +72,45 @@ public class BlockStateGen extends BlockStateProvider {
         simpleBlockWithItem(deferredBlock.get(), cubeAll(deferredBlock.get()));
 
     }
+
+
+    private void makeStoneSet(DeferredBlock<Block> texture,DeferredBlock<Block> sideTexture, DeferredBlock<Block> stairs, DeferredBlock<Block> wall, DeferredBlock<Block> slab){
+        makeStairs(stairs,texture);
+        makeSlab(slab,sideTexture,texture);
+        makeWall(wall,texture);
+    }
+
+    private void makeStairs(DeferredBlock<Block> deferredBlock,DeferredBlock<Block> texture){
+        stairsBlock(((StairBlock) deferredBlock.get()), blockTexture(texture.get()));
+        simpleBlockItem(deferredBlock.get(), models().stairs(name(deferredBlock.get()), blockTexture(texture.get()), blockTexture(texture.get()), blockTexture(texture.get())));
+
+    }
+
+    private void makeSlab(DeferredBlock<Block> deferredBlock, DeferredBlock<Block> doubleSlab, DeferredBlock<Block> halfSlab){
+        slabBlock(((SlabBlock) deferredBlock.get()), blockTexture(doubleSlab.get()), blockTexture(halfSlab.get()));
+        simpleBlockItem(deferredBlock.get(), models().slab(name(deferredBlock.get()), blockTexture(doubleSlab.get()), blockTexture(halfSlab.get()), blockTexture(halfSlab.get())));
+
+    }
+    private void makeWall(DeferredBlock<Block> deferredBlock, DeferredBlock<Block> texture){
+        wallBlock(((WallBlock) deferredBlock.get()), blockTexture(texture.get()));
+        simpleBlockItem(deferredBlock.get(), models().wallInventory(name(deferredBlock.get()) + "_inventory", blockTexture(texture.get())));
+
+    }
+
+    private void blockItem(DeferredBlock<Block> deferredBlock) {
+        simpleBlockItem(deferredBlock.get(), cubeAll(deferredBlock.get()));
+
+    }
+
+    private String name(Block block) {
+        return key(block).getPath();
+    }
+
+
+    private ResourceLocation key(Block block) {
+        return BuiltInRegistries.BLOCK.getKey(block);
+    }
+
 
 
 }

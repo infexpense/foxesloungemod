@@ -1,7 +1,11 @@
 package com.fuyuvulpes.yoamod.game.woldgen.features;
 
 import com.fuyuvulpes.yoamod.game.woldgen.ModPlacedFeatures;
+import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
+import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
 public class ModBiomeFeatures {
@@ -22,7 +26,14 @@ public class ModBiomeFeatures {
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModPlacedFeatures.RUNE_CLUSTER_PLACED);
     }
 
-    public static void addOvergrownGrottoFeatures(BiomeGenerationSettings.Builder biomeBuilder){
+    public static void addCreakBaseSpawns(MobSpawnSettings.Builder spawnBuilder) {
+        BiomeDefaultFeatures.caveSpawns(spawnBuilder);
+        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 50, 2, 6));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.MAGMA_CUBE, 50, 3, 5));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 20, 1, 4));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.PHANTOM, 60, 1, 8));
+    }
+        public static void addOvergrownGrottoFeatures(BiomeGenerationSettings.Builder biomeBuilder){
 
     }
 }
