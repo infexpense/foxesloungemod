@@ -1,8 +1,12 @@
 package com.fuyuvulpes.yoamod.datagen.generators;
 
+import com.fuyuvulpes.yoamod.game.woldgen.ModBiomes;
+import com.fuyuvulpes.yoamod.registries.TagRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
+import net.minecraft.tags.BiomeTags;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -19,7 +23,17 @@ public class BiomeTagsGen extends BiomeTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-       /* this.tag(TagRegistry.Biomes.IS_THE_CREAK)
-                .add(ModBiomes.DESOLATE_CREAKS);*/
+
+        this.tag(Tags.Biomes.IS_SPOOKY).addTag(
+                TagRegistry.Biomes.IS_THE_CREAK
+        );
+
+
+        this.tag(BiomeTags.ALLOWS_SURFACE_SLIME_SPAWNS).add(
+
+        ).addTag(
+                TagRegistry.Biomes.IS_THE_CREAK
+
+                );
     }
 }

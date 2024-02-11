@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-10T21:16:33.0864831	Registries
+// 1.20.4	2024-02-11T15:36:09.9503515	Registries
 03a0f10348471aed7e9e3b15e6c9e4165b3525f1 data/yoamod/dimension/the_creaks.json
 3d4c657c660910feb96c0c5f7c1e977e9ce04f1c data/yoamod/dimension_type/the_creaks.json
 3b4931e561242f077817e6d9787f3deaff3c3202 data/yoamod/neoforge/biome_modifier/add_bismuth_ore.json
@@ -8,8 +8,8 @@
 985c08b2b7f6410332654262b4667e6cc7103cdf data/yoamod/neoforge/biome_modifier/add_silver_ore.json
 d73f0309f777d2e7f6a03fc4bd1cc717a9f08341 data/yoamod/neoforge/biome_modifier/add_titanium_ore.json
 b3f9c7cf20fe67ab632c6113ba9caaf593a237f1 data/yoamod/neoforge/biome_modifier/add_witherite_ore.json
-e9431164ac62241416db52ebc142986e416eecd4 data/yoamod/worldgen/biome/desolate_creaks.json
-3bc84345e3379f4c94945512306cfcd9098de49f data/yoamod/worldgen/biome/overgrown_grotto.json
+6571435304c4aa6cea372c11d46ac4657e36a356 data/yoamod/worldgen/biome/desolate_creaks.json
+a24b4fad0f4a5ff50888bea145dc46f0705be98d data/yoamod/worldgen/biome/overgrown_grotto.json
 8dc0e9b061fe543013383dfc5798f5ae95f6e7b0 data/yoamod/worldgen/configured_feature/adamantite_ore.json
 222b45c8a71cbcd02ac2a3fa6142e78cf9952940 data/yoamod/worldgen/configured_feature/alexandrite_ore.json
 a19614368d0cf5781f1936052f6b9dbcf13c005b data/yoamod/worldgen/configured_feature/bismuth_ore.json

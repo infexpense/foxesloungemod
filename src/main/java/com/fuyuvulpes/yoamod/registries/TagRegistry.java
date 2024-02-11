@@ -1,6 +1,7 @@
 package com.fuyuvulpes.yoamod.registries;
 
 import com.fuyuvulpes.yoamod.YOAMod;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.BlockTags;
@@ -46,7 +47,7 @@ public class TagRegistry {
         public static final TagKey<Biome> IS_THE_CREAK = tag("is_the_creak");
 
         private static TagKey<Biome> tag(String name) {
-            return BiomeTags.create(String.valueOf(new ResourceLocation(YOAMod.MODID, name)));
+            return TagKey.create(Registries.BIOME, new ResourceLocation(YOAMod.MODID, name));
         }
     }
 

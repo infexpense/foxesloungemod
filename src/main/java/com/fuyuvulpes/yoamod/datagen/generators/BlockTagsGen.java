@@ -160,8 +160,8 @@ public class BlockTagsGen extends BlockTagsProvider {
         this.tag(BlockTags.BASE_STONE_OVERWORLD)
                 .add(
                         BlocksModReg.CREAKSTONE.get()
-
                 );
+
 
         this.tag(BlockTags.WALLS)
                 .add(

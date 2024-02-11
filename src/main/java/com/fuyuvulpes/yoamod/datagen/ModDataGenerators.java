@@ -35,11 +35,13 @@ public class ModDataGenerators {
         generator.addProvider(event.includeServer(),
                 new ItemTagsGen(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper));
 
-        generator.addProvider(event.includeServer(),
-                new WorldGenDataGen(packOutput, lookupProvider));
 
         generator.addProvider(event.includeServer(),
                 new BiomeTagsGen(packOutput, lookupProvider, existingFileHelper));
+
+        generator.addProvider(event.includeServer(),
+                new WorldGenDataGen(packOutput, lookupProvider));
+
 
     }
 }
