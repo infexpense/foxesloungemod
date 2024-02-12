@@ -83,25 +83,25 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
         stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_SLAB, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES, 2);
         stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES);
 
-        oreSmelting(output, IRON_SMELTABLES, RecipeCategory.MISC, Items.IRON_INGOT, 0.1F, 200, "iron_ingot");
-        oreSmelting(output, DIAMOND_SMELTABLES, RecipeCategory.MISC, Items.DIAMOND, 0.1F, 200, "diamond");
-        oreSmelting(output, SILVER_SMELTABLES, RecipeCategory.MISC, ItemsModReg.SILVER_INGOT, 0.1F, 200, "silver_ingot");
-        oreSmelting(output, BISMUTH_SMELTABLES, RecipeCategory.MISC, ItemsModReg.BISMUTH, 0.1F, 200, "bismuth_ingot");
-        oreSmelting(output, TITANIUM_SMELTABLES, RecipeCategory.MISC, ItemsModReg.TITANIUM_INGOT, 0.1F, 200, "titanium_ingot");
-        oreSmelting(output, WITHERITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.WITHERITE, 0.1F, 200, "witherite");
-        oreSmelting(output, IOLITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.IOLITE, 0.1F, 200, "iolite");
-        oreSmelting(output, ALEXANDRITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.ALEXANDRITE, 0.1F, 200, "alexandrite");
-        oreSmelting(output, ADAMANTITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.RAW_ADAMANTITE, 0.1F, 200, "raw_adamantite");
+        oreSmelting(output, IRON_SMELTABLES, RecipeCategory.MISC, Items.IRON_INGOT, 0.7F, 200, "iron_ingot");
+        oreSmelting(output, DIAMOND_SMELTABLES, RecipeCategory.MISC, Items.DIAMOND, 1.0F, 200, "diamond");
+        oreSmelting(output, SILVER_SMELTABLES, RecipeCategory.MISC, ItemsModReg.SILVER_INGOT, 1.0F, 200, "silver_ingot");
+        oreSmelting(output, BISMUTH_SMELTABLES, RecipeCategory.MISC, ItemsModReg.BISMUTH, 1.0F, 200, "bismuth_ingot");
+        oreSmelting(output, TITANIUM_SMELTABLES, RecipeCategory.MISC, ItemsModReg.TITANIUM_INGOT, 0.7F, 200, "titanium_ingot");
+        oreSmelting(output, WITHERITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.WITHERITE, 1.0F, 200, "witherite");
+        oreSmelting(output, IOLITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.IOLITE, 1.0F, 200, "iolite");
+        oreSmelting(output, ALEXANDRITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.ALEXANDRITE, 2.0F, 200, "alexandrite");
+        oreSmelting(output, ADAMANTITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.ADAMANTITE_INGOT, 10.0F, 400, "adamantite_ingot");
 
         oreBlasting(output, IRON_SMELTABLES, RecipeCategory.MISC, Items.IRON_INGOT, 0.7F, 100, "iron_ingot");
-        oreBlasting(output, DIAMOND_SMELTABLES, RecipeCategory.MISC, Items.DIAMOND, 0.7F, 100, "diamond");
-        oreBlasting(output, SILVER_SMELTABLES, RecipeCategory.MISC, ItemsModReg.SILVER_INGOT, 0.7F, 100, "silver_ingot");
-        oreBlasting(output, BISMUTH_SMELTABLES, RecipeCategory.MISC, ItemsModReg.BISMUTH, 0.7F, 100, "bismuth_ingot");
+        oreBlasting(output, DIAMOND_SMELTABLES, RecipeCategory.MISC, Items.DIAMOND, 1.0F, 100, "diamond");
+        oreBlasting(output, SILVER_SMELTABLES, RecipeCategory.MISC, ItemsModReg.SILVER_INGOT, 1.0F, 100, "silver_ingot");
+        oreBlasting(output, BISMUTH_SMELTABLES, RecipeCategory.MISC, ItemsModReg.BISMUTH, 1.0F, 100, "bismuth_ingot");
         oreBlasting(output, TITANIUM_SMELTABLES, RecipeCategory.MISC, ItemsModReg.TITANIUM_INGOT, 0.7F, 100, "titanium_ingot");
-        oreBlasting(output, WITHERITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.WITHERITE, 0.7F, 100, "witherite");
-        oreBlasting(output, IOLITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.IOLITE, 0.7F, 100, "iolite");
-        oreBlasting(output, ALEXANDRITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.ALEXANDRITE, 0.7F, 100, "alexandrite");
-        oreBlasting(output, ADAMANTITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.RAW_ADAMANTITE, 0.7F, 100, "raw_adamantite");
+        oreBlasting(output, WITHERITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.WITHERITE, 1.0F, 100, "witherite");
+        oreBlasting(output, IOLITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.IOLITE, 1.0F, 100, "iolite");
+        oreBlasting(output, ALEXANDRITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.ALEXANDRITE, 2.0F, 100, "alexandrite");
+        oreBlasting(output, ADAMANTITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.ADAMANTITE_INGOT, 10.0F, 200, "adamantite_ingot");
 
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemsModReg.ALEXANDRITE_AXE).define('#', Items.STICK).define('X', ItemsModReg.ALEXANDRITE).
@@ -211,6 +211,6 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
         WITHERITE_SMELTABLES = ImmutableList.of(BlocksModReg.WITHERITE_ORE);
         IOLITE_SMELTABLES = ImmutableList.of(BlocksModReg.IOLITE_ORE);
         ALEXANDRITE_SMELTABLES = ImmutableList.of(BlocksModReg.ALEXANDRITE_ORE);
-        ADAMANTITE_SMELTABLES = ImmutableList.of(BlocksModReg.ADAMANTITE_ORE);
+        ADAMANTITE_SMELTABLES = ImmutableList.of(BlocksModReg.ADAMANTITE_ORE, ItemsModReg.ADAMANTITE_INGOT);
     }
 }

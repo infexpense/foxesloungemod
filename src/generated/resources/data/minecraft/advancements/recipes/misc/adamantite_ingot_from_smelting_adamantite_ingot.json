@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_adamantite_ore": {
+    "has_adamantite_ingot": {
       "conditions": {
         "items": [
           {
             "items": [
-              "yoamod:adamantite_ore"
+              "yoamod:adamantite_ingot"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:raw_adamantite_from_smelting_adamantite_ore"
+        "recipe": "minecraft:adamantite_ingot_from_smelting_adamantite_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -23,12 +23,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_adamantite_ore"
+      "has_adamantite_ingot"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:raw_adamantite_from_smelting_adamantite_ore"
+      "minecraft:adamantite_ingot_from_smelting_adamantite_ingot"
     ]
   }
 }

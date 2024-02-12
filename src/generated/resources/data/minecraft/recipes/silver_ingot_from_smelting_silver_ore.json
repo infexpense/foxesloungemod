@@ -2,7 +2,7 @@
   "type": "minecraft:smelting",
   "category": "misc",
   "cookingtime": 200,
-  "experience": 0.1,
+  "experience": 1.0,
   "group": "silver_ingot",
   "ingredient": {
     "item": "yoamod:silver_ore"

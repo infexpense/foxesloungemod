@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 400,
+  "experience": 10.0,
+  "group": "adamantite_ingot",
+  "ingredient": {
+    "item": "yoamod:adamantite_ingot"
+  },
+  "result": "yoamod:adamantite_ingot"
+}

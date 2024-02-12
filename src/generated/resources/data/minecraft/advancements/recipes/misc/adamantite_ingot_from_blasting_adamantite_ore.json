@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:raw_adamantite_from_blasting_adamantite_ore"
+        "recipe": "minecraft:adamantite_ingot_from_blasting_adamantite_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:raw_adamantite_from_blasting_adamantite_ore"
+      "minecraft:adamantite_ingot_from_blasting_adamantite_ore"
     ]
   }
 }
