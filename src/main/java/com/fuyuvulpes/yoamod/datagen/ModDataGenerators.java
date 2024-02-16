@@ -2,6 +2,7 @@ package com.fuyuvulpes.yoamod.datagen;
 
 
 import com.fuyuvulpes.yoamod.datagen.generators.*;
+import com.fuyuvulpes.yoamod.datagen.generators.advancement.YoaCoreAdvancements;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -10,6 +11,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
@@ -23,6 +25,10 @@ public class ModDataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
+        generator.addProvider(event.includeServer(),new AdvancementGen(packOutput,lookupProvider,existingFileHelper,
+                        List.of(new YoaCoreAdvancements())
+                )
+        );
         generator.addProvider(event.includeServer(), new RecipeGen(packOutput));
         generator.addProvider(event.includeServer(), LootTablesGen.create(packOutput));
 

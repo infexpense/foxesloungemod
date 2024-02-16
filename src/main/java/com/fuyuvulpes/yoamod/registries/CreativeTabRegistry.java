@@ -18,7 +18,7 @@ public class CreativeTabRegistry {
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> YOA_MAIN = TABS.register("yoa_main", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.OP_BLOCKS)
-            .icon(BlocksModReg.HAMMERING_STATION.asItem()::getDefaultInstance)
+            .icon(ItemsModReg.RETURN_TALISMAN.get()::getDefaultInstance)
             .title(Component.translatable("itemGroup.yoa_main"))
 
             .displayItems((parameters, output) -> {
@@ -524,6 +524,17 @@ public class CreativeTabRegistry {
                 output.accept(ItemsModReg.ALEXANDRITE_WHIP_SWORD.get());
                 output.accept(ItemsModReg.ADAMANTITE_WHIP_SWORD.get());            }).build());
 
+
+
+
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> YOA_SPAWN_EGGS = TABS.register("yoa_spawn_eggs", () -> CreativeModeTab.builder()
+            .withTabsBefore(YOA_WEAPONS.getKey())
+            .icon(ItemsModReg.BRAWLER_SPAWN_EGG.get()::getDefaultInstance)
+            .title(Component.translatable("itemGroup.yoa_spawn_eggs"))
+            .displayItems((parameters, output) -> {
+                output.accept(ItemsModReg.BRAWLER_SPAWN_EGG.get());
+                output.accept(ItemsModReg.BLOCKLING_SPAWN_EGG.get());
+            }).build());
 
 
 

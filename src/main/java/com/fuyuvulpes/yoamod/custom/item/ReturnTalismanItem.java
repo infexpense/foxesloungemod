@@ -61,7 +61,7 @@ public class ReturnTalismanItem extends Item {
 
             ServerLevel portalDimension = minecraftserver.getLevel(resourcekey);
             if (portalDimension != null && !player.isPassenger()) {
-                player.changeDimension(portalDimension, new CreaksTeleporter(pPos,false));
+                player.changeDimension(portalDimension, new CreaksTeleporter(pPos,true));
                 stack.shrink(1);
             }
         }

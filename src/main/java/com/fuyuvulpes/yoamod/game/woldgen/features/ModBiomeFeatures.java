@@ -1,6 +1,7 @@
 package com.fuyuvulpes.yoamod.game.woldgen.features;
 
 import com.fuyuvulpes.yoamod.game.woldgen.ModPlacedFeatures;
+import com.fuyuvulpes.yoamod.registries.EntityTypeModReg;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -28,13 +29,13 @@ public class ModBiomeFeatures {
 
     public static void addCreakBaseSpawns(MobSpawnSettings.Builder spawnBuilder) {
         BiomeDefaultFeatures.caveSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITHER_SKELETON, 80, 1, 2));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITHER_SKELETON, 80, 1, 5));
         spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SILVERFISH, 10, 4, 9));
         spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.CAVE_SPIDER, 20, 1, 3));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 50, 2, 6));
         spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.MAGMA_CUBE, 50, 3, 5));
         spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 30, 1, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.PHANTOM, 30, 1, 8));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.PHANTOM, 10, 1, 8));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityTypeModReg.BRAWLER_TYPE.get(), 70, 1, 2));
     }
         public static void addOvergrownGrottoFeatures(BiomeGenerationSettings.Builder biomeBuilder){
 

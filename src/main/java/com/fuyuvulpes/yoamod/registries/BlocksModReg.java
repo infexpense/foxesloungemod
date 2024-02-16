@@ -55,6 +55,14 @@ public class BlocksModReg {
     public static final DeferredBlock<Block> CREAKSTONE_TILES_SLAB = registerBlock("creakstone_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofLegacyCopy(BlocksModReg.CREAKSTONE.get()).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> CREAKSTONE_TILES_WALL = registerBlock("creakstone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofLegacyCopy(BlocksModReg.CREAKSTONE.get()).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> CRYSTALIC_CREAKSTONE_TILES = registerBlock("crystalic_creakstone_tiles", () -> new Block(BlockBehaviour.Properties.ofLegacyCopy(BlocksModReg.CREAKSTONE.get()).requiresCorrectToolForDrops()
+            .lightLevel((f) -> 4 ).sound(SoundType.AMETHYST)));
+    public static final DeferredBlock<Block> CRYSTALIC_CREAKSTONE_TILES_STAIRS = registerBlock("crystalic_creakstone_tiles_stairs", () -> new StairBlock(() -> BlocksModReg.CRYSTALIC_CREAKSTONE_TILES.get().defaultBlockState(), (BlockBehaviour.Properties.ofLegacyCopy(BlocksModReg.CREAKSTONE.get()).requiresCorrectToolForDrops()
+            .lightLevel((f) -> 4 ).sound(SoundType.AMETHYST))));
+    public static final DeferredBlock<Block> CRYSTALIC_CREAKSTONE_TILES_SLAB = registerBlock("crystalic_creakstone_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofLegacyCopy(BlocksModReg.CREAKSTONE.get()).requiresCorrectToolForDrops()
+            .lightLevel((f) -> 4 ).sound(SoundType.AMETHYST)));
+    public static final DeferredBlock<Block> CRYSTALIC_CREAKSTONE_TILES_WALL = registerBlock("crystalic_creakstone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofLegacyCopy(BlocksModReg.CREAKSTONE.get()).requiresCorrectToolForDrops()
+            .lightLevel((f) -> 4 ).sound(SoundType.AMETHYST)));
 
 
     public static final DeferredBlock<Block> CREAKSTONE_FRACTURE = registerBlock("creakstone_fracture", () -> new DropExperienceBlock(UniformInt.of(5, 70),
@@ -67,11 +75,6 @@ public class BlocksModReg {
 
     public static final DeferredBlock<Block> RUNE_CRYSTAL_CLUSTER = registerBlock("rune_crystal_cluster", () -> new RuneCrystalClusterBlock(BlockBehaviour.Properties.ofLegacyCopy(Blocks.AMETHYST_CLUSTER).lightLevel((f) -> 4 ).strength(2.0F,0.0F).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<Block> RUNE_CRYSTAL_BLOCK = registerBlock("rune_crystal_block", () -> new Block(BlockBehaviour.Properties.ofLegacyCopy(Blocks.AMETHYST_BLOCK).lightLevel((f) -> 6 ).strength(6.0F,3.0F)));
-
-    public static final DeferredBlock<Block> CRYSTALIC_CREAKSTONE_TILES = registerBlock("crystalic_creakstone_tiles", () -> new Block(BlockBehaviour.Properties.ofLegacyCopy(BlocksModReg.RUNE_CRYSTAL_BLOCK.get()).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> CRYSTALIC_CREAKSTONE_TILES_STAIRS = registerBlock("crystalic_creakstone_tiles_stairs", () -> new StairBlock(() -> BlocksModReg.CRYSTALIC_CREAKSTONE_TILES.get().defaultBlockState(), (BlockBehaviour.Properties.ofLegacyCopy(BlocksModReg.RUNE_CRYSTAL_BLOCK.get()).requiresCorrectToolForDrops())));
-    public static final DeferredBlock<Block> CRYSTALIC_CREAKSTONE_TILES_SLAB = registerBlock("crystalic_creakstone_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofLegacyCopy(BlocksModReg.RUNE_CRYSTAL_BLOCK.get()).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> CRYSTALIC_CREAKSTONE_TILES_WALL = registerBlock("crystalic_creakstone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofLegacyCopy(BlocksModReg.RUNE_CRYSTAL_BLOCK.get()).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> POINTED_CREAKSTONE = registerBlock("pointed_creakstone", () -> new PointedCreakstone(BlockBehaviour.Properties.ofLegacyCopy(Blocks.POINTED_DRIPSTONE).strength(4.0F,6.0F)));
 

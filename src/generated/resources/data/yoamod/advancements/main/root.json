@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "unlock_right_away": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "yoamod:textures/gui/advancements/backgrounds/main.png",
+    "description": {
+      "translate": "advancement.yoamod.root.description"
+    },
+    "icon": {
+      "item": "yoamod:rune_crystal"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancement.yoamod.root"
+    }
+  },
+  "requirements": [
+    [
+      "unlock_right_away"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -45,6 +45,9 @@ public class ItemModelGen extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        spawnEggItem(ItemsModReg.BRAWLER_SPAWN_EGG);
+        spawnEggItem(ItemsModReg.BLOCKLING_SPAWN_EGG);
+
         simpleItem(ItemsModReg.CRYSTALIC_SHARD);
         simpleItem(ItemsModReg.RUNE_CRYSTAL);
         simpleItem(ItemsModReg.ADAMANTITE_TEMPLATE);
@@ -552,6 +555,12 @@ public class ItemModelGen extends ItemModelProvider {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(MODID,"item/" + item.getId().getPath()));
+    }
+
+
+    private ItemModelBuilder spawnEggItem(DeferredItem<?> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/template_spawn_egg"));
     }
 
     private ItemModelBuilder handheldItem(DeferredItem<?> item) {

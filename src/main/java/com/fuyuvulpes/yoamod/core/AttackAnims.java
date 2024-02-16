@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.core;
 
-public enum AttackAnimEnum implements AttackAnim {
+public enum AttackAnims implements AttackAnim {
     STAB,
     SWING,
     SLAM

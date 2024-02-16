@@ -1,14 +1,12 @@
 package com.fuyuvulpes.yoamod.core.items;
 
 import com.fuyuvulpes.yoamod.core.AttackAnim;
-import com.fuyuvulpes.yoamod.core.AttackAnimEnum;
+import com.fuyuvulpes.yoamod.core.AttackAnims;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,7 +19,6 @@ import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.common.ToolAction;
 import net.neoforged.neoforge.common.ToolActions;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
@@ -39,7 +36,7 @@ public class WeaponItem extends BaseToolItem{
 
 
     public AttackAnim getAttackAnimation(ItemStack itemStack){
-        return AttackAnimEnum.STAB;
+        return AttackAnims.STAB;
     }
 
 
@@ -102,6 +99,8 @@ public class WeaponItem extends BaseToolItem{
         return ToolActions.DEFAULT_SWORD_ACTIONS.contains(toolAction);
     }
 
+
+
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
@@ -112,7 +111,7 @@ public class WeaponItem extends BaseToolItem{
 
 
 
-                    if (getAttackAnimation(item) == AttackAnimEnum.STAB) {
+                    if (getAttackAnimation(item) == AttackAnims.STAB) {
                         float stabPos = swingProcess <= 0.36 ? (float) Math.pow(7, swingProcess) : (float) (1 - Math.pow(swingProcess, 2));
                         poseStack.translate(0.1, -0.52, -0.52 - stabPos);
                         poseStack.mulPose(Axis.YP.rotationDegrees(110.0F));
@@ -122,7 +121,7 @@ public class WeaponItem extends BaseToolItem{
                         return true;
 
 
-                    } else if (getAttackAnimation(item) == AttackAnimEnum.SWING) {
+                    } else if (getAttackAnimation(item) == AttackAnims.SWING) {
                         float swing_pos = (1 - (3 * swingProcess)) * i;
                         float swing_angle = (-90 + (220 * (float) Math.min(Math.pow(swingProcess + 0.5, 4),1))) * i;
                         poseStack.translate(swing_pos, -0.52, -1.52);
@@ -133,7 +132,7 @@ public class WeaponItem extends BaseToolItem{
                         return true;
 
 
-                    } else if (getAttackAnimation(item) == AttackAnimEnum.SLAM) {
+                    } else if (getAttackAnimation(item) == AttackAnims.SLAM) {
                         float slamPos = (1.50F - (1 * swingProcess));
                         float slamAngle = -30.0F + -50.0F * swingProcess;
                         poseStack.translate(i * 0.1, -0.52 + slamPos, -0.52);

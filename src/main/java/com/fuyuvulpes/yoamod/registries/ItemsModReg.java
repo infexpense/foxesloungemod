@@ -7,11 +7,16 @@ import com.fuyuvulpes.yoamod.core.items.WeaponStats;
 import com.fuyuvulpes.yoamod.custom.item.ModSmithingTemplateItem;
 import com.fuyuvulpes.yoamod.custom.item.ReturnTalismanItem;
 import com.fuyuvulpes.yoamod.custom.item.weaponry.*;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
 
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
@@ -583,6 +588,11 @@ public class ItemsModReg {
 
 
 
+
+    public static final DeferredItem<Item> BRAWLER_SPAWN_EGG =  ITEMS.register("brawler_spawn_egg",
+            () -> new DeferredSpawnEggItem(EntityTypeModReg.BRAWLER_TYPE::get,0x2E3236,0x2F3840,new Item.Properties()));
+    public static final DeferredItem<Item> BLOCKLING_SPAWN_EGG =  ITEMS.register("blockling_spawn_egg",
+            () -> new DeferredSpawnEggItem(EntityTypeModReg.BLOCKLING_TYPE::get,0x71A35F,0x71BFA7,new Item.Properties()));
 
 
 
