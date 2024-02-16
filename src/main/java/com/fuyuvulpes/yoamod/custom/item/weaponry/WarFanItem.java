@@ -1,7 +1,7 @@
 package com.fuyuvulpes.yoamod.custom.item.weaponry;
 
 import com.fuyuvulpes.yoamod.core.AttackAnim;
-import com.fuyuvulpes.yoamod.core.AttackAnimEnum;
+import com.fuyuvulpes.yoamod.core.AttackAnims;
 import com.fuyuvulpes.yoamod.core.items.WeaponItem;
 import com.fuyuvulpes.yoamod.core.items.WeaponStats;
 import com.fuyuvulpes.yoamod.registries.ModEffects;
@@ -45,7 +45,7 @@ public class WarFanItem extends WeaponItem {
 
     @Override
     public AttackAnim getAttackAnimation(ItemStack itemStack) {
-        return isOpen(itemStack) ? AttackAnimEnum.SWING : AttackAnimEnum.STAB;
+        return isOpen(itemStack) ? AttackAnims.SWING : AttackAnims.STAB;
     }
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {

@@ -80,7 +80,7 @@
     "monster": [
       {
         "type": "minecraft:wither_skeleton",
-        "maxCount": 2,
+        "maxCount": 5,
         "minCount": 1,
         "weight": 80
       },
@@ -95,12 +95,6 @@
         "maxCount": 3,
         "minCount": 1,
         "weight": 20
-      },
-      {
-        "type": "minecraft:slime",
-        "maxCount": 6,
-        "minCount": 2,
-        "weight": 50
       },
       {
         "type": "minecraft:magma_cube",
@@ -118,7 +112,13 @@
         "type": "minecraft:phantom",
         "maxCount": 8,
         "minCount": 1,
-        "weight": 30
+        "weight": 10
+      },
+      {
+        "type": "yoamod:brawler",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 70
       }
     ],
     "underground_water_creature": [

@@ -1,12 +1,24 @@
 package com.fuyuvulpes.yoamod;
 
+import com.fuyuvulpes.yoamod.custom.entity.Blockling;
+import com.fuyuvulpes.yoamod.custom.entity.BrawlerEntity;
 import com.fuyuvulpes.yoamod.custom.item.weaponry.WarFanItem;
+import com.fuyuvulpes.yoamod.game.client.entities.model.BlocklingModel;
+import com.fuyuvulpes.yoamod.game.client.entities.model.BrawlerModel;
+import com.fuyuvulpes.yoamod.game.client.entities.renderers.BlocklingRenderer;
+import com.fuyuvulpes.yoamod.game.client.entities.renderers.BrawlerRenderer;
 import com.fuyuvulpes.yoamod.game.client.entities.renderers.HammeringStationRenderer;
 import com.fuyuvulpes.yoamod.registries.*;
-import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -18,7 +30,11 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.event.entity.SpawnPlacementRegisterEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+
+import static net.minecraft.world.entity.Mob.checkMobSpawnRules;
 
 
 @Mod(YOAMod.MODID)
@@ -34,11 +50,13 @@ public class YOAMod {
         RecipesModReg.register(modEventBus);
         ParticleModReg.register(modEventBus);
         ModEffects.register(modEventBus);
+        EntityTypeModReg.register(modEventBus);
 
         BlocksModReg.register(modEventBus);
 
         ItemsModReg.register(modEventBus);
         BlockEntitiesModReg.register(modEventBus);
+
 
         CreativeTabRegistry.register(modEventBus);
 
@@ -115,12 +133,48 @@ public class YOAMod {
         @SubscribeEvent
         public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(BlockEntitiesModReg.HAMMERING_STATION.get(), HammeringStationRenderer::new);
+            event.registerEntityRenderer(EntityTypeModReg.BRAWLER_TYPE.get(), BrawlerRenderer::new);
+            event.registerEntityRenderer(EntityTypeModReg.BLOCKLING_TYPE.get(), BlocklingRenderer::new);
         }
 
 
         @SubscribeEvent
         public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+            event.registerLayerDefinition(BrawlerModel.LAYER_LOCATION,BrawlerModel::createBodyLayer);
+            event.registerLayerDefinition(BlocklingModel.LAYER_LOCATION, BlocklingModel::createBodyLayer);
+
         }
+
+    }
+
+
+    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class ModEvents {
+
+
+        @SubscribeEvent
+        public static void entityAttributes(EntityAttributeCreationEvent event){
+            event.put(EntityTypeModReg.BRAWLER_TYPE.get(), BrawlerEntity.createAttributes().build());
+            event.put(EntityTypeModReg.BLOCKLING_TYPE.get(), Blockling.createAttributes().build());
+        }
+
+
+
+        @SubscribeEvent
+        public static void spawnPlacements(SpawnPlacementRegisterEvent event){
+            event.register(EntityTypeModReg.BRAWLER_TYPE.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    BrawlerEntity::canSpawn,
+                    SpawnPlacementRegisterEvent.Operation.OR);
+            event.register(EntityTypeModReg.BLOCKLING_TYPE.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Blockling::canSpawn,
+                    SpawnPlacementRegisterEvent.Operation.OR);
+        }
+
+
 
     }
 }

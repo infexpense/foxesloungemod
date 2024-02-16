@@ -30,6 +30,14 @@ public class HitEffectWeaponItem extends WeaponItem {
     }
 
 
+    public HitEffectWeaponItem(Tier tier, WeaponStat weapon, Properties properties, MobEffect effect, float chance) {
+        this(tier, weapon, properties, effect, chance, false,0.0F);
+    }
+    public HitEffectWeaponItem(Tier tier, WeaponStat weapon, Properties properties, float bleedChance) {
+        this(tier, weapon, properties, null, 0.0F, true,bleedChance);
+    }
+
+
     @Override
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
         pStack.hurtAndBreak(1, pAttacker, p_43296_ -> p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND));

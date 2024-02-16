@@ -43,6 +43,8 @@
   "item.minecraft.smithing_template.adamantite_upgrade.base_slot_description": "Add Alexandrite armor, weapon, or tool",
   "item.minecraft.smithing_template.adamantite_upgrade.ingredients": "Adamantite Ingot",
 
+
+  "item.yoamod.longbow": "Longbow",
   "item.yoamod.return_talisman": "Talisman of Returnal",
   "item.yoamod.rune_crystal": "Rune Crystal",
   "item.yoamod.crystalic_shard": "Crystalic Shard",
@@ -86,7 +88,6 @@
   "item.yoamod.silver_holy_rifle": "Silver Holy Rifle",
   "item.yoamod.silver_katana": "Silver Katana",
   "item.yoamod.silver_lance": "Silver Lance",
-  "item.yoamod.silver_longbow": "Silver Longbow",
   "item.yoamod.silver_lyre": "Silver Lyre",
   "item.yoamod.silver_magician_wand": "Silver Magician Wand",
   "item.yoamod.silver_rapier": "Silver Rapier",
@@ -117,7 +118,6 @@
   "item.yoamod.gold_holy_rifle": "Golden Holy Rifle",
   "item.yoamod.gold_katana": "Golden Katana",
   "item.yoamod.gold_lance": "Golden Lance",
-  "item.yoamod.gold_longbow": "Golden Longbow",
   "item.yoamod.gold_lyre": "Golden Lyre",
   "item.yoamod.gold_magician_wand": "Golden Magician Wand",
   "item.yoamod.gold_rapier": "Golden Rapier",
@@ -148,7 +148,6 @@
   "item.yoamod.bronze_holy_rifle": "Bronze Holy Rifle",
   "item.yoamod.bronze_katana": "Bronze Katana",
   "item.yoamod.bronze_lance": "Bronze Lance",
-  "item.yoamod.bronze_longbow": "Bronze Longbow",
   "item.yoamod.bronze_lyre": "Bronze Lyre",
   "item.yoamod.bronze_magician_wand": "Bronze Magician Wand",
   "item.yoamod.bronze_rapier": "Bronze Rapier",
@@ -179,7 +178,6 @@
   "item.yoamod.iron_holy_rifle": "Iron Holy Rifle",
   "item.yoamod.iron_katana": "Iron Katana",
   "item.yoamod.iron_lance": "Iron Lance",
-  "item.yoamod.iron_longbow": "Iron Longbow",
   "item.yoamod.iron_lyre": "Iron Lyre",
   "item.yoamod.iron_magician_wand": "Iron Magician Wand",
   "item.yoamod.iron_rapier": "Iron Rapier",
@@ -210,7 +208,6 @@
   "item.yoamod.steel_holy_rifle": "Steel Holy Rifle",
   "item.yoamod.steel_katana": "Steel Katana",
   "item.yoamod.steel_lance": "Steel Lance",
-  "item.yoamod.steel_longbow": "Steel Longbow",
   "item.yoamod.steel_lyre": "Steel Lyre",
   "item.yoamod.steel_magician_wand": "Steel Magician Wand",
   "item.yoamod.steel_rapier": "Steel Rapier",
@@ -241,7 +238,6 @@
   "item.yoamod.bismuth_holy_rifle": "Bismuth Holy Rifle",
   "item.yoamod.bismuth_katana": "Bismuth Katana",
   "item.yoamod.bismuth_lance": "Bismuth Lance",
-  "item.yoamod.bismuth_longbow": "Bismuth Longbow",
   "item.yoamod.bismuth_lyre": "Bismuth Lyre",
   "item.yoamod.bismuth_magician_wand": "Bismuth Magician Wand",
   "item.yoamod.bismuth_rapier": "Bismuth Rapier",
@@ -272,7 +268,6 @@
   "item.yoamod.diamond_holy_rifle": "Diamond Holy Rifle",
   "item.yoamod.diamond_katana": "Diamond Katana",
   "item.yoamod.diamond_lance": "Diamond Lance",
-  "item.yoamod.diamond_longbow": "Diamond Longbow",
   "item.yoamod.diamond_lyre": "Diamond Lyre",
   "item.yoamod.diamond_magician_wand": "Diamond Magician Wand",
   "item.yoamod.diamond_rapier": "Diamond Rapier",
@@ -303,7 +298,6 @@
   "item.yoamod.netherite_holy_rifle": "Netherite Holy Rifle",
   "item.yoamod.netherite_katana": "Netherite Katana",
   "item.yoamod.netherite_lance": "Netherite Lance",
-  "item.yoamod.netherite_longbow": "Netherite Longbow",
   "item.yoamod.netherite_lyre": "Netherite Lyre",
   "item.yoamod.netherite_magician_wand": "Netherite Magician Wand",
   "item.yoamod.netherite_rapier": "Netherite Rapier",
@@ -334,7 +328,6 @@
   "item.yoamod.titanium_holy_rifle": "Titanium Holy Rifle",
   "item.yoamod.titanium_katana": "Titanium Katana",
   "item.yoamod.titanium_lance": "Titanium Lance",
-  "item.yoamod.titanium_longbow": "Titanium Longbow",
   "item.yoamod.titanium_lyre": "Titanium Lyre",
   "item.yoamod.titanium_magician_wand": "Titanium Magician Wand",
   "item.yoamod.titanium_rapier": "Titanium Rapier",
@@ -365,7 +358,6 @@
   "item.yoamod.iolite_holy_rifle": "Iolite Holy Rifle",
   "item.yoamod.iolite_katana": "Iolite Katana",
   "item.yoamod.iolite_lance": "Iolite Lance",
-  "item.yoamod.iolite_longbow": "Iolite Longbow",
   "item.yoamod.iolite_lyre": "Iolite Lyre",
   "item.yoamod.iolite_magician_wand": "Iolite Magician Wand",
   "item.yoamod.iolite_rapier": "Iolite Rapier",
@@ -396,7 +388,6 @@
   "item.yoamod.alexandrite_holy_rifle": "Alexandrite Holy Rifle",
   "item.yoamod.alexandrite_katana": "Alexandrite Katana",
   "item.yoamod.alexandrite_lance": "Alexandrite Lance",
-  "item.yoamod.alexandrite_longbow": "Alexandrite Longbow",
   "item.yoamod.alexandrite_lyre": "Alexandrite Lyre",
   "item.yoamod.alexandrite_magician_wand": "Alexandrite Magician Wand",
   "item.yoamod.alexandrite_rapier": "Alexandrite Rapier",
@@ -427,7 +418,6 @@
   "item.yoamod.adamantite_holy_rifle": "Adamantite Holy Rifle",
   "item.yoamod.adamantite_katana": "Adamantite Katana",
   "item.yoamod.adamantite_lance": "Adamantite Lance",
-  "item.yoamod.adamantite_longbow": "Adamantite Longbow",
   "item.yoamod.adamantite_lyre": "Adamantite Lyre",
   "item.yoamod.adamantite_magician_wand": "Adamantite Magician Wand",
   "item.yoamod.adamantite_rapier": "Adamantite Rapier",
@@ -502,6 +492,9 @@
   "item.yoamod.molten_steel": "Bucket ofMolten Steel",
   "item.yoamod.molten_titanium": "Bucket of Molten Titanium",
 
+
+  "item.yoamod.brawler_spawn_egg": "Brawler Spawn Egg",
+
   "block.yoamod.adamantite_block": "Adamantite Block",
   "block.yoamod.raw_adamantite_block": "Raw Adamantite Block",
   "block.yoamod.alexandrite_block": "Alexandrite Block",
@@ -523,6 +516,7 @@
   "itemGroup.yoa_wgen": "Your Own Adventure: World Gen",
   "itemGroup.yoa_tools_gear": "Your Own Adventure: Tools & Gear",
   "itemGroup.yoa_weapons": "Your Own Adventure: Weaponry",
+  "itemGroup.yoa_spawn_eggs": "Your Own Adventure: Spawn Eggs",
 
   "container.yoamod.crucible": "Crucible",
   "container.yoamod.hammering_station": "Crucible",
@@ -534,5 +528,12 @@
 
   "death.attack.bleeding.item": "%1$s bled too much from the wound %2$s made using %3$s",
   "death.attack.bleeding.player": "%1$s bled out whilst fighting %2$s",
-  "death.attack.bleeding": "%1$s couldn't cover their wound, and bled out"
+  "death.attack.bleeding": "%1$s couldn't cover their wound, and bled out",
+
+
+
+  "advancement.yoamod.root": "Your Own Adventure",
+  "advancement.yoamod.root.description": "The Beginning",
+
+  "entity.yoamod.brawler": "Brawler"
 }

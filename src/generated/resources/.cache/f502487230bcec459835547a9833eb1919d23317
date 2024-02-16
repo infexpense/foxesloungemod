@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-04T18:01:21.1642556	Item Models: yoamod
+// 1.20.4	2024-02-16T16:34:37.1601416	Item Models: yoamod
 78143e17b3644d28969b1ebc10cfe54a94f19ef4 assets/yoamod/models/item/adamantite_axe.json
 e0f8fc30666d077db00723a7c74325579fc6ce18 assets/yoamod/models/item/adamantite_bell.json
 d52314b706972fb47ecda874271b06ecedffe7dd assets/yoamod/models/item/adamantite_blow_dart.json
@@ -109,8 +109,10 @@ fd212f2d8e109aa8f2733b9c5ffba1517b07b010 assets/yoamod/models/item/bismuth_talis
 cfbffadd84f54d7ae8e09666ade957f8ee33ac59 assets/yoamod/models/item/bismuth_war_fan.json
 2d37f593ab00589e1a93455e85a615d463ab1457 assets/yoamod/models/item/bismuth_war_fan_open.json
 9cb8f2384a09776c8dfaa91797594d093469550c assets/yoamod/models/item/bismuth_whip_sword.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/yoamod/models/item/blockling_spawn_egg.json
 9bec19355f90d03326767decd96c8249a350248c assets/yoamod/models/item/brass_ingot.json
 dd53d8330bab1ced7e1bdc17e08db605ebcffa17 assets/yoamod/models/item/brass_nugget.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/yoamod/models/item/brawler_spawn_egg.json
 94fe194eb5936cc33b1b750e410b22e401f16ca8 assets/yoamod/models/item/bronze_bell.json
 27902c12b366d0de0919609b7e34c9f904233c3c assets/yoamod/models/item/bronze_blow_dart.json
 417b124be86f0cf6a53104acf6dbdb0b57735108 assets/yoamod/models/item/bronze_boomerang.json

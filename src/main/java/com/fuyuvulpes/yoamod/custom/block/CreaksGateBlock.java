@@ -44,7 +44,7 @@ public class CreaksGateBlock extends RotatedPillarBlock {
 
             ServerLevel portalDimension = minecraftserver.getLevel(resourcekey);
             if (portalDimension != null && !player.isPassenger()) {
-                player.changeDimension(portalDimension, new CreaksTeleporter(pPos, true));
+                player.changeDimension(portalDimension, new CreaksTeleporter(pPos, false));
 
                 ReturnTalismanItem talismanItem = (ReturnTalismanItem) ItemsModReg.RETURN_TALISMAN.get();
                 talismanItem.registerPortalCoordinates(pPos,new ItemStack(talismanItem));
