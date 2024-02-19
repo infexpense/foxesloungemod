@@ -1,13 +1,11 @@
 {
   "type": "neoforge:add_spawns",
-  "spawn": {
+  "biomes": "#minecraft:is_overworld",
+  "spawners": {
     "type": "yoamod:blockling",
     "weight": 40,
     "minCount": 1,
     "maxCount": 5
 
-  },
-  "includeBiomes": "#minecraft:is_overworld",
-  "excludeBiomes": "#minecraft:is_river"
-
+  }
 }

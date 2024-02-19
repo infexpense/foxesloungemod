@@ -43,6 +43,7 @@ public class Config
     static final ModConfigSpec SPEC = BUILDER.build();
 
     public static boolean logDirtBlock;
+    public static boolean armedSpiderDebuff;
     public static int magicNumber;
     public static String magicNumberIntroduction;
     public static Set<Item> items;
@@ -55,6 +56,7 @@ public class Config
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event)
     {
+        armedSpiderDebuff = ARMED_SPIDER_DEBUFF.get();
         logDirtBlock = LOG_DIRT_BLOCK.get();
         magicNumber = MAGIC_NUMBER.get();
         magicNumberIntroduction = MAGIC_NUMBER_INTRODUCTION.get();

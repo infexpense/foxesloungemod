@@ -1,5 +1,6 @@
 package com.fuyuvulpes.yoamod.custom.entity;
 
+import com.fuyuvulpes.yoamod.Config;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
@@ -46,10 +47,11 @@ public class ArmedSpider extends Spider {
     public boolean doHurtTarget(Entity pEntity) {
         if (super.doHurtTarget(pEntity)) {
             ((LivingEntity)pEntity).addEffect(new MobEffectInstance(MobEffects.POISON, 120, 2), this);
-            ((LivingEntity)pEntity).addEffect(new MobEffectInstance(MobEffects.CONFUSION, 30, 0), this);
-            ((LivingEntity)pEntity).addEffect(new MobEffectInstance(MobEffects.DARKNESS, 40, 0), this);
-            ((LivingEntity)pEntity).addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 40, 0), this);
-
+            if(Config.armedSpiderDebuff) {
+                ((LivingEntity) pEntity).addEffect(new MobEffectInstance(MobEffects.CONFUSION, 60, 0), this);
+                ((LivingEntity) pEntity).addEffect(new MobEffectInstance(MobEffects.DARKNESS, 60, 0), this);
+                ((LivingEntity) pEntity).addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 80, 0), this);
+            }
             return true;
         } else {
             return false;
