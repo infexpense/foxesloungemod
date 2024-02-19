@@ -534,6 +534,7 @@ public class CreativeTabRegistry {
             .displayItems((parameters, output) -> {
                 output.accept(ItemsModReg.BRAWLER_SPAWN_EGG.get());
                 output.accept(ItemsModReg.BLOCKLING_SPAWN_EGG.get());
+                output.accept(ItemsModReg.ARMED_SPIDER_SPAWN_EGG.get());
             }).build());
 
 

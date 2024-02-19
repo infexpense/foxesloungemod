@@ -45,6 +45,10 @@ public class TagRegistry {
     public static class Biomes {
 
         public static final TagKey<Biome> IS_THE_CREAK = tag("is_the_creak");
+        public static final TagKey<Biome> BLOCKLING_GRASS = tag("blockling_grass");
+        public static final TagKey<Biome> BLOCKLING_WOOD = tag("blockling_wood");
+        public static final TagKey<Biome> BLOCKLING_COBBLESTONE = tag("blockling_cobblestone");
+
 
         private static TagKey<Biome> tag(String name) {
             return TagKey.create(Registries.BIOME, new ResourceLocation(YOAMod.MODID, name));

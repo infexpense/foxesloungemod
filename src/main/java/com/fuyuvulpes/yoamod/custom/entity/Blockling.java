@@ -1,5 +1,6 @@
 package com.fuyuvulpes.yoamod.custom.entity;
 
+import com.fuyuvulpes.yoamod.registries.TagRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -139,10 +140,21 @@ public class Blockling extends PathfinderMob implements VariantHolder<Blockling.
         }
 
         public static Blockling.Type byPos(BlockPos blockPos, Level level) {
-            if (level.getBrightness(LightLayer.SKY,blockPos) > 0){
-                return level.getBiome(blockPos).is(BiomeTags.IS_FOREST) ? WOOD : GRASS;
+            if (level.getBrightness(LightLayer.SKY,blockPos) > 8){
+                if (level.getBiome(blockPos).is(TagRegistry.Biomes.BLOCKLING_WOOD)){
+                    return WOOD;
+                }
+                if (level.getBiome(blockPos).is(TagRegistry.Biomes.BLOCKLING_GRASS)){
+                    return GRASS;
+                }
+                if (level.getBiome(blockPos).is(TagRegistry.Biomes.BLOCKLING_COBBLESTONE)){
+                    return COBBLESTONE;
+                }
+            }else if (level.getBrightness(LightLayer.SKY,blockPos) <= 8) {
+                return COBBLESTONE;
             }
-            return COBBLESTONE;
+
+                return GRASS;
         }
     }
 

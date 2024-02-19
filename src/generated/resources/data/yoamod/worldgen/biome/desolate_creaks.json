@@ -88,13 +88,19 @@
         "type": "minecraft:silverfish",
         "maxCount": 9,
         "minCount": 4,
-        "weight": 10
+        "weight": 40
       },
       {
         "type": "minecraft:cave_spider",
         "maxCount": 3,
         "minCount": 1,
-        "weight": 20
+        "weight": 30
+      },
+      {
+        "type": "yoamod:armed_spider",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 70
       },
       {
         "type": "minecraft:magma_cube",
@@ -118,7 +124,7 @@
         "type": "yoamod:brawler",
         "maxCount": 2,
         "minCount": 1,
-        "weight": 70
+        "weight": 100
       }
     ],
     "underground_water_creature": [

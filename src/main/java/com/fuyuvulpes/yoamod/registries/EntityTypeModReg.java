@@ -1,5 +1,6 @@
 package com.fuyuvulpes.yoamod.registries;
 
+import com.fuyuvulpes.yoamod.custom.entity.ArmedSpider;
 import com.fuyuvulpes.yoamod.custom.entity.Blockling;
 import com.fuyuvulpes.yoamod.custom.entity.BrawlerEntity;
 import net.minecraft.core.registries.Registries;
@@ -25,6 +26,11 @@ public class EntityTypeModReg {
             () -> EntityType.Builder.<Blockling>of(Blockling::new, MobCategory.CREATURE)
                     .sized(0.8F,0.8F)
                     .build(new ResourceLocation(MODID,"blockling").toString()));
+
+    public static final DeferredHolder<EntityType<?>,EntityType<ArmedSpider>> ARMED_SPIDER_TYPE = ENTITY.register("armed_spider",
+            () -> EntityType.Builder.<ArmedSpider>of(ArmedSpider::new, MobCategory.MONSTER)
+                    .sized(2.0F,1.7F)
+                    .build(new ResourceLocation(MODID,"armed_spider").toString()));
 
 
 

@@ -593,6 +593,8 @@ public class ItemsModReg {
             () -> new DeferredSpawnEggItem(EntityTypeModReg.BRAWLER_TYPE::get,0x2E3236,0x2F3840,new Item.Properties()));
     public static final DeferredItem<Item> BLOCKLING_SPAWN_EGG =  ITEMS.register("blockling_spawn_egg",
             () -> new DeferredSpawnEggItem(EntityTypeModReg.BLOCKLING_TYPE::get,0x71A35F,0x71BFA7,new Item.Properties()));
+public static final DeferredItem<Item> ARMED_SPIDER_SPAWN_EGG =  ITEMS.register("armed_spider_spawn_egg",
+            () -> new DeferredSpawnEggItem(EntityTypeModReg.ARMED_SPIDER_TYPE::get,0x908554,0xDBDF9C,new Item.Properties()));
 
 
 

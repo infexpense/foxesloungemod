@@ -52,7 +52,7 @@ public class BrawlerEntity extends Monster {
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 350.0)
-                .add(Attributes.MOVEMENT_SPEED, 0.3)
+                .add(Attributes.MOVEMENT_SPEED, 0.2F)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 0.3F)
                 .add(Attributes.ATTACK_KNOCKBACK, 4.0F)
                 .add(Attributes.ATTACK_DAMAGE, 27.0)

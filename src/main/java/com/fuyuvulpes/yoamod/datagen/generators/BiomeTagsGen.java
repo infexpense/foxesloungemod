@@ -29,6 +29,7 @@ public class BiomeTagsGen extends BiomeTagsProvider {
         );
 
 
+
         this.tag(BiomeTags.ALLOWS_SURFACE_SLIME_SPAWNS).add(
 
         ).addTag(

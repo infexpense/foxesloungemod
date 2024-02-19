@@ -1,10 +1,13 @@
 package com.fuyuvulpes.yoamod;
 
+import com.fuyuvulpes.yoamod.custom.entity.ArmedSpider;
 import com.fuyuvulpes.yoamod.custom.entity.Blockling;
 import com.fuyuvulpes.yoamod.custom.entity.BrawlerEntity;
 import com.fuyuvulpes.yoamod.custom.item.weaponry.WarFanItem;
+import com.fuyuvulpes.yoamod.game.client.entities.model.ArmedSpiderModel;
 import com.fuyuvulpes.yoamod.game.client.entities.model.BlocklingModel;
 import com.fuyuvulpes.yoamod.game.client.entities.model.BrawlerModel;
+import com.fuyuvulpes.yoamod.game.client.entities.renderers.ArmedSpiderRenderer;
 import com.fuyuvulpes.yoamod.game.client.entities.renderers.BlocklingRenderer;
 import com.fuyuvulpes.yoamod.game.client.entities.renderers.BrawlerRenderer;
 import com.fuyuvulpes.yoamod.game.client.entities.renderers.HammeringStationRenderer;
@@ -16,6 +19,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -135,6 +139,7 @@ public class YOAMod {
             event.registerBlockEntityRenderer(BlockEntitiesModReg.HAMMERING_STATION.get(), HammeringStationRenderer::new);
             event.registerEntityRenderer(EntityTypeModReg.BRAWLER_TYPE.get(), BrawlerRenderer::new);
             event.registerEntityRenderer(EntityTypeModReg.BLOCKLING_TYPE.get(), BlocklingRenderer::new);
+            event.registerEntityRenderer(EntityTypeModReg.ARMED_SPIDER_TYPE.get(), ArmedSpiderRenderer::new);
         }
 
 
@@ -142,6 +147,7 @@ public class YOAMod {
         public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
             event.registerLayerDefinition(BrawlerModel.LAYER_LOCATION,BrawlerModel::createBodyLayer);
             event.registerLayerDefinition(BlocklingModel.LAYER_LOCATION, BlocklingModel::createBodyLayer);
+            event.registerLayerDefinition(ArmedSpiderModel.LAYER_LOCATION, ArmedSpiderModel::createBodyLayer);
 
         }
 
@@ -156,6 +162,7 @@ public class YOAMod {
         public static void entityAttributes(EntityAttributeCreationEvent event){
             event.put(EntityTypeModReg.BRAWLER_TYPE.get(), BrawlerEntity.createAttributes().build());
             event.put(EntityTypeModReg.BLOCKLING_TYPE.get(), Blockling.createAttributes().build());
+            event.put(EntityTypeModReg.ARMED_SPIDER_TYPE.get(), ArmedSpider.createAttributes().build());
         }
 
 
@@ -166,6 +173,11 @@ public class YOAMod {
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     BrawlerEntity::canSpawn,
+                    SpawnPlacementRegisterEvent.Operation.OR);
+            event.register(EntityTypeModReg.ARMED_SPIDER_TYPE.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Monster::checkMonsterSpawnRules,
                     SpawnPlacementRegisterEvent.Operation.OR);
             event.register(EntityTypeModReg.BLOCKLING_TYPE.get(),
                     SpawnPlacements.Type.ON_GROUND,

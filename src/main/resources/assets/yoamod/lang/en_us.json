@@ -494,6 +494,8 @@
 
 
   "item.yoamod.brawler_spawn_egg": "Brawler Spawn Egg",
+  "item.yoamod.blockling_spawn_egg": "Blockling Spawn Egg",
+  "item.yoamod.armed_spider_spawn_egg": "Armed Spider Spawn Egg",
 
   "block.yoamod.adamantite_block": "Adamantite Block",
   "block.yoamod.raw_adamantite_block": "Raw Adamantite Block",
@@ -535,5 +537,7 @@
   "advancement.yoamod.root": "Your Own Adventure",
   "advancement.yoamod.root.description": "The Beginning",
 
-  "entity.yoamod.brawler": "Brawler"
+  "entity.yoamod.brawler": "Brawler",
+  "entity.yoamod.blockling": "Blockling",
+  "entity.yoamod.armed_spider": "Armed Spider"
 }

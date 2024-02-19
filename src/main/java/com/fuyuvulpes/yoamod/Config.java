@@ -23,6 +23,10 @@ public class Config
             .comment("Whether to log the dirt block on common setup")
             .define("logDirtBlock", true);
 
+    private static final ModConfigSpec.BooleanValue ARMED_SPIDER_DEBUFF = BUILDER
+            .comment("Whether to apply Nausea, Darkness, and Weakness to Armed Spider attacks")
+            .define("armedSpiderDebuff", true);
+
     private static final ModConfigSpec.IntValue MAGIC_NUMBER = BUILDER
             .comment("A magic number")
             .defineInRange("magicNumber", 42, 0, Integer.MAX_VALUE);
