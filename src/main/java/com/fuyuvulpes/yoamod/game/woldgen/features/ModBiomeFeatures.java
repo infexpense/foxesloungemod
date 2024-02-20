@@ -1,7 +1,7 @@
 package com.fuyuvulpes.yoamod.game.woldgen.features;
 
 import com.fuyuvulpes.yoamod.game.woldgen.ModPlacedFeatures;
-import com.fuyuvulpes.yoamod.registries.EntityTypeModReg;
+import com.fuyuvulpes.yoamod.core.registries.EntityTypeModReg;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;

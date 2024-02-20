@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.game.client.entities.renderers;
 
-import com.fuyuvulpes.yoamod.custom.entity.BrawlerEntity;
+import com.fuyuvulpes.yoamod.world.entity.BrawlerEntity;
 import com.fuyuvulpes.yoamod.game.client.entities.model.BrawlerModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;

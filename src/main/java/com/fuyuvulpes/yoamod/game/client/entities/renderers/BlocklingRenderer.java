@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.game.client.entities.renderers;
 
-import com.fuyuvulpes.yoamod.custom.entity.Blockling;
+import com.fuyuvulpes.yoamod.world.entity.Blockling;
 import com.fuyuvulpes.yoamod.game.client.entities.model.BlocklingModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;

@@ -1,16 +1,11 @@
 package com.fuyuvulpes.yoamod.game.server.teleporter;
 
-import com.fuyuvulpes.yoamod.custom.block.CreaksGateBlock;
 import com.fuyuvulpes.yoamod.game.woldgen.ModDimensions;
-import com.fuyuvulpes.yoamod.registries.BlocksModReg;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.common.util.ITeleporter;
 

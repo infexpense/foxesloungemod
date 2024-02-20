@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.datagen.generators;
 
-import com.fuyuvulpes.yoamod.registries.ItemsModReg;
+import com.fuyuvulpes.yoamod.core.registries.ItemsModReg;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;

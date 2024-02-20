@@ -1,8 +1,7 @@
 package com.fuyuvulpes.yoamod.datagen.generators;
 
 import com.fuyuvulpes.yoamod.YOAMod;
-import com.fuyuvulpes.yoamod.registries.BlocksModReg;
-import com.fuyuvulpes.yoamod.registries.ItemsModReg;
+import com.fuyuvulpes.yoamod.core.registries.ItemsModReg;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -16,7 +15,6 @@ import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

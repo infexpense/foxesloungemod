@@ -1,7 +1,7 @@
 package com.fuyuvulpes.yoamod.game.woldgen.features.util;
 
-import com.fuyuvulpes.yoamod.custom.block.PointedCreakstone;
-import com.fuyuvulpes.yoamod.registries.BlocksModReg;
+import com.fuyuvulpes.yoamod.world.block.PointedCreakstone;
+import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;

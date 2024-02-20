@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.datagen.generators.advancement;
 
-import com.fuyuvulpes.yoamod.registries.ItemsModReg;
+import com.fuyuvulpes.yoamod.core.registries.ItemsModReg;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementType;

@@ -1,7 +1,7 @@
 package com.fuyuvulpes.yoamod.game.server.crafting;
 
-import com.fuyuvulpes.yoamod.registries.BlocksModReg;
-import com.fuyuvulpes.yoamod.registries.RecipesModReg;
+import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
+import com.fuyuvulpes.yoamod.core.registries.RecipesModReg;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 

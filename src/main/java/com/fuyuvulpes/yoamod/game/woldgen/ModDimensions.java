@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.game.woldgen;
 
-import com.fuyuvulpes.yoamod.registries.NoiseRegistry;
+import com.fuyuvulpes.yoamod.core.registries.NoiseRegistry;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;

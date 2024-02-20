@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.game.client.entities.model;
 
-import com.fuyuvulpes.yoamod.custom.entity.Blockling;
+import com.fuyuvulpes.yoamod.world.entity.Blockling;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HierarchicalModel;

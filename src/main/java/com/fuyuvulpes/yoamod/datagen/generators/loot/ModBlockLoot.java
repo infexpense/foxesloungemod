@@ -1,7 +1,7 @@
 package com.fuyuvulpes.yoamod.datagen.generators.loot;
 
-import com.fuyuvulpes.yoamod.registries.BlocksModReg;
-import com.fuyuvulpes.yoamod.registries.ItemsModReg;
+import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
+import com.fuyuvulpes.yoamod.core.registries.ItemsModReg;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.data.loot.BlockLootSubProvider;

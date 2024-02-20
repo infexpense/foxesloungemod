@@ -1,22 +1,16 @@
 package com.fuyuvulpes.yoamod.datagen.generators;
 
-import com.fuyuvulpes.yoamod.registries.BlocksModReg;
-import com.fuyuvulpes.yoamod.registries.ItemsModReg;
+import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
+import com.fuyuvulpes.yoamod.core.registries.ItemsModReg;
 import com.google.common.collect.ImmutableList;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
-
-import java.util.concurrent.CompletableFuture;
 
 public class RecipeGen extends RecipeProvider implements IConditionBuilder {
     public static final ImmutableList<ItemLike> IRON_SMELTABLES;

@@ -1,9 +1,11 @@
 package com.fuyuvulpes.yoamod;
 
-import com.fuyuvulpes.yoamod.custom.entity.ArmedSpider;
-import com.fuyuvulpes.yoamod.custom.entity.Blockling;
-import com.fuyuvulpes.yoamod.custom.entity.BrawlerEntity;
-import com.fuyuvulpes.yoamod.custom.item.weaponry.WarFanItem;
+import com.fuyuvulpes.yoamod.core.YOAModCommonConfig;
+import com.fuyuvulpes.yoamod.game.client.particle.BleedingParticle;
+import com.fuyuvulpes.yoamod.world.entity.ArmedSpider;
+import com.fuyuvulpes.yoamod.world.entity.Blockling;
+import com.fuyuvulpes.yoamod.world.entity.BrawlerEntity;
+import com.fuyuvulpes.yoamod.world.item.weaponry.WarFanItem;
 import com.fuyuvulpes.yoamod.game.client.entities.model.ArmedSpiderModel;
 import com.fuyuvulpes.yoamod.game.client.entities.model.BlocklingModel;
 import com.fuyuvulpes.yoamod.game.client.entities.model.BrawlerModel;
@@ -11,17 +13,12 @@ import com.fuyuvulpes.yoamod.game.client.entities.renderers.ArmedSpiderRenderer;
 import com.fuyuvulpes.yoamod.game.client.entities.renderers.BlocklingRenderer;
 import com.fuyuvulpes.yoamod.game.client.entities.renderers.BrawlerRenderer;
 import com.fuyuvulpes.yoamod.game.client.entities.renderers.HammeringStationRenderer;
-import com.fuyuvulpes.yoamod.registries.*;
+import com.fuyuvulpes.yoamod.core.registries.*;
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -32,13 +29,12 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.SpawnPlacementRegisterEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-
-import static net.minecraft.world.entity.Mob.checkMobSpawnRules;
 
 
 @Mod(YOAMod.MODID)
@@ -55,6 +51,7 @@ public class YOAMod {
         ParticleModReg.register(modEventBus);
         ModEffects.register(modEventBus);
         EntityTypeModReg.register(modEventBus);
+        //MagicSpellsRegistry.register(modEventBus);
 
         BlocksModReg.register(modEventBus);
 
@@ -69,7 +66,7 @@ public class YOAMod {
         modEventBus.addListener(this::addCreative);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, YOAModCommonConfig.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -150,6 +147,15 @@ public class YOAMod {
             event.registerLayerDefinition(ArmedSpiderModel.LAYER_LOCATION, ArmedSpiderModel::createBodyLayer);
 
         }
+
+
+        @SubscribeEvent
+        public static void registerParticleEvent(RegisterParticleProvidersEvent event) {
+            event.registerSpriteSet(ParticleModReg.BLEEDING.get(), (pSprites) ->
+                    (pType, pLevel, pX, pY, pZ, pXSpeed, pYSpeed, pZSpeed) ->
+                            new BleedingParticle(pLevel,pX,pY,pZ,pSprites));
+        }
+
 
     }
 

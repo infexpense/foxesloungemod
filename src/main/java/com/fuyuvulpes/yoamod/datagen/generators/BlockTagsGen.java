@@ -1,7 +1,7 @@
 package com.fuyuvulpes.yoamod.datagen.generators;
 
-import com.fuyuvulpes.yoamod.registries.BlocksModReg;
-import com.fuyuvulpes.yoamod.registries.TagRegistry;
+import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
+import com.fuyuvulpes.yoamod.core.registries.TagRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
