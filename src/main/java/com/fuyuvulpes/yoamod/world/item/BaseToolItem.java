@@ -1,13 +1,10 @@
 package com.fuyuvulpes.yoamod.world.item;
 
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.Vanishable;
+import net.minecraft.world.item.*;
 
 import java.util.UUID;
 
-public class BaseToolItem extends Item implements Vanishable {
+public class BaseToolItem extends TieredItem implements Vanishable {
 
     protected static final UUID BASE_ENTITY_REACH_UUID = UUID.fromString("4d110acd-e692-47af-a847-467bffa9f2c0");
     protected static final UUID BASE_ENTITY_GRAVITY_UUID = UUID.fromString("f3b17265-38b7-499f-b95c-8234a14366bd");
@@ -17,7 +14,7 @@ public class BaseToolItem extends Item implements Vanishable {
 
 
     public BaseToolItem(Tier tier, Properties properties) {
-        super(properties.defaultDurability(tier.getUses()));
+        super(tier,properties);
         this.tier = tier;
     }
 

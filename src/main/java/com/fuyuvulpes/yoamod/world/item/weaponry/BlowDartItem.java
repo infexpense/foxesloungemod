@@ -10,11 +10,11 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
-public class BlowDartItem extends Item implements Vanishable {
+public class BlowDartItem extends TieredItem implements Vanishable {
     public final Tier dartTier;
 
     public BlowDartItem(Tier tier, Properties pProperties) {
-        super(pProperties.durability(tier.getUses()));
+        super(tier,pProperties);
         this.dartTier =tier;
     }
 

@@ -41,7 +41,7 @@ public class YOAModCommonConfig
             .comment("A list of items to log on common setup.")
             .defineListAllowEmpty("items", List.of("minecraft:iron_ingot"), YOAModCommonConfig::validateItemName);
 
-    static final ModConfigSpec SPEC = BUILDER.build();
+    public static final ModConfigSpec SPEC = BUILDER.build();
     public static boolean armedSpiderDebuff;
     public static int spellLimit;
     public static int startingMana;

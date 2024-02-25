@@ -1,6 +1,8 @@
 package com.fuyuvulpes.yoamod;
 
 import com.fuyuvulpes.yoamod.core.YOAModCommonConfig;
+import com.fuyuvulpes.yoamod.game.client.entities.model.PlaneModel;
+import com.fuyuvulpes.yoamod.game.client.entities.renderers.*;
 import com.fuyuvulpes.yoamod.game.client.particle.BleedingParticle;
 import com.fuyuvulpes.yoamod.world.entity.ArmedSpider;
 import com.fuyuvulpes.yoamod.world.entity.Blockling;
@@ -9,10 +11,6 @@ import com.fuyuvulpes.yoamod.world.item.weaponry.WarFanItem;
 import com.fuyuvulpes.yoamod.game.client.entities.model.ArmedSpiderModel;
 import com.fuyuvulpes.yoamod.game.client.entities.model.BlocklingModel;
 import com.fuyuvulpes.yoamod.game.client.entities.model.BrawlerModel;
-import com.fuyuvulpes.yoamod.game.client.entities.renderers.ArmedSpiderRenderer;
-import com.fuyuvulpes.yoamod.game.client.entities.renderers.BlocklingRenderer;
-import com.fuyuvulpes.yoamod.game.client.entities.renderers.BrawlerRenderer;
-import com.fuyuvulpes.yoamod.game.client.entities.renderers.HammeringStationRenderer;
 import com.fuyuvulpes.yoamod.core.registries.*;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
@@ -134,6 +132,7 @@ public class YOAMod {
         @SubscribeEvent
         public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(BlockEntitiesModReg.HAMMERING_STATION.get(), HammeringStationRenderer::new);
+            event.registerEntityRenderer(EntityTypeModReg.PLANE_TYPE.get(), PlaneRenderer::new);
             event.registerEntityRenderer(EntityTypeModReg.BRAWLER_TYPE.get(), BrawlerRenderer::new);
             event.registerEntityRenderer(EntityTypeModReg.BLOCKLING_TYPE.get(), BlocklingRenderer::new);
             event.registerEntityRenderer(EntityTypeModReg.ARMED_SPIDER_TYPE.get(), ArmedSpiderRenderer::new);
@@ -142,6 +141,7 @@ public class YOAMod {
 
         @SubscribeEvent
         public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+            event.registerLayerDefinition(PlaneModel.LAYER_LOCATION,PlaneModel::createBodyLayer);
             event.registerLayerDefinition(BrawlerModel.LAYER_LOCATION,BrawlerModel::createBodyLayer);
             event.registerLayerDefinition(BlocklingModel.LAYER_LOCATION, BlocklingModel::createBodyLayer);
             event.registerLayerDefinition(ArmedSpiderModel.LAYER_LOCATION, ArmedSpiderModel::createBodyLayer);

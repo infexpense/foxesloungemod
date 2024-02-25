@@ -497,6 +497,9 @@
   "item.yoamod.blockling_spawn_egg": "Blockling Spawn Egg",
   "item.yoamod.armed_spider_spawn_egg": "Armed Spider Spawn Egg",
 
+  "item.yoamod.plane_item": "Airplane",
+
+
   "block.yoamod.adamantite_block": "Adamantite Block",
   "block.yoamod.raw_adamantite_block": "Raw Adamantite Block",
   "block.yoamod.alexandrite_block": "Alexandrite Block",
@@ -519,6 +522,7 @@
   "itemGroup.yoa_tools_gear": "Your Own Adventure: Tools & Gear",
   "itemGroup.yoa_weapons": "Your Own Adventure: Weaponry",
   "itemGroup.yoa_spawn_eggs": "Your Own Adventure: Spawn Eggs",
+  "itemGroup.yoa_vehicles": "Your Own Adventure: Vehicles",
 
   "container.yoamod.crucible": "Crucible",
   "container.yoamod.hammering_station": "Crucible",

@@ -2,10 +2,11 @@ package com.fuyuvulpes.yoamod.world.item.weaponry;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.Vanishable;
 
-public class TalismanItem extends Item implements Vanishable {
+public class TalismanItem extends TieredItem implements Vanishable {
     public TalismanItem(Tier tier, Properties pProperties) {
-        super(pProperties);
+        super(tier,pProperties);
     }
 }

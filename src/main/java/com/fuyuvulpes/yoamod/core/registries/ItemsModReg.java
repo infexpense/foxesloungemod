@@ -1,11 +1,6 @@
 package com.fuyuvulpes.yoamod.core.registries;
 
-import com.fuyuvulpes.yoamod.world.item.ModToolTiers;
-import com.fuyuvulpes.yoamod.world.item.ModArmorMats;
-import com.fuyuvulpes.yoamod.world.item.WeaponItem;
-import com.fuyuvulpes.yoamod.world.item.WeaponStats;
-import com.fuyuvulpes.yoamod.world.item.ModSmithingTemplateItem;
-import com.fuyuvulpes.yoamod.world.item.ReturnTalismanItem;
+import com.fuyuvulpes.yoamod.world.item.*;
 import com.fuyuvulpes.yoamod.world.item.weaponry.*;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
@@ -19,6 +14,10 @@ import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 public class ItemsModReg {
 
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
+
+
+
+    public static final DeferredItem<Item> PLANE_ITEM = ITEMS.register("plane_item", () -> new PlaneItem(new Item.Properties().stacksTo(1)));
 
 
     public static final DeferredItem<Item> RETURN_TALISMAN =  ITEMS.register("return_talisman", () -> new ReturnTalismanItem(new Item.Properties()));
@@ -592,16 +591,6 @@ public class ItemsModReg {
 public static final DeferredItem<Item> ARMED_SPIDER_SPAWN_EGG =  ITEMS.register("armed_spider_spawn_egg",
             () -> new DeferredSpawnEggItem(EntityTypeModReg.ARMED_SPIDER_TYPE::get,0x908554,0xDBDF9C,new Item.Properties()));
 
-
-
-
-
-
-
-
-
-    public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder()
-            .alwaysEat().nutrition(1).saturationMod(2f).build()));
 
 
 

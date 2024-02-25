@@ -47,6 +47,7 @@ public class ItemModelGen extends ItemModelProvider {
         spawnEggItem(ItemsModReg.BLOCKLING_SPAWN_EGG);
         spawnEggItem(ItemsModReg.ARMED_SPIDER_SPAWN_EGG);
 
+        simpleItem(ItemsModReg.PLANE_ITEM);
         simpleItem(ItemsModReg.CRYSTALIC_SHARD);
         simpleItem(ItemsModReg.RUNE_CRYSTAL);
         simpleItem(ItemsModReg.ADAMANTITE_TEMPLATE);

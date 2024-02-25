@@ -26,6 +26,13 @@ repositories {
     maven {
         url = 'https://maven.neoforged.net'
     }
+
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 base {
@@ -97,6 +104,10 @@ dependencies {
     compileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
     compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+
+    implementation "curse.maven:attributefix-280510:5074738"
+    implementation "curse.maven:armorpoints-396094:4981317"
+
 
 }
 

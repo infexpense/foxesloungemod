@@ -3,6 +3,7 @@ package com.fuyuvulpes.yoamod.core.registries;
 import com.fuyuvulpes.yoamod.world.entity.ArmedSpider;
 import com.fuyuvulpes.yoamod.world.entity.Blockling;
 import com.fuyuvulpes.yoamod.world.entity.BrawlerEntity;
+import com.fuyuvulpes.yoamod.world.entity.vehicle.PlaneEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -16,6 +17,11 @@ import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 public class EntityTypeModReg {
 
     public static final DeferredRegister<EntityType<?>> ENTITY = DeferredRegister.create(Registries.ENTITY_TYPE, MODID);
+
+    public static final DeferredHolder<EntityType<?>,EntityType<PlaneEntity>> PLANE_TYPE = ENTITY.register("plane",
+            () -> EntityType.Builder.<PlaneEntity>of(PlaneEntity::new, MobCategory.MISC)
+                    .sized(5.75f,2.5F).clientTrackingRange(8)
+                    .build(new ResourceLocation(MODID,"plane").toString()));
 
     public static final DeferredHolder<EntityType<?>,EntityType<BrawlerEntity>> BRAWLER_TYPE = ENTITY.register("brawler",
             () -> EntityType.Builder.<BrawlerEntity>of(BrawlerEntity::new, MobCategory.MONSTER)

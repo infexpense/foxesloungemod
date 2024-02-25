@@ -538,6 +538,15 @@ public class CreativeTabRegistry {
             }).build());
 
 
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> YOA_VEHICLES = TABS.register("yoa_vehicles", () -> CreativeModeTab.builder()
+            .withTabsBefore(YOA_SPAWN_EGGS.getKey())
+            .icon(ItemsModReg.PLANE_ITEM.get()::getDefaultInstance)
+            .title(Component.translatable("itemGroup.yoa_vehicles"))
+            .displayItems((parameters, output) -> {
+                output.accept(ItemsModReg.PLANE_ITEM.get());
+            }).build());
+
+
 
     public static void register(IEventBus eventBus){
         TABS.register(eventBus);

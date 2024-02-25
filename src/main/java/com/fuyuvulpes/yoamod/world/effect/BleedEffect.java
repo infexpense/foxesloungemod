@@ -21,7 +21,7 @@ public class BleedEffect extends MobEffect {
         Level level = entity.level();
         for (int i = 5 + (pAmplifier * 3); i > 0; i--){
             if (level.isClientSide){
-                level.addParticle(ParticleModReg.BLEEDING.get(),entity.getX() - 0.5 + entity.level().getRandom().nextFloat() * 2,entity.getY() - 0.5 + entity.level().getRandom().nextFloat() * 2,entity.getZ() - 0.5 + entity.level().getRandom().nextFloat() * 2,0.0F,-0.2F,0.0F);
+                level.addParticle(ParticleModReg.BLEEDING.get(),entity.getX() - 0.5 + entity.level().getRandom().nextFloat() * 2,entity.getY() - 0.5 + entity.level().getRandom().nextFloat() * 2,entity.getZ() - 0.5 + entity.level().getRandom().nextFloat() * 2,level.random.nextFloat(),-0.2F,level.random.nextDouble());
             }
         }
     }
