@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "yoamod:block/etherflos_stage_0"
+    },
+    "age=1": {
+      "model": "yoamod:block/etherflos_stage_1"
+    },
+    "age=2": {
+      "model": "yoamod:block/etherflos_stage_2"
+    }
+  }
+}

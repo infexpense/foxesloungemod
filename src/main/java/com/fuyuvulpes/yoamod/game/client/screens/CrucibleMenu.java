@@ -1,45 +1,37 @@
 package com.fuyuvulpes.yoamod.game.client.screens;
 
-import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
 import com.fuyuvulpes.yoamod.core.registries.MenusModReg;
-import com.fuyuvulpes.yoamod.world.entity.block.CrucibleBlockEntity;
-import com.mojang.serialization.Decoder;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.*;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.SlotItemHandler;
 
 public class CrucibleMenu extends AbstractContainerMenu {
 
-    public final CrucibleBlockEntity blockEntity;
+    private final Container container;
     private final Level level;
     private final ContainerData data;
 
-    public CrucibleMenu(int pId, Inventory pPlayer) {
-        this(pId, pPlayer, new SimpleContainer(5), pPlayer.player.level().getBlockEntity(pPlayer.), new SimpleContainerData(5));
+    public CrucibleMenu(int pContainerId, Inventory pPlayerInventory) {
+        this(pContainerId, pPlayerInventory, new SimpleContainer(5), new SimpleContainerData(5));
     }
 
-    public CrucibleMenu(int pId, Inventory pPlayer, FriendlyByteBuf extraData) {
-        this(pId, pPlayer, new SimpleContainer(5), pPlayer.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(5));
-    }
 
-    public CrucibleMenu(int pId, Inventory pPlayer, Container pContainer,  BlockEntity entity, ContainerData data) {
+    public CrucibleMenu(int pId, Inventory inventory, Container pContainer, ContainerData data) {
         super(MenusModReg.CRUCIBLE_MENU.get(), pId);
-        checkContainerSize(pPlayer, 2);
-        blockEntity = ((CrucibleBlockEntity) entity);
-        this.level = pPlayer.player.level();
+        checkContainerSize(inventory, 5);
+        this.level = inventory.player.level();
         this.data = data;
+        this.container = pContainer;
 
-        addPlayerInventory(pPlayer);
-        addPlayerHotbar(pPlayer);
+        addPlayerInventory(inventory);
+        addPlayerHotbar(inventory);
 
         this.addSlot(new Slot(pContainer, 0, 23, 19));
         this.addSlot(new Slot(pContainer, 1, 41, 19));
@@ -122,8 +114,7 @@ public class CrucibleMenu extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player pPlayer) {
-        return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, BlocksModReg.CRUCIBLE.get());
+        return this.container.stillValid(pPlayer);
     }
 
     private void addPlayerInventory(Inventory playerInventory) {

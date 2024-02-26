@@ -117,7 +117,7 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
     //MAKE THIS CRUCIBLE MENU!!!!!!!!!!!!!!!
     @Override
     protected AbstractContainerMenu createMenu(int pId, Inventory pPlayer) {
-        return new CrucibleMenu(pId, pPlayer, this,  this, this.dataAccess);
+        return new CrucibleMenu(pId, pPlayer,this, this.dataAccess);
     }
 
     private boolean isLit() {
