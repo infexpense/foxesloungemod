@@ -2,6 +2,7 @@ package com.fuyuvulpes.yoamod.world.entity.block;
 
 import com.fuyuvulpes.yoamod.core.registries.BlockEntitiesModReg;
 import com.fuyuvulpes.yoamod.core.registries.RecipesModReg;
+import com.fuyuvulpes.yoamod.game.client.screens.CrucibleMenu;
 import com.fuyuvulpes.yoamod.game.server.crafting.CrucibleRecipe;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.core.BlockPos;
@@ -116,7 +117,7 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
     //MAKE THIS CRUCIBLE MENU!!!!!!!!!!!!!!!
     @Override
     protected AbstractContainerMenu createMenu(int pId, Inventory pPlayer) {
-        return new FurnaceMenu(pId, pPlayer, this, this.dataAccess);
+        return new CrucibleMenu(pId, pPlayer, this,  this, this.dataAccess);
     }
 
     private boolean isLit() {

@@ -4,6 +4,7 @@ import com.fuyuvulpes.yoamod.core.YOAModCommonConfig;
 import com.fuyuvulpes.yoamod.game.client.entities.model.PlaneModel;
 import com.fuyuvulpes.yoamod.game.client.entities.renderers.*;
 import com.fuyuvulpes.yoamod.game.client.particle.BleedingParticle;
+import com.fuyuvulpes.yoamod.game.client.screens.CrucibleScreen;
 import com.fuyuvulpes.yoamod.world.entity.ArmedSpider;
 import com.fuyuvulpes.yoamod.world.entity.Blockling;
 import com.fuyuvulpes.yoamod.world.entity.BrawlerEntity;
@@ -12,6 +13,7 @@ import com.fuyuvulpes.yoamod.game.client.entities.model.ArmedSpiderModel;
 import com.fuyuvulpes.yoamod.game.client.entities.model.BlocklingModel;
 import com.fuyuvulpes.yoamod.game.client.entities.model.BrawlerModel;
 import com.fuyuvulpes.yoamod.core.registries.*;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.SpawnPlacements;
@@ -49,6 +51,7 @@ public class YOAMod {
         ParticleModReg.register(modEventBus);
         ModEffects.register(modEventBus);
         EntityTypeModReg.register(modEventBus);
+        MenusModReg.register(modEventBus);
         //MagicSpellsRegistry.register(modEventBus);
 
         BlocksModReg.register(modEventBus);
@@ -124,6 +127,8 @@ public class YOAMod {
 
 
             });
+
+            MenuScreens.register(MenusModReg.CRUCIBLE_MENU.get(), CrucibleScreen::new);
 
 
         }
