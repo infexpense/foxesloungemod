@@ -8,7 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
-public class BrawlerRenderer extends MobRenderer<BrawlerEntity, BrawlerModel<BrawlerEntity>> {
+public class BrawlerRenderer<T extends BrawlerEntity> extends MobRenderer<T, BrawlerModel<T>>{
 
     private static final ResourceLocation TEXTURE = new ResourceLocation(MODID,"textures/entity/brawler.png");
 

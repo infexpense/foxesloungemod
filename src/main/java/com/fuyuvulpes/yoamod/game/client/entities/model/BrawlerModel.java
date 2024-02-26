@@ -1,6 +1,7 @@
 package com.fuyuvulpes.yoamod.game.client.entities.model;
 
 import com.fuyuvulpes.yoamod.world.entity.BrawlerEntity;
+import com.fuyuvulpes.yoamod.world.entity.BrawlingEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.animation.AnimationChannel;
@@ -95,6 +96,13 @@ public class BrawlerModel<T extends BrawlerEntity> extends HierarchicalModel<T> 
 
     @Override
     public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+        if (this.young){
+            poseStack.scale(0.5F,0.5F,0.5F);
+            poseStack.translate(0,1.5,0);
+        }else{
+            poseStack.scale(1.5F,1.5F,1.5F);
+            poseStack.translate(0,-0.5,0);
+        }
         this.parts.root.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
     }
 

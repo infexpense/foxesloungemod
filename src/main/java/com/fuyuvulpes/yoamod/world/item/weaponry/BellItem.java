@@ -1,6 +1,8 @@
 package com.fuyuvulpes.yoamod.world.item.weaponry;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -14,6 +16,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.entity.EntityTypeTest;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,5 +91,15 @@ public class BellItem extends TieredItem implements Vanishable {
     @Override
     public UseAnim getUseAnimation(ItemStack pStack) {
         return UseAnim.BRUSH;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        if (pStack.getItem() instanceof BellItem bellItem) {
+            pTooltipComponents.add(Component.translatable("yoamod.bell.damage_max").append(": " + (8.0F * bellItem.getTier().getAttackDamageBonus())).withStyle(ChatFormatting.GOLD));
+            pTooltipComponents.add(Component.translatable("yoamod.bell.damage_min").append(": " + (1.0F + 2.0F * bellItem.getTier().getAttackDamageBonus())).withStyle(ChatFormatting.RED));
+            pTooltipComponents.add(Component.translatable("yoamod.bell.healing").append(": " + (2.0F * bellItem.getTier().getAttackDamageBonus() / 2)).withStyle(ChatFormatting.GREEN));
+        }
+        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

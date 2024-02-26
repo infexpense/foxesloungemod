@@ -37,6 +37,7 @@ public class ModBiomeFeatures {
         spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 30, 1, 4));
         spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.PHANTOM, 10, 1, 8));
         spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityTypeModReg.BRAWLER_TYPE.get(), 100, 1, 2));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityTypeModReg.BRAWLING_TYPE.get(), 80, 1, 7));
     }
         public static void addOvergrownGrottoFeatures(BiomeGenerationSettings.Builder biomeBuilder){
 

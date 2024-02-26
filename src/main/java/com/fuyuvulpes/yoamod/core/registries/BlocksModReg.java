@@ -79,11 +79,13 @@ public class BlocksModReg {
 
 
 
+    public static final DeferredBlock<Block> ETHERFRLOS = registerBlock("etherflos", () -> new EtherflosBlock(BlockBehaviour.Properties.of().sound(SoundType.BAMBOO_SAPLING).instabreak().noCollission().noOcclusion().lightLevel(blockState -> blockState.getValue(BlockStateProperties.AGE_2) > 1 ? 0: 2)));
 
 
     public static final DeferredBlock<Block> CREAKSTONE_IRON_ORE = registerBlock("creakstone_iron_ore", Block.Properties.ofLegacyCopy(Blocks.DEEPSLATE_IRON_ORE).strength(24.0F, 32.0F));
 
     public static final DeferredBlock<Block> CREAKSTONE_DIAMOND_ORE = registerBlock("creakstone_diamond_ore", Block.Properties.ofLegacyCopy(Blocks.DEEPSLATE_DIAMOND_ORE).strength(24.0F, 32.0F));
+
 
 
 

@@ -21,7 +21,7 @@ public class BrawlerEntity extends Monster {
     public final AnimationState idleAnimationState = new AnimationState();
     public final AnimationState attackAnimationState = new AnimationState();
 
-    public BrawlerEntity(EntityType<BrawlerEntity> entityType, Level level) {
+    public BrawlerEntity(EntityType<? extends BrawlerEntity> entityType, Level level) {
         super(entityType, level);
         this.xpReward = 100;
     }
@@ -70,7 +70,7 @@ public class BrawlerEntity extends Monster {
 
     }
 
-    public static boolean canSpawn(EntityType<BrawlerEntity> entityType, ServerLevelAccessor level, MobSpawnType type, BlockPos pos, RandomSource randomSource){
+    public static boolean canSpawn(EntityType<? extends BrawlerEntity> entityType, ServerLevelAccessor level, MobSpawnType type, BlockPos pos, RandomSource randomSource){
         return checkMonsterSpawnRules(entityType,level,type,pos,randomSource);
     }
 

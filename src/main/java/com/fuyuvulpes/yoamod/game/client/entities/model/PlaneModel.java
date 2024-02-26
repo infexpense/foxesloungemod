@@ -7,13 +7,14 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
 public class PlaneModel<T extends PlaneEntity> extends HierarchicalModel<T> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(MODID, "airplane"), "main");
 
-    private final PlaneModel.ModelParts parts;
+    public final PlaneModel.ModelParts parts;
     public PlaneModel(ModelPart pRoot) {
         ModelPart root = pRoot.getChild("root");
         ModelPart propeller = root.getChild("propeller");
@@ -40,9 +41,9 @@ public class PlaneModel<T extends PlaneEntity> extends HierarchicalModel<T> {
 
         PartDefinition root = partdefinition.addOrReplaceChild("root", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
 
-        PartDefinition propeller = root.addOrReplaceChild("propeller", CubeListBuilder.create().texOffs(396, 0).addBox(-12.0F, -12.0F, 0.0F, 24.0F, 24.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -19.0F, -50.0F));
+        PartDefinition propeller = root.addOrReplaceChild("propeller", CubeListBuilder.create().texOffs(396, 0).addBox(-12.0F, -12.0F, 0.0F, 24.0F, 24.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -19.0F, -26.0F));
 
-        PartDefinition rigid = root.addOrReplaceChild("rigid", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, -25.0F));
+        PartDefinition rigid = root.addOrReplaceChild("rigid", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, -1.0F));
 
         PartDefinition wing = rigid.addOrReplaceChild("wing", CubeListBuilder.create().texOffs(0, 40).addBox(7.0F, -15.0F, -18.0F, 71.0F, 4.0F, 36.0F, new CubeDeformation(0.0F))
                 .texOffs(0, 40).mirror().addBox(-78.0F, -15.0F, -18.0F, 71.0F, 4.0F, 36.0F, new CubeDeformation(0.0F)).mirror(false)
@@ -87,7 +88,7 @@ public class PlaneModel<T extends PlaneEntity> extends HierarchicalModel<T> {
 
         PartDefinition cube_r7 = body.addOrReplaceChild("cube_r7", CubeListBuilder.create().texOffs(66, 129).addBox(-1.5F, -1.5F, 0.0F, 3.0F, 3.0F, 30.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(5.5F, -0.5F, 50.0F, 0.0873F, -0.0436F, 0.0F));
 
-        PartDefinition single_wheel = root.addOrReplaceChild("single_wheel", CubeListBuilder.create(), PartPose.offset(-1.0F, -4.0F, -41.0F));
+        PartDefinition single_wheel = root.addOrReplaceChild("single_wheel", CubeListBuilder.create(), PartPose.offset(-1.0F, -4.0F, -17.0F));
 
         PartDefinition cube_r8 = single_wheel.addOrReplaceChild("cube_r8", CubeListBuilder.create().texOffs(28, 40).mirror().addBox(-3.0F, -18.0F, -1.0F, 2.0F, 19.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false)
                 .texOffs(28, 40).addBox(1.0F, -18.0F, -1.0F, 2.0F, 19.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -1.1345F, 0.0F, 0.0F));
@@ -96,7 +97,7 @@ public class PlaneModel<T extends PlaneEntity> extends HierarchicalModel<T> {
 
         PartDefinition cube_r9 = wheel.addOrReplaceChild("cube_r9", CubeListBuilder.create().texOffs(0, 40).addBox(-1.0F, -4.0F, -4.0F, 2.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.7854F, 0.0F, 0.0F));
 
-        PartDefinition double_wheels = root.addOrReplaceChild("double_wheels", CubeListBuilder.create().texOffs(38, 86).addBox(-9.0F, 6.0F, -1.0F, 18.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -10.0F, -12.0F, 0.2618F, 0.0F, 0.0F));
+        PartDefinition double_wheels = root.addOrReplaceChild("double_wheels", CubeListBuilder.create().texOffs(38, 86).addBox(-9.0F, 6.0F, -1.0F, 18.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -10.0F, 12.0F, 0.2618F, 0.0F, 0.0F));
 
         PartDefinition cube_r10 = double_wheels.addOrReplaceChild("cube_r10", CubeListBuilder.create().texOffs(20, 40).mirror().addBox(-2.0F, 0.0F, -1.0F, 2.0F, 8.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-2.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.3927F));
 
@@ -110,15 +111,14 @@ public class PlaneModel<T extends PlaneEntity> extends HierarchicalModel<T> {
 
         PartDefinition cube_r13 = wheel_right.addOrReplaceChild("cube_r13", CubeListBuilder.create().texOffs(0, 56).mirror().addBox(-1.0F, -3.0F, -4.0F, 2.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.5236F, 0.0F, 0.0F));
 
-        PartDefinition left_stabilizer = root.addOrReplaceChild("left_stabilizer", CubeListBuilder.create().texOffs(250, 111).addBox(0.0F, -1.0F, -5.5F, 20.0F, 2.0F, 15.0F, new CubeDeformation(0.0F)), PartPose.offset(6.0F, -17.0F, 59.5F));
+        PartDefinition left_stabilizer = root.addOrReplaceChild("left_stabilizer", CubeListBuilder.create().texOffs(250, 111).addBox(0.0F, -1.0F, -5.5F, 20.0F, 2.0F, 15.0F, new CubeDeformation(0.0F)), PartPose.offset(6.0F, -17.0F, 83.5F));
 
-        PartDefinition right_stabilizer = root.addOrReplaceChild("right_stabilizer", CubeListBuilder.create().texOffs(250, 111).mirror().addBox(-20.0F, -1.0F, -5.5F, 20.0F, 2.0F, 15.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-6.0F, -17.0F, 59.5F));
+        PartDefinition right_stabilizer = root.addOrReplaceChild("right_stabilizer", CubeListBuilder.create().texOffs(250, 111).mirror().addBox(-20.0F, -1.0F, -5.5F, 20.0F, 2.0F, 15.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-6.0F, -17.0F, 83.5F));
 
         return LayerDefinition.create(meshdefinition, 512, 256);
     }
 
-
-    private record ModelParts(ModelPart root, ModelPart propeller, ModelPart rigid, ModelPart wing,
+    public record ModelParts(ModelPart root, ModelPart propeller, ModelPart rigid, ModelPart wing,
                               ModelPart support_center, ModelPart support_left, ModelPart support_right, ModelPart body,
                               ModelPart single_wheel, ModelPart double_wheel, ModelPart front_wheel,
                               ModelPart left_wheel, ModelPart right_wheel, ModelPart left_stabilizer,
@@ -132,6 +132,11 @@ public class PlaneModel<T extends PlaneEntity> extends HierarchicalModel<T> {
 
     @Override
     public void setupAnim(T pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        parts.propeller.zRot = (float) (pEntity.getDeltaMovement().length() * pAgeInTicks);
+        parts.root.xScale = -1;
+        parts.root.yScale = -1;
+        parts.root.y = 1.5F;
+        if (pEntity.getMotionDirection().isFacingAngle(pEntity.getVisualRotationYInDegrees())){
+            parts.propeller.zRot = (float) (pEntity.getDeltaMovement().horizontalDistance() * pAgeInTicks);
+        }
     }
 }

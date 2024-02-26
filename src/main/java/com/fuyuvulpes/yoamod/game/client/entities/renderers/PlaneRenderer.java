@@ -6,23 +6,35 @@ import com.fuyuvulpes.yoamod.world.entity.BrawlerEntity;
 import com.fuyuvulpes.yoamod.world.entity.vehicle.PlaneEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.datafixers.util.Pair;
+import com.mojang.math.Axis;
+import net.minecraft.client.model.ListModel;
 import net.minecraft.client.model.LlamaSpitModel;
+import net.minecraft.client.model.WaterPatchModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.projectile.LlamaSpit;
+import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
+import org.joml.Quaternionf;
 
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
 public class PlaneRenderer extends EntityRenderer<PlaneEntity> {
 
     private static final ResourceLocation TEXTURE = new ResourceLocation(MODID,"textures/entity/vehicles/plane.png");
-    private final PlaneModel<PlaneEntity> model;
+    private static final ResourceLocation FLIGHT_TEXTURE = new ResourceLocation(MODID,"textures/entity/vehicles/plane_flight.png");
+    public final PlaneModel<PlaneEntity> model;
 
     public PlaneRenderer(EntityRendererProvider.Context pContext) {
         super(pContext);
@@ -32,17 +44,20 @@ public class PlaneRenderer extends EntityRenderer<PlaneEntity> {
 
     @Override
     public ResourceLocation getTextureLocation(PlaneEntity pEntity) {
+        if (pEntity.getDeltaMovement().length() > 10){
+            return FLIGHT_TEXTURE;
+        }
         return TEXTURE;
     }
 
     @Override
     public void render(PlaneEntity pEntity, float pEntityYaw, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
+        super.render(pEntity, pEntityYaw, pPartialTick, pPoseStack, pBuffer, pPackedLight);
+
+
         this.model.setupAnim(pEntity, pPartialTick, 0.0F, pPartialTick, 0.0F, 0.0F);
         VertexConsumer vertexconsumer = pBuffer.getBuffer(this.model.renderType(TEXTURE));
         this.model.renderToBuffer(pPoseStack, vertexconsumer, pPackedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-
-
-        super.render(pEntity, pEntityYaw, pPartialTick, pPoseStack, pBuffer, pPackedLight);
 
     }
 }

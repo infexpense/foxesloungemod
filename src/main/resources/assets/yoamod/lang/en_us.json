@@ -22,6 +22,7 @@
   "block.yoamod.crystalic_creakstone_tiles_stairs": "Crystalic Creakstone Tiles Stairs",
   "block.yoamod.crystalic_creakstone_tiles_slab": "Crystalic Creakstone Tiles Slab",
   "block.yoamod.crystalic_creakstone_tiles_wall": "Crystalic Creakstone Tiles Wall",
+  "block.yoamod.etherflos": "Etherflos",
 
 
   "block.yoamod.silver_ore": "Silver Ore",
@@ -44,10 +45,16 @@
   "item.minecraft.smithing_template.adamantite_upgrade.ingredients": "Adamantite Ingot",
 
 
+  "yoamod.bell.damage_max": "Max Damage",
+  "yoamod.bell.damage_min": "Min Damage",
+  "yoamod.bell.healing": "Max Healing",
+
+
   "item.yoamod.longbow": "Longbow",
   "item.yoamod.return_talisman": "Talisman of Returnal",
   "item.yoamod.rune_crystal": "Rune Crystal",
   "item.yoamod.crystalic_shard": "Crystalic Shard",
+  "item.yoamod.etherfructus": "Etherfructus",
   "item.yoamod.adamantite_ingot": "Adamantite Ingot",
   "item.yoamod.adamantite_upgrade_smithing_template": "Smithing Template",
   "item.yoamod.adamantite_nugget": "Adamantite Nugget",
@@ -494,6 +501,7 @@
 
 
   "item.yoamod.brawler_spawn_egg": "Brawler Spawn Egg",
+  "item.yoamod.brawling_spawn_egg": "Brawling Spawn Egg",
   "item.yoamod.blockling_spawn_egg": "Blockling Spawn Egg",
   "item.yoamod.armed_spider_spawn_egg": "Armed Spider Spawn Egg",
 
@@ -523,6 +531,7 @@
   "itemGroup.yoa_weapons": "Your Own Adventure: Weaponry",
   "itemGroup.yoa_spawn_eggs": "Your Own Adventure: Spawn Eggs",
   "itemGroup.yoa_vehicles": "Your Own Adventure: Vehicles",
+  "itemGroup.yoa_edibles": "Your Own Adventure: Foods & Edibles",
 
   "container.yoamod.crucible": "Crucible",
   "container.yoamod.hammering_station": "Crucible",
@@ -541,7 +550,9 @@
   "advancement.yoamod.root": "Your Own Adventure",
   "advancement.yoamod.root.description": "The Beginning",
 
+  "entity.yoamod.plane": "Plane",
   "entity.yoamod.brawler": "Brawler",
+  "entity.yoamod.brawling": "Brawling",
   "entity.yoamod.blockling": "Blockling",
   "entity.yoamod.armed_spider": "Armed Spider"
 }

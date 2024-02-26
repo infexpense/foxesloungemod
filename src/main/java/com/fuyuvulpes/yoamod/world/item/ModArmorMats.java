@@ -15,8 +15,8 @@ public enum ModArmorMats  implements ArmorMaterial {
     SILVER("silver", 12, new int[]{2, 4, 3, 1}, 4, SoundEvents.ARMOR_EQUIP_IRON, 0.0f, 0.0f, () -> Ingredient.of(ItemsModReg.WITHERITE.get())),
     WITHERITE("witherite", 41, new int[]{5,10,8,4}, 14, SoundEvents.ARMOR_EQUIP_GOLD, 2.0f, 0.05f, () -> Ingredient.of(ItemsModReg.SILVER_INGOT.get())),
     IOLITE("iolite", 60, new int[]{6,13,10,6}, 27, SoundEvents.ARMOR_EQUIP_DIAMOND, 3.0f, 0.0f, () -> Ingredient.of(ItemsModReg.IOLITE.get())),
-    ALEXANDRITE("alexandrite", 78, new int[]{9,15,12,7}, 18, SoundEvents.ARMOR_EQUIP_DIAMOND, 4.0f, 0.05f, () -> Ingredient.of(ItemsModReg.ALEXANDRITE.get())),
-    ADAMANTITE("adamantite", 106, new int[]{12,18,15,10}, 24, SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0f, 0.2f, () -> Ingredient.of(ItemsModReg.ADAMANTITE_INGOT.get()))
+    ALEXANDRITE("alexandrite", 78, new int[]{11,18,15,9}, 18, SoundEvents.ARMOR_EQUIP_DIAMOND, 4.0f, 0.05f, () -> Ingredient.of(ItemsModReg.ALEXANDRITE.get())),
+    ADAMANTITE("adamantite", 106, new int[]{18,25,22,15}, 24, SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0f, 0.2f, () -> Ingredient.of(ItemsModReg.ADAMANTITE_INGOT.get()))
 
 ;
     private final String name;

@@ -3,6 +3,7 @@ package com.fuyuvulpes.yoamod.core.registries;
 import com.fuyuvulpes.yoamod.world.entity.ArmedSpider;
 import com.fuyuvulpes.yoamod.world.entity.Blockling;
 import com.fuyuvulpes.yoamod.world.entity.BrawlerEntity;
+import com.fuyuvulpes.yoamod.world.entity.BrawlingEntity;
 import com.fuyuvulpes.yoamod.world.entity.vehicle.PlaneEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -20,13 +21,17 @@ public class EntityTypeModReg {
 
     public static final DeferredHolder<EntityType<?>,EntityType<PlaneEntity>> PLANE_TYPE = ENTITY.register("plane",
             () -> EntityType.Builder.<PlaneEntity>of(PlaneEntity::new, MobCategory.MISC)
-                    .sized(5.75f,2.5F).clientTrackingRange(8)
+                    .sized(3.0f,2.6F).clientTrackingRange(8)
                     .build(new ResourceLocation(MODID,"plane").toString()));
 
     public static final DeferredHolder<EntityType<?>,EntityType<BrawlerEntity>> BRAWLER_TYPE = ENTITY.register("brawler",
             () -> EntityType.Builder.<BrawlerEntity>of(BrawlerEntity::new, MobCategory.MONSTER)
-                    .sized(2.5f,3.0F)
+                    .sized(4.0f,4.5F)
                     .build(new ResourceLocation(MODID,"brawler").toString()));
+    public static final DeferredHolder<EntityType<?>,EntityType<BrawlingEntity>> BRAWLING_TYPE = ENTITY.register("brawling",
+            () -> EntityType.Builder.<BrawlingEntity>of(BrawlingEntity::new, MobCategory.MONSTER)
+                    .sized(1.2f,1.5F)
+                    .build(new ResourceLocation(MODID,"brawling").toString()));
 
     public static final DeferredHolder<EntityType<?>,EntityType<Blockling>> BLOCKLING_TYPE = ENTITY.register("blockling",
             () -> EntityType.Builder.<Blockling>of(Blockling::new, MobCategory.CREATURE)

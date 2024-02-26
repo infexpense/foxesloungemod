@@ -11,6 +11,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.IntRange;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.LimitCount;
@@ -104,6 +105,7 @@ public class ModBlockLoot extends BlockLootSubProvider {
         this.dropSelf(BlocksModReg.RAW_ADAMANTITE_BLOCK.get());
 
         this.dropSelf(BlocksModReg.HAUNTED_LAMP.get());
+        this.add(BlocksModReg.ETHERFRLOS.get(), LootTable.lootTable());
 
     }
 

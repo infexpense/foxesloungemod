@@ -1,5 +1,6 @@
 package com.fuyuvulpes.yoamod.core.registries;
 
+import com.fuyuvulpes.yoamod.world.food.YoaFoods;
 import com.fuyuvulpes.yoamod.world.item.*;
 import com.fuyuvulpes.yoamod.world.item.weaponry.*;
 import net.minecraft.world.food.FoodProperties;
@@ -582,13 +583,21 @@ public class ItemsModReg {
     public static final DeferredItem<WhipSwordItem> ADAMANTITE_WHIP_SWORD = ITEMS.register("adamantite_" + WeaponStats.WHIP_SWORD.weaponId(), () -> new WhipSwordItem(ModToolTiers.ADAMANTITE, new Item.Properties()));
 
 
+    //EDIBLES
+
+    public static final DeferredItem<Item> ETHERFRUCTUS = ITEMS.register("etherfructus", () -> new Item(new Item.Properties().food(YoaFoods.ETHERFRUCTUS)));
 
 
+    //SPAWN EGGS
     public static final DeferredItem<Item> BRAWLER_SPAWN_EGG =  ITEMS.register("brawler_spawn_egg",
             () -> new DeferredSpawnEggItem(EntityTypeModReg.BRAWLER_TYPE::get,0x2E3236,0x2F3840,new Item.Properties()));
+
+    public static final DeferredItem<Item> BRAWLING_SPAWN_EGG =  ITEMS.register("brawling_spawn_egg",
+            () -> new DeferredSpawnEggItem(EntityTypeModReg.BRAWLING_TYPE::get,0x2F3250,0x79717B,new Item.Properties()));
+
     public static final DeferredItem<Item> BLOCKLING_SPAWN_EGG =  ITEMS.register("blockling_spawn_egg",
             () -> new DeferredSpawnEggItem(EntityTypeModReg.BLOCKLING_TYPE::get,0x71A35F,0x71BFA7,new Item.Properties()));
-public static final DeferredItem<Item> ARMED_SPIDER_SPAWN_EGG =  ITEMS.register("armed_spider_spawn_egg",
+    public static final DeferredItem<Item> ARMED_SPIDER_SPAWN_EGG =  ITEMS.register("armed_spider_spawn_egg",
             () -> new DeferredSpawnEggItem(EntityTypeModReg.ARMED_SPIDER_TYPE::get,0x908554,0xDBDF9C,new Item.Properties()));
 
 

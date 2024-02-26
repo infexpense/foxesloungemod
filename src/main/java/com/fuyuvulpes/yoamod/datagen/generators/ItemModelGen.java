@@ -44,9 +44,11 @@ public class ItemModelGen extends ItemModelProvider {
     @Override
     protected void registerModels() {
         spawnEggItem(ItemsModReg.BRAWLER_SPAWN_EGG);
+        spawnEggItem(ItemsModReg.BRAWLING_SPAWN_EGG);
         spawnEggItem(ItemsModReg.BLOCKLING_SPAWN_EGG);
         spawnEggItem(ItemsModReg.ARMED_SPIDER_SPAWN_EGG);
 
+        simpleItem(ItemsModReg.ETHERFRUCTUS);
         simpleItem(ItemsModReg.PLANE_ITEM);
         simpleItem(ItemsModReg.CRYSTALIC_SHARD);
         simpleItem(ItemsModReg.RUNE_CRYSTAL);

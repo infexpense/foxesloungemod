@@ -29,6 +29,7 @@ public class CreativeTabRegistry {
                     output.accept(blockDeferredHolder.get());
                 });
 
+                output.accept(ItemsModReg.ADAMANTITE_TEMPLATE.get());
 
                 output.accept(ItemsModReg.RUNE_CRYSTAL.get());
                 output.accept(ItemsModReg.CRYSTALIC_SHARD.get());
@@ -88,7 +89,9 @@ public class CreativeTabRegistry {
                 output.accept(BlocksModReg.POINTED_CREAKSTONE);
 
                 output.accept(BlocksModReg.RUNE_CRYSTAL_CLUSTER);
-                output.accept(BlocksModReg.RUNE_CRYSTAL_BLOCK);
+                output.accept(BlocksModReg.RUNE_CRYSTAL_BLOCK)
+                ;
+                output.accept(BlocksModReg.ETHERFRLOS);
 
 
                 output.accept(BlocksModReg.CREAKSTONE_IRON_ORE);
@@ -533,6 +536,7 @@ public class CreativeTabRegistry {
             .title(Component.translatable("itemGroup.yoa_spawn_eggs"))
             .displayItems((parameters, output) -> {
                 output.accept(ItemsModReg.BRAWLER_SPAWN_EGG.get());
+                output.accept(ItemsModReg.BRAWLING_SPAWN_EGG.get());
                 output.accept(ItemsModReg.BLOCKLING_SPAWN_EGG.get());
                 output.accept(ItemsModReg.ARMED_SPIDER_SPAWN_EGG.get());
             }).build());
@@ -544,6 +548,15 @@ public class CreativeTabRegistry {
             .title(Component.translatable("itemGroup.yoa_vehicles"))
             .displayItems((parameters, output) -> {
                 output.accept(ItemsModReg.PLANE_ITEM.get());
+            }).build());
+
+
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> YOA_EDIBLES = TABS.register("yoa_edibles", () -> CreativeModeTab.builder()
+            .withTabsBefore(YOA_VEHICLES.getKey())
+            .icon(ItemsModReg.ETHERFRUCTUS.get()::getDefaultInstance)
+            .title(Component.translatable("itemGroup.yoa_edibles"))
+            .displayItems((parameters, output) -> {
+                output.accept(ItemsModReg.ETHERFRUCTUS.get());
             }).build());
 
 

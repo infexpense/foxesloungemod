@@ -125,6 +125,12 @@
         "maxCount": 2,
         "minCount": 1,
         "weight": 100
+      },
+      {
+        "type": "yoamod:brawling",
+        "maxCount": 7,
+        "minCount": 1,
+        "weight": 80
       }
     ],
     "underground_water_creature": [
