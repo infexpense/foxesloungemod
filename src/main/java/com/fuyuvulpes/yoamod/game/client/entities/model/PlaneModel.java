@@ -131,12 +131,13 @@ public class PlaneModel<T extends PlaneEntity> extends HierarchicalModel<T> {
     }
 
     @Override
-    public void setupAnim(T pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        parts.root.xScale = -1;
-        parts.root.yScale = -1;
-        parts.root.y = 1.5F;
-        if (pEntity.getMotionDirection().isFacingAngle(pEntity.getVisualRotationYInDegrees())){
-            parts.propeller.zRot = (float) (pEntity.getDeltaMovement().horizontalDistance() * pAgeInTicks);
-        }
+    public void setupAnim(PlaneEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+        //parts.root.xScale = -1;
+        //parts.root.yRot = pEntity.getViewYRot(0);
+        //parts.root.yScale = -1;
+        //parts.root.y = 1.5F;
+        //if (pEntity.getMotionDirection().isFacingAngle(pEntity.getVisualRotationYInDegrees())){
+        //    parts.propeller.zRot = (float) (pEntity.getDeltaMovement().horizontalDistance() * pAgeInTicks);
+        //}
     }
 }

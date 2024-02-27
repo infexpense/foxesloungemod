@@ -4,6 +4,8 @@ import com.fuyuvulpes.yoamod.core.registries.BlockEntitiesModReg;
 import com.fuyuvulpes.yoamod.core.registries.RecipesModReg;
 import com.fuyuvulpes.yoamod.game.client.screens.CrucibleMenu;
 import com.fuyuvulpes.yoamod.game.server.crafting.CrucibleRecipe;
+import com.google.common.collect.Lists;
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -12,11 +14,14 @@ import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.StackedContents;
@@ -32,6 +37,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
@@ -113,10 +119,6 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
     }
 
 
-
-
-    //PLEASE
-    //MAKE THIS CRUCIBLE MENU!!!!!!!!!!!!!!!
     @Override
     protected AbstractContainerMenu createMenu(int pId, Inventory pPlayer) {
         return new CrucibleMenu(pId, pPlayer, this, this.dataAccess);
@@ -140,7 +142,10 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
             return SLOTS_FOR_DOWN;
         } else {
             return pSide == Direction.UP ? SLOTS_FOR_UP : SLOTS_FOR_SIDES;
-        }    }
+        }
+    }
+
+
     @Override
     public boolean canPlaceItemThroughFace(int pIndex, ItemStack pItemStack, @javax.annotation.Nullable Direction pDirection) {
         return this.canPlaceItem(pIndex, pItemStack);
@@ -149,7 +154,7 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
     @Override
     public boolean canTakeItemThroughFace(int pIndex, ItemStack pStack, Direction pDirection) {
         if (pDirection == Direction.DOWN && pIndex == 1) {
-            return pStack.is(Items.WATER_BUCKET) || pStack.is(Items.BUCKET);
+            return pStack.is(Items.BUCKET);
         } else {
             return true;
         }
@@ -395,9 +400,42 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
         return pBlockEntity.quickCheck.getRecipeFor(pBlockEntity, pLevel).map(p_300840_ -> p_300840_.value().getCookingTime()).orElse(200);
     }
 
-    public static boolean isFuel(ItemStack pStack) {
-        return net.neoforged.neoforge.common.CommonHooks.getBurnTime(pStack, null) > 0;
+
+    public void awardUsedRecipesAndPopExperience(ServerPlayer pPlayer) {
+        List<RecipeHolder<?>> list = this.getRecipesToAwardAndPopExperience(pPlayer.serverLevel(), pPlayer.position());
+        pPlayer.awardRecipes(list);
+
+        for(RecipeHolder<?> recipeholder : list) {
+            if (recipeholder != null) {
+                pPlayer.triggerRecipeCrafted(recipeholder, this.items);
+            }
+        }
+
+        this.recipesUsed.clear();
     }
+    public List<RecipeHolder<?>> getRecipesToAwardAndPopExperience(ServerLevel pLevel, Vec3 pPopVec) {
+        List<RecipeHolder<?>> list = Lists.newArrayList();
+
+        for(Object2IntMap.Entry<ResourceLocation> entry : this.recipesUsed.object2IntEntrySet()) {
+            pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent(p_300839_ -> {
+                list.add(p_300839_);
+                createExperience(pLevel, pPopVec, entry.getIntValue(), ((AbstractCookingRecipe)p_300839_.value()).getExperience());
+            });
+        }
+
+        return list;
+    }
+
+    private static void createExperience(ServerLevel pLevel, Vec3 pPopVec, int pRecipeIndex, float pExperience) {
+        int i = Mth.floor((float)pRecipeIndex * pExperience);
+        float f = Mth.frac((float)pRecipeIndex * pExperience);
+        if (f != 0.0F && Math.random() < (double)f) {
+            ++i;
+        }
+
+        ExperienceOrb.award(pLevel, pPopVec, i);
+    }
+
 
 
 }
