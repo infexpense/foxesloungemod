@@ -63,7 +63,7 @@ public class CrucibleBlock extends BaseEntityBlock {
         if (pLevel.isClientSide) {
             return InteractionResult.SUCCESS;
         } else {
-            this.openContainer(pLevel, pPos, pPlayer);
+            pPlayer.openMenu(pState.getMenuProvider(pLevel, pPos));
             return InteractionResult.CONSUME;
         }
     }

@@ -4,6 +4,7 @@ import com.fuyuvulpes.yoamod.core.YOAModCommonConfig;
 import com.fuyuvulpes.yoamod.game.client.entities.model.PlaneModel;
 import com.fuyuvulpes.yoamod.game.client.entities.renderers.*;
 import com.fuyuvulpes.yoamod.game.client.particle.BleedingParticle;
+import com.fuyuvulpes.yoamod.game.client.screens.CrucibleScreen;
 import com.fuyuvulpes.yoamod.world.entity.ArmedSpider;
 import com.fuyuvulpes.yoamod.world.entity.Blockling;
 import com.fuyuvulpes.yoamod.world.entity.BrawlerEntity;
@@ -27,12 +28,15 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.SpawnPlacementRegisterEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+
+import static com.fuyuvulpes.yoamod.core.registries.MenusModReg.CRUCIBLE_MENU;
 
 
 @Mod(YOAMod.MODID)
@@ -49,6 +53,7 @@ public class YOAMod {
         ParticleModReg.register(modEventBus);
         ModEffects.register(modEventBus);
         EntityTypeModReg.register(modEventBus);
+        MenusModReg.register(modEventBus);
         //MagicSpellsRegistry.register(modEventBus);
 
         BlocksModReg.register(modEventBus);
@@ -192,8 +197,12 @@ public class YOAMod {
                     SpawnPlacementRegisterEvent.Operation.OR);
         }
 
+        @SubscribeEvent
+        private static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(CRUCIBLE_MENU.get(), CrucibleScreen::new);
 
 
     }
+}
 }
 

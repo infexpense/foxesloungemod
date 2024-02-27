@@ -6,17 +6,17 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import org.apache.logging.log4j.core.config.builder.api.Component;
 
 public class CrucibleScreen extends AbstractContainerScreen<CrucibleMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(YOAMod.MODID, "textures/gui/gem_polishing_station_gui.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(YOAMod.MODID, "textures/gui/container/crucible.png");
     private static final ResourceLocation ARROW = new ResourceLocation(YOAMod.MODID, "textures/gui/sprites/container/crucible/arrow.png");
     private static final ResourceLocation FUEL = new ResourceLocation(YOAMod.MODID, "textures/gui/sprites/container/crucible/fuel.png");
 
     public CrucibleScreen(CrucibleMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
-        super(pMenu, pPlayerInventory, (net.minecraft.network.chat.Component) pTitle);
+        super(pMenu, pPlayerInventory, pTitle);
     }
 
     @Override

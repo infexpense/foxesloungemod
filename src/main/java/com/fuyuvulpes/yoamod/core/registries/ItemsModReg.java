@@ -28,7 +28,6 @@ public class ItemsModReg {
     public static final DeferredItem<Item> RUNE_CRYSTAL = ITEMS.registerSimpleItem("rune_crystal", new Item.Properties());
 
 
-
     public static final DeferredItem<Item> ADAMANTITE_INGOT = ITEMS.registerSimpleItem("adamantite_ingot", new Item.Properties());
     public static final DeferredItem<Item> ADAMANTITE_NUGGET = ITEMS.registerSimpleItem("adamantite_nugget", new Item.Properties());
     public static final DeferredItem<Item> RAW_ADAMANTITE = ITEMS.registerSimpleItem("raw_adamantite", new Item.Properties());

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "yoamod:creakstone_tiles"
-  },
-  "result": "yoamod:creakstone_tiles_wall"
-}

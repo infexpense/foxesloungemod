@@ -15,6 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -34,7 +35,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 
-public class CrucibleBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer, RecipeCraftingHolder, StackedContentsCompatible {
+public class CrucibleBlockEntity extends BaseContainerBlockEntity implements MenuProvider, WorldlyContainer, RecipeCraftingHolder, StackedContentsCompatible {
     protected static final int[] SLOT_INPUT = new int[]{0,1,2};
     protected static final int SLOT_FUEL = 3;
     protected static final int SLOT_RESULT = 4;
@@ -54,6 +55,7 @@ public class CrucibleBlockEntity extends BaseContainerBlockEntity implements Wor
     int litDuration;
     int cookingProgress;
     int cookingTotalTime;
+
     protected final ContainerData dataAccess = new ContainerData() {
         @Override
         public int get(int p_58431_) {
