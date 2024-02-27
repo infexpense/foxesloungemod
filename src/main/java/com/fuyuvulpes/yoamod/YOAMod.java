@@ -60,7 +60,7 @@ public class YOAMod {
 
         ItemsModReg.register(modEventBus);
         BlockEntitiesModReg.register(modEventBus);
-        SerializersModReg.register(modEventBus);
+
 
         CreativeTabRegistry.register(modEventBus);
 

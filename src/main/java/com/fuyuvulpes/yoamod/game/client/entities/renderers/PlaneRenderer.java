@@ -52,30 +52,12 @@ public class PlaneRenderer extends EntityRenderer<PlaneEntity> {
 
     @Override
     public void render(PlaneEntity pEntity, float pEntityYaw, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
-        pPoseStack.pushPose();
-        pPoseStack.translate(0.0F, 1.5F, 0.0F);
-        pPoseStack.mulPose(Axis.YP.rotationDegrees(180.0F - pEntityYaw));
-        float f = (float)pEntity.getHurtTime() - pPartialTick;
-        float f1 = pEntity.getDamage() - pPartialTick;
-        if (f1 < 0.0F) {
-            f1 = 0.0F;
-        }
-
-        if (f > 0.0F) {
-            pPoseStack.mulPose(Axis.XP.rotationDegrees(Mth.sin(f) * f * f1 / 10.0F * (float)pEntity.getHurtDir()));
-        }
+        super.render(pEntity, pEntityYaw, pPartialTick, pPoseStack, pBuffer, pPackedLight);
 
 
-
-
-        pPoseStack.scale(-1.0F, -1.0F, 1.0F);
-        this.model.setupAnim(pEntity, pPartialTick, 0.0F, -0.1F, 0.0F, 0.0F);
+        this.model.setupAnim(pEntity, pPartialTick, 0.0F, pPartialTick, 0.0F, 0.0F);
         VertexConsumer vertexconsumer = pBuffer.getBuffer(this.model.renderType(TEXTURE));
         this.model.renderToBuffer(pPoseStack, vertexconsumer, pPackedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-
-
-        pPoseStack.popPose();
-        super.render(pEntity, pEntityYaw, pPartialTick, pPoseStack, pBuffer, pPackedLight);
 
     }
 }
