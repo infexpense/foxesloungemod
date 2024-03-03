@@ -3,6 +3,7 @@ package com.fuyuvulpes.yoamod.game.server.crafting;
 import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
 import com.fuyuvulpes.yoamod.core.registries.RecipesModReg;
 import com.fuyuvulpes.yoamod.core.registries.SerializersModReg;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
@@ -34,12 +35,20 @@ public class CrucibleRecipe implements Recipe<Container> {
 
     @Override
     public boolean matches(Container pContainer, Level pLevel) {
-        return false;
+        boolean conA = this.ingredientA.test(pContainer.getItem(0));
+        boolean conB = this.ingredientB.test(pContainer.getItem(1));
+        boolean conC = this.supportingItem.test(pContainer.getItem(2));
+        return conA && conB && conC;
     }
 
     @Override
     public ItemStack assemble(Container pContainer, RegistryAccess pRegistryAccess) {
-        return null;
+        return this.result.copy();
+    }
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return NonNullList.of(ingredientA,ingredientB,supportingItem);
     }
 
     @Override
@@ -66,10 +75,6 @@ public class CrucibleRecipe implements Recipe<Container> {
     public RecipeType<?> getType() {
         return RecipesModReg.CRUCIBLE_TYPE.get();
     }
-
-    public static CrucibleRecipe makeMolted(Ingredient ingredientA, Ingredient ingredientB, Ingredient supportingItem, ItemStack result, float experience, int cookingTime, String group) {
-            return new CrucibleRecipe(group, ingredientA, ingredientB, supportingItem, result, experience, cookingTime);
-}
 
     public interface Factory<T extends CrucibleRecipe> {
         T create(String group, Ingredient ingredient, Ingredient secondingredient, Ingredient supportitem, ItemStack result, float experience, int time);

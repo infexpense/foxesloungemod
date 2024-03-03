@@ -12,7 +12,7 @@ import net.minecraft.world.phys.AABB;
 
 public class WhipSwordItem extends HitEffectWeaponItem {
     public WhipSwordItem(Tier tier, Properties properties) {
-        super(tier, WeaponStats.WHIP_SWORD, properties, 0.2F);
+        super(tier, WeaponStats.WHIP_SWORD, properties, 0.1F);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class WhipSwordItem extends HitEffectWeaponItem {
 
     @Override
     public AABB getSweepHitBox(ItemStack stack, Player player, Entity target) {
-        return target.getBoundingBox().inflate(3.0D, 0.25D, 3.0D);
+        return target.getBoundingBox().inflate(6.0D, 0.25D, 6.0D);
     }
 
 

@@ -1,6 +1,6 @@
-package com.fuyuvulpes.yoamod.datagen.generators;
+package com.fuyuvulpes.yoamod.data.generators;
 
-import com.fuyuvulpes.yoamod.datagen.generators.loot.ModBlockLoot;
+import com.fuyuvulpes.yoamod.data.generators.loot.ModBlockLoot;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;

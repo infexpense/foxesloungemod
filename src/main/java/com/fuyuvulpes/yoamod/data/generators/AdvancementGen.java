@@ -1,4 +1,4 @@
-package com.fuyuvulpes.yoamod.datagen.generators;
+package com.fuyuvulpes.yoamod.data.generators;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;

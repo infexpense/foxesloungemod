@@ -91,7 +91,7 @@ public class ModConfigFeatures {
         register(context, CREAKS_FRACTURE_KEY, Feature.ORE, new OreConfiguration(creakReplaceables,
                 BlocksModReg.CREAKSTONE_FRACTURE.get().defaultBlockState(), 3));
         register(context, CREAKS_CRYSTAL_KEY, Feature.ORE, new OreConfiguration(creakReplaceables,
-                BlocksModReg.CRYSTALIC_REMNANTS.get().defaultBlockState(), 82));
+                BlocksModReg.CRYSTALIC_REMNANTS.get().defaultBlockState(), 40));
 
 
         register(context, IRON_CREAK_KEY, Feature.ORE, new OreConfiguration(creakReplaceables,

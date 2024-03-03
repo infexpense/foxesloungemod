@@ -1,4 +1,4 @@
-package com.fuyuvulpes.yoamod.datagen.generators;
+package com.fuyuvulpes.yoamod.data.generators;
 
 import com.fuyuvulpes.yoamod.core.registries.TagRegistry;
 import net.minecraft.core.HolderLookup;

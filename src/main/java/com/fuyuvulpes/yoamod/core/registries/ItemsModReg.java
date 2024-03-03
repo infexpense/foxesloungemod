@@ -418,20 +418,6 @@ public class ItemsModReg {
     public static final DeferredItem<RunicBlasterItem> ADAMANTITE_RUNIC_BLASTER = ITEMS.register("adamantite_" + WeaponStats.RUNIC_BLASTER.weaponId(), () -> new RunicBlasterItem(ModToolTiers.ADAMANTITE, new Item.Properties()));
 
 
-    //SCISSORS_COMBINED
-    public static final DeferredItem<ScissorsSwordItem> BRONZE_SCISSORS_SWORD = ITEMS.register("bronze_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ModToolTiers.BRONZE, new Item.Properties()));
-    public static final DeferredItem<ScissorsSwordItem> GOLD_SCISSORS_SWORD = ITEMS.register("gold_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(Tiers.GOLD, new Item.Properties()));
-    public static final DeferredItem<ScissorsSwordItem> SILVER_SCISSORS_SWORD = ITEMS.register("silver_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ModToolTiers.SILVER, new Item.Properties()));
-    public static final DeferredItem<ScissorsSwordItem> IRON_SCISSORS_SWORD = ITEMS.register("iron_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(Tiers.IRON, new Item.Properties()));
-    public static final DeferredItem<ScissorsSwordItem> STEEL_SCISSORS_SWORD = ITEMS.register("steel_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ModToolTiers.STEEL, new Item.Properties()));
-    public static final DeferredItem<ScissorsSwordItem> BISMUTH_SCISSORS_SWORD = ITEMS.register("bismuth_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ModToolTiers.BISMUTH, new Item.Properties()));
-    public static final DeferredItem<ScissorsSwordItem> DIAMOND_SCISSORS_SWORD = ITEMS.register("diamond_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(Tiers.DIAMOND, new Item.Properties()));
-    public static final DeferredItem<ScissorsSwordItem> NETHERITE_SCISSORS_SWORD = ITEMS.register("netherite_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(Tiers.NETHERITE, new Item.Properties().fireResistant()));
-    public static final DeferredItem<ScissorsSwordItem> TITANIUM_SCISSORS_SWORD = ITEMS.register("titanium_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ModToolTiers.TITANIUM, new Item.Properties()));
-    public static final DeferredItem<ScissorsSwordItem> IOLITE_SCISSORS_SWORD = ITEMS.register("iolite_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ModToolTiers.IOLITE, new Item.Properties()));
-    public static final DeferredItem<ScissorsSwordItem> ALEXANDRITE_SCISSORS_SWORD = ITEMS.register("alexandrite_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ModToolTiers.ALEXANDRITE, new Item.Properties()));
-    public static final DeferredItem<ScissorsSwordItem> ADAMANTITE_SCISSORS_SWORD = ITEMS.register("adamantite_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ModToolTiers.ADAMANTITE, new Item.Properties()));
-
     //SCISSORS_SEPARATE
     public static final DeferredItem<SingleScissorSwordItem> BRONZE_SINGLE_SCISSORS_SWORD = ITEMS.register("bronze_" + WeaponStats.SINGLE_SCISSORS_SWORD.weaponId(), () -> new SingleScissorSwordItem(ModToolTiers.BRONZE, new Item.Properties()));
     public static final DeferredItem<SingleScissorSwordItem> GOLD_SINGLE_SCISSORS_SWORD = ITEMS.register("gold_" + WeaponStats.SINGLE_SCISSORS_SWORD.weaponId(), () -> new SingleScissorSwordItem(Tiers.GOLD, new Item.Properties()));
@@ -446,6 +432,19 @@ public class ItemsModReg {
     public static final DeferredItem<SingleScissorSwordItem> ALEXANDRITE_SINGLE_SCISSORS_SWORD = ITEMS.register("alexandrite_" + WeaponStats.SINGLE_SCISSORS_SWORD.weaponId(), () -> new SingleScissorSwordItem(ModToolTiers.ALEXANDRITE, new Item.Properties()));
     public static final DeferredItem<SingleScissorSwordItem> ADAMANTITE_SINGLE_SCISSORS_SWORD = ITEMS.register("adamantite_" + WeaponStats.SINGLE_SCISSORS_SWORD.weaponId(), () -> new SingleScissorSwordItem(ModToolTiers.ADAMANTITE, new Item.Properties()));
 
+    //SCISSORS_COMBINED
+    public static final DeferredItem<ScissorsSwordItem> BRONZE_SCISSORS_SWORD = ITEMS.register("bronze_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ItemsModReg.BRONZE_SINGLE_SCISSORS_SWORD.toStack(), ModToolTiers.BRONZE, new Item.Properties()));
+    public static final DeferredItem<ScissorsSwordItem> GOLD_SCISSORS_SWORD = ITEMS.register("gold_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ItemsModReg.GOLD_SINGLE_SCISSORS_SWORD.toStack(), Tiers.GOLD, new Item.Properties()));
+    public static final DeferredItem<ScissorsSwordItem> SILVER_SCISSORS_SWORD = ITEMS.register("silver_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ItemsModReg.SILVER_SINGLE_SCISSORS_SWORD.toStack(), ModToolTiers.SILVER, new Item.Properties()));
+    public static final DeferredItem<ScissorsSwordItem> IRON_SCISSORS_SWORD = ITEMS.register("iron_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ItemsModReg.IRON_SINGLE_SCISSORS_SWORD.toStack(), Tiers.IRON, new Item.Properties()));
+    public static final DeferredItem<ScissorsSwordItem> STEEL_SCISSORS_SWORD = ITEMS.register("steel_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ItemsModReg.STEEL_SINGLE_SCISSORS_SWORD.toStack(), ModToolTiers.STEEL, new Item.Properties()));
+    public static final DeferredItem<ScissorsSwordItem> BISMUTH_SCISSORS_SWORD = ITEMS.register("bismuth_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ItemsModReg.BISMUTH_SINGLE_SCISSORS_SWORD.toStack(), ModToolTiers.BISMUTH, new Item.Properties()));
+    public static final DeferredItem<ScissorsSwordItem> DIAMOND_SCISSORS_SWORD = ITEMS.register("diamond_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ItemsModReg.DIAMOND_SINGLE_SCISSORS_SWORD.toStack(), Tiers.DIAMOND, new Item.Properties()));
+    public static final DeferredItem<ScissorsSwordItem> NETHERITE_SCISSORS_SWORD = ITEMS.register("netherite_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ItemsModReg.NETHERITE_SINGLE_SCISSORS_SWORD.toStack(), Tiers.NETHERITE, new Item.Properties().fireResistant()));
+    public static final DeferredItem<ScissorsSwordItem> TITANIUM_SCISSORS_SWORD = ITEMS.register("titanium_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ItemsModReg.TITANIUM_SINGLE_SCISSORS_SWORD.toStack(), ModToolTiers.TITANIUM, new Item.Properties()));
+    public static final DeferredItem<ScissorsSwordItem> IOLITE_SCISSORS_SWORD = ITEMS.register("iolite_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ItemsModReg.IOLITE_SINGLE_SCISSORS_SWORD.toStack(), ModToolTiers.IOLITE, new Item.Properties()));
+    public static final DeferredItem<ScissorsSwordItem> ALEXANDRITE_SCISSORS_SWORD = ITEMS.register("alexandrite_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ItemsModReg.ALEXANDRITE_SINGLE_SCISSORS_SWORD.toStack(), ModToolTiers.ALEXANDRITE, new Item.Properties()));
+    public static final DeferredItem<ScissorsSwordItem> ADAMANTITE_SCISSORS_SWORD = ITEMS.register("adamantite_" + WeaponStats.SCISSORS_SWORD.weaponId(), () -> new ScissorsSwordItem(ItemsModReg.ADAMANTITE_SINGLE_SCISSORS_SWORD.toStack(), ModToolTiers.ADAMANTITE, new Item.Properties()));
 
     //SCYTHE
     public static final DeferredItem<ScytheItem> BRONZE_SCYTHE = ITEMS.register("bronze_" + WeaponStats.SCYTHE.weaponId(), () -> new ScytheItem(ModToolTiers.BRONZE, new Item.Properties()));

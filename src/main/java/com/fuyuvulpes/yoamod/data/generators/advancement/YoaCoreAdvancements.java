@@ -1,4 +1,4 @@
-package com.fuyuvulpes.yoamod.datagen.generators.advancement;
+package com.fuyuvulpes.yoamod.data.generators.advancement;
 
 import com.fuyuvulpes.yoamod.core.registries.ItemsModReg;
 import net.minecraft.advancements.Advancement;

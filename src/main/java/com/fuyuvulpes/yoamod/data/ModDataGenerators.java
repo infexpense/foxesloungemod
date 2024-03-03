@@ -1,8 +1,8 @@
-package com.fuyuvulpes.yoamod.datagen;
+package com.fuyuvulpes.yoamod.data;
 
 
-import com.fuyuvulpes.yoamod.datagen.generators.*;
-import com.fuyuvulpes.yoamod.datagen.generators.advancement.YoaCoreAdvancements;
+import com.fuyuvulpes.yoamod.data.generators.*;
+import com.fuyuvulpes.yoamod.data.generators.advancement.YoaCoreAdvancements;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;

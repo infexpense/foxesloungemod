@@ -21,7 +21,7 @@ public class EntityTypeModReg {
 
     public static final DeferredHolder<EntityType<?>,EntityType<PlaneEntity>> PLANE_TYPE = ENTITY.register("plane",
             () -> EntityType.Builder.<PlaneEntity>of(PlaneEntity::new, MobCategory.MISC)
-                    .sized(3.0f,2.6F).clientTrackingRange(8)
+                    .sized(2.0f,2.7F).clientTrackingRange(8)
                     .build(new ResourceLocation(MODID,"plane").toString()));
 
     public static final DeferredHolder<EntityType<?>,EntityType<BrawlerEntity>> BRAWLER_TYPE = ENTITY.register("brawler",

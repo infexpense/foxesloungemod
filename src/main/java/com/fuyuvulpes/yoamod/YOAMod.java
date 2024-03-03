@@ -1,5 +1,6 @@
 package com.fuyuvulpes.yoamod;
 
+import com.fuyuvulpes.yoamod.core.ModRegistries;
 import com.fuyuvulpes.yoamod.core.YOAModCommonConfig;
 import com.fuyuvulpes.yoamod.game.client.entities.model.PlaneModel;
 import com.fuyuvulpes.yoamod.game.client.entities.renderers.*;
@@ -8,6 +9,7 @@ import com.fuyuvulpes.yoamod.game.client.screens.CrucibleScreen;
 import com.fuyuvulpes.yoamod.world.entity.ArmedSpider;
 import com.fuyuvulpes.yoamod.world.entity.Blockling;
 import com.fuyuvulpes.yoamod.world.entity.BrawlerEntity;
+import com.fuyuvulpes.yoamod.world.entity.BrawlingEntity;
 import com.fuyuvulpes.yoamod.world.item.weaponry.WarFanItem;
 import com.fuyuvulpes.yoamod.game.client.entities.model.ArmedSpiderModel;
 import com.fuyuvulpes.yoamod.game.client.entities.model.BlocklingModel;
@@ -35,6 +37,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.SpawnPlacementRegisterEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import net.neoforged.neoforge.registries.NewRegistryEvent;
 
 import static com.fuyuvulpes.yoamod.core.registries.MenusModReg.CRUCIBLE_MENU;
 
@@ -54,7 +57,7 @@ public class YOAMod {
         ModEffects.register(modEventBus);
         EntityTypeModReg.register(modEventBus);
         MenusModReg.register(modEventBus);
-        //MagicSpellsRegistry.register(modEventBus);
+        MagicSpellsRegistry.register(modEventBus);
 
         BlocksModReg.register(modEventBus);
 
@@ -139,6 +142,7 @@ public class YOAMod {
             event.registerBlockEntityRenderer(BlockEntitiesModReg.HAMMERING_STATION.get(), HammeringStationRenderer::new);
             event.registerEntityRenderer(EntityTypeModReg.PLANE_TYPE.get(), PlaneRenderer::new);
             event.registerEntityRenderer(EntityTypeModReg.BRAWLER_TYPE.get(), BrawlerRenderer::new);
+            event.registerEntityRenderer(EntityTypeModReg.BRAWLING_TYPE.get(), BrawlerRenderer::new);
             event.registerEntityRenderer(EntityTypeModReg.BLOCKLING_TYPE.get(), BlocklingRenderer::new);
             event.registerEntityRenderer(EntityTypeModReg.ARMED_SPIDER_TYPE.get(), ArmedSpiderRenderer::new);
         }
@@ -170,8 +174,14 @@ public class YOAMod {
 
 
         @SubscribeEvent
+        public static void registryRegisterEvent(NewRegistryEvent event){
+            event.register(ModRegistries.MAGIC);
+        }
+
+        @SubscribeEvent
         public static void entityAttributes(EntityAttributeCreationEvent event){
             event.put(EntityTypeModReg.BRAWLER_TYPE.get(), BrawlerEntity.createAttributes().build());
+            event.put(EntityTypeModReg.BRAWLING_TYPE.get(), BrawlingEntity.createAttributes().build());
             event.put(EntityTypeModReg.BLOCKLING_TYPE.get(), Blockling.createAttributes().build());
             event.put(EntityTypeModReg.ARMED_SPIDER_TYPE.get(), ArmedSpider.createAttributes().build());
         }
@@ -181,6 +191,11 @@ public class YOAMod {
         @SubscribeEvent
         public static void spawnPlacements(SpawnPlacementRegisterEvent event){
             event.register(EntityTypeModReg.BRAWLER_TYPE.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    BrawlerEntity::canSpawn,
+                    SpawnPlacementRegisterEvent.Operation.OR);
+            event.register(EntityTypeModReg.BRAWLING_TYPE.get(),
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     BrawlerEntity::canSpawn,

@@ -1,4 +1,4 @@
-package com.fuyuvulpes.yoamod.datagen.generators.loot;
+package com.fuyuvulpes.yoamod.data.generators.loot;
 
 import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
 import com.fuyuvulpes.yoamod.core.registries.ItemsModReg;

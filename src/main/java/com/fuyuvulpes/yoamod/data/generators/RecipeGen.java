@@ -1,19 +1,15 @@
-package com.fuyuvulpes.yoamod.datagen.generators;
+package com.fuyuvulpes.yoamod.data.generators;
 
 import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
 import com.fuyuvulpes.yoamod.core.registries.ItemsModReg;
-import com.fuyuvulpes.yoamod.core.registries.TagRegistry;
-import com.fuyuvulpes.yoamod.game.server.crafting.CrucibleRecipe;
+import com.fuyuvulpes.yoamod.game.server.crafting.CrucibleRecipeBuilder;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
@@ -82,7 +78,8 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
         stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_SLAB, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES, 2);
         stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES);
 
-        CrucibleRecipe.makeMolted(Ingredient.of( ItemsModReg.SILVER_INGOT.get()), Ingredient.of( ItemsModReg.SILVER_INGOT.get()), Ingredient.of( Items.BUCKET), ItemsModReg.MOLTEN_SILVER.get().getDefaultInstance(), 2.0F, 200, "silver_ingot");
+        CrucibleRecipeBuilder.of(Items.COPPER_INGOT,Items.COAL,2).withSecondaryItem(Items.IRON_INGOT).withSupport(Items.GLOWSTONE).timed(10);
+
 
         oreSmelting(output, IRON_SMELTABLES, RecipeCategory.MISC, Items.IRON_INGOT, 0.7F, 200, "iron_ingot");
         oreSmelting(output, DIAMOND_SMELTABLES, RecipeCategory.MISC, Items.DIAMOND, 1.0F, 200, "diamond");
