@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 1.0,
+  "group": "witherite",
+  "ingredient": {
+    "item": "yoamod:witherite_ore"
+  },
+  "result": "yoamod:witherite"
+}

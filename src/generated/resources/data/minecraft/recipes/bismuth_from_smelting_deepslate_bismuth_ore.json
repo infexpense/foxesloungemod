@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "group": "bismuth_ingot",
+  "ingredient": {
+    "item": "yoamod:deepslate_bismuth_ore"
+  },
+  "result": "yoamod:bismuth"
+}

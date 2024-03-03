@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 250,
+  "experience": 10.0,
+  "group": "adamantite_ingot",
+  "ingredient": {
+    "item": "yoamod:adamantite_ore"
+  },
+  "result": "yoamod:adamantite_ingot"
+}

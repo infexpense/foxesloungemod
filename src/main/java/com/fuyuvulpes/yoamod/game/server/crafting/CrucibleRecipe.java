@@ -66,7 +66,13 @@ public class CrucibleRecipe implements Recipe<Container> {
     public RecipeType<?> getType() {
         return RecipesModReg.CRUCIBLE_TYPE.get();
     }
+
+    public static CrucibleRecipe makeMolted(Ingredient ingredientA, Ingredient ingredientB, Ingredient supportingItem, ItemStack result, float experience, int cookingTime, String group) {
+            return new CrucibleRecipe(group, ingredientA, ingredientB, supportingItem, result, experience, cookingTime);
+}
+
     public interface Factory<T extends CrucibleRecipe> {
         T create(String group, Ingredient ingredient, Ingredient secondingredient, Ingredient supportitem, ItemStack result, float experience, int time);
     }
+
 }

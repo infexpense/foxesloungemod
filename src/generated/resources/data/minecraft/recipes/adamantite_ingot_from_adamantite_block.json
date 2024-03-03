@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "adamantite_ingot",
+  "ingredients": [
+    {
+      "item": "yoamod:adamantite_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "yoamod:adamantite_ingot"
+  }
+}
