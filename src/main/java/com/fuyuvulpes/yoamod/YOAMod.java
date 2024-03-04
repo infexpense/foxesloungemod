@@ -53,6 +53,7 @@ public class YOAMod {
         modEventBus.addListener(this::commonSetup);
         FeatureModRegistry.register(modEventBus);
         RecipesModReg.register(modEventBus);
+        SerializersModReg.register(modEventBus);
         ParticleModReg.register(modEventBus);
         ModEffects.register(modEventBus);
         EntityTypeModReg.register(modEventBus);

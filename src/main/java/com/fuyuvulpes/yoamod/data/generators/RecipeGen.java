@@ -78,7 +78,7 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
         stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_SLAB, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES, 2);
         stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES);
 
-        CrucibleRecipeBuilder.of(Items.COPPER_INGOT,Items.COAL,2).withSecondaryItem(Items.IRON_INGOT).withSupport(Items.GLOWSTONE).timed(10);
+        CrucibleRecipeBuilder.of(Items.COPPER_INGOT,Items.COAL,2).withSecondaryItem(Items.IRON_INGOT).withSupport(Items.GLOWSTONE).timed(10).save(output, "coaliumz");
 
 
         oreSmelting(output, IRON_SMELTABLES, RecipeCategory.MISC, Items.IRON_INGOT, 0.7F, 200, "iron_ingot");
