@@ -180,6 +180,8 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
         return this.items.get(pIndex);
     }
 
+
+
     @Override
     public ItemStack removeItem(int pIndex, int pCount) {
         return ContainerHelper.removeItem(this.items, pIndex, pCount);

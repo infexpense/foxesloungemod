@@ -16,11 +16,23 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 
 public class CrucibleMenu extends AbstractContainerMenu {
 
+    public static final int INGREDIENT_SLOTA = 0;
+    public static final int INGREDIENT_SLOTB = 1;
+    public static final int SUPPORT_SLOT = 2;
+    public static final int FUEL_SLOT = 3;
+    public static final int RESULT_SLOT = 4;
+    public static final int SLOT_COUNT = 5;
+    private static final int INV_SLOT_START = 3;
+    private static final int INV_SLOT_END = 30;
+    private static final int USE_ROW_SLOT_START = 30;
+    private static final int USE_ROW_SLOT_END = 39;
     private final Container container;
     private final Level level;
     private final ContainerData data;
@@ -136,6 +148,7 @@ public class CrucibleMenu extends AbstractContainerMenu {
 
         return itemstack;
     }
+
 
     @Override
     public boolean stillValid(Player pPlayer) {
