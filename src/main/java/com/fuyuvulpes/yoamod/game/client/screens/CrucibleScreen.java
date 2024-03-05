@@ -37,6 +37,7 @@ public class CrucibleScreen extends AbstractContainerScreen<CrucibleMenu> {
         guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
 
         renderProgressArrow(guiGraphics, x, y);
+        renderFuel(guiGraphics,x,y);
     }
 
     private void renderProgressArrow(GuiGraphics guiGraphics, int x, int y) {

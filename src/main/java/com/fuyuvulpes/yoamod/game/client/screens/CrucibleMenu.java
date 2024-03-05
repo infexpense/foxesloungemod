@@ -107,15 +107,15 @@ public class CrucibleMenu extends AbstractContainerMenu {
         if (slot != null && slot.hasItem()) {
             ItemStack itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
-            if (pIndex == 2) {
-                if (!this.moveItemStackTo(itemstack1, 3, 39, true)) {
+            if (pIndex >= 0 && pIndex <=4) {
+                if (!this.moveItemStackTo(itemstack1, 5, 39, true)) {
                     return ItemStack.EMPTY;
                 }
 
                 slot.onQuickCraft(itemstack1, itemstack);
             } else if (pIndex != 1 && pIndex != 0) {
                 if (this.canSmelt(itemstack1)) {
-                    if (!this.moveItemStackTo(itemstack1, 0, 2, false)) {
+                    if (!this.moveItemStackTo(itemstack1, 0, 3, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if (this.isFuel(itemstack1)) {
@@ -126,10 +126,10 @@ public class CrucibleMenu extends AbstractContainerMenu {
                     if (!this.moveItemStackTo(itemstack1, 30, 39, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (pIndex >= 30 && pIndex < 39 && !this.moveItemStackTo(itemstack1, 3, 30, false)) {
+                } else if (pIndex >= 30 && pIndex < 39 && !this.moveItemStackTo(itemstack1, 5, 30, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.moveItemStackTo(itemstack1, 3, 39, false)) {
+            } else if (!this.moveItemStackTo(itemstack1, 5, 39, false)) {
                 return ItemStack.EMPTY;
             }
 

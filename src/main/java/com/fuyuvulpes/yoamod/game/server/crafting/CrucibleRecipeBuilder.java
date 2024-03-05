@@ -98,7 +98,7 @@ public class CrucibleRecipeBuilder implements RecipeBuilder {
                 .rewards(AdvancementRewards.Builder.recipe(pId))
                 .requirements(AdvancementRequirements.Strategy.OR);
         CrucibleRecipe crucibleRecipe = new CrucibleRecipe(
-                Objects.requireNonNullElse(this.group, ""),
+                Objects.requireNonNullElse(this.group, "crucible_group"),
                 this.key,
                 this.assist,
                 this.support,

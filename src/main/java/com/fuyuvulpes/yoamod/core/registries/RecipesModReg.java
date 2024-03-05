@@ -15,7 +15,7 @@ public class RecipesModReg {
     public static final DeferredRegister<RecipeType<?>> TYPE = DeferredRegister.create(Registries.RECIPE_TYPE, MODID);
 
 
-    public static final DeferredHolder<RecipeType<?>, RecipeType<CrucibleRecipe>> CRUCIBLE_TYPE = TYPE.register("crucible_type",() -> RecipeType.register("crucible"));
+    public static final DeferredHolder<RecipeType<?>, RecipeType<CrucibleRecipe>> CRUCIBLE_TYPE = TYPE.register("crucible",() -> RecipeType.register("crucible"));
 
     public static void register(IEventBus eventBus){
         TYPE.register(eventBus);

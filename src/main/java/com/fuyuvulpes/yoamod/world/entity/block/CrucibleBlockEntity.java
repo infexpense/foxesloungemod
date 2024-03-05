@@ -29,16 +29,14 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
-import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class CrucibleBlockEntity extends BaseContainerBlockEntity implements MenuProvider, WorldlyContainer, RecipeCraftingHolder, StackedContentsCompatible {
@@ -313,8 +311,7 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
                     flag1 = true;
                     if (itemstack.hasCraftingRemainingItem())
                         pBlockEntity.items.set(3, itemstack.getCraftingRemainingItem());
-                    else
-                    if (flag3) {
+                    else if (flag3) {
                         Item item = itemstack.getItem();
                         itemstack.shrink(1);
                         if (itemstack.isEmpty()) {
@@ -329,7 +326,7 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
                 if (pBlockEntity.cookingProgress == pBlockEntity.cookingTotalTime) {
                     pBlockEntity.cookingProgress = 0;
                     pBlockEntity.cookingTotalTime = getTotalCookTime(pLevel, pBlockEntity);
-                    if (pBlockEntity.burn(pLevel.registryAccess(), recipeholder, pBlockEntity.items, i)) {
+                    if (pBlockEntity.burn(pBlockEntity,pLevel.registryAccess(), recipeholder, pBlockEntity.items, i)) {
                         pBlockEntity.setRecipeUsed(recipeholder);
                     }
 
@@ -359,7 +356,7 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
             if (itemstack.isEmpty()) {
                 return false;
             } else {
-                ItemStack itemstack1 = pMaxStackSize.get(2);
+                ItemStack itemstack1 = pMaxStackSize.get(4);
                 if (itemstack1.isEmpty()) {
                     return true;
                 } else if (!ItemStack.isSameItem(itemstack1, itemstack)) {
@@ -375,10 +372,13 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
         }
     }
 
-    private boolean burn(RegistryAccess pRecipe, @javax.annotation.Nullable RecipeHolder<?> pInventory, NonNullList<ItemStack> pMaxStackSize, int p_267157_) {
+    private boolean burn(CrucibleBlockEntity pBlockEntity,RegistryAccess pRecipe, @javax.annotation.Nullable RecipeHolder<?> pInventory, NonNullList<ItemStack> pMaxStackSize, int p_267157_) {
         if (pInventory != null && this.canBurn(pRecipe, pInventory, pMaxStackSize, p_267157_)) {
             ItemStack itemstack = pMaxStackSize.get(0);
-            ItemStack itemstack1 = pMaxStackSize.get(0);
+            ItemStack itemstackb = pMaxStackSize.get(1);
+            ItemStack itemstackc = pMaxStackSize.get(2);
+            ItemStack itemstack1 = Arrays.stream(((RecipeHolder<Recipe<WorldlyContainer>>) pInventory).value().getIngredients().get(1).getItems()).findFirst().get();
+            ItemStack itemstack1b = Arrays.stream(((RecipeHolder<Recipe<WorldlyContainer>>) pInventory).value().getIngredients().get(2).getItems()).findFirst().get();
             ItemStack itemstack2 = ((RecipeHolder<net.minecraft.world.item.crafting.Recipe<WorldlyContainer>>) pInventory).value().assemble(this, pRecipe);
             ItemStack itemstack3 = pMaxStackSize.get(4);
             if (itemstack3.isEmpty()) {
@@ -386,10 +386,29 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
             } else if (itemstack3.is(itemstack2.getItem())) {
                 itemstack3.grow(itemstack2.getCount());
             }
+            if (!itemstack1.isEmpty()){
+                if (itemstackb.hasCraftingRemainingItem())
+                    pBlockEntity.items.set(1, itemstackb.getCraftingRemainingItem());
+                else {
+                    itemstackb.shrink(1);
+                    if (itemstackb.isEmpty()) {
+                        pBlockEntity.items.set(1, itemstackb.getCraftingRemainingItem());
+                    }
+                }
+            }
+            if (!itemstack1b.isEmpty()){
+                if (itemstackc.hasCraftingRemainingItem())
+                    pBlockEntity.items.set(2, itemstackc.getCraftingRemainingItem());
+                else {
+                    itemstackb.shrink(1);
+                    if (itemstackc.isEmpty()) {
+                        pBlockEntity.items.set(2, itemstackc.getCraftingRemainingItem());
+                    }
+                }
+            }
 
 
             itemstack.shrink(1);
-            itemstack1.shrink(1);
             return true;
         } else {
             return false;

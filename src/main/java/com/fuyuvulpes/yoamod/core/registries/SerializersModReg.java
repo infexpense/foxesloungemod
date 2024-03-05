@@ -15,7 +15,7 @@ public class SerializersModReg {
 
 
     public static final DeferredHolder<RecipeSerializer<?>,RecipeSerializer<CrucibleRecipe>> CRUCIBLE_SERIALIZER =
-            SERIALIZER.register("crucible_serializer",() -> new CrucibleSerializer<>(CrucibleRecipe::new));
+            SERIALIZER.register("crucible",() -> new CrucibleSerializer<>(CrucibleRecipe::new));
 
 
     public static void register(IEventBus eventBus){
