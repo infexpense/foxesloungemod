@@ -5,17 +5,20 @@ import com.fuyuvulpes.yoamod.core.registries.RecipesModReg;
 import com.fuyuvulpes.yoamod.game.client.screens.CrucibleMenu;
 import com.fuyuvulpes.yoamod.game.server.crafting.CrucibleRecipe;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.NonNullList;
-import net.minecraft.core.RegistryAccess;
+import net.minecraft.SharedConstants;
+import net.minecraft.Util;
+import net.minecraft.core.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
@@ -30,14 +33,17 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class CrucibleBlockEntity extends BaseContainerBlockEntity implements MenuProvider, WorldlyContainer, RecipeCraftingHolder, StackedContentsCompatible {
     protected static final int[] SLOT_INPUT = new int[]{0,1,2};
@@ -110,12 +116,53 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
         this.recipeType = RecipesModReg.CRUCIBLE_TYPE.get();
         }
 
+    @Deprecated
+    public static Map<Item, Integer> getFuel() {
+        Map<Item, Integer> map = Maps.newLinkedHashMap();
+        buildFuels((e, time) -> e.ifRight(tag -> add(map, tag, time)).ifLeft(item -> add(map, item, time)));
+        return map;
+    }
+
+    private static void add(java.util.function.ObjIntConsumer<com.mojang.datafixers.util.Either<Item, TagKey<Item>>> consumer, ItemLike item, int time) {
+        consumer.accept(com.mojang.datafixers.util.Either.left(item.asItem()), time);
+    }
+
+    @org.jetbrains.annotations.ApiStatus.Internal
+    public static void buildFuels(java.util.function.ObjIntConsumer<com.mojang.datafixers.util.Either<Item, TagKey<Item>>> map) {
+        add(map, Items.LAVA_BUCKET, 20000);
+    }
+
+    private static boolean isNeverAFurnaceFuel(Item pItem) {
+        return pItem.builtInRegistryHolder().is(ItemTags.NON_FLAMMABLE_WOOD);
+    }
+
+    private static void add(Map<Item, Integer> pMap, TagKey<Item> pItemTag, int pBurnTime) {
+        for(Holder<Item> holder : BuiltInRegistries.ITEM.getTagOrEmpty(pItemTag)) {
+            if (!isNeverAFurnaceFuel(holder.value())) {
+                pMap.put(holder.value(), pBurnTime);
+            }
+        }
+    }
+
+    private static void add(Map<Item, Integer> pMap, ItemLike pItem, int pBurnTime) {
+        Item item = pItem.asItem();
+        if (isNeverAFurnaceFuel(item)) {
+            if (SharedConstants.IS_RUNNING_IN_IDE) {
+                throw (IllegalStateException) Util.pauseInIde(
+                        new IllegalStateException(
+                                "A developer tried to explicitly make fire resistant item " + item.getName(null).getString() + " a furnace fuel. That will not work!"
+                        )
+                );
+            }
+        } else {
+            pMap.put(item, pBurnTime);
+        }
+    }
 
     @Override
     protected Component getDefaultName() {
         return Component.translatable("container.yoamod.crucible");
     }
-
 
     @Override
     protected AbstractContainerMenu createMenu(int pId, Inventory pPlayer) {
@@ -125,130 +172,6 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
     private boolean isLit() {
         return this.litTime > 0;
     }
-
-    protected int getBurnDuration(ItemStack pFuel) {
-        if (pFuel.isEmpty()) {
-            return 0;
-        } else {
-            Item item = pFuel.getItem();
-            return item.getDefaultInstance().is(Items.LAVA_BUCKET) ? 0 : 900;
-        }
-    }
-    @Override
-    public int[] getSlotsForFace(Direction pSide) {
-        if (pSide == Direction.DOWN) {
-            return SLOTS_FOR_DOWN;
-        } else {
-            return pSide == Direction.UP ? SLOTS_FOR_UP : SLOTS_FOR_SIDES;
-        }
-    }
-
-
-    @Override
-    public boolean canPlaceItemThroughFace(int pIndex, ItemStack pItemStack, @javax.annotation.Nullable Direction pDirection) {
-        return this.canPlaceItem(pIndex, pItemStack);
-    }
-
-    @Override
-    public boolean canTakeItemThroughFace(int pIndex, ItemStack pStack, Direction pDirection) {
-        if (pDirection == Direction.DOWN && pIndex == 1) {
-            return pStack.is(Items.BUCKET);
-        } else {
-            return true;
-        }
-    }
-
-    @Override
-    public int getContainerSize() {
-        return this.items.size();
-    }
-    @Override
-    public boolean isEmpty() {
-        for(ItemStack itemstack : this.items) {
-            if (!itemstack.isEmpty()) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    @Override
-    public ItemStack getItem(int pIndex) {
-        return this.items.get(pIndex);
-    }
-
-
-
-    @Override
-    public ItemStack removeItem(int pIndex, int pCount) {
-        return ContainerHelper.removeItem(this.items, pIndex, pCount);
-    }
-
-    @Override
-    public ItemStack removeItemNoUpdate(int pIndex) {
-        return ContainerHelper.takeItem(this.items, pIndex);
-    }
-
-    @Override
-    public void setItem(int pIndex, ItemStack pStack) {
-        ItemStack itemstack = this.items.get(pIndex);
-        boolean flag = !pStack.isEmpty() && ItemStack.isSameItemSameTags(itemstack, pStack);
-        this.items.set(pIndex, pStack);
-        if (pStack.getCount() > this.getMaxStackSize()) {
-            pStack.setCount(this.getMaxStackSize());
-        }
-
-        if (pIndex == 0 && !flag) {
-            this.cookingTotalTime = getTotalCookTime(this.level, this);
-            this.cookingProgress = 0;
-            this.setChanged();
-        }
-    }
-
-    @Override
-    public boolean stillValid(Player pPlayer) {
-        return Container.stillValidBlockEntity(this, pPlayer);
-    }
-
-    @Override
-    public boolean canPlaceItem(int pIndex, ItemStack pStack) {
-        if (pIndex == 2) {
-            return false;
-        } else if (pIndex != 1) {
-            return true;
-        } else {
-            ItemStack itemstack = this.items.get(1);
-            return net.neoforged.neoforge.common.CommonHooks.getBurnTime(pStack, this.recipeType) > 0 || pStack.is(Items.BUCKET) && !itemstack.is(Items.BUCKET);
-        }
-    }
-
-    @Override
-    public void clearContent() {
-        this.items.clear();
-    }
-
-
-
-    @Override
-    public void setRecipeUsed(@javax.annotation.Nullable RecipeHolder<?> pRecipe) {
-        if (pRecipe != null) {
-            ResourceLocation resourcelocation = pRecipe.id();
-            this.recipesUsed.addTo(resourcelocation, 1);
-        }
-    }
-
-    @javax.annotation.Nullable
-    @Override
-    public RecipeHolder<?> getRecipeUsed() {
-        return null;
-    }
-
-    @Override
-    public void awardUsedRecipes(Player pPlayer, List<ItemStack> pItems) {
-    }
-
-
 
     @Override
     public void load(CompoundTag pTag) {
@@ -276,13 +199,6 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
         CompoundTag compoundtag = new CompoundTag();
         this.recipesUsed.forEach((p_187449_, p_187450_) -> compoundtag.putInt(p_187449_.toString(), p_187450_));
         pTag.put("RecipesUsed", compoundtag);
-    }
-
-    @Override
-    public void fillStackedContents(StackedContents pHelper) {
-        for(ItemStack itemstack : this.items) {
-            pHelper.accountStack(itemstack);
-        }
     }
 
     public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, CrucibleBlockEntity pBlockEntity) {
@@ -415,12 +331,127 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
         }
     }
 
-
+    protected int getBurnDuration(ItemStack pFuel) {
+        if (pFuel.isEmpty()) {
+            return 0;
+        } else {
+            Item item = pFuel.getItem();
+            return item.getDefaultInstance().is(Items.LAVA_BUCKET) ? 0 : 900;
+        }
+    }
 
     private static int getTotalCookTime(Level pLevel, CrucibleBlockEntity pBlockEntity) {
         return pBlockEntity.quickCheck.getRecipeFor(pBlockEntity, pLevel).map(p_300840_ -> p_300840_.value().getCookingTime()).orElse(200);
     }
 
+    @Override
+    public int[] getSlotsForFace(Direction pSide) {
+        if (pSide == Direction.DOWN) {
+            return SLOTS_FOR_DOWN;
+        } else {
+            return pSide == Direction.UP ? SLOTS_FOR_UP : SLOTS_FOR_SIDES;
+        }
+    }
+
+    @Override
+    public boolean canPlaceItemThroughFace(int pIndex, ItemStack pItemStack, @javax.annotation.Nullable Direction pDirection) {
+        return this.canPlaceItem(pIndex, pItemStack);
+    }
+
+    @Override
+    public boolean canTakeItemThroughFace(int pIndex, ItemStack pStack, Direction pDirection) {
+        if (pDirection == Direction.DOWN && pIndex == 1) {
+            return pStack.is(Items.BUCKET);
+        } else {
+            return true;
+        }
+    }
+
+    @Override
+    public int getContainerSize() {
+        return this.items.size();
+    }
+    @Override
+    public boolean isEmpty() {
+        for(ItemStack itemstack : this.items) {
+            if (!itemstack.isEmpty()) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    @Override
+    public ItemStack getItem(int pIndex) {
+        return this.items.get(pIndex);
+    }
+
+    @Override
+    public ItemStack removeItem(int pIndex, int pCount) {
+        return ContainerHelper.removeItem(this.items, pIndex, pCount);
+    }
+
+    @Override
+    public ItemStack removeItemNoUpdate(int pIndex) {
+        return ContainerHelper.takeItem(this.items, pIndex);
+    }
+
+    @Override
+    public void setItem(int pIndex, ItemStack pStack) {
+        ItemStack itemstack = this.items.get(pIndex);
+        boolean flag = !pStack.isEmpty() && ItemStack.isSameItemSameTags(itemstack, pStack);
+        this.items.set(pIndex, pStack);
+        if (pStack.getCount() > this.getMaxStackSize()) {
+            pStack.setCount(this.getMaxStackSize());
+        }
+
+        if (pIndex == 0 && !flag) {
+            this.cookingTotalTime = getTotalCookTime(this.level, this);
+            this.cookingProgress = 0;
+            this.setChanged();
+        }
+    }
+
+    @Override
+    public boolean stillValid(Player pPlayer) {
+        return Container.stillValidBlockEntity(this, pPlayer);
+    }
+
+    @Override
+    public boolean canPlaceItem(int pIndex, ItemStack pStack) {
+        if (pIndex == 2) {
+            return false;
+        } else if (pIndex != 1) {
+            return true;
+        } else {
+            ItemStack itemstack = this.items.get(1);
+            return net.neoforged.neoforge.common.CommonHooks.getBurnTime(pStack, this.recipeType) > 0 || pStack.is(Items.BUCKET) && !itemstack.is(Items.BUCKET);
+        }
+    }
+
+    @Override
+    public void clearContent() {
+        this.items.clear();
+    }
+
+    @Override
+    public void setRecipeUsed(@javax.annotation.Nullable RecipeHolder<?> pRecipe) {
+        if (pRecipe != null) {
+            ResourceLocation resourcelocation = pRecipe.id();
+            this.recipesUsed.addTo(resourcelocation, 1);
+        }
+    }
+
+    @javax.annotation.Nullable
+    @Override
+    public RecipeHolder<?> getRecipeUsed() {
+        return null;
+    }
+
+    @Override
+    public void awardUsedRecipes(Player pPlayer, List<ItemStack> pItems) {
+    }
 
     public void awardUsedRecipesAndPopExperience(ServerPlayer pPlayer) {
         List<RecipeHolder<?>> list = this.getRecipesToAwardAndPopExperience(pPlayer.serverLevel(), pPlayer.position());
@@ -457,6 +488,11 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
         ExperienceOrb.award(pLevel, pPopVec, i);
     }
 
-
+    @Override
+    public void fillStackedContents(StackedContents pHelper) {
+        for(ItemStack itemstack : this.items) {
+            pHelper.accountStack(itemstack);
+        }
+    }
 
 }

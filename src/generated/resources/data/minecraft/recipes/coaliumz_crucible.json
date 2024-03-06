@@ -1,6 +1,7 @@
 {
-  "type": "yoamod:crucible_serializer",
+  "type": "yoamod:crucible",
   "experience": 10.0,
+  "group": "crucible_group",
   "ingredient": {
     "item": "minecraft:copper_ingot"
   },

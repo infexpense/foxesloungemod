@@ -73,9 +73,9 @@ public class CrucibleRecipe implements Recipe<Container> {
 
     @Override
     public RecipeType<?> getType() {
-        return RecipesModReg.CRUCIBLE_TYPE.get();}
+        return RecipesModReg.CRUCIBLE_TYPE.get();
+    }
 
-    @Override
     public boolean isSpecial() {
         return true;
     }
