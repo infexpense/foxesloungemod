@@ -47,10 +47,10 @@ public class HammeringStationMenu extends AbstractContainerMenu {
         addPlayerHotbar(inventory);
 
         this.addSlot(new Slot(pContainer, 0, 8, 8));
-        this.addSlot(new Slot(pContainer, 1, 29, 8));
+        this.addSlot(new Slot(pContainer, 1, 28, 8));
         this.addSlot(new Slot(pContainer, 2, 8, 28));
-        this.addSlot(new Slot(pContainer, 3, 29, 28));
-        this.addSlot(new HammeringStationResultSlot(inventory.player,pContainer, 4, 137, 51));
+        this.addSlot(new Slot(pContainer, 3, 28, 28));
+        this.addSlot(new HammeringStationResultSlot(inventory.player,pContainer, 4, 141, 54));
 
         addDataSlots(data);
     }

@@ -11,7 +11,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 public class HammeringStationScreen extends AbstractContainerScreen<HammeringStationMenu> {
 
-    private static final ResourceLocation TEXTURE = new ResourceLocation(YOAMod.MODID, "textures/gui/container/crucible.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(YOAMod.MODID, "textures/gui/container/hammering_station.png");
 
     public HammeringStationScreen(HammeringStationMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);

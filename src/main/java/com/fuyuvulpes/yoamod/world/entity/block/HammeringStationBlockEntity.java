@@ -103,7 +103,12 @@ public class HammeringStationBlockEntity extends BaseContainerBlockEntity implem
 
     @Override
     public void setItem(int pSlot, ItemStack pStack) {
-
+        ItemStack itemstack = this.items.get(pSlot);
+        boolean flag = !pStack.isEmpty() && ItemStack.isSameItemSameTags(itemstack, pStack);
+        this.items.set(pSlot, pStack);
+        if (pStack.getCount() > this.getMaxStackSize()) {
+            pStack.setCount(this.getMaxStackSize());
+        }
     }
 
     @Override
