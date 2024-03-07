@@ -1,0 +1,14 @@
+{
+  "type": "yoamod:crucible",
+  "experience": 0.0,
+  "group": "crucible_group",
+  "ingredient": {
+    "item": "minecraft:cobblestone"
+  },
+  "result": "minecraft:lava_bucket",
+  "secondingredient": [],
+  "supportitem": {
+    "item": "minecraft:bucket"
+  },
+  "time": 10
+}

@@ -1,6 +1,7 @@
 package com.fuyuvulpes.yoamod.core.registries;
 
 import com.fuyuvulpes.yoamod.game.server.crafting.CrucibleRecipe;
+import com.fuyuvulpes.yoamod.game.server.crafting.HammeringStationRecipe;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -16,6 +17,7 @@ public class RecipesModReg {
 
 
     public static final DeferredHolder<RecipeType<?>, RecipeType<CrucibleRecipe>> CRUCIBLE_TYPE = TYPE.register("crucible",() -> RecipeType.register("crucible"));
+    public static final DeferredHolder<RecipeType<?>, RecipeType<HammeringStationRecipe>> HAMMERING_STATION_TYPE = TYPE.register("hammering_station",() -> RecipeType.register("hammering_station"));
 
     public static void register(IEventBus eventBus){
         TYPE.register(eventBus);

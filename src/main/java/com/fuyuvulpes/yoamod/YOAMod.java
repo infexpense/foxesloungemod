@@ -6,6 +6,7 @@ import com.fuyuvulpes.yoamod.game.client.entities.model.PlaneModel;
 import com.fuyuvulpes.yoamod.game.client.entities.renderers.*;
 import com.fuyuvulpes.yoamod.game.client.particle.BleedingParticle;
 import com.fuyuvulpes.yoamod.game.client.screens.CrucibleScreen;
+import com.fuyuvulpes.yoamod.game.client.screens.HammeringStationScreen;
 import com.fuyuvulpes.yoamod.world.entity.ArmedSpider;
 import com.fuyuvulpes.yoamod.world.entity.Blockling;
 import com.fuyuvulpes.yoamod.world.entity.BrawlerEntity;
@@ -40,6 +41,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.registries.NewRegistryEvent;
 
 import static com.fuyuvulpes.yoamod.core.registries.MenusModReg.CRUCIBLE_MENU;
+import static com.fuyuvulpes.yoamod.core.registries.MenusModReg.HAMMERING_STATION_MENU;
 
 
 @Mod(YOAMod.MODID)
@@ -216,9 +218,8 @@ public class YOAMod {
         @SubscribeEvent
         private static void registerScreens(RegisterMenuScreensEvent event) {
             event.register(CRUCIBLE_MENU.get(), CrucibleScreen::new);
-
-
+            event.register(HAMMERING_STATION_MENU.get(), HammeringStationScreen::new);
+        }
     }
-}
 }
 

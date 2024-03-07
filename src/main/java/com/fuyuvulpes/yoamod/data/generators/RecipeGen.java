@@ -3,6 +3,7 @@ package com.fuyuvulpes.yoamod.data.generators;
 import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
 import com.fuyuvulpes.yoamod.core.registries.ItemsModReg;
 import com.fuyuvulpes.yoamod.game.server.crafting.CrucibleRecipeBuilder;
+import com.fuyuvulpes.yoamod.game.server.crafting.HammeringStationRecipeBuilder;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -77,6 +78,8 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
         stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_STAIRS, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES);
         stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_SLAB, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES, 2);
         stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES);
+
+        HammeringStationRecipeBuilder.of(Items.STICK,Items.STICK).withIngB(Items.STICK).withIngC(Items.STICK).withIngD(Items.STICK).save(output,"super_stick");
 
         CrucibleRecipeBuilder.of(Items.COPPER_INGOT,Items.COAL,2).timed(10).save(output, "coaliumz");
         CrucibleRecipeBuilder.of(Items.COBBLESTONE,Items.LAVA_BUCKET,1).withSupport(Items.BUCKET).expReward(0).timed(10).save(output, "lave_bucket");

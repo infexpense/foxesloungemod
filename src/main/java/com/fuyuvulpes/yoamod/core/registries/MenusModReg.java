@@ -1,6 +1,7 @@
 package com.fuyuvulpes.yoamod.core.registries;
 
 import com.fuyuvulpes.yoamod.game.client.screens.CrucibleMenu;
+import com.fuyuvulpes.yoamod.game.client.screens.HammeringStationMenu;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlags;
@@ -16,6 +17,7 @@ public class MenusModReg {
     public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(BuiltInRegistries.MENU, MODID);
 
     public static final DeferredHolder<MenuType<?>, MenuType<CrucibleMenu>> CRUCIBLE_MENU = registerMenu("crucible_menu", CrucibleMenu::new);
+    public static final DeferredHolder<MenuType<?>, MenuType<HammeringStationMenu>> HAMMERING_STATION_MENU = registerMenu("hammering_station_menu", HammeringStationMenu::new);
 
 
 
