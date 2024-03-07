@@ -15,7 +15,9 @@ public class CrucibleRecipe implements Recipe<Container> {
     public final Ingredient ingredientA;
     public final Ingredient ingredientB;
     public final Ingredient supportingItem;
+
     public final ItemStack result;
+
     public final float experience;
     public final int cookingTime;
     public CrucibleRecipe(String pGroup, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient supportingItem, ItemStack pResult, float pExperience, int pCookingTime) {
@@ -36,8 +38,8 @@ public class CrucibleRecipe implements Recipe<Container> {
     @Override
     public boolean matches(Container pContainer, Level pLevel) {
         boolean conA = this.ingredientA.test(pContainer.getItem(0));
-        boolean conB = this.ingredientB.test(pContainer.getItem(1));
-        boolean conC = this.supportingItem.test(pContainer.getItem(2));
+        boolean conB = this.ingredientB == null || this.ingredientB.test(pContainer.getItem(1));
+        boolean conC = this.supportingItem == null || this.supportingItem.test(pContainer.getItem(2));
         return conA && conB && conC;
     }
 

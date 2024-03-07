@@ -5,6 +5,8 @@ import com.fuyuvulpes.yoamod.core.registries.RecipesModReg;
 import com.fuyuvulpes.yoamod.game.server.crafting.CrucibleRecipe;
 import com.fuyuvulpes.yoamod.world.inventory.CrucibleFuelSlot;
 import com.fuyuvulpes.yoamod.world.inventory.CrucibleResultSlot;
+import com.google.common.collect.ImmutableMap;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -20,6 +22,9 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+
+import java.util.Collections;
+import java.util.Map;
 
 public class CrucibleMenu extends AbstractContainerMenu {
 
@@ -46,6 +51,7 @@ public class CrucibleMenu extends AbstractContainerMenu {
     public CrucibleMenu(int pId, Inventory inventory, Container pContainer, ContainerData data) {
         super(MenusModReg.CRUCIBLE_MENU.get(), pId);
         checkContainerSize(inventory, 5);
+        checkContainerDataCount(data,4);
         this.level = inventory.player.level();
         this.data = data;
         this.container = pContainer;
@@ -65,12 +71,12 @@ public class CrucibleMenu extends AbstractContainerMenu {
     }
 
     public boolean isCrafting() {
-        return data.get(0) > 0;
+        return data.get(2) > 0;
     }
 
     public int getScaledProgress() {
-        int progress = this.data.get(0);
-        int maxProgress = this.data.get(1);  // Max Progress
+        int progress = this.data.get(2);
+        int maxProgress = this.data.get(3);  // Max Progress
         int progressArrowSize = 62; // This is the height in pixels of your arrow
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
@@ -160,8 +166,9 @@ public class CrucibleMenu extends AbstractContainerMenu {
 
     }
 
-    protected boolean canSmelt(ItemStack pStack) {
-        return this.level.getRecipeManager().getRecipeFor((RecipeType<CrucibleRecipe>)this.recipeType, new SimpleContainer(pStack), this.level).isPresent();
+    protected <C extends Container, T extends Recipe<C>> boolean canSmelt(ItemStack pStack) {
+
+        return this.level.getRecipeManager().getRecipeFor(this.recipeType, new SimpleContainer(pStack), this.level).isPresent();
     }
 }
 

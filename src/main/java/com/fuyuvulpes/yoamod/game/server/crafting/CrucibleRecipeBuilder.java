@@ -14,8 +14,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public class CrucibleRecipeBuilder implements RecipeBuilder {
@@ -24,44 +22,48 @@ public class CrucibleRecipeBuilder implements RecipeBuilder {
     private int time = 200;
     private final ItemStack resultStack;
     private final Ingredient key;
-    private Ingredient assist = Ingredient.EMPTY;
-    private Ingredient support = Ingredient.EMPTY;
+    private final Ingredient assist ;
+    private final Ingredient support;
     @javax.annotation.Nullable
     private String group;
     private boolean showNotification = true;
     private int xp = 10;
 
-    public CrucibleRecipeBuilder(Ingredient key,ItemLike pResult, int pCount) {
-        this(key,new ItemStack(pResult, pCount));
+    public CrucibleRecipeBuilder(Ingredient key, Ingredient assistItem, Ingredient supportItem, ItemLike pResult, int pCount) {
+        this(key,assistItem,supportItem,new ItemStack(pResult, pCount));
     }
 
 
-    public CrucibleRecipeBuilder( Ingredient key, ItemStack result) {
+    public CrucibleRecipeBuilder(Ingredient keyItem,Ingredient assistItem, Ingredient supportItem, ItemStack result) {
         this.result = result.getItem();
         this.count = result.getCount();
         this.resultStack = result;
-        this.key = key;
+        this.key = keyItem;
+        this.assist = assistItem;
+        this.support = supportItem;
     }
 
 
-    public static CrucibleRecipeBuilder of(ItemLike pIngredient, ItemLike result) {
-        return of(pIngredient,result,1);
+    public static CrucibleRecipeBuilder of(ItemLike pIngredient,@Nullable ItemLike assistItem,@Nullable ItemLike supportItem,ItemLike result) {
+        return of(pIngredient,assistItem,supportItem,result,1);
     }
 
-    public static CrucibleRecipeBuilder of(ItemLike pIngredient, ItemLike result,int count){
-        return new CrucibleRecipeBuilder(Ingredient.of(pIngredient),result,count);
-    }
+    public static CrucibleRecipeBuilder of(ItemLike pIngredient,@Nullable ItemLike assistItem,@Nullable ItemLike supportItem,ItemLike result,int count){
+        Ingredient assistIngredient;
+        Ingredient supportIngredient;
+        if (assistItem == null){
+            assistIngredient = null;
+        }else {
+            assistIngredient = Ingredient.of(assistItem);
+        }
+        if (supportItem == null){
+            supportIngredient = null;
+        }else {
+            supportIngredient = Ingredient.of(supportItem);
+        }
 
-    public CrucibleRecipeBuilder withSecondaryItem(ItemLike item){
-        this.assist = Ingredient.of(item);
-        return this;
+        return new CrucibleRecipeBuilder(Ingredient.of(pIngredient),assistIngredient,supportIngredient,result,count);
     }
-
-    public CrucibleRecipeBuilder withSupport(ItemLike item){
-        this.support = Ingredient.of(item);
-        return this;
-    }
-
     public CrucibleRecipeBuilder expReward(int experience){
         this.xp = experience;
         return this;
@@ -98,7 +100,7 @@ public class CrucibleRecipeBuilder implements RecipeBuilder {
                 .rewards(AdvancementRewards.Builder.recipe(pId))
                 .requirements(AdvancementRequirements.Strategy.OR);
         CrucibleRecipe crucibleRecipe = new CrucibleRecipe(
-                Objects.requireNonNullElse(this.group, "crucible_group"),
+                Objects.requireNonNullElse(this.group, ""),
                 this.key,
                 this.assist,
                 this.support,

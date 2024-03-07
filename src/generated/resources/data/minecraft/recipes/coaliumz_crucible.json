@@ -1,7 +1,6 @@
 {
   "type": "yoamod:crucible",
   "experience": 10.0,
-  "group": "crucible_group",
   "ingredient": {
     "item": "minecraft:copper_ingot"
   },
@@ -9,7 +8,11 @@
     "count": 2,
     "item": "minecraft:coal"
   },
-  "secondingredient": [],
-  "supportitem": [],
+  "secondingredient": {
+    "item": "minecraft:iron_ingot"
+  },
+  "supportitem": {
+    "item": "minecraft:iron_ingot"
+  },
   "time": 10
 }

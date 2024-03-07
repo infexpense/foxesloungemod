@@ -3,7 +3,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.93'
+    id 'net.neoforged.gradle.userdev' version '7.0.96'
 }
 
 version = mod_version
@@ -23,14 +23,27 @@ repositories {
         name = "ModMaven"
         url = "https://modmaven.dev"
     }
+
     maven {
         url = 'https://maven.neoforged.net'
+    }
+
+    maven {
+        name 'ModdingLegacyMaven'
+        url 'https://maven.moddinglegacy.com/maven'
     }
 
     maven {
         url "https://cursemaven.com"
         content {
             includeGroup "curse.maven"
+        }
+    }
+
+    maven {
+        url "https://dl.cloudsmith.io/public/klikli-dev/mods/maven/"
+        content {
+            includeGroup "com.klikli_dev"
         }
     }
 }
@@ -105,6 +118,9 @@ dependencies {
     compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
 
+    implementation "com.legacy:structure-gel:${structure_gel_version}"
+    implementation "com.klikli_dev:modonomicon-${minecraft_version}-neoforge:${modonomicon_version}"
+
     implementation "curse.maven:attributefix-280510:5074738"
     implementation "curse.maven:armorpoints-396094:4981317"
 
@@ -121,6 +137,8 @@ tasks.withType(ProcessResources).configureEach {
             minecraft_version   : minecraft_version, minecraft_version_range: minecraft_version_range,
             neo_version         : neo_version, neo_version_range: neo_version_range,
             jei_version         : jei_version, jei_version_range: jei_version_range,
+            modonomicon_version         : modonomicon_version, modonomicon_version_range: modonomicon_version_range,
+            structure_gel_version         : structure_gel_version, structure_gel_version_range: structure_gel_version_range,
             loader_version_range: loader_version_range,
             mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
             mod_authors         : mod_authors, mod_description: mod_description, pack_format_number: pack_format_number,
