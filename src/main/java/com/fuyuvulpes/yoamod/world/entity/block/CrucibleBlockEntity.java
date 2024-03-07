@@ -116,49 +116,6 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
         this.recipeType = RecipesModReg.CRUCIBLE_TYPE.get();
         }
 
-    @Deprecated
-    public static Map<Item, Integer> getFuel() {
-        Map<Item, Integer> map = Maps.newLinkedHashMap();
-        buildFuels((e, time) -> e.ifRight(tag -> add(map, tag, time)).ifLeft(item -> add(map, item, time)));
-        return map;
-    }
-
-    private static void add(java.util.function.ObjIntConsumer<com.mojang.datafixers.util.Either<Item, TagKey<Item>>> consumer, ItemLike item, int time) {
-        consumer.accept(com.mojang.datafixers.util.Either.left(item.asItem()), time);
-    }
-
-    @org.jetbrains.annotations.ApiStatus.Internal
-    public static void buildFuels(java.util.function.ObjIntConsumer<com.mojang.datafixers.util.Either<Item, TagKey<Item>>> map) {
-        add(map, Items.LAVA_BUCKET, 20000);
-    }
-
-    private static boolean isNeverAFurnaceFuel(Item pItem) {
-        return pItem.builtInRegistryHolder().is(ItemTags.NON_FLAMMABLE_WOOD);
-    }
-
-    private static void add(Map<Item, Integer> pMap, TagKey<Item> pItemTag, int pBurnTime) {
-        for(Holder<Item> holder : BuiltInRegistries.ITEM.getTagOrEmpty(pItemTag)) {
-            if (!isNeverAFurnaceFuel(holder.value())) {
-                pMap.put(holder.value(), pBurnTime);
-            }
-        }
-    }
-
-    private static void add(Map<Item, Integer> pMap, ItemLike pItem, int pBurnTime) {
-        Item item = pItem.asItem();
-        if (isNeverAFurnaceFuel(item)) {
-            if (SharedConstants.IS_RUNNING_IN_IDE) {
-                throw (IllegalStateException) Util.pauseInIde(
-                        new IllegalStateException(
-                                "A developer tried to explicitly make fire resistant item " + item.getName(null).getString() + " a furnace fuel. That will not work!"
-                        )
-                );
-            }
-        } else {
-            pMap.put(item, pBurnTime);
-        }
-    }
-
     @Override
     protected Component getDefaultName() {
         return Component.translatable("container.yoamod.crucible");

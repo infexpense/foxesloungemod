@@ -3,13 +3,14 @@
   "experience": 10.0,
   "group": "crucible_group",
   "ingredient": {
-    "item": "minecraft:copper_ingot"
+    "item": "minecraft:iron_ingot"
   },
-  "result": {
-    "count": 2,
+  "result": "yoamod:molten_steel",
+  "secondingredient": {
     "item": "minecraft:coal"
   },
-  "secondingredient": [],
-  "supportitem": [],
+  "supportitem": {
+    "item": "minecraft:bucket"
+  },
   "time": 10
 }

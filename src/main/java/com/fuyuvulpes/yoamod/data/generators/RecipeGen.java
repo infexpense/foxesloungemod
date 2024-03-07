@@ -78,8 +78,19 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
         stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_SLAB, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES, 2);
         stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES);
 
-        CrucibleRecipeBuilder.of(Items.COPPER_INGOT,Items.COAL,2).withSecondaryItem(Items.IRON_INGOT).withSupport(Items.GLOWSTONE).timed(10).save(output, "coaliumz");
-
+        CrucibleRecipeBuilder.of(Items.COPPER_INGOT,Items.COAL,2).timed(10).save(output, "coaliumz");
+        CrucibleRecipeBuilder.of(Items.COBBLESTONE,Items.LAVA_BUCKET,1).withSupport(Items.BUCKET).expReward(0).timed(10).save(output, "lave_bucket");
+        CrucibleRecipeBuilder.of(Items.COPPER_INGOT,ItemsModReg.MOLTEN_BRONZE,1).withSupport(Items.BUCKET).timed(10).save(output, "molten_bronze");
+        CrucibleRecipeBuilder.of(ItemsModReg.BRONZE_INGOT,ItemsModReg.MOLTEN_BRONZE,1).withSupport(Items.BUCKET).timed(10).save(output, "molten_bronze2");
+        CrucibleRecipeBuilder.of(ItemsModReg.SILVER_INGOT,ItemsModReg.MOLTEN_SILVER,1).withSupport(Items.BUCKET).timed(10).save(output, "molten_silver");
+        CrucibleRecipeBuilder.of(Items.GOLD_INGOT,ItemsModReg.MOLTEN_GOLD,1).withSupport(Items.BUCKET).timed(10).save(output, "molten_gold");
+        CrucibleRecipeBuilder.of(Items.IRON_INGOT,ItemsModReg.MOLTEN_IRON,1).withSupport(Items.BUCKET).timed(10).save(output, "molten_iron");
+        CrucibleRecipeBuilder.of(Items.IRON_INGOT,ItemsModReg.MOLTEN_STEEL,1).withSecondaryItem(Items.COAL).withSupport(Items.BUCKET).timed(10).save(output, "molten_steel");
+        CrucibleRecipeBuilder.of(ItemsModReg.STEEL_INGOT,ItemsModReg.MOLTEN_STEEL,1).withSupport(Items.BUCKET).timed(10).save(output, "molten_steel2");
+        CrucibleRecipeBuilder.of(Items.DIAMOND,ItemsModReg.MOLTEN_DIAMOND,1).withSupport(Items.BUCKET).timed(10).save(output, "molten_diamond");
+        CrucibleRecipeBuilder.of(ItemsModReg.TITANIUM_INGOT,ItemsModReg.MOLTEN_TITANIUM,1).withSupport(Items.BUCKET).timed(10).save(output, "molten_titanium");
+        CrucibleRecipeBuilder.of(ItemsModReg.IOLITE,ItemsModReg.MOLTEN_IOLITE,1).withSupport(Items.BUCKET).timed(10).save(output, "molten_iolite");
+        CrucibleRecipeBuilder.of(ItemsModReg.ALEXANDRITE,ItemsModReg.MOLTEN_ALEXANDRITE,1).withSupport(Items.BUCKET).timed(10).save(output, "molten_alexandrite");
 
         oreSmelting(output, IRON_SMELTABLES, RecipeCategory.MISC, Items.IRON_INGOT, 0.7F, 200, "iron_ingot");
         oreSmelting(output, DIAMOND_SMELTABLES, RecipeCategory.MISC, Items.DIAMOND, 1.0F, 200, "diamond");
