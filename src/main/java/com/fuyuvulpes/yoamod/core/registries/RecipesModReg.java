@@ -16,7 +16,12 @@ public class RecipesModReg {
     public static final DeferredRegister<RecipeType<?>> TYPE = DeferredRegister.create(Registries.RECIPE_TYPE, MODID);
 
 
-    public static final DeferredHolder<RecipeType<?>, RecipeType<CrucibleRecipe>> CRUCIBLE_TYPE = TYPE.register("crucible",() -> RecipeType.register("crucible"));
+    public static final DeferredHolder<RecipeType<?>, RecipeType<CrucibleRecipe>> CRUCIBLE_TYPE = TYPE.register("crucible",() -> new RecipeType<>() {
+        @Override
+        public String toString() {
+            return "crucible";
+        }
+    });
     public static final DeferredHolder<RecipeType<?>, RecipeType<HammeringStationRecipe>> HAMMERING_STATION_TYPE = TYPE.register("hammering_station",() -> RecipeType.register("hammering_station"));
 
     public static void register(IEventBus eventBus){

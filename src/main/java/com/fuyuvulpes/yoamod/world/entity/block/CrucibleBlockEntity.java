@@ -20,10 +20,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
-import net.minecraft.world.Container;
-import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -38,16 +35,19 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-public class CrucibleBlockEntity extends BaseContainerBlockEntity implements MenuProvider, WorldlyContainer, RecipeCraftingHolder, StackedContentsCompatible {
+public class CrucibleBlockEntity extends BlockEntity implements Container, MenuProvider, Nameable, WorldlyContainer, RecipeCraftingHolder, StackedContentsCompatible {
     protected static final int[] SLOT_INPUT = new int[]{0,1,2};
     protected static final int SLOT_FUEL = 3;
+    private Component name;
     protected static final int SLOT_RESULT = 4;
     public static final int DATA_LIT_TIME = 0;
     private static final int[] SLOTS_FOR_UP = new int[]{0,1,2,3};
@@ -116,15 +116,10 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
         this.recipeType = RecipesModReg.CRUCIBLE_TYPE.get();
         }
 
-    @Override
     protected Component getDefaultName() {
         return Component.translatable("container.yoamod.crucible");
     }
 
-    @Override
-    protected AbstractContainerMenu createMenu(int pId, Inventory pPlayer) {
-        return new CrucibleMenu(pId, pPlayer, this, this.dataAccess);
-    }
 
     private boolean isLit() {
         return this.litTime > 0;
@@ -136,11 +131,13 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         ContainerHelper.loadAllItems(pTag, this.items);
         this.litTime = pTag.getInt("BurnTime");
+        this.litDuration = pTag.getInt("BurnDuration");
         this.cookingProgress = pTag.getInt("CookTime");
         this.cookingTotalTime = pTag.getInt("CookTimeTotal");
-        this.litDuration = this.getBurnDuration(this.items.get(3));
         CompoundTag compoundtag = pTag.getCompound("RecipesUsed");
-
+        if (pTag.contains("CustomName", 8)) {
+            this.name = Component.Serializer.fromJson(pTag.getString("CustomName"));
+        }
         for(String s : compoundtag.getAllKeys()) {
             this.recipesUsed.put(new ResourceLocation(s), compoundtag.getInt(s));
         }
@@ -150,27 +147,32 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
     protected void saveAdditional(CompoundTag pTag) {
         super.saveAdditional(pTag);
         pTag.putInt("BurnTime", this.litTime);
+        pTag.putInt("BurnDuration", this.litDuration);
         pTag.putInt("CookTime", this.cookingProgress);
         pTag.putInt("CookTimeTotal", this.cookingTotalTime);
         ContainerHelper.saveAllItems(pTag, this.items);
         CompoundTag compoundtag = new CompoundTag();
+        if (this.name != null) {
+            pTag.putString("CustomName", Component.Serializer.toJson(this.name));
+        }
         this.recipesUsed.forEach((p_187449_, p_187450_) -> compoundtag.putInt(p_187449_.toString(), p_187450_));
         pTag.put("RecipesUsed", compoundtag);
     }
 
     public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, CrucibleBlockEntity pBlockEntity) {
         boolean flag = pBlockEntity.isLit();
-        boolean flag1 = false;
+        boolean burning = false;
         if (pBlockEntity.isLit()) {
             --pBlockEntity.litTime;
         }
 
-        ItemStack itemstack = pBlockEntity.items.get(3);
-        boolean flag2 = !pBlockEntity.items.get(0).isEmpty() && !pBlockEntity.items.get(1).isEmpty();
-        boolean flag3 = !itemstack.isEmpty();
-        if (pBlockEntity.isLit() || flag3 && flag2) {
+        ItemStack fuelStack = pBlockEntity.items.get(3);
+        boolean hasItemInFirstSlot = !pBlockEntity.items.get(0).isEmpty();
+        boolean fuelSlotNotEmpty = !fuelStack.isEmpty();
+        if (pBlockEntity.isLit() || fuelSlotNotEmpty && hasItemInFirstSlot) {
+
             RecipeHolder<?> recipeholder;
-            if (flag2) {
+            if (hasItemInFirstSlot) {
                 recipeholder = pBlockEntity.quickCheck.getRecipeFor(pBlockEntity, pLevel).orElse(null);
             } else {
                 recipeholder = null;
@@ -178,22 +180,20 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
 
             int i = pBlockEntity.getMaxStackSize();
             if (!pBlockEntity.isLit() && pBlockEntity.canBurn(pLevel.registryAccess(), recipeholder, pBlockEntity.items, i)) {
-                pBlockEntity.litTime = pBlockEntity.getBurnDuration(itemstack);
+                pBlockEntity.litTime = pBlockEntity.getBurnDuration(fuelStack);
                 pBlockEntity.litDuration = pBlockEntity.litTime;
                 if (pBlockEntity.isLit()) {
-                    flag1 = true;
-                    if (itemstack.hasCraftingRemainingItem())
-                        pBlockEntity.items.set(3, itemstack.getCraftingRemainingItem());
-                    else if (flag3) {
-                        Item item = itemstack.getItem();
-                        itemstack.shrink(1);
-                        if (itemstack.isEmpty()) {
-                            pBlockEntity.items.set(3, itemstack.getCraftingRemainingItem());
+                    burning = true;
+                    if (fuelStack.hasCraftingRemainingItem())
+                        pBlockEntity.items.set(3, fuelStack.getCraftingRemainingItem());
+                    else if (fuelSlotNotEmpty) {
+                        fuelStack.shrink(1);
+                        if (fuelStack.isEmpty()) {
+                            pBlockEntity.items.set(3, fuelStack.getCraftingRemainingItem());
                         }
                     }
                 }
             }
-
             if (pBlockEntity.isLit() && pBlockEntity.canBurn(pLevel.registryAccess(), recipeholder, pBlockEntity.items, i)) {
                 ++pBlockEntity.cookingProgress;
                 if (pBlockEntity.cookingProgress == pBlockEntity.cookingTotalTime) {
@@ -203,7 +203,7 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
                         pBlockEntity.setRecipeUsed(recipeholder);
                     }
 
-                    flag1 = true;
+                    burning = true;
                 }
             } else {
                 pBlockEntity.cookingProgress = 0;
@@ -213,12 +213,12 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
         }
 
         if (flag != pBlockEntity.isLit()) {
-            flag1 = true;
+            burning = true;
             pState = pState.setValue(AbstractFurnaceBlock.LIT, Boolean.valueOf(pBlockEntity.isLit()));
             pLevel.setBlock(pPos, pState, 3);
         }
 
-        if (flag1) {
+        if (burning) {
             setChanged(pLevel, pPos, pState);
         }
     }
@@ -231,10 +231,12 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
             } else {
                 ItemStack itemstack1 = pMaxStackSize.get(4);
                 if (itemstack1.isEmpty()) {
+
                     return true;
                 } else if (!ItemStack.isSameItem(itemstack1, itemstack)) {
                     return false;
                 } else if (itemstack1.getCount() + itemstack.getCount() <= p_155008_ && itemstack1.getCount() + itemstack.getCount() <= itemstack1.getMaxStackSize()) { // Forge fix: make furnace respect stack sizes in furnace recipes
+
                     return true;
                 } else {
                     return itemstack1.getCount() + itemstack.getCount() <= itemstack.getMaxStackSize(); // Forge fix: make furnace respect stack sizes in furnace recipes
@@ -250,8 +252,6 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
             ItemStack itemstack = pMaxStackSize.get(0);
             ItemStack itemstackb = pMaxStackSize.get(1);
             ItemStack itemstackc = pMaxStackSize.get(2);
-            ItemStack itemstack1 = Arrays.stream(((RecipeHolder<Recipe<WorldlyContainer>>) pInventory).value().getIngredients().get(1).getItems()).findFirst().get();
-            ItemStack itemstack1b = Arrays.stream(((RecipeHolder<Recipe<WorldlyContainer>>) pInventory).value().getIngredients().get(2).getItems()).findFirst().get();
             ItemStack itemstack2 = ((RecipeHolder<net.minecraft.world.item.crafting.Recipe<WorldlyContainer>>) pInventory).value().assemble(this, pRecipe);
             ItemStack itemstack3 = pMaxStackSize.get(4);
             if (itemstack3.isEmpty()) {
@@ -259,7 +259,7 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
             } else if (itemstack3.is(itemstack2.getItem())) {
                 itemstack3.grow(itemstack2.getCount());
             }
-            if (!itemstack1.isEmpty()){
+            if (!itemstackb.isEmpty()){
                 if (itemstackb.hasCraftingRemainingItem())
                     pBlockEntity.items.set(1, itemstackb.getCraftingRemainingItem());
                 else {
@@ -269,11 +269,11 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
                     }
                 }
             }
-            if (!itemstack1b.isEmpty()){
+            if (!itemstackc.isEmpty()){
                 if (itemstackc.hasCraftingRemainingItem())
                     pBlockEntity.items.set(2, itemstackc.getCraftingRemainingItem());
                 else {
-                    itemstackb.shrink(1);
+                    itemstackc.shrink(1);
                     if (itemstackc.isEmpty()) {
                         pBlockEntity.items.set(2, itemstackc.getCraftingRemainingItem());
                     }
@@ -292,8 +292,7 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
         if (pFuel.isEmpty()) {
             return 0;
         } else {
-            Item item = pFuel.getItem();
-            return item.getDefaultInstance().is(Items.LAVA_BUCKET) ? 0 : 900;
+            return pFuel.is(Items.LAVA_BUCKET) ? 900 : 0;
         }
     }
 
@@ -428,7 +427,7 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
         for(Object2IntMap.Entry<ResourceLocation> entry : this.recipesUsed.object2IntEntrySet()) {
             pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent(p_300839_ -> {
                 list.add(p_300839_);
-                createExperience(pLevel, pPopVec, entry.getIntValue(), ((AbstractCookingRecipe)p_300839_.value()).getExperience());
+                createExperience(pLevel, pPopVec, entry.getIntValue(), ((CrucibleRecipe)p_300839_.value()).getExperience());
             });
         }
 
@@ -450,6 +449,28 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
         for(ItemStack itemstack : this.items) {
             pHelper.accountStack(itemstack);
         }
+    }
+
+
+    @Override
+    public Component getName() {
+        return this.name != null ? this.name : this.getDefaultName();
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return this.getName();
+    }
+
+    @Nullable
+    @Override
+    public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
+        return new CrucibleMenu(pContainerId, pPlayerInventory, this, this.dataAccess);
+
+    }
+
+    public void setCustomName(Component pName) {
+        this.name = pName;
     }
 
 

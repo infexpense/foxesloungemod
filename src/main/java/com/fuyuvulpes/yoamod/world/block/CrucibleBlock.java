@@ -1,5 +1,6 @@
 package com.fuyuvulpes.yoamod.world.block;
 
+import com.fuyuvulpes.yoamod.core.registries.BlockEntitiesModReg;
 import com.fuyuvulpes.yoamod.world.entity.block.CrucibleBlockEntity;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -66,11 +67,6 @@ public class CrucibleBlock extends BaseEntityBlock {
             pPlayer.openMenu(pState.getMenuProvider(pLevel, pPos));
             return InteractionResult.CONSUME;
         }
-    }
-
-
-    protected void openContainer(Level pLevel, BlockPos pPos, Player pPlayer) {
-
     }
 
 
@@ -143,8 +139,12 @@ public class CrucibleBlock extends BaseEntityBlock {
             double d0 = (double)pPos.getX() + 0.5;
             double d1 = (double)pPos.getY()+1;
             double d2 = (double)pPos.getZ() + 0.5;
-            if (pRandom.nextDouble() < 0.1) {
-                pLevel.playLocalSound(d0, d1, d2, SoundEvents.LAVA_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
+            if (pRandom.nextFloat() < 0.1) {
+                if (pRandom.nextFloat() > 0.05) {
+                    pLevel.playLocalSound(d0, d1, d2, SoundEvents.LAVA_POP, SoundSource.BLOCKS, 0.3F, 0.5F * pRandom.nextFloat() + 0.4F, false);
+                }else {
+                    pLevel.playLocalSound(d0, d1, d2, SoundEvents.LAVA_AMBIENT, SoundSource.BLOCKS, 0.2F, 0.3F * pRandom.nextFloat() + 0.8F, false);
+                }
             }
 
             Direction direction = pState.getValue(FACING);
@@ -159,11 +159,15 @@ public class CrucibleBlock extends BaseEntityBlock {
         }
     }
 
-    @javax.annotation.Nullable
     protected static <T extends BlockEntity> BlockEntityTicker<T> createFurnaceTicker(
             Level pLevel, BlockEntityType<T> pServerType, BlockEntityType<? extends CrucibleBlockEntity> pClientType
     ) {
         return pLevel.isClientSide ? null : createTickerHelper(pServerType, pClientType, CrucibleBlockEntity::serverTick);
     }
 
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
+        return createFurnaceTicker(pLevel,pBlockEntityType, BlockEntitiesModReg.CRUCIBLE.get());
+    }
 }

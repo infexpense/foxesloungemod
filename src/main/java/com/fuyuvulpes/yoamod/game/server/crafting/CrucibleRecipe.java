@@ -82,6 +82,10 @@ public class CrucibleRecipe implements Recipe<Container> {
         return true;
     }
 
+    public float getExperience() {
+        return experience;
+    }
+
     public interface Factory<T extends CrucibleRecipe> {
         T create(String group, Ingredient ingredient, Ingredient secondingredient, Ingredient supportitem, ItemStack result, float experience, int time);
     }

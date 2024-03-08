@@ -12,8 +12,8 @@ import net.minecraft.world.entity.player.Inventory;
 
 public class CrucibleScreen extends AbstractContainerScreen<CrucibleMenu> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(YOAMod.MODID, "textures/gui/container/crucible.png");
-    private static final ResourceLocation ARROW = new ResourceLocation(YOAMod.MODID, "textures/gui/sprites/container/crucible/arrow.png");
-    private static final ResourceLocation FUEL = new ResourceLocation(YOAMod.MODID, "textures/gui/sprites/container/crucible/fuel.png");
+    private static final ResourceLocation ARROW = new ResourceLocation(YOAMod.MODID, "container/crucible/arrow");
+    private static final ResourceLocation FUEL = new ResourceLocation(YOAMod.MODID, "container/crucible/fuel");
 
     public CrucibleScreen(CrucibleMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
@@ -28,9 +28,6 @@ public class CrucibleScreen extends AbstractContainerScreen<CrucibleMenu> {
 
     @Override
     protected void renderBg(GuiGraphics guiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        RenderSystem.setShaderTexture(0, TEXTURE);
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
 
@@ -42,13 +39,13 @@ public class CrucibleScreen extends AbstractContainerScreen<CrucibleMenu> {
 
     private void renderProgressArrow(GuiGraphics guiGraphics, int x, int y) {
         if(menu.isCrafting()) {
-            guiGraphics.blit(ARROW, x + 61, y + 24, 0, 0, menu.getScaledProgress(), 6);
+            guiGraphics.blitSprite(ARROW,64, 9, 0,0, x + 61, y + 22, menu.getScaledProgress(), 9);
         }
     }
 
     private void renderFuel(GuiGraphics guiGraphics, int x, int y) {
         if(menu.isLit()) {
-            guiGraphics.blit(FUEL, x + 81, y + 38, 0, 0, 13, menu.getScaledUsage());
+            guiGraphics.blitSprite(FUEL,14,11,0,11 - menu.getScaledUsage(),x + 81, y + 49 - menu.getScaledUsage(), 14, menu.getScaledUsage());
         }
     }
 
