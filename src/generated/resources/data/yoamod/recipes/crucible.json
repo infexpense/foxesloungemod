@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bucket"
+    },
+    "C": {
+      "tag": "minecraft:stone_tool_materials"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "I B",
+    "IIC",
+    "CCC"
+  ],
+  "result": {
+    "item": "yoamod:crucible"
+  }
+}

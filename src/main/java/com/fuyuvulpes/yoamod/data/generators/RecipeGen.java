@@ -9,8 +9,11 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
 public class RecipeGen extends RecipeProvider implements IConditionBuilder {
@@ -30,6 +33,22 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
 
     @Override
     protected void buildRecipes(RecipeOutput output) {
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS,BlocksModReg.CRUCIBLE.get())
+                .define('I', Items.IRON_INGOT).define('B', Items.BUCKET).define('C', ItemTags.STONE_TOOL_MATERIALS)
+                .pattern("I B")
+                .pattern("IIC")
+                .pattern("CCC")
+                .unlockedBy("has_stone",has(Tags.Items.COBBLESTONE))
+                .save(output);
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS,BlocksModReg.HAMMERING_STATION.get())
+                .define('I', Items.IRON_INGOT).define('P', ItemTags.PLANKS).define('C', ItemTags.STONE_TOOL_MATERIALS)
+                .pattern("II")
+                .pattern("PC")
+                .unlockedBy("has_stone",has(Tags.Items.COBBLESTONE))
+                .save(output);
 
         makeStoneSetRecipe(output, BlocksModReg.CREAKSTONE.get(), BlocksModReg.CREAKSTONE_STAIRS.get(), BlocksModReg.CREAKSTONE_SLAB, BlocksModReg.CREAKSTONE_WALL);
         makeStoneSetRecipe(output, BlocksModReg.CREAKSTONE_TILES.get(), BlocksModReg.CREAKSTONE_TILES_STAIRS.get(), BlocksModReg.CREAKSTONE_TILES_SLAB, BlocksModReg.CREAKSTONE_TILES_WALL);
