@@ -570,6 +570,24 @@
   "advancement.yoamod.root": "Your Own Adventure",
   "advancement.yoamod.root.description": "The Beginning",
 
+  "advancement.yoamod.silver": "Weaker Iron",
+  "advancement.yoamod.silver.description": "Obtain Silver and smelt it into an Ingot",
+
+  "advancement.yoamod.crucible": "Blasting Furnace? Never Heard of It.",
+  "advancement.yoamod.crucible.description": "Craft the Crucible, a new tool to craft Alloys & Other materials",
+
+  "advancement.yoamod.hammering_station": "How to Craft Your Weaponry",
+  "advancement.yoamod.hammering_station.description": "Make a Hammering Station",
+
+  "advancement.yoamod.alloys": "Man-made Metals",
+  "advancement.yoamod.alloys.description": "Create your first Alloy",
+
+  "advancement.yoamod.steel": "Stronger Iron",
+  "advancement.yoamod.steel.description": "Obtain a Steel Ingot",
+
+  "advancement.yoamod.titanium": "Beyond Netherite",
+  "advancement.yoamod.titanium.description": "Find and obtain Titanium in any of its forms",
+
   "entity.yoamod.plane": "Plane",
   "entity.yoamod.brawler": "Brawler",
   "entity.yoamod.brawling": "Brawling",

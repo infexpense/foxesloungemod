@@ -1,0 +1,34 @@
+{
+  "parent": "yoamod:main/root",
+  "criteria": {
+    "crucible": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:crucible"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.yoamod.crucible.description"
+    },
+    "icon": {
+      "item": "yoamod:crucible"
+    },
+    "title": {
+      "translate": "advancement.yoamod.crucible"
+    }
+  },
+  "requirements": [
+    [
+      "crucible"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

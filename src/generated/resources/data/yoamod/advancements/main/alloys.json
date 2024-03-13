@@ -1,0 +1,60 @@
+{
+  "parent": "yoamod:main/crucible",
+  "criteria": {
+    "brass": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:brass_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:bronze_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:steel_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.yoamod.alloys.description"
+    },
+    "icon": {
+      "item": "yoamod:molten_bronze"
+    },
+    "title": {
+      "translate": "advancement.yoamod.alloys"
+    }
+  },
+  "requirements": [
+    [
+      "bronze",
+      "brass",
+      "steel"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

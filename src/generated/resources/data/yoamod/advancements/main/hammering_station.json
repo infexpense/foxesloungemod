@@ -1,0 +1,34 @@
+{
+  "parent": "yoamod:main/crucible",
+  "criteria": {
+    "hammering_station": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:hammering_station"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.yoamod.hammering_station.description"
+    },
+    "icon": {
+      "item": "yoamod:hammering_station"
+    },
+    "title": {
+      "translate": "advancement.yoamod.hammering_station"
+    }
+  },
+  "requirements": [
+    [
+      "hammering_station"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

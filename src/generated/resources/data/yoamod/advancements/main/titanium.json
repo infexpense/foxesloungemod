@@ -1,0 +1,100 @@
+{
+  "parent": "yoamod:main/root",
+  "criteria": {
+    "deepslate_titanium_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:deepslate_titanium_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "raw_titanium": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:raw_titanium"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "raw_titanium_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:raw_titanium_block"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "titanium_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:titanium_block"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "titanium_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:titanium_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "titanium_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:titanium_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.yoamod.titanium.description"
+    },
+    "icon": {
+      "item": "yoamod:titanium_pickaxe",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancement.yoamod.titanium"
+    }
+  },
+  "requirements": [
+    [
+      "titanium_ingot",
+      "raw_titanium",
+      "titanium_ore",
+      "deepslate_titanium_ore",
+      "raw_titanium_block",
+      "titanium_block"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
