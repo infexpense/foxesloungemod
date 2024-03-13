@@ -2,7 +2,6 @@
   "values": [
     "minecraft:plains",
     "minecraft:sunflower_plains",
-    "#minecraft:is_savanna",
-    "#minecraft:has_structure/village_plains"
+    "#minecraft:is_savanna"
   ]
 }

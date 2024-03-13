@@ -1,23 +1,17 @@
 package com.fuyuvulpes.yoamod.world.entity.vehicle;
 
-import com.fuyuvulpes.yoamod.core.registries.EntityTypeModReg;
-import com.fuyuvulpes.yoamod.core.registries.ItemsModReg;
+import com.fuyuvulpes.yoamod.core.registries.YoaEntityTypes;
+import com.fuyuvulpes.yoamod.core.registries.YoaItems;
 import com.google.common.collect.Lists;
 import net.minecraft.BlockUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.protocol.game.ServerboundPaddleBoatPacket;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.entity.vehicle.DismountHelper;
@@ -56,7 +50,7 @@ public class PlaneEntity extends VehicleEntity {
     }
 
     public PlaneEntity(Level level, double x, double y, double z) {
-        this(EntityTypeModReg.PLANE_TYPE.get(),level);
+        this(YoaEntityTypes.PLANE_TYPE.get(),level);
         this.setPos(x, y, z);
         this.xo = x;
         this.yo = y;
@@ -66,7 +60,7 @@ public class PlaneEntity extends VehicleEntity {
 
     @Override
     protected Item getDropItem() {
-        return ItemsModReg.PLANE_ITEM.get();
+        return YoaItems.PLANE_ITEM.get();
     }
 
     @Override

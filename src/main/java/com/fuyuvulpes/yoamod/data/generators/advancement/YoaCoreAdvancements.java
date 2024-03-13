@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.data.generators.advancement;
 
-import com.fuyuvulpes.yoamod.core.registries.ItemsModReg;
+import com.fuyuvulpes.yoamod.core.registries.YoaItems;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementType;
@@ -22,7 +22,7 @@ public class YoaCoreAdvancements implements AdvancementProvider.AdvancementGener
 
         var root = Advancement.Builder.advancement()
                 .display(
-                        ItemsModReg.RUNE_CRYSTAL.get(),
+                        YoaItems.RUNE_CRYSTAL.get(),
                         Component.translatable("advancement.yoamod.root"),
                         Component.translatable("advancement.yoamod.root.description"),
                         new ResourceLocation(MODID,"textures/gui/advancements/backgrounds/main.png"),

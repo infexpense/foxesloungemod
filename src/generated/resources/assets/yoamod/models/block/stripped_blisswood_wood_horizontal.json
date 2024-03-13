@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "yoamod:block/stripped_blisswood_log",
+    "side": "yoamod:block/stripped_blisswood_log"
+  }
+}

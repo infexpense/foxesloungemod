@@ -1,9 +1,9 @@
 package com.fuyuvulpes.yoamod.world.block;
 
+import com.fuyuvulpes.yoamod.core.registries.YoaItems;
 import com.fuyuvulpes.yoamod.world.item.ReturnTalismanItem;
 import com.fuyuvulpes.yoamod.game.server.teleporter.CreaksTeleporter;
 import com.fuyuvulpes.yoamod.game.woldgen.ModDimensions;
-import com.fuyuvulpes.yoamod.core.registries.ItemsModReg;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
@@ -45,7 +45,7 @@ public class CreaksGateBlock extends RotatedPillarBlock {
             if (portalDimension != null && !player.isPassenger()) {
                 player.changeDimension(portalDimension, new CreaksTeleporter(pPos, false));
 
-                ReturnTalismanItem talismanItem = (ReturnTalismanItem) ItemsModReg.RETURN_TALISMAN.get();
+                ReturnTalismanItem talismanItem = (ReturnTalismanItem) YoaItems.RETURN_TALISMAN.get();
                 talismanItem.registerPortalCoordinates(pPos,new ItemStack(talismanItem));
 
                 if (player instanceof Player player1) {

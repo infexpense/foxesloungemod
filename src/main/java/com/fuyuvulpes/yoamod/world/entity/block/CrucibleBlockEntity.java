@@ -1,24 +1,18 @@
 package com.fuyuvulpes.yoamod.world.entity.block;
 
-import com.fuyuvulpes.yoamod.core.registries.BlockEntitiesModReg;
-import com.fuyuvulpes.yoamod.core.registries.RecipesModReg;
+import com.fuyuvulpes.yoamod.core.registries.YoaBlockEntities;
+import com.fuyuvulpes.yoamod.core.registries.YoaRecipes;
 import com.fuyuvulpes.yoamod.game.client.screens.CrucibleMenu;
 import com.fuyuvulpes.yoamod.game.server.crafting.CrucibleRecipe;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import net.minecraft.SharedConstants;
-import net.minecraft.Util;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.ExperienceOrb;
@@ -26,23 +20,17 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.inventory.*;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 public class CrucibleBlockEntity extends BlockEntity implements Container, MenuProvider, Nameable, WorldlyContainer, RecipeCraftingHolder, StackedContentsCompatible {
     protected static final int[] SLOT_INPUT = new int[]{0,1,2};
@@ -111,9 +99,9 @@ public class CrucibleBlockEntity extends BlockEntity implements Container, MenuP
 
 
 public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(BlockEntitiesModReg.CRUCIBLE.get(), pPos, pBlockState);
-        this.quickCheck = RecipeManager.createCheck(RecipesModReg.CRUCIBLE_TYPE.get());
-        this.recipeType = RecipesModReg.CRUCIBLE_TYPE.get();
+        super(YoaBlockEntities.CRUCIBLE.get(), pPos, pBlockState);
+        this.quickCheck = RecipeManager.createCheck(YoaRecipes.CRUCIBLE_TYPE.get());
+        this.recipeType = YoaRecipes.CRUCIBLE_TYPE.get();
         }
 
     protected Component getDefaultName() {
@@ -292,7 +280,7 @@ public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState) {
         if (pFuel.isEmpty()) {
             return 0;
         } else {
-            return pFuel.is(Items.LAVA_BUCKET) ? 900 : 0;
+            return pFuel.is(Items.LAVA_BUCKET) ? 3000 : 0;
         }
     }
 

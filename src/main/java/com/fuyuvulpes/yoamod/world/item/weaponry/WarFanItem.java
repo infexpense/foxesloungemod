@@ -4,7 +4,7 @@ import com.fuyuvulpes.yoamod.world.item.AttackAnim;
 import com.fuyuvulpes.yoamod.world.item.AttackAnims;
 import com.fuyuvulpes.yoamod.world.item.WeaponItem;
 import com.fuyuvulpes.yoamod.world.item.WeaponStats;
-import com.fuyuvulpes.yoamod.core.registries.ModEffects;
+import com.fuyuvulpes.yoamod.core.registries.YoaEffects;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
@@ -28,15 +28,15 @@ public class WarFanItem extends WeaponItem {
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity pTarget, LivingEntity pAttacker) {
         if (isOpen(stack) && pAttacker.level().random.nextFloat() < 0.52){
-            pTarget.addEffect(new MobEffectInstance(ModEffects.BLEEDING.get(),190,1,false,true));
+            pTarget.addEffect(new MobEffectInstance(YoaEffects.BLEEDING.get(),190,1,false,true));
 
         }else if (!isOpen(stack)){
             if (pAttacker.level().random.nextFloat() < 0.15) {
-                pTarget.addEffect(new MobEffectInstance(ModEffects.BLEEDING.get(),60,0,false,true));
+                pTarget.addEffect(new MobEffectInstance(YoaEffects.BLEEDING.get(),60,0,false,true));
 
             }
             if (pAttacker.level().random.nextFloat() < 0.35){
-                pTarget.addEffect(new MobEffectInstance(ModEffects.STUNNED.get(),30,0,false,false));
+                pTarget.addEffect(new MobEffectInstance(YoaEffects.STUNNED.get(),30,0,false,false));
             }
         }
 

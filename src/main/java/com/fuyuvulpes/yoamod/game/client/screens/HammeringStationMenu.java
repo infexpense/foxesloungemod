@@ -1,7 +1,7 @@
 package com.fuyuvulpes.yoamod.game.client.screens;
 
-import com.fuyuvulpes.yoamod.core.registries.MenusModReg;
-import com.fuyuvulpes.yoamod.core.registries.RecipesModReg;
+import com.fuyuvulpes.yoamod.core.registries.YoaMenus;
+import com.fuyuvulpes.yoamod.core.registries.YoaRecipes;
 import com.fuyuvulpes.yoamod.game.server.crafting.HammeringStationRecipe;
 import com.fuyuvulpes.yoamod.world.inventory.HammeringStationResultSlot;
 import net.minecraft.world.Container;
@@ -36,12 +36,12 @@ public class HammeringStationMenu extends AbstractContainerMenu {
         this(pContainerId, pPlayerInventory, new SimpleContainer(5), new SimpleContainerData(5));
     }
     public HammeringStationMenu(int pId, Inventory inventory, Container pContainer, ContainerData data) {
-        super(MenusModReg.HAMMERING_STATION_MENU.get(), pId);
+        super(YoaMenus.HAMMERING_STATION_MENU.get(), pId);
         this.data = data;
         checkContainerSize(inventory, 5);
         this.level = inventory.player.level();
         this.container = pContainer;
-        this.recipeType = RecipesModReg.HAMMERING_STATION_TYPE.get();
+        this.recipeType = YoaRecipes.HAMMERING_STATION_TYPE.get();
 
         addPlayerInventory(inventory);
         addPlayerHotbar(inventory);

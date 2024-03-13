@@ -1,12 +1,10 @@
 package com.fuyuvulpes.yoamod.game.client.screens;
 
-import com.fuyuvulpes.yoamod.core.registries.MenusModReg;
-import com.fuyuvulpes.yoamod.core.registries.RecipesModReg;
+import com.fuyuvulpes.yoamod.core.registries.YoaMenus;
+import com.fuyuvulpes.yoamod.core.registries.YoaRecipes;
 import com.fuyuvulpes.yoamod.game.server.crafting.CrucibleRecipe;
 import com.fuyuvulpes.yoamod.world.inventory.CrucibleFuelSlot;
 import com.fuyuvulpes.yoamod.world.inventory.CrucibleResultSlot;
-import com.google.common.collect.ImmutableMap;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -17,14 +15,9 @@ import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-
-import java.util.Collections;
-import java.util.Map;
 
 public class CrucibleMenu extends AbstractContainerMenu {
 
@@ -49,13 +42,13 @@ public class CrucibleMenu extends AbstractContainerMenu {
 
 
     public CrucibleMenu(int pId, Inventory inventory, Container pContainer, ContainerData data) {
-        super(MenusModReg.CRUCIBLE_MENU.get(), pId);
+        super(YoaMenus.CRUCIBLE_MENU.get(), pId);
         checkContainerSize(inventory, 5);
         checkContainerDataCount(data,4);
         this.level = inventory.player.level();
         this.data = data;
         this.container = pContainer;
-        this.recipeType = RecipesModReg.CRUCIBLE_TYPE.get();
+        this.recipeType = YoaRecipes.CRUCIBLE_TYPE.get();
 
         addPlayerInventory(inventory);
         addPlayerHotbar(inventory);
@@ -162,7 +155,7 @@ public class CrucibleMenu extends AbstractContainerMenu {
 
 
     public static boolean isFuel(ItemStack pStack) {
-        return pStack.is(Items.LAVA_BUCKET) || pStack.getBurnTime(RecipesModReg.CRUCIBLE_TYPE.get()) > 1000;
+        return pStack.is(Items.LAVA_BUCKET) || pStack.getBurnTime(YoaRecipes.CRUCIBLE_TYPE.get()) > 1000;
 
     }
 

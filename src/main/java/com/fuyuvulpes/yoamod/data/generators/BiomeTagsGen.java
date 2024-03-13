@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.data.generators;
 
-import com.fuyuvulpes.yoamod.core.registries.TagRegistry;
+import com.fuyuvulpes.yoamod.core.registries.YoaTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
@@ -24,7 +24,7 @@ public class BiomeTagsGen extends BiomeTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
 
         this.tag(Tags.Biomes.IS_SPOOKY).addTag(
-                TagRegistry.Biomes.IS_THE_CREAK
+                YoaTags.Biomes.IS_THE_CREAK
         );
 
 
@@ -32,7 +32,7 @@ public class BiomeTagsGen extends BiomeTagsProvider {
         this.tag(BiomeTags.ALLOWS_SURFACE_SLIME_SPAWNS).add(
 
         ).addTag(
-                TagRegistry.Biomes.IS_THE_CREAK
+                YoaTags.Biomes.IS_THE_CREAK
 
                 );
     }

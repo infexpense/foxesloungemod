@@ -1,7 +1,7 @@
 package com.fuyuvulpes.yoamod.data.generators.loot;
 
-import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
-import com.fuyuvulpes.yoamod.core.registries.ItemsModReg;
+import com.fuyuvulpes.yoamod.core.registries.YoaBlocks;
+import com.fuyuvulpes.yoamod.core.registries.YoaItems;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -10,6 +10,7 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.storage.loot.IntRange;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -30,16 +31,38 @@ public class ModBlockLoot extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        this.dropSelf(BlocksModReg.AUGMENTING_STATION.get());
-        this.dropSelf(BlocksModReg.HAMMERING_STATION.get());
-        this.dropSelf(BlocksModReg.CRUCIBLE.get());
-        this.dropSelf(BlocksModReg.POINTED_CREAKSTONE.get());
-        this.add(BlocksModReg.CRYSTALIC_REMNANTS.get(), block -> {
+
+        this.dropSelf(YoaBlocks.BLISSWOOD_PLANKS.get());
+        this.dropSelf(YoaBlocks.BLISSWOOD_SAPLING.get());
+        this.dropSelf(YoaBlocks.BLISSWOOD_LOG.get());
+        this.dropSelf(YoaBlocks.STRIPPED_BLISSWOOD_LOG.get());
+        this.dropSelf(YoaBlocks.BLISSWOOD_WOOD.get());
+        this.dropSelf(YoaBlocks.STRIPPED_BLISSWOOD_WOOD.get());
+        this.dropSelf(YoaBlocks.BLISSWOOD_SIGN.get());
+        this.dropSelf(YoaBlocks.BLISSWOOD_HANGING_SIGN.get());
+        this.dropSelf(YoaBlocks.BLISSWOOD_PRESSURE_PLATE.get());
+        this.dropSelf(YoaBlocks.BLISSWOOD_TRAPDOOR.get());
+        this.dropSelf(YoaBlocks.BLISSWOOD_STAIRS.get());
+        this.dropSelf(YoaBlocks.BLISSWOOD_BUTTON.get());
+        this.dropSelf(YoaBlocks.BLISSWOOD_FENCE_GATE.get());
+        this.dropSelf(YoaBlocks.BLISSWOOD_FENCE.get());
+        this.dropPottedContents(YoaBlocks.POTTED_BLISSWOOD_SAPLING.get());
+        this.add(YoaBlocks.BLISSWOOD_SLAB.get(), this::createSlabItemTable);
+        this.add(YoaBlocks.BLISSWOOD_DOOR.get(), this::createDoorTable);
+        this.add(YoaBlocks.BLISSWOOD_LEAVES.get(), block -> this.createLeavesDrops(block, YoaBlocks.BLISSWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+
+
+
+
+        this.dropSelf(YoaBlocks.HAMMERING_STATION.get());
+        this.dropSelf(YoaBlocks.CRUCIBLE.get());
+        this.dropSelf(YoaBlocks.POINTED_CREAKSTONE.get());
+        this.add(YoaBlocks.CRYSTALIC_REMNANTS.get(), block -> {
             return createSilkTouchDispatchTable(
                     block,
                     this.applyExplosionDecay(
                             block,
-                            LootItem.lootTableItem(ItemsModReg.CRYSTALIC_SHARD)
+                            LootItem.lootTableItem(YoaItems.CRYSTALIC_SHARD)
                                     .apply(SetItemCountFunction.setCount(UniformGenerator.between(4.0F, 8.0F)))
                                     .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))
                                     .apply(LimitCount.limitCount(IntRange.range(1, 12)))
@@ -47,72 +70,80 @@ public class ModBlockLoot extends BlockLootSubProvider {
             );
         });
 
-        this.dropSelf(BlocksModReg.CREAKSTONE.get());
-        this.dropSelf(BlocksModReg.CREAKSTONE_STAIRS.get());
-        this.add(BlocksModReg.CREAKSTONE_SLAB.get(), block -> createSlabItemTable(BlocksModReg.CREAKSTONE_SLAB.get()));
-        this.dropSelf(BlocksModReg.CREAKSTONE_WALL.get());
-        this.dropSelf(BlocksModReg.CREAKSTONE_TILES.get());
-        this.dropSelf(BlocksModReg.CREAKSTONE_TILES_STAIRS.get());
-        this.add(BlocksModReg.CREAKSTONE_TILES_SLAB.get(), block -> createSlabItemTable(BlocksModReg.CREAKSTONE_SLAB.get()));
-        this.dropSelf(BlocksModReg.CREAKSTONE_TILES_WALL.get());
-        this.add(BlocksModReg.OVERGROWN_CREAKSTONE.get(), block -> this.createSingleItemTableWithSilkTouch(block, BlocksModReg.CREAKSTONE.get()));
-        this.add(BlocksModReg.CREAKSTONE_IRON_ORE.get(), block -> this.createOreDrop(block, Items.RAW_IRON));
-        this.add(BlocksModReg.CREAKSTONE_DIAMOND_ORE.get(), block -> this.createOreDrop(block, Items.DIAMOND));
-        this.dropSelf(BlocksModReg.RUNE_CRYSTAL_BLOCK.get());
-        this.dropSelf(BlocksModReg.CRYSTALIC_CREAKSTONE_TILES.get());
-        this.dropSelf(BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_STAIRS.get());
-        this.add(BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_SLAB.get(), block -> createSlabItemTable(BlocksModReg.CREAKSTONE_SLAB.get()));
-        this.dropSelf(BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL.get());
+        this.dropSelf(YoaBlocks.CREAKSTONE.get());
+        this.dropSelf(YoaBlocks.CREAKSTONE_STAIRS.get());
+        this.add(YoaBlocks.CREAKSTONE_SLAB.get(), block -> createSlabItemTable(YoaBlocks.CREAKSTONE_SLAB.get()));
+        this.dropSelf(YoaBlocks.CREAKSTONE_WALL.get());
+        this.dropSelf(YoaBlocks.CREAKSTONE_TILES.get());
+        this.dropSelf(YoaBlocks.CREAKSTONE_TILES_STAIRS.get());
+        this.add(YoaBlocks.CREAKSTONE_TILES_SLAB.get(), block -> createSlabItemTable(YoaBlocks.CREAKSTONE_SLAB.get()));
+        this.dropSelf(YoaBlocks.CREAKSTONE_TILES_WALL.get());
+        this.add(YoaBlocks.OVERGROWN_CREAKSTONE.get(), block -> this.createSingleItemTableWithSilkTouch(block, YoaBlocks.CREAKSTONE.get()));
+        this.add(YoaBlocks.CREAKSTONE_IRON_ORE.get(), block -> this.createOreDrop(block, Items.RAW_IRON));
+        this.add(YoaBlocks.CREAKSTONE_DIAMOND_ORE.get(), block -> this.createOreDrop(block, Items.DIAMOND));
+        this.dropSelf(YoaBlocks.RUNE_CRYSTAL_BLOCK.get());
+        this.dropSelf(YoaBlocks.CRYSTALIC_CREAKSTONE_TILES.get());
+        this.dropSelf(YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_STAIRS.get());
+        this.add(YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_SLAB.get(), block -> createSlabItemTable(YoaBlocks.CREAKSTONE_SLAB.get()));
+        this.dropSelf(YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_WALL.get());
 
-        this.add(BlocksModReg.RUNE_CRYSTAL_CLUSTER.get(), block -> createSilkTouchDispatchTable(
+        this.add(YoaBlocks.RUNE_CRYSTAL_CLUSTER.get(), block -> createSilkTouchDispatchTable(
                 block,
-                (LootItem.lootTableItem(ItemsModReg.RUNE_CRYSTAL.get())
+                (LootItem.lootTableItem(YoaItems.RUNE_CRYSTAL.get())
                         .apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F)))
                         .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))
                         .when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(ItemTags.CLUSTER_MAX_HARVESTABLES))))
                         .otherwise(
                                 this.applyExplosionDecay(
-                                        block, LootItem.lootTableItem(ItemsModReg.RUNE_CRYSTAL.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3.0F)))
+                                        block, LootItem.lootTableItem(YoaItems.RUNE_CRYSTAL.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3.0F)))
                                 )
                         )
         ));
 
-        this.add(BlocksModReg.SILVER_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_SILVER.get()));
-        this.add(BlocksModReg.DEEPSLATE_SILVER_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_SILVER.get()));
-        this.add(BlocksModReg.TITANIUM_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_TITANIUM.get()));
-        this.add(BlocksModReg.DEEPSLATE_TITANIUM_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_TITANIUM.get()));
-        this.add(BlocksModReg.CREAKSTONE_TITANIUM_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_TITANIUM.get()));
-        this.add(BlocksModReg.BISMUTH_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_BISMUTH.get()));
-        this.add(BlocksModReg.DEEPSLATE_BISMUTH_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_BISMUTH.get()));
-        this.add(BlocksModReg.WITHERITE_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.WITHERITE.get()));
-        this.add(BlocksModReg.IOLITE_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.IOLITE.get()));
-        this.add(BlocksModReg.ALEXANDRITE_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.ALEXANDRITE.get()));
-        this.add(BlocksModReg.ADAMANTITE_ORE.get(), block -> this.createOreDrop(block, ItemsModReg.RAW_ADAMANTITE.get()));
+        this.add(YoaBlocks.SILVER_ORE.get(), block -> this.createOreDrop(block, YoaItems.RAW_SILVER.get()));
+        this.add(YoaBlocks.DEEPSLATE_SILVER_ORE.get(), block -> this.createOreDrop(block, YoaItems.RAW_SILVER.get()));
+        this.add(YoaBlocks.TITANIUM_ORE.get(), block -> this.createOreDrop(block, YoaItems.RAW_TITANIUM.get()));
+        this.add(YoaBlocks.DEEPSLATE_TITANIUM_ORE.get(), block -> this.createOreDrop(block, YoaItems.RAW_TITANIUM.get()));
+        this.add(YoaBlocks.CREAKSTONE_TITANIUM_ORE.get(), block -> this.createOreDrop(block, YoaItems.RAW_TITANIUM.get()));
+        this.add(YoaBlocks.BISMUTH_ORE.get(), block -> this.createOreDrop(block, YoaItems.RAW_BISMUTH.get()));
+        this.add(YoaBlocks.DEEPSLATE_BISMUTH_ORE.get(), block -> this.createOreDrop(block, YoaItems.RAW_BISMUTH.get()));
+        this.add(YoaBlocks.WITHERITE_ORE.get(), block -> this.createOreDrop(block, YoaItems.WITHERITE.get()));
+        this.add(YoaBlocks.IOLITE_ORE.get(), block -> this.createOreDrop(block, YoaItems.IOLITE.get()));
+        this.add(YoaBlocks.ALEXANDRITE_ORE.get(), block -> this.createOreDrop(block, YoaItems.ALEXANDRITE.get()));
+        this.add(YoaBlocks.ADAMANTITE_ORE.get(), block -> this.createOreDrop(block, YoaItems.RAW_ADAMANTITE.get()));
 
-        this.dropSelf(BlocksModReg.BRASS_BLOCK.get());
-        this.dropSelf(BlocksModReg.SILVER_BLOCK.get());
-        this.dropSelf(BlocksModReg.RAW_SILVER_BLOCK.get());
-        this.dropSelf(BlocksModReg.BRONZE_BLOCK.get());
-        this.dropSelf(BlocksModReg.STEEL_BLOCK.get());
-        this.dropSelf(BlocksModReg.BISMUTH_BLOCK.get());
-        this.dropSelf(BlocksModReg.RAW_BISMUTH_BLOCK.get());
-        this.dropSelf(BlocksModReg.TITANIUM_BLOCK.get());
-        this.dropSelf(BlocksModReg.RAW_TITANIUM_BLOCK.get());
-        this.dropSelf(BlocksModReg.WITHERITE_BLOCK.get());
-        this.dropSelf(BlocksModReg.IOLITE_BLOCK.get());
-        this.dropSelf(BlocksModReg.ALEXANDRITE_BLOCK.get());
-        this.dropSelf(BlocksModReg.ADAMANTITE_BLOCK.get());
-        this.dropSelf(BlocksModReg.RAW_ADAMANTITE_BLOCK.get());
+        this.dropSelf(YoaBlocks.BRASS_BLOCK.get());
+        this.dropSelf(YoaBlocks.SILVER_BLOCK.get());
+        this.dropSelf(YoaBlocks.RAW_SILVER_BLOCK.get());
+        this.dropSelf(YoaBlocks.BRONZE_BLOCK.get());
+        this.dropSelf(YoaBlocks.STEEL_BLOCK.get());
+        this.dropSelf(YoaBlocks.BISMUTH_BLOCK.get());
+        this.dropSelf(YoaBlocks.RAW_BISMUTH_BLOCK.get());
+        this.dropSelf(YoaBlocks.TITANIUM_BLOCK.get());
+        this.dropSelf(YoaBlocks.RAW_TITANIUM_BLOCK.get());
+        this.dropSelf(YoaBlocks.WITHERITE_BLOCK.get());
+        this.dropSelf(YoaBlocks.IOLITE_BLOCK.get());
+        this.dropSelf(YoaBlocks.ALEXANDRITE_BLOCK.get());
+        this.dropSelf(YoaBlocks.ADAMANTITE_BLOCK.get());
+        this.dropSelf(YoaBlocks.RAW_ADAMANTITE_BLOCK.get());
 
-        this.dropSelf(BlocksModReg.HAUNTED_LAMP.get());
-        this.add(BlocksModReg.ETHERFRLOS.get(), LootTable.lootTable());
+        this.dropSelf(YoaBlocks.HAUNTED_LAMP.get());
+        this.add(YoaBlocks.ETHERFRLOS.get(), LootTable.lootTable());
 
+    }
+
+
+
+
+    protected void dropPottedContents(Block pFlowerPot) {
+        this.add(pFlowerPot, p_304146_ -> this.createPotFlowerItemTable(((FlowerPotBlock)p_304146_).getPotted()));
     }
 
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
 
-        return BlocksModReg.BLOCKS.getEntries().stream().map(Holder::value).collect(Collectors.toList());
+        return YoaBlocks.BLOCKS.getEntries().stream().map(Holder::value).collect(Collectors.toList());
     }
+
 }

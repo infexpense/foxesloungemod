@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "yoamod:block/blisswood_planks"
+  }
+}

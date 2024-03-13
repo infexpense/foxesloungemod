@@ -1,7 +1,7 @@
 package com.fuyuvulpes.yoamod.data.generators;
 
-import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
-import com.fuyuvulpes.yoamod.core.registries.TagRegistry;
+import com.fuyuvulpes.yoamod.core.registries.YoaBlocks;
+import com.fuyuvulpes.yoamod.core.registries.YoaTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -24,158 +24,158 @@ public class BlockTagsGen extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(BlocksModReg.AUGMENTING_STATION.get(),
-                        BlocksModReg.HAMMERING_STATION.get(),
-                        BlocksModReg.CRUCIBLE.get(),
-                        BlocksModReg.CREAKSTONE.get(),
-                        BlocksModReg.CREAKSTONE_STAIRS.get(),
-                        BlocksModReg.CREAKSTONE_SLAB.get(),
-                        BlocksModReg.CREAKSTONE_WALL.get(),
-                        BlocksModReg.CREAKSTONE_TILES.get(),
-                        BlocksModReg.CREAKSTONE_TILES_STAIRS.get(),
-                        BlocksModReg.CREAKSTONE_TILES_SLAB.get(),
-                        BlocksModReg.CREAKSTONE_TILES_WALL.get(),
-                        BlocksModReg.CREAKSTONE_FRACTURE.get(),
-                        BlocksModReg.OVERGROWN_CREAKSTONE.get(),
-                        BlocksModReg.POINTED_CREAKSTONE.get(),
-                        BlocksModReg.SILVER_ORE.get(),
-                        BlocksModReg.DEEPSLATE_SILVER_ORE.get(),
-                        BlocksModReg.TITANIUM_ORE.get(),
-                        BlocksModReg.DEEPSLATE_TITANIUM_ORE.get(),
-                        BlocksModReg.BISMUTH_ORE.get(),
-                        BlocksModReg.DEEPSLATE_BISMUTH_ORE.get(),
-                        BlocksModReg.WITHERITE_ORE.get(),
-                        BlocksModReg.IOLITE_ORE.get(),
+                .add(
+                        YoaBlocks.HAMMERING_STATION.get(),
+                        YoaBlocks.CRUCIBLE.get(),
+                        YoaBlocks.CREAKSTONE.get(),
+                        YoaBlocks.CREAKSTONE_STAIRS.get(),
+                        YoaBlocks.CREAKSTONE_SLAB.get(),
+                        YoaBlocks.CREAKSTONE_WALL.get(),
+                        YoaBlocks.CREAKSTONE_TILES.get(),
+                        YoaBlocks.CREAKSTONE_TILES_STAIRS.get(),
+                        YoaBlocks.CREAKSTONE_TILES_SLAB.get(),
+                        YoaBlocks.CREAKSTONE_TILES_WALL.get(),
+                        YoaBlocks.CREAKSTONE_FRACTURE.get(),
+                        YoaBlocks.OVERGROWN_CREAKSTONE.get(),
+                        YoaBlocks.POINTED_CREAKSTONE.get(),
+                        YoaBlocks.SILVER_ORE.get(),
+                        YoaBlocks.DEEPSLATE_SILVER_ORE.get(),
+                        YoaBlocks.TITANIUM_ORE.get(),
+                        YoaBlocks.DEEPSLATE_TITANIUM_ORE.get(),
+                        YoaBlocks.BISMUTH_ORE.get(),
+                        YoaBlocks.DEEPSLATE_BISMUTH_ORE.get(),
+                        YoaBlocks.WITHERITE_ORE.get(),
+                        YoaBlocks.IOLITE_ORE.get(),
 
-                        BlocksModReg.CREAKSTONE_IRON_ORE.get(),
-                        BlocksModReg.CREAKSTONE_DIAMOND_ORE.get(),
-                        BlocksModReg.CREAKSTONE_TITANIUM_ORE.get(),
-                        BlocksModReg.CRYSTALIC_REMNANTS.get(),
-                        BlocksModReg.ALEXANDRITE_ORE.get(),
-                        BlocksModReg.ADAMANTITE_ORE.get(),
+                        YoaBlocks.CREAKSTONE_IRON_ORE.get(),
+                        YoaBlocks.CREAKSTONE_DIAMOND_ORE.get(),
+                        YoaBlocks.CREAKSTONE_TITANIUM_ORE.get(),
+                        YoaBlocks.CRYSTALIC_REMNANTS.get(),
+                        YoaBlocks.ALEXANDRITE_ORE.get(),
+                        YoaBlocks.ADAMANTITE_ORE.get(),
 
-                        BlocksModReg.RUNE_CRYSTAL_CLUSTER.get(),
-                        BlocksModReg.RUNE_CRYSTAL_BLOCK.get(),
-                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES.get(),
-                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_STAIRS.get(),
-                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_SLAB.get(),
-                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL.get(),
+                        YoaBlocks.RUNE_CRYSTAL_CLUSTER.get(),
+                        YoaBlocks.RUNE_CRYSTAL_BLOCK.get(),
+                        YoaBlocks.CRYSTALIC_CREAKSTONE_TILES.get(),
+                        YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_STAIRS.get(),
+                        YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_SLAB.get(),
+                        YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_WALL.get(),
 
-                        BlocksModReg.BRASS_BLOCK.get(),
-                        BlocksModReg.SILVER_BLOCK.get(),
-                        BlocksModReg.RAW_SILVER_BLOCK.get(),
-                        BlocksModReg.BRONZE_BLOCK.get(),
-                        BlocksModReg.STEEL_BLOCK.get(),
-                        BlocksModReg.BISMUTH_BLOCK.get(),
-                        BlocksModReg.RAW_BISMUTH_BLOCK.get(),
-                        BlocksModReg.TITANIUM_BLOCK.get(),
-                        BlocksModReg.RAW_TITANIUM_BLOCK.get(),
-                        BlocksModReg.WITHERITE_BLOCK.get(),
-                        BlocksModReg.IOLITE_BLOCK.get(),
-                        BlocksModReg.ALEXANDRITE_BLOCK.get(),
-                        BlocksModReg.ADAMANTITE_BLOCK.get(),
-                        BlocksModReg.RAW_ADAMANTITE_BLOCK.get(),
+                        YoaBlocks.BRASS_BLOCK.get(),
+                        YoaBlocks.SILVER_BLOCK.get(),
+                        YoaBlocks.RAW_SILVER_BLOCK.get(),
+                        YoaBlocks.BRONZE_BLOCK.get(),
+                        YoaBlocks.STEEL_BLOCK.get(),
+                        YoaBlocks.BISMUTH_BLOCK.get(),
+                        YoaBlocks.RAW_BISMUTH_BLOCK.get(),
+                        YoaBlocks.TITANIUM_BLOCK.get(),
+                        YoaBlocks.RAW_TITANIUM_BLOCK.get(),
+                        YoaBlocks.WITHERITE_BLOCK.get(),
+                        YoaBlocks.IOLITE_BLOCK.get(),
+                        YoaBlocks.ALEXANDRITE_BLOCK.get(),
+                        YoaBlocks.ADAMANTITE_BLOCK.get(),
+                        YoaBlocks.RAW_ADAMANTITE_BLOCK.get(),
 
-                        BlocksModReg.HAUNTED_LAMP.get()
+                        YoaBlocks.HAUNTED_LAMP.get()
                         );
 
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
-                .add(BlocksModReg.AUGMENTING_STATION.get(),
-                        BlocksModReg.HAMMERING_STATION.get(),
-                        BlocksModReg.CRUCIBLE.get(),
-                        BlocksModReg.RUNE_CRYSTAL_CLUSTER.get(),
-                        BlocksModReg.RUNE_CRYSTAL_BLOCK.get(),
-                        BlocksModReg.BRASS_BLOCK.get(),
-                        BlocksModReg.SILVER_BLOCK.get(),
-                        BlocksModReg.RAW_SILVER_BLOCK.get(),
-                        BlocksModReg.BRONZE_BLOCK.get(),
-                        BlocksModReg.HAUNTED_LAMP.get()
+                .add(
+                        YoaBlocks.HAMMERING_STATION.get(),
+                        YoaBlocks.CRUCIBLE.get(),
+                        YoaBlocks.RUNE_CRYSTAL_CLUSTER.get(),
+                        YoaBlocks.RUNE_CRYSTAL_BLOCK.get(),
+                        YoaBlocks.BRASS_BLOCK.get(),
+                        YoaBlocks.SILVER_BLOCK.get(),
+                        YoaBlocks.RAW_SILVER_BLOCK.get(),
+                        YoaBlocks.BRONZE_BLOCK.get(),
+                        YoaBlocks.HAUNTED_LAMP.get()
                 );
 
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(
-                        BlocksModReg.STEEL_BLOCK.get(),
-                        BlocksModReg.BISMUTH_ORE.get(),
-                        BlocksModReg.DEEPSLATE_BISMUTH_ORE.get(),
-                        BlocksModReg.BISMUTH_BLOCK.get(),
-                        BlocksModReg.RAW_BISMUTH_BLOCK.get()
+                        YoaBlocks.STEEL_BLOCK.get(),
+                        YoaBlocks.BISMUTH_ORE.get(),
+                        YoaBlocks.DEEPSLATE_BISMUTH_ORE.get(),
+                        YoaBlocks.BISMUTH_BLOCK.get(),
+                        YoaBlocks.RAW_BISMUTH_BLOCK.get()
 
                 );
 
 
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(
-                        BlocksModReg.DEEPSLATE_TITANIUM_ORE.get(),
-                        BlocksModReg.TITANIUM_ORE.get(),
-                        BlocksModReg.TITANIUM_BLOCK.get(),
-                        BlocksModReg.RAW_TITANIUM_BLOCK.get(),
-                        BlocksModReg.CRYSTALIC_REMNANTS.get(),
-                        BlocksModReg.WITHERITE_ORE.get(),
-                        BlocksModReg.WITHERITE_BLOCK.get(),
-                        BlocksModReg.POINTED_CREAKSTONE.get()
+                        YoaBlocks.DEEPSLATE_TITANIUM_ORE.get(),
+                        YoaBlocks.TITANIUM_ORE.get(),
+                        YoaBlocks.TITANIUM_BLOCK.get(),
+                        YoaBlocks.RAW_TITANIUM_BLOCK.get(),
+                        YoaBlocks.CRYSTALIC_REMNANTS.get(),
+                        YoaBlocks.WITHERITE_ORE.get(),
+                        YoaBlocks.WITHERITE_BLOCK.get(),
+                        YoaBlocks.POINTED_CREAKSTONE.get()
 
                 );
 
 
         this.tag(Tags.Blocks.NEEDS_NETHERITE_TOOL)
                 .add(
-                        BlocksModReg.IOLITE_ORE.get(),
-                        BlocksModReg.IOLITE_BLOCK.get()
+                        YoaBlocks.IOLITE_ORE.get(),
+                        YoaBlocks.IOLITE_BLOCK.get()
                 );
 
-        this.tag(TagRegistry.Blocks.NEEDS_TITANIUM_TOOL)
+        this.tag(YoaTags.Blocks.NEEDS_TITANIUM_TOOL)
                 .add(
 
-                        BlocksModReg.CREAKSTONE.get(),
-                        BlocksModReg.CREAKSTONE_STAIRS.get(),
-                        BlocksModReg.CREAKSTONE_SLAB.get(),
-                        BlocksModReg.CREAKSTONE_WALL.get(),
-                        BlocksModReg.CREAKSTONE_FRACTURE.get(),
-                        BlocksModReg.OVERGROWN_CREAKSTONE.get(),
-                        BlocksModReg.CREAKSTONE_IRON_ORE.get(),
-                        BlocksModReg.CREAKSTONE_TITANIUM_ORE.get(),
-                        BlocksModReg.CREAKSTONE_TILES.get(),
-                        BlocksModReg.CREAKSTONE_TILES_STAIRS.get(),
-                        BlocksModReg.CREAKSTONE_TILES_SLAB.get(),
-                        BlocksModReg.CREAKSTONE_TILES_WALL.get(),
-                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES.get(),
-                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_STAIRS.get(),
-                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_SLAB.get(),
-                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL.get()
+                        YoaBlocks.CREAKSTONE.get(),
+                        YoaBlocks.CREAKSTONE_STAIRS.get(),
+                        YoaBlocks.CREAKSTONE_SLAB.get(),
+                        YoaBlocks.CREAKSTONE_WALL.get(),
+                        YoaBlocks.CREAKSTONE_FRACTURE.get(),
+                        YoaBlocks.OVERGROWN_CREAKSTONE.get(),
+                        YoaBlocks.CREAKSTONE_IRON_ORE.get(),
+                        YoaBlocks.CREAKSTONE_TITANIUM_ORE.get(),
+                        YoaBlocks.CREAKSTONE_TILES.get(),
+                        YoaBlocks.CREAKSTONE_TILES_STAIRS.get(),
+                        YoaBlocks.CREAKSTONE_TILES_SLAB.get(),
+                        YoaBlocks.CREAKSTONE_TILES_WALL.get(),
+                        YoaBlocks.CRYSTALIC_CREAKSTONE_TILES.get(),
+                        YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_STAIRS.get(),
+                        YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_SLAB.get(),
+                        YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_WALL.get()
                 );
 
-        this.tag(TagRegistry.Blocks.NEEDS_IOLITE_TOOL)
+        this.tag(YoaTags.Blocks.NEEDS_IOLITE_TOOL)
                 .add(
-                        BlocksModReg.CREAKSTONE_DIAMOND_ORE.get(),
-                        BlocksModReg.ALEXANDRITE_ORE.get(),
-                        BlocksModReg.ALEXANDRITE_BLOCK.get()
+                        YoaBlocks.CREAKSTONE_DIAMOND_ORE.get(),
+                        YoaBlocks.ALEXANDRITE_ORE.get(),
+                        YoaBlocks.ALEXANDRITE_BLOCK.get()
 
                 );
 
-        this.tag(TagRegistry.Blocks.NEEDS_ALEXANDRITE_TOOL)
+        this.tag(YoaTags.Blocks.NEEDS_ALEXANDRITE_TOOL)
                 .add(
-                        BlocksModReg.ADAMANTITE_ORE.get(),
-                        BlocksModReg.ADAMANTITE_BLOCK.get(),
-                        BlocksModReg.RAW_ADAMANTITE_BLOCK.get()
+                        YoaBlocks.ADAMANTITE_ORE.get(),
+                        YoaBlocks.ADAMANTITE_BLOCK.get(),
+                        YoaBlocks.RAW_ADAMANTITE_BLOCK.get()
 
                 );
 
-        this.tag(TagRegistry.Blocks.CREAK_ORE_REPLACEABLES)
+        this.tag(YoaTags.Blocks.CREAK_ORE_REPLACEABLES)
                 .add(
-                        BlocksModReg.CREAKSTONE.get(),
-                        BlocksModReg.OVERGROWN_CREAKSTONE.get()
+                        YoaBlocks.CREAKSTONE.get(),
+                        YoaBlocks.OVERGROWN_CREAKSTONE.get()
 
                 );
 
-        this.tag(TagRegistry.Blocks.NETHER_ORE_REPLACEABLES)
+        this.tag(YoaTags.Blocks.NETHER_ORE_REPLACEABLES)
                 .add(
                         Blocks.NETHERRACK
 
                 );
 
-        this.tag(TagRegistry.Blocks.END_ORE_REPLACEABLES)
+        this.tag(YoaTags.Blocks.END_ORE_REPLACEABLES)
                 .add(
                         Blocks.END_STONE
 
@@ -184,17 +184,117 @@ public class BlockTagsGen extends BlockTagsProvider {
 
         this.tag(BlockTags.BASE_STONE_OVERWORLD)
                 .add(
-                        BlocksModReg.CREAKSTONE.get()
+                        YoaBlocks.CREAKSTONE.get()
                 );
 
 
         this.tag(BlockTags.WALLS)
                 .add(
-                        BlocksModReg.CREAKSTONE_WALL.get(),
-                        BlocksModReg.CREAKSTONE_TILES_WALL.get(),
-                        BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL.get()
+                        YoaBlocks.CREAKSTONE_WALL.get(),
+                        YoaBlocks.CREAKSTONE_TILES_WALL.get(),
+                        YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_WALL.get()
                 );
+
+
+        this.tag(BlockTags.LOGS_THAT_BURN)
+                .add(
+                        YoaBlocks.BLISSWOOD_LOG.get(),
+                        YoaBlocks.STRIPPED_BLISSWOOD_LOG.get()
+
+                );
+
+        this.tag(BlockTags.WOODEN_STAIRS)
+                .add(
+                        YoaBlocks.BLISSWOOD_STAIRS.get()
+                );
+
+        this.tag(BlockTags.WOODEN_FENCES)
+                .add(
+                        YoaBlocks.BLISSWOOD_FENCE.get()
+                );
+        this.tag(BlockTags.FENCE_GATES)
+                .add(
+                        YoaBlocks.BLISSWOOD_FENCE_GATE.get()
+                );
+
+        this.tag(BlockTags.WOODEN_SLABS)
+                .add(
+                        YoaBlocks.BLISSWOOD_SLAB.get()
+
+                );
+
+        this.tag(BlockTags.WOODEN_BUTTONS)
+                .add(
+                        YoaBlocks.BLISSWOOD_BUTTON.get()
+
+                );
+
+
+        this.tag(BlockTags.WOODEN_PRESSURE_PLATES)
+                .add(
+                        YoaBlocks.BLISSWOOD_PRESSURE_PLATE.get()
+
+                );
+
+
+        this.tag(BlockTags.WOODEN_TRAPDOORS)
+                .add(
+                        YoaBlocks.BLISSWOOD_TRAPDOOR.get()
+
+                );
+
+
+        this.tag(BlockTags.WOODEN_DOORS)
+                .add(
+                        YoaBlocks.BLISSWOOD_DOOR.get()
+
+                );
+
+
+        this.tag(BlockTags.WALL_SIGNS)
+                .add(
+                        YoaBlocks.BLISSWOOD_WALL_SIGN.get()
+
+                );
+
+
+        this.tag(BlockTags.SIGNS)
+                .add(
+                        YoaBlocks.BLISSWOOD_SIGN.get()
+
+                );
+
+
+        this.tag(BlockTags.WALL_HANGING_SIGNS)
+                .add(
+                        YoaBlocks.BLISSWOOD_WALL_HANGING_SIGN.get()
+
+                );
+
+
+        this.tag(BlockTags.CEILING_HANGING_SIGNS)
+                .add(
+                        YoaBlocks.BLISSWOOD_HANGING_SIGN.get()
+
+                );
+
+
+        this.tag(BlockTags.SAPLINGS)
+                .add(
+                        YoaBlocks.BLISSWOOD_SAPLING.get()
+
+                );
+
+
+        this.tag(BlockTags.LEAVES)
+                .add(
+                        YoaBlocks.BLISSWOOD_LEAVES.get()
+
+                );
+
     }
+
+
 
 
 

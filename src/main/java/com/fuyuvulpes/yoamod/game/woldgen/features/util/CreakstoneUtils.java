@@ -1,7 +1,7 @@
 package com.fuyuvulpes.yoamod.game.woldgen.features.util;
 
+import com.fuyuvulpes.yoamod.core.registries.YoaBlocks;
 import com.fuyuvulpes.yoamod.world.block.PointedCreakstone;
-import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
@@ -80,7 +80,7 @@ public class CreakstoneUtils {
             if (isDripstoneBase(pLevel.getBlockState(pPos.relative(pDirection.getOpposite())))) {
                 BlockPos.MutableBlockPos blockpos$mutableblockpos = pPos.mutable();
                 buildBaseToTipColumn(pDirection, pHeight, pMergeTip, p_313662_ -> {
-                    if (p_313662_.is(BlocksModReg.POINTED_CREAKSTONE.get())) {
+                    if (p_313662_.is(YoaBlocks.POINTED_CREAKSTONE.get())) {
                         p_313662_ = p_313662_.setValue(PointedCreakstone.WATERLOGGED, pLevel.isWaterAt(blockpos$mutableblockpos));
                     }
 
@@ -93,7 +93,7 @@ public class CreakstoneUtils {
         public static boolean placeDripstoneBlockIfPossible(LevelAccessor pLevel, BlockPos pPos) {
             BlockState blockstate = pLevel.getBlockState(pPos);
             if (blockstate.is(BlockTags.DRIPSTONE_REPLACEABLE)) {
-                pLevel.setBlock(pPos, BlocksModReg.CREAKSTONE.get().defaultBlockState(), 2);
+                pLevel.setBlock(pPos, YoaBlocks.CREAKSTONE.get().defaultBlockState(), 2);
                 return true;
             } else {
                 return false;
@@ -101,7 +101,7 @@ public class CreakstoneUtils {
         }
 
         private static BlockState createPointedDripstone(Direction pDirection, DripstoneThickness pDripstoneThickness) {
-            return BlocksModReg.POINTED_CREAKSTONE.get()
+            return YoaBlocks.POINTED_CREAKSTONE.get()
                     .defaultBlockState()
                     .setValue(PointedCreakstone.TIP_DIRECTION, pDirection)
                     .setValue(PointedCreakstone.THICKNESS, pDripstoneThickness);
@@ -112,7 +112,7 @@ public class CreakstoneUtils {
         }
 
         public static boolean isDripstoneBase(BlockState pState) {
-            return pState.is(BlocksModReg.POINTED_CREAKSTONE.get()) || pState.is(BlockTags.DRIPSTONE_REPLACEABLE);
+            return pState.is(YoaBlocks.POINTED_CREAKSTONE.get()) || pState.is(BlockTags.DRIPSTONE_REPLACEABLE);
         }
 
         public static boolean isEmptyOrWater(BlockState p_159665_) {

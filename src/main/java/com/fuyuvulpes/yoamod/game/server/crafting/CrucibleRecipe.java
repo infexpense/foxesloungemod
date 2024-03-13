@@ -1,8 +1,8 @@
 package com.fuyuvulpes.yoamod.game.server.crafting;
 
-import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
-import com.fuyuvulpes.yoamod.core.registries.RecipesModReg;
-import com.fuyuvulpes.yoamod.core.registries.SerializersModReg;
+import com.fuyuvulpes.yoamod.core.registries.YoaBlocks;
+import com.fuyuvulpes.yoamod.core.registries.YoaRecipes;
+import com.fuyuvulpes.yoamod.core.registries.YoaSerializers;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.Container;
@@ -65,17 +65,17 @@ public class CrucibleRecipe implements Recipe<Container> {
 
     @Override
     public ItemStack getToastSymbol() {
-        return BlocksModReg.CRUCIBLE.get().asItem().getDefaultInstance();
+        return YoaBlocks.CRUCIBLE.get().asItem().getDefaultInstance();
     }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return SerializersModReg.CRUCIBLE_SERIALIZER.get();
+        return YoaSerializers.CRUCIBLE_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return RecipesModReg.CRUCIBLE_TYPE.get();
+        return YoaRecipes.CRUCIBLE_TYPE.get();
     }
 
     public boolean isSpecial() {

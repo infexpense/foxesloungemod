@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "yoamod:block/blisswood_slab"
+    },
+    "type=double": {
+      "model": "yoamod:block/blisswood_planks"
+    },
+    "type=top": {
+      "model": "yoamod:block/blisswood_slab_top"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.world.block;
 
-import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
+import com.fuyuvulpes.yoamod.core.registries.YoaBlocks;
 import com.google.common.annotations.VisibleForTesting;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -369,7 +369,7 @@ public class PointedCreakstone extends Block implements Fallable, SimpleWaterlog
     }
 
     private static void createDripstone(LevelAccessor pLevel, BlockPos pPos, Direction pDirection, DripstoneThickness pThickness) {
-        BlockState blockstate = BlocksModReg.POINTED_CREAKSTONE.get()
+        BlockState blockstate = YoaBlocks.POINTED_CREAKSTONE.get()
                 .defaultBlockState()
                 .setValue(TIP_DIRECTION, pDirection)
                 .setValue(THICKNESS, pThickness)
@@ -414,7 +414,7 @@ public class PointedCreakstone extends Block implements Fallable, SimpleWaterlog
             return pPos;
         } else {
             Direction direction = pState.getValue(TIP_DIRECTION);
-            BiPredicate<BlockPos, BlockState> bipredicate = (p_202023_, p_202024_) -> p_202024_.is(BlocksModReg.POINTED_CREAKSTONE.get())
+            BiPredicate<BlockPos, BlockState> bipredicate = (p_202023_, p_202024_) -> p_202024_.is(YoaBlocks.POINTED_CREAKSTONE.get())
                     && p_202024_.getValue(TIP_DIRECTION) == direction;
             return findBlockVertical(pLevel, pPos, direction.getAxisDirection(), bipredicate, p_154168_ -> isTip(p_154168_, pIsTipMerge), pMaxIterations)
                     .orElse(null);
@@ -472,10 +472,10 @@ public class PointedCreakstone extends Block implements Fallable, SimpleWaterlog
 
     private static Optional<BlockPos> findRootBlock(Level pLevel, BlockPos pPos, BlockState pState, int pMaxIterations) {
         Direction direction = pState.getValue(TIP_DIRECTION);
-        BiPredicate<BlockPos, BlockState> bipredicate = (p_202015_, p_202016_) -> p_202016_.is(BlocksModReg.POINTED_CREAKSTONE.get())
+        BiPredicate<BlockPos, BlockState> bipredicate = (p_202015_, p_202016_) -> p_202016_.is(YoaBlocks.POINTED_CREAKSTONE.get())
                 && p_202016_.getValue(TIP_DIRECTION) == direction;
         return findBlockVertical(
-                pLevel, pPos, direction.getOpposite().getAxisDirection(), bipredicate, p_154245_ -> !p_154245_.is(BlocksModReg.POINTED_CREAKSTONE.get()), pMaxIterations
+                pLevel, pPos, direction.getOpposite().getAxisDirection(), bipredicate, p_154245_ -> !p_154245_.is(YoaBlocks.POINTED_CREAKSTONE.get()), pMaxIterations
         );
     }
 
@@ -486,7 +486,7 @@ public class PointedCreakstone extends Block implements Fallable, SimpleWaterlog
     }
 
     private static boolean isTip(BlockState pState, boolean pIsTipMerge) {
-        if (!pState.is(BlocksModReg.POINTED_CREAKSTONE.get())) {
+        if (!pState.is(YoaBlocks.POINTED_CREAKSTONE.get())) {
             return false;
         } else {
             DripstoneThickness dripstonethickness = pState.getValue(THICKNESS);
@@ -507,7 +507,7 @@ public class PointedCreakstone extends Block implements Fallable, SimpleWaterlog
     }
 
     private static boolean isStalactiteStartPos(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-        return isStalactite(pState) && !pLevel.getBlockState(pPos.above()).is(BlocksModReg.POINTED_CREAKSTONE.get());
+        return isStalactite(pState) && !pLevel.getBlockState(pPos.above()).is(YoaBlocks.POINTED_CREAKSTONE.get());
     }
 
     @Override
@@ -516,7 +516,7 @@ public class PointedCreakstone extends Block implements Fallable, SimpleWaterlog
     }
 
     private static boolean isPointedDripstoneWithDirection(BlockState pState, Direction pDir) {
-        return pState.is(BlocksModReg.POINTED_CREAKSTONE.get()) && pState.getValue(TIP_DIRECTION) == pDir;
+        return pState.is(YoaBlocks.POINTED_CREAKSTONE.get()) && pState.getValue(TIP_DIRECTION) == pDir;
     }
 
 
@@ -537,7 +537,7 @@ public class PointedCreakstone extends Block implements Fallable, SimpleWaterlog
 
 
     private static boolean canGrow(BlockState pDripstoneState, BlockState pState) {
-        return pDripstoneState.is(BlocksModReg.CREAKSTONE.get()) && pState.is(Blocks.WATER) && pState.getFluidState().isSource();
+        return pDripstoneState.is(YoaBlocks.CREAKSTONE.get()) && pState.is(Blocks.WATER) && pState.getFluidState().isSource();
     }
 
     private static Fluid getDripFluid(Level pLevel, Fluid pFluid) {
