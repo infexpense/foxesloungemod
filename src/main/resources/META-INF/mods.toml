@@ -43,7 +43,8 @@ authors="${mod_authors}" #optional
 description='''${mod_description}'''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-
+[[mixins]]
+config="yoamod.mixins.json"
 
 [[accessTransformers]]
 file="META-INF/accesstransformer.cfg"

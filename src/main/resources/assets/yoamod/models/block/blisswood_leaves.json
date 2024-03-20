@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "yoamod:block/blisswood_leaves"
+  }
+}

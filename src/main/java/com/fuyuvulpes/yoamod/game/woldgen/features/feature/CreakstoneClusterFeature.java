@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.game.woldgen.features.feature;
 
-import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
+import com.fuyuvulpes.yoamod.core.registries.YoaBlocks;
 import com.fuyuvulpes.yoamod.game.woldgen.features.configuration.CreakstoneClusterConfiguration;
 import com.fuyuvulpes.yoamod.game.woldgen.features.util.CreakstoneUtils;
 import com.mojang.serialization.Codec;
@@ -170,7 +170,7 @@ public class CreakstoneClusterFeature extends Feature<CreakstoneClusterConfigura
 
     private boolean canPlacePool(WorldGenLevel pLevel, BlockPos pPos) {
         BlockState blockstate = pLevel.getBlockState(pPos);
-        if (!blockstate.is(Blocks.WATER) && !blockstate.is(BlocksModReg.CREAKSTONE.get()) && !blockstate.is(BlocksModReg.POINTED_CREAKSTONE.get())) {
+        if (!blockstate.is(Blocks.WATER) && !blockstate.is(YoaBlocks.CREAKSTONE.get()) && !blockstate.is(YoaBlocks.POINTED_CREAKSTONE.get())) {
             if (pLevel.getBlockState(pPos.above()).getFluidState().is(FluidTags.WATER)) {
                 return false;
             } else {

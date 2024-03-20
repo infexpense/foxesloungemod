@@ -1,5 +1,6 @@
 package com.fuyuvulpes.yoamod.game.woldgen;
 
+import com.fuyuvulpes.yoamod.core.registries.YoaTags;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -32,10 +33,19 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_RUNE_CLUSTERS = registerKey("add_rune_clusters");
 
 
+    public static final ResourceKey<BiomeModifier> ADD_BLISSWOOD_TREES = registerKey("add_blisswood_trees");
+
+
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
         var biomes = context.lookup(Registries.BIOME);
+
+        context.register(ADD_BLISSWOOD_TREES,new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(YoaTags.Biomes.BLISSWOOD_GROWS),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.BLISSWOOD_PLACED)),
+                GenerationStep.Decoration.VEGETAL_DECORATION
+        ));
 
         context.register(ADD_SILVER_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),

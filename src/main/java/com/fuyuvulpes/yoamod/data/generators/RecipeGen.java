@@ -1,7 +1,7 @@
 package com.fuyuvulpes.yoamod.data.generators;
 
-import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
-import com.fuyuvulpes.yoamod.core.registries.ItemsModReg;
+import com.fuyuvulpes.yoamod.core.registries.YoaBlocks;
+import com.fuyuvulpes.yoamod.core.registries.YoaItems;
 import com.fuyuvulpes.yoamod.game.server.crafting.CrucibleRecipeBuilder;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.data.PackOutput;
@@ -9,7 +9,6 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
@@ -34,7 +33,7 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
     @Override
     protected void buildRecipes(RecipeOutput output) {
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS,BlocksModReg.CRUCIBLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, YoaBlocks.CRUCIBLE.get())
                 .define('I', Items.IRON_INGOT).define('B', Items.BUCKET).define('C', ItemTags.STONE_TOOL_MATERIALS)
                 .pattern("I B")
                 .pattern("IIC")
@@ -43,142 +42,142 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
                 .save(output);
 
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS,BlocksModReg.HAMMERING_STATION.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, YoaBlocks.HAMMERING_STATION.get())
                 .define('I', Items.IRON_INGOT).define('P', ItemTags.PLANKS).define('C', ItemTags.STONE_TOOL_MATERIALS)
                 .pattern("II")
                 .pattern("PC")
                 .unlockedBy("has_stone",has(Tags.Items.COBBLESTONE))
                 .save(output);
 
-        makeStoneSetRecipe(output, BlocksModReg.CREAKSTONE.get(), BlocksModReg.CREAKSTONE_STAIRS.get(), BlocksModReg.CREAKSTONE_SLAB, BlocksModReg.CREAKSTONE_WALL);
-        makeStoneSetRecipe(output, BlocksModReg.CREAKSTONE_TILES.get(), BlocksModReg.CREAKSTONE_TILES_STAIRS.get(), BlocksModReg.CREAKSTONE_TILES_SLAB, BlocksModReg.CREAKSTONE_TILES_WALL);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES, 4).define('#', BlocksModReg.CREAKSTONE_TILES).define('X', ItemsModReg.CRYSTALIC_SHARD).
+        makeStoneSetRecipe(output, YoaBlocks.CREAKSTONE.get(), YoaBlocks.CREAKSTONE_STAIRS.get(), YoaBlocks.CREAKSTONE_SLAB, YoaBlocks.CREAKSTONE_WALL);
+        makeStoneSetRecipe(output, YoaBlocks.CREAKSTONE_TILES.get(), YoaBlocks.CREAKSTONE_TILES_STAIRS.get(), YoaBlocks.CREAKSTONE_TILES_SLAB, YoaBlocks.CREAKSTONE_TILES_WALL);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, YoaBlocks.CRYSTALIC_CREAKSTONE_TILES, 4).define('#', YoaBlocks.CREAKSTONE_TILES).define('X', YoaItems.CRYSTALIC_SHARD).
                 pattern("#X").
-                pattern("X#").unlockedBy("has_crystalic_shard", has(ItemsModReg.CRYSTALIC_SHARD)).save(output);
-        makeStoneSetRecipe(output, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES.get(), BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_STAIRS.get(), BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_SLAB, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL);
-        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, ItemsModReg.ADAMANTITE_NUGGET.get(), RecipeCategory.MISC, ItemsModReg.ADAMANTITE_INGOT, "adamantite_ingot_from_nuggets", "adamantite_ingot");
-        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ItemsModReg.ADAMANTITE_INGOT, RecipeCategory.MISC, BlocksModReg.ADAMANTITE_BLOCK, "adamantite_ingot_from_adamantite_block", "adamantite_ingot");
-        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, ItemsModReg.ALEXANDRITE_SHARD.get(), RecipeCategory.MISC, ItemsModReg.ALEXANDRITE, "alexandrite_from_shards", "alexandrite");
-        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ItemsModReg.ALEXANDRITE, RecipeCategory.MISC, BlocksModReg.ALEXANDRITE_BLOCK, "alexandrite_from_adamantite_block", "alexandrite");
-        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, ItemsModReg.BISMUTH_SHARD.get(), RecipeCategory.MISC, ItemsModReg.BISMUTH, "bismuth_from_shards", "bismuth");
-        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ItemsModReg.BISMUTH, RecipeCategory.MISC, BlocksModReg.BISMUTH_BLOCK, "bismuth_from_bismuth_block", "bismuth");
-        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, ItemsModReg.BRONZE_NUGGET.get(), RecipeCategory.MISC, ItemsModReg.BRONZE_INGOT, "bronze_ingot_from_nuggets", "bronze_ingot");
-        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ItemsModReg.BRONZE_INGOT, RecipeCategory.MISC, BlocksModReg.BRONZE_BLOCK, "bronze_ingot_from_bronze_block", "bronze_ingot");
-        nineBlockStorageRecipes(output, RecipeCategory.MISC, ItemsModReg.DIAMOND_SHARD.get(), RecipeCategory.MISC, Items.DIAMOND);
-        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, ItemsModReg.IOLITE_SHARD.get(), RecipeCategory.MISC, ItemsModReg.IOLITE, "iolite_from_shards", "iolite");
-        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ItemsModReg.IOLITE, RecipeCategory.MISC, BlocksModReg.IOLITE_BLOCK, "iolite_ingot_from_iolite_block", "iolite");
-        nineBlockStorageRecipes(output, RecipeCategory.MISC, ItemsModReg.NETHERITE_NUGGET.get(), RecipeCategory.MISC, Items.NETHERITE_INGOT);
-        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, ItemsModReg.SILVER_NUGGET.get(), RecipeCategory.MISC, ItemsModReg.SILVER_INGOT, "silver_ingot_from_nuggets", "silver_ingot");
-        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ItemsModReg.SILVER_INGOT, RecipeCategory.MISC, BlocksModReg.SILVER_BLOCK, "silver_ingot_from_silver_block", "silver_ingot");
-        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, ItemsModReg.STEEL_NUGGET.get(), RecipeCategory.MISC, ItemsModReg.STEEL_INGOT, "steel_ingot_from_nuggets", "steel_ingot");
-        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ItemsModReg.STEEL_INGOT, RecipeCategory.MISC, BlocksModReg.STEEL_BLOCK, "steel_ingot_from_steel_block", "steel_ingot");
-        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, ItemsModReg.TITANIUM_NUGGET.get(), RecipeCategory.MISC, ItemsModReg.TITANIUM_INGOT, "titanium_ingot_from_nuggets", "titanium_ingot");
-        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ItemsModReg.TITANIUM_INGOT, RecipeCategory.MISC, BlocksModReg.TITANIUM_BLOCK, "titaniume_ingot_from_titanium_block", "titanium_ingot");
-        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, ItemsModReg.WITHERITE_SHARD.get(), RecipeCategory.MISC, ItemsModReg.WITHERITE, "witherite_from_shards", "witherite_ingot");
-        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ItemsModReg.WITHERITE, RecipeCategory.MISC, BlocksModReg.WITHERITE_BLOCK, "witherite_from_witherite_block", "witherite_ingot");
-        nineBlockStorageRecipes(output, RecipeCategory.MISC, ItemsModReg.BRASS_INGOT.get(), RecipeCategory.MISC, BlocksModReg.BRASS_BLOCK.get());
-        nineBlockStorageRecipes(output, RecipeCategory.MISC, ItemsModReg.RAW_SILVER.get(), RecipeCategory.MISC, BlocksModReg.RAW_SILVER_BLOCK.get());
-        nineBlockStorageRecipes(output, RecipeCategory.MISC, ItemsModReg.RAW_BISMUTH.get(), RecipeCategory.MISC, BlocksModReg.RAW_BISMUTH_BLOCK.get());
-        nineBlockStorageRecipes(output, RecipeCategory.MISC, ItemsModReg.RAW_TITANIUM.get(), RecipeCategory.MISC, BlocksModReg.RAW_TITANIUM_BLOCK.get());
-        nineBlockStorageRecipes(output, RecipeCategory.MISC, ItemsModReg.RAW_ADAMANTITE.get(), RecipeCategory.MISC, BlocksModReg.RAW_ADAMANTITE_BLOCK.get());
+                pattern("X#").unlockedBy("has_crystalic_shard", has(YoaItems.CRYSTALIC_SHARD)).save(output);
+        makeStoneSetRecipe(output, YoaBlocks.CRYSTALIC_CREAKSTONE_TILES.get(), YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_STAIRS.get(), YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_SLAB, YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_WALL);
+        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, YoaItems.ADAMANTITE_NUGGET.get(), RecipeCategory.MISC, YoaItems.ADAMANTITE_INGOT, "adamantite_ingot_from_nuggets", "adamantite_ingot");
+        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, YoaItems.ADAMANTITE_INGOT, RecipeCategory.MISC, YoaBlocks.ADAMANTITE_BLOCK, "adamantite_ingot_from_adamantite_block", "adamantite_ingot");
+        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, YoaItems.ALEXANDRITE_SHARD.get(), RecipeCategory.MISC, YoaItems.ALEXANDRITE, "alexandrite_from_shards", "alexandrite");
+        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, YoaItems.ALEXANDRITE, RecipeCategory.MISC, YoaBlocks.ALEXANDRITE_BLOCK, "alexandrite_from_adamantite_block", "alexandrite");
+        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, YoaItems.BISMUTH_SHARD.get(), RecipeCategory.MISC, YoaItems.BISMUTH, "bismuth_from_shards", "bismuth");
+        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, YoaItems.BISMUTH, RecipeCategory.MISC, YoaBlocks.BISMUTH_BLOCK, "bismuth_from_bismuth_block", "bismuth");
+        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, YoaItems.BRONZE_NUGGET.get(), RecipeCategory.MISC, YoaItems.BRONZE_INGOT, "bronze_ingot_from_nuggets", "bronze_ingot");
+        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, YoaItems.BRONZE_INGOT, RecipeCategory.MISC, YoaBlocks.BRONZE_BLOCK, "bronze_ingot_from_bronze_block", "bronze_ingot");
+        nineBlockStorageRecipes(output, RecipeCategory.MISC, YoaItems.DIAMOND_SHARD.get(), RecipeCategory.MISC, Items.DIAMOND);
+        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, YoaItems.IOLITE_SHARD.get(), RecipeCategory.MISC, YoaItems.IOLITE, "iolite_from_shards", "iolite");
+        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, YoaItems.IOLITE, RecipeCategory.MISC, YoaBlocks.IOLITE_BLOCK, "iolite_ingot_from_iolite_block", "iolite");
+        nineBlockStorageRecipes(output, RecipeCategory.MISC, YoaItems.NETHERITE_NUGGET.get(), RecipeCategory.MISC, Items.NETHERITE_INGOT);
+        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, YoaItems.SILVER_NUGGET.get(), RecipeCategory.MISC, YoaItems.SILVER_INGOT, "silver_ingot_from_nuggets", "silver_ingot");
+        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, YoaItems.SILVER_INGOT, RecipeCategory.MISC, YoaBlocks.SILVER_BLOCK, "silver_ingot_from_silver_block", "silver_ingot");
+        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, YoaItems.STEEL_NUGGET.get(), RecipeCategory.MISC, YoaItems.STEEL_INGOT, "steel_ingot_from_nuggets", "steel_ingot");
+        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, YoaItems.STEEL_INGOT, RecipeCategory.MISC, YoaBlocks.STEEL_BLOCK, "steel_ingot_from_steel_block", "steel_ingot");
+        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, YoaItems.TITANIUM_NUGGET.get(), RecipeCategory.MISC, YoaItems.TITANIUM_INGOT, "titanium_ingot_from_nuggets", "titanium_ingot");
+        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, YoaItems.TITANIUM_INGOT, RecipeCategory.MISC, YoaBlocks.TITANIUM_BLOCK, "titaniume_ingot_from_titanium_block", "titanium_ingot");
+        nineBlockStorageRecipesWithCustomPacking(output, RecipeCategory.MISC, YoaItems.WITHERITE_SHARD.get(), RecipeCategory.MISC, YoaItems.WITHERITE, "witherite_from_shards", "witherite_ingot");
+        nineBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, YoaItems.WITHERITE, RecipeCategory.MISC, YoaBlocks.WITHERITE_BLOCK, "witherite_from_witherite_block", "witherite_ingot");
+        nineBlockStorageRecipes(output, RecipeCategory.MISC, YoaItems.BRASS_INGOT.get(), RecipeCategory.MISC, YoaBlocks.BRASS_BLOCK.get());
+        nineBlockStorageRecipes(output, RecipeCategory.MISC, YoaItems.RAW_SILVER.get(), RecipeCategory.MISC, YoaBlocks.RAW_SILVER_BLOCK.get());
+        nineBlockStorageRecipes(output, RecipeCategory.MISC, YoaItems.RAW_BISMUTH.get(), RecipeCategory.MISC, YoaBlocks.RAW_BISMUTH_BLOCK.get());
+        nineBlockStorageRecipes(output, RecipeCategory.MISC, YoaItems.RAW_TITANIUM.get(), RecipeCategory.MISC, YoaBlocks.RAW_TITANIUM_BLOCK.get());
+        nineBlockStorageRecipes(output, RecipeCategory.MISC, YoaItems.RAW_ADAMANTITE.get(), RecipeCategory.MISC, YoaBlocks.RAW_ADAMANTITE_BLOCK.get());
 
 
-        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_STAIRS, BlocksModReg.CREAKSTONE);
-        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_SLAB, BlocksModReg.CREAKSTONE, 2);
-        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_WALL, BlocksModReg.CREAKSTONE);
-        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_TILES, BlocksModReg.CREAKSTONE);
-        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_TILES_STAIRS, BlocksModReg.CREAKSTONE);
-        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_TILES_SLAB, BlocksModReg.CREAKSTONE, 2);
-        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_TILES_WALL, BlocksModReg.CREAKSTONE);
-        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_TILES_STAIRS, BlocksModReg.CREAKSTONE_TILES);
-        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_TILES_SLAB, BlocksModReg.CREAKSTONE_TILES, 2);
-        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CREAKSTONE_TILES_WALL, BlocksModReg.CREAKSTONE_TILES);
-        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_STAIRS, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES);
-        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_SLAB, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES, 2);
-        stonecutterResultFromBase(output, RecipeCategory.MISC, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES_WALL, BlocksModReg.CRYSTALIC_CREAKSTONE_TILES);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, YoaBlocks.CREAKSTONE_STAIRS, YoaBlocks.CREAKSTONE);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, YoaBlocks.CREAKSTONE_SLAB, YoaBlocks.CREAKSTONE, 2);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, YoaBlocks.CREAKSTONE_WALL, YoaBlocks.CREAKSTONE);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, YoaBlocks.CREAKSTONE_TILES, YoaBlocks.CREAKSTONE);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, YoaBlocks.CREAKSTONE_TILES_STAIRS, YoaBlocks.CREAKSTONE);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, YoaBlocks.CREAKSTONE_TILES_SLAB, YoaBlocks.CREAKSTONE, 2);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, YoaBlocks.CREAKSTONE_TILES_WALL, YoaBlocks.CREAKSTONE);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, YoaBlocks.CREAKSTONE_TILES_STAIRS, YoaBlocks.CREAKSTONE_TILES);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, YoaBlocks.CREAKSTONE_TILES_SLAB, YoaBlocks.CREAKSTONE_TILES, 2);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, YoaBlocks.CREAKSTONE_TILES_WALL, YoaBlocks.CREAKSTONE_TILES);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_STAIRS, YoaBlocks.CRYSTALIC_CREAKSTONE_TILES);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_SLAB, YoaBlocks.CRYSTALIC_CREAKSTONE_TILES, 2);
+        stonecutterResultFromBase(output, RecipeCategory.MISC, YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_WALL, YoaBlocks.CRYSTALIC_CREAKSTONE_TILES);
 
         CrucibleRecipeBuilder.of(Items.COPPER_INGOT,Items.IRON_INGOT,Items.GLOWSTONE,Items.COAL,2).timed(10).save(output, "coaliumz");
 
 
         oreSmelting(output, IRON_SMELTABLES, RecipeCategory.MISC, Items.IRON_INGOT, 0.7F, 200, "iron_ingot");
         oreSmelting(output, DIAMOND_SMELTABLES, RecipeCategory.MISC, Items.DIAMOND, 1.0F, 200, "diamond");
-        oreSmelting(output, SILVER_SMELTABLES, RecipeCategory.MISC, ItemsModReg.SILVER_INGOT, 1.0F, 200, "silver_ingot");
-        oreSmelting(output, BISMUTH_SMELTABLES, RecipeCategory.MISC, ItemsModReg.BISMUTH, 1.0F, 200, "bismuth_ingot");
-        oreSmelting(output, TITANIUM_SMELTABLES, RecipeCategory.MISC, ItemsModReg.TITANIUM_INGOT, 0.7F, 200, "titanium_ingot");
-        oreSmelting(output, WITHERITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.WITHERITE, 1.0F, 200, "witherite");
-        oreSmelting(output, IOLITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.IOLITE, 1.0F, 200, "iolite");
-        oreSmelting(output, ALEXANDRITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.ALEXANDRITE, 2.0F, 200, "alexandrite");
-        oreSmelting(output, ADAMANTITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.ADAMANTITE_INGOT, 10.0F, 500, "adamantite_ingot");
+        oreSmelting(output, SILVER_SMELTABLES, RecipeCategory.MISC, YoaItems.SILVER_INGOT, 1.0F, 200, "silver_ingot");
+        oreSmelting(output, BISMUTH_SMELTABLES, RecipeCategory.MISC, YoaItems.BISMUTH, 1.0F, 200, "bismuth_ingot");
+        oreSmelting(output, TITANIUM_SMELTABLES, RecipeCategory.MISC, YoaItems.TITANIUM_INGOT, 0.7F, 200, "titanium_ingot");
+        oreSmelting(output, WITHERITE_SMELTABLES, RecipeCategory.MISC, YoaItems.WITHERITE, 1.0F, 200, "witherite");
+        oreSmelting(output, IOLITE_SMELTABLES, RecipeCategory.MISC, YoaItems.IOLITE, 1.0F, 200, "iolite");
+        oreSmelting(output, ALEXANDRITE_SMELTABLES, RecipeCategory.MISC, YoaItems.ALEXANDRITE, 2.0F, 200, "alexandrite");
+        oreSmelting(output, ADAMANTITE_SMELTABLES, RecipeCategory.MISC, YoaItems.ADAMANTITE_INGOT, 10.0F, 500, "adamantite_ingot");
 
         oreBlasting(output, IRON_SMELTABLES, RecipeCategory.MISC, Items.IRON_INGOT, 0.7F, 100, "iron_ingot");
         oreBlasting(output, DIAMOND_SMELTABLES, RecipeCategory.MISC, Items.DIAMOND, 1.0F, 100, "diamond");
-        oreBlasting(output, SILVER_SMELTABLES, RecipeCategory.MISC, ItemsModReg.SILVER_INGOT, 1.0F, 100, "silver_ingot");
-        oreBlasting(output, BISMUTH_SMELTABLES, RecipeCategory.MISC, ItemsModReg.BISMUTH, 1.0F, 100, "bismuth_ingot");
-        oreBlasting(output, TITANIUM_SMELTABLES, RecipeCategory.MISC, ItemsModReg.TITANIUM_INGOT, 0.7F, 100, "titanium_ingot");
-        oreBlasting(output, WITHERITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.WITHERITE, 1.0F, 100, "witherite");
-        oreBlasting(output, IOLITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.IOLITE, 1.0F, 100, "iolite");
-        oreBlasting(output, ALEXANDRITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.ALEXANDRITE, 2.0F, 100, "alexandrite");
-        oreBlasting(output, ADAMANTITE_SMELTABLES, RecipeCategory.MISC, ItemsModReg.ADAMANTITE_INGOT, 10.0F, 250, "adamantite_ingot");
+        oreBlasting(output, SILVER_SMELTABLES, RecipeCategory.MISC, YoaItems.SILVER_INGOT, 1.0F, 100, "silver_ingot");
+        oreBlasting(output, BISMUTH_SMELTABLES, RecipeCategory.MISC, YoaItems.BISMUTH, 1.0F, 100, "bismuth_ingot");
+        oreBlasting(output, TITANIUM_SMELTABLES, RecipeCategory.MISC, YoaItems.TITANIUM_INGOT, 0.7F, 100, "titanium_ingot");
+        oreBlasting(output, WITHERITE_SMELTABLES, RecipeCategory.MISC, YoaItems.WITHERITE, 1.0F, 100, "witherite");
+        oreBlasting(output, IOLITE_SMELTABLES, RecipeCategory.MISC, YoaItems.IOLITE, 1.0F, 100, "iolite");
+        oreBlasting(output, ALEXANDRITE_SMELTABLES, RecipeCategory.MISC, YoaItems.ALEXANDRITE, 2.0F, 100, "alexandrite");
+        oreBlasting(output, ADAMANTITE_SMELTABLES, RecipeCategory.MISC, YoaItems.ADAMANTITE_INGOT, 10.0F, 250, "adamantite_ingot");
 
 
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemsModReg.ALEXANDRITE_AXE).define('#', Items.STICK).define('X', ItemsModReg.ALEXANDRITE).
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, YoaItems.ALEXANDRITE_AXE).define('#', Items.STICK).define('X', YoaItems.ALEXANDRITE).
                 pattern("XX").
                 pattern("X#").
-                pattern(" #").unlockedBy("has_alexandrite", has(ItemsModReg.ALEXANDRITE)).save(output);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemsModReg.ALEXANDRITE_HOE).define('#', Items.STICK).define('X', ItemsModReg.ALEXANDRITE).
+                pattern(" #").unlockedBy("has_alexandrite", has(YoaItems.ALEXANDRITE)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, YoaItems.ALEXANDRITE_HOE).define('#', Items.STICK).define('X', YoaItems.ALEXANDRITE).
                 pattern("XX").
                 pattern(" #").
-                pattern(" #").unlockedBy("has_alexandrite", has(ItemsModReg.ALEXANDRITE)).save(output);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemsModReg.ALEXANDRITE_PICKAXE).define('#', Items.STICK).define('X', ItemsModReg.ALEXANDRITE).
+                pattern(" #").unlockedBy("has_alexandrite", has(YoaItems.ALEXANDRITE)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, YoaItems.ALEXANDRITE_PICKAXE).define('#', Items.STICK).define('X', YoaItems.ALEXANDRITE).
                 pattern("XXX").
                 pattern(" # ").
-                pattern(" # ").unlockedBy("has_alexandrite", has(ItemsModReg.ALEXANDRITE)).save(output);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemsModReg.ALEXANDRITE_SHOVEL).define('#', Items.STICK).define('X', ItemsModReg.ALEXANDRITE).
+                pattern(" # ").unlockedBy("has_alexandrite", has(YoaItems.ALEXANDRITE)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, YoaItems.ALEXANDRITE_SHOVEL).define('#', Items.STICK).define('X', YoaItems.ALEXANDRITE).
                 pattern("X").
                 pattern("#").
-                pattern("#").unlockedBy("has_alexandrite", has(ItemsModReg.ALEXANDRITE)).save(output);
+                pattern("#").unlockedBy("has_alexandrite", has(YoaItems.ALEXANDRITE)).save(output);
 
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemsModReg.IOLITE_AXE).define('#', Items.STICK).define('X', ItemsModReg.IOLITE).
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, YoaItems.IOLITE_AXE).define('#', Items.STICK).define('X', YoaItems.IOLITE).
                 pattern("XX").
                 pattern("X#").
-                pattern(" #").unlockedBy("has_iolite", has(ItemsModReg.IOLITE)).save(output);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemsModReg.IOLITE_HOE).define('#', Items.STICK).define('X', ItemsModReg.IOLITE).
+                pattern(" #").unlockedBy("has_iolite", has(YoaItems.IOLITE)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, YoaItems.IOLITE_HOE).define('#', Items.STICK).define('X', YoaItems.IOLITE).
                 pattern("XX").
                 pattern(" #").
-                pattern(" #").unlockedBy("has_iolite", has(ItemsModReg.IOLITE)).save(output);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemsModReg.IOLITE_PICKAXE).define('#', Items.STICK).define('X', ItemsModReg.IOLITE).
+                pattern(" #").unlockedBy("has_iolite", has(YoaItems.IOLITE)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, YoaItems.IOLITE_PICKAXE).define('#', Items.STICK).define('X', YoaItems.IOLITE).
                 pattern("XXX").
                 pattern(" # ").
-                pattern(" # ").unlockedBy("has_iolite", has(ItemsModReg.IOLITE)).save(output);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemsModReg.IOLITE_SHOVEL).define('#', Items.STICK).define('X', ItemsModReg.IOLITE).
+                pattern(" # ").unlockedBy("has_iolite", has(YoaItems.IOLITE)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, YoaItems.IOLITE_SHOVEL).define('#', Items.STICK).define('X', YoaItems.IOLITE).
                 pattern("X").
                 pattern("#").
-                pattern("#").unlockedBy("has_iolite", has(ItemsModReg.IOLITE)).save(output);
+                pattern("#").unlockedBy("has_iolite", has(YoaItems.IOLITE)).save(output);
 
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemsModReg.TITANIUM_AXE).define('#', Items.STICK).define('X', ItemsModReg.TITANIUM_INGOT).
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, YoaItems.TITANIUM_AXE).define('#', Items.STICK).define('X', YoaItems.TITANIUM_INGOT).
                 pattern("XX").
                 pattern("X#").
-                pattern(" #").unlockedBy("has_titanium_ingot", has(ItemsModReg.TITANIUM_INGOT)).save(output);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemsModReg.TITANIUM_HOE).define('#', Items.STICK).define('X', ItemsModReg.TITANIUM_INGOT).
+                pattern(" #").unlockedBy("has_titanium_ingot", has(YoaItems.TITANIUM_INGOT)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, YoaItems.TITANIUM_HOE).define('#', Items.STICK).define('X', YoaItems.TITANIUM_INGOT).
                 pattern("XX").
                 pattern(" #").
-                pattern(" #").unlockedBy("has_titanium_ingot", has(ItemsModReg.TITANIUM_INGOT)).save(output);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemsModReg.TITANIUM_PICKAXE).define('#', Items.STICK).define('X', ItemsModReg.TITANIUM_INGOT).
+                pattern(" #").unlockedBy("has_titanium_ingot", has(YoaItems.TITANIUM_INGOT)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, YoaItems.TITANIUM_PICKAXE).define('#', Items.STICK).define('X', YoaItems.TITANIUM_INGOT).
                 pattern("XXX").
                 pattern(" # ").
-                pattern(" # ").unlockedBy("has_titanium_ingot", has(ItemsModReg.TITANIUM_INGOT)).save(output);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemsModReg.TITANIUM_SHOVEL).define('#', Items.STICK).define('X', ItemsModReg.TITANIUM_INGOT).
+                pattern(" # ").unlockedBy("has_titanium_ingot", has(YoaItems.TITANIUM_INGOT)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, YoaItems.TITANIUM_SHOVEL).define('#', Items.STICK).define('X', YoaItems.TITANIUM_INGOT).
                 pattern("X").
                 pattern("#").
-                pattern("#").unlockedBy("has_titanium_ingot", has(ItemsModReg.TITANIUM_INGOT)).save(output);
+                pattern("#").unlockedBy("has_titanium_ingot", has(YoaItems.TITANIUM_INGOT)).save(output);
 
-        makeArmorRecipe(output, ItemsModReg.SILVER_INGOT.get(), ItemsModReg.SILVER_HELMET.get(), ItemsModReg.SILVER_CHESTPLATE, ItemsModReg.SILVER_LEGGINGS, ItemsModReg.SILVER_BOOTS);
-        makeArmorRecipe(output, ItemsModReg.WITHERITE.get(), ItemsModReg.WITHERITE_HELMET.get(), ItemsModReg.WITHERITE_CHESTPLATE, ItemsModReg.WITHERITE_LEGGINGS, ItemsModReg.WITHERITE_BOOTS);
-        makeArmorRecipe(output, ItemsModReg.IOLITE.get(), ItemsModReg.IOLITE_HELMET.get(), ItemsModReg.IOLITE_CHESTPLATE, ItemsModReg.IOLITE_LEGGINGS, ItemsModReg.IOLITE_BOOTS);
-        makeArmorRecipe(output, ItemsModReg.ALEXANDRITE.get(), ItemsModReg.ALEXANDRITE_HELMET.get(), ItemsModReg.ALEXANDRITE_CHESTPLATE, ItemsModReg.ALEXANDRITE_LEGGINGS, ItemsModReg.ALEXANDRITE_BOOTS);
+        makeArmorRecipe(output, YoaItems.SILVER_INGOT.get(), YoaItems.SILVER_HELMET.get(), YoaItems.SILVER_CHESTPLATE, YoaItems.SILVER_LEGGINGS, YoaItems.SILVER_BOOTS);
+        makeArmorRecipe(output, YoaItems.WITHERITE.get(), YoaItems.WITHERITE_HELMET.get(), YoaItems.WITHERITE_CHESTPLATE, YoaItems.WITHERITE_LEGGINGS, YoaItems.WITHERITE_BOOTS);
+        makeArmorRecipe(output, YoaItems.IOLITE.get(), YoaItems.IOLITE_HELMET.get(), YoaItems.IOLITE_CHESTPLATE, YoaItems.IOLITE_LEGGINGS, YoaItems.IOLITE_BOOTS);
+        makeArmorRecipe(output, YoaItems.ALEXANDRITE.get(), YoaItems.ALEXANDRITE_HELMET.get(), YoaItems.ALEXANDRITE_CHESTPLATE, YoaItems.ALEXANDRITE_LEGGINGS, YoaItems.ALEXANDRITE_BOOTS);
 
 
     }
@@ -224,14 +223,14 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
 
 
     static {
-        IRON_SMELTABLES = ImmutableList.of(BlocksModReg.CREAKSTONE_IRON_ORE);
-        DIAMOND_SMELTABLES = ImmutableList.of(BlocksModReg.CREAKSTONE_DIAMOND_ORE);
-        SILVER_SMELTABLES = ImmutableList.of(BlocksModReg.SILVER_ORE, BlocksModReg.DEEPSLATE_SILVER_ORE, ItemsModReg.RAW_SILVER);
-        BISMUTH_SMELTABLES = ImmutableList.of(BlocksModReg.BISMUTH_ORE, BlocksModReg.DEEPSLATE_BISMUTH_ORE, ItemsModReg.RAW_BISMUTH);
+        IRON_SMELTABLES = ImmutableList.of(YoaBlocks.CREAKSTONE_IRON_ORE);
+        DIAMOND_SMELTABLES = ImmutableList.of(YoaBlocks.CREAKSTONE_DIAMOND_ORE);
+        SILVER_SMELTABLES = ImmutableList.of(YoaBlocks.SILVER_ORE, YoaBlocks.DEEPSLATE_SILVER_ORE, YoaItems.RAW_SILVER);
+        BISMUTH_SMELTABLES = ImmutableList.of(YoaBlocks.BISMUTH_ORE, YoaBlocks.DEEPSLATE_BISMUTH_ORE, YoaItems.RAW_BISMUTH);
         TITANIUM_SMELTABLES = ImmutableList.of(Items.COPPER_ORE, Items.DEEPSLATE_COPPER_ORE, Items.RAW_COPPER);
-        WITHERITE_SMELTABLES = ImmutableList.of(BlocksModReg.WITHERITE_ORE);
-        IOLITE_SMELTABLES = ImmutableList.of(BlocksModReg.IOLITE_ORE);
-        ALEXANDRITE_SMELTABLES = ImmutableList.of(BlocksModReg.ALEXANDRITE_ORE);
-        ADAMANTITE_SMELTABLES = ImmutableList.of(BlocksModReg.ADAMANTITE_ORE, ItemsModReg.ADAMANTITE_INGOT);
+        WITHERITE_SMELTABLES = ImmutableList.of(YoaBlocks.WITHERITE_ORE);
+        IOLITE_SMELTABLES = ImmutableList.of(YoaBlocks.IOLITE_ORE);
+        ALEXANDRITE_SMELTABLES = ImmutableList.of(YoaBlocks.ALEXANDRITE_ORE);
+        ADAMANTITE_SMELTABLES = ImmutableList.of(YoaBlocks.ADAMANTITE_ORE, YoaItems.ADAMANTITE_INGOT);
     }
 }

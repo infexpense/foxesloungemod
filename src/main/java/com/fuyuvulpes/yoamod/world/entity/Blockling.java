@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.world.entity;
 
-import com.fuyuvulpes.yoamod.core.registries.TagRegistry;
+import com.fuyuvulpes.yoamod.core.registries.YoaTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -82,7 +82,7 @@ public class Blockling extends PathfinderMob implements VariantHolder<Blockling.
         return Animal.createLivingAttributes()
                 .add(Attributes.MAX_HEALTH, 12.0)
                 .add(NeoForgeMod.STEP_HEIGHT.value(),1.5F)
-                .add(Attributes.MOVEMENT_SPEED, 0.5)
+                .add(Attributes.MOVEMENT_SPEED, 0.2F)
                 .add(Attributes.FOLLOW_RANGE, 12.0F);
     }
 
@@ -140,13 +140,13 @@ public class Blockling extends PathfinderMob implements VariantHolder<Blockling.
 
         public static Blockling.Type byPos(BlockPos blockPos, Level level) {
             if (level.getBrightness(LightLayer.SKY,blockPos) > 8){
-                if (level.getBiome(blockPos).is(TagRegistry.Biomes.BLOCKLING_WOOD)){
+                if (level.getBiome(blockPos).is(YoaTags.Biomes.BLOCKLING_WOOD)){
                     return WOOD;
                 }
-                if (level.getBiome(blockPos).is(TagRegistry.Biomes.BLOCKLING_GRASS)){
+                else if (level.getBiome(blockPos).is(YoaTags.Biomes.BLOCKLING_GRASS)){
                     return GRASS;
                 }
-                if (level.getBiome(blockPos).is(TagRegistry.Biomes.BLOCKLING_COBBLESTONE)){
+                else if (level.getBiome(blockPos).is(YoaTags.Biomes.BLOCKLING_COBBLESTONE)){
                     return COBBLESTONE;
                 }
             }else if (level.getBrightness(LightLayer.SKY,blockPos) <= 8) {

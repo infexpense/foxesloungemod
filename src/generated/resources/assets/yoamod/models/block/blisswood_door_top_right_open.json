@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right_open",
+  "textures": {
+    "bottom": "yoamod:block/blisswood_door_bottom",
+    "top": "yoamod:block/blisswood_door_top"
+  }
+}

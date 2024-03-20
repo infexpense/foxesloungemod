@@ -1,9 +1,8 @@
 package com.fuyuvulpes.yoamod.game.server.crafting;
 
-import com.fuyuvulpes.yoamod.core.registries.BlocksModReg;
-import com.fuyuvulpes.yoamod.core.registries.RecipesModReg;
-import com.fuyuvulpes.yoamod.core.registries.SerializersModReg;
-import com.fuyuvulpes.yoamod.game.client.screens.HammeringStationMenu;
+import com.fuyuvulpes.yoamod.core.registries.YoaBlocks;
+import com.fuyuvulpes.yoamod.core.registries.YoaRecipes;
+import com.fuyuvulpes.yoamod.core.registries.YoaSerializers;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.Container;
@@ -73,17 +72,17 @@ public class HammeringStationRecipe implements Recipe<Container> {
 
     @Override
     public ItemStack getToastSymbol() {
-        return BlocksModReg.HAMMERING_STATION.get().asItem().getDefaultInstance();
+        return YoaBlocks.HAMMERING_STATION.get().asItem().getDefaultInstance();
     }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return SerializersModReg.HAMMERING_STATION_SERIALIZER.get();
+        return YoaSerializers.HAMMERING_STATION_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return RecipesModReg.HAMMERING_STATION_TYPE.get();
+        return YoaRecipes.HAMMERING_STATION_TYPE.get();
     }
 
     public interface Factory<T extends HammeringStationRecipe> {

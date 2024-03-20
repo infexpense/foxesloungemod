@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.world.item.weaponry;
 
-import com.fuyuvulpes.yoamod.core.registries.ItemsModReg;
+import com.fuyuvulpes.yoamod.core.registries.YoaItems;
 import com.fuyuvulpes.yoamod.world.item.AttackAnim;
 import com.fuyuvulpes.yoamod.world.item.AttackAnims;
 import com.fuyuvulpes.yoamod.world.item.WeaponItem;
@@ -38,7 +38,7 @@ public class SingleScissorSwordItem extends WeaponItem {
 
     private ItemStack getMatchingScissorsItem(SingleScissorSwordItem item) {
         ItemStack stack;
-        List<DeferredHolder<Item, ? extends Item>> stackList = ItemsModReg.ITEMS.getEntries().stream().toList().stream().filter(itemDeferredHolder -> itemDeferredHolder.get() instanceof  ScissorsSwordItem item1 && item.getTier() == item1.getTier()).toList();
+        List<DeferredHolder<Item, ? extends Item>> stackList = YoaItems.ITEMS.getEntries().stream().toList().stream().filter(itemDeferredHolder -> itemDeferredHolder.get() instanceof  ScissorsSwordItem item1 && item.getTier() == item1.getTier()).toList();
         stack = stackList.stream().findFirst().get().get().getDefaultInstance();
 
         return stack;

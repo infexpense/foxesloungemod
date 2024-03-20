@@ -1,12 +1,11 @@
 package com.fuyuvulpes.yoamod.world.entity.block;
 
-import com.fuyuvulpes.yoamod.core.registries.BlockEntitiesModReg;
-import com.fuyuvulpes.yoamod.core.registries.RecipesModReg;
+import com.fuyuvulpes.yoamod.core.registries.YoaBlockEntities;
+import com.fuyuvulpes.yoamod.core.registries.YoaRecipes;
 import com.fuyuvulpes.yoamod.game.client.screens.HammeringStationMenu;
 import com.fuyuvulpes.yoamod.game.server.crafting.HammeringStationRecipe;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -19,7 +18,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
@@ -56,9 +54,9 @@ public class HammeringStationBlockEntity extends BaseContainerBlockEntity implem
     private final RecipeManager.CachedCheck<Container, ? extends HammeringStationRecipe> quickCheck;
 
     public HammeringStationBlockEntity(BlockPos p_155229_, BlockState p_155230_) {
-        super(BlockEntitiesModReg.HAMMERING_STATION.get(), p_155229_, p_155230_);
-        this.quickCheck = RecipeManager.createCheck(RecipesModReg.HAMMERING_STATION_TYPE.get());
-        this.recipeType = RecipesModReg.HAMMERING_STATION_TYPE.get();
+        super(YoaBlockEntities.HAMMERING_STATION.get(), p_155229_, p_155230_);
+        this.quickCheck = RecipeManager.createCheck(YoaRecipes.HAMMERING_STATION_TYPE.get());
+        this.recipeType = YoaRecipes.HAMMERING_STATION_TYPE.get();
     }
 
     @Override

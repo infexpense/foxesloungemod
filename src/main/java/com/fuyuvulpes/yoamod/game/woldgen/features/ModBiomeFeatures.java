@@ -1,7 +1,7 @@
 package com.fuyuvulpes.yoamod.game.woldgen.features;
 
 import com.fuyuvulpes.yoamod.game.woldgen.ModPlacedFeatures;
-import com.fuyuvulpes.yoamod.core.registries.EntityTypeModReg;
+import com.fuyuvulpes.yoamod.core.registries.YoaEntityTypes;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -32,12 +32,12 @@ public class ModBiomeFeatures {
         spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITHER_SKELETON, 80, 1, 5));
         spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SILVERFISH, 40, 4, 9));
         spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.CAVE_SPIDER, 30, 1, 3));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityTypeModReg.ARMED_SPIDER_TYPE.get(), 70, 1, 3));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(YoaEntityTypes.ARMED_SPIDER_TYPE.get(), 70, 1, 3));
         spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.MAGMA_CUBE, 50, 3, 5));
         spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 30, 1, 4));
         spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.PHANTOM, 10, 1, 8));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityTypeModReg.BRAWLER_TYPE.get(), 100, 1, 2));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityTypeModReg.BRAWLING_TYPE.get(), 80, 1, 7));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(YoaEntityTypes.BRAWLER_TYPE.get(), 100, 1, 2));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(YoaEntityTypes.BRAWLING_TYPE.get(), 80, 1, 7));
     }
         public static void addOvergrownGrottoFeatures(BiomeGenerationSettings.Builder biomeBuilder){
 

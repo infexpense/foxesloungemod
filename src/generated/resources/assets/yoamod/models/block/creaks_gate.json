@@ -1,7 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "yoamod:block/creaks_gate",
     "end": "yoamod:block/creaks_gate",
     "side": "yoamod:block/creakstone"
   }

@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.world.block;
 
-import com.fuyuvulpes.yoamod.core.registries.BlockEntitiesModReg;
+import com.fuyuvulpes.yoamod.core.registries.YoaBlockEntities;
 import com.fuyuvulpes.yoamod.world.entity.block.CrucibleBlockEntity;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -168,6 +168,6 @@ public class CrucibleBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return createFurnaceTicker(pLevel,pBlockEntityType, BlockEntitiesModReg.CRUCIBLE.get());
+        return createFurnaceTicker(pLevel,pBlockEntityType, YoaBlockEntities.CRUCIBLE.get());
     }
 }

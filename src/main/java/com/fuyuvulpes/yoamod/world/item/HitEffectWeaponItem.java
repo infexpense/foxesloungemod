@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.world.item;
 
-import com.fuyuvulpes.yoamod.core.registries.ModEffects;
+import com.fuyuvulpes.yoamod.core.registries.YoaEffects;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -40,10 +40,10 @@ public class HitEffectWeaponItem extends WeaponItem {
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
         pStack.hurtAndBreak(1, pAttacker, p_43296_ -> p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
         if (canBleed && pAttacker.level().random.nextFloat() < bleedChance * 2){
-            if (pTarget.hasEffect(ModEffects.BLEEDING.get())) {
-                pTarget.addEffect(new MobEffectInstance(ModEffects.BLEEDING.get(),140, Objects.requireNonNull(pTarget.getEffect(ModEffects.BLEEDING.get())).getAmplifier() + 1,false,true));
+            if (pTarget.hasEffect(YoaEffects.BLEEDING.get())) {
+                pTarget.addEffect(new MobEffectInstance(YoaEffects.BLEEDING.get(),140, Objects.requireNonNull(pTarget.getEffect(YoaEffects.BLEEDING.get())).getAmplifier() + 1,false,true));
             }else {
-                pTarget.addEffect(new MobEffectInstance(ModEffects.BLEEDING.get(), 140, 0, false, true));
+                pTarget.addEffect(new MobEffectInstance(YoaEffects.BLEEDING.get(), 140, 0, false, true));
             }
         }
         if (effect != null && pAttacker.level().random.nextFloat() < chance * 2) {

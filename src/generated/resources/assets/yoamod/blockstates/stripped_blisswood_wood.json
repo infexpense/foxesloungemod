@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "yoamod:block/stripped_blisswood_wood_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "yoamod:block/stripped_blisswood_wood"
+    },
+    "axis=z": {
+      "model": "yoamod:block/stripped_blisswood_wood_horizontal",
+      "x": 90
+    }
+  }
+}

@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.game.woldgen;
 
-import com.fuyuvulpes.yoamod.core.registries.NoiseRegistry;
+import com.fuyuvulpes.yoamod.core.registries.YoaNoises;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -57,7 +57,7 @@ public class ModDimensions {
 
         NoiseBasedChunkGenerator wrappedChunkGenerator = new NoiseBasedChunkGenerator(
                 new FixedBiomeSource(biomeRegistry.getOrThrow(ModBiomes.DESOLATE_CREAKS)),
-                noiseGenSettings.getOrThrow(NoiseRegistry.CREAKS));
+                noiseGenSettings.getOrThrow(YoaNoises.CREAKS));
 
         NoiseBasedChunkGenerator noiseBasedChunkGenerator;
         noiseBasedChunkGenerator = new NoiseBasedChunkGenerator(
@@ -72,7 +72,7 @@ public class ModDimensions {
                                         Climate.parameters(0.4F, 0.3F, 0.2F, 0.1F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(ModBiomes.OVERGROWN_GROTTO))
 
                         ))),
-                noiseGenSettings.getOrThrow(NoiseRegistry.CREAKS));
+                noiseGenSettings.getOrThrow(YoaNoises.CREAKS));
 
         LevelStem stem = new LevelStem(dimTypes.getOrThrow(ModDimensions.THE_CREAKS_DIM_TYPE), noiseBasedChunkGenerator);
 

@@ -1,6 +1,5 @@
 package com.fuyuvulpes.yoamod.world.item.weaponry;
 
-import com.fuyuvulpes.yoamod.core.registries.ItemsModReg;
 import com.fuyuvulpes.yoamod.world.item.*;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;

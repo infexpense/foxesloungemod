@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.world.block;
 
-import com.fuyuvulpes.yoamod.core.registries.BlockEntitiesModReg;
+import com.fuyuvulpes.yoamod.core.registries.YoaBlockEntities;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -62,7 +62,7 @@ public class HammeringStationBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        return BlockEntitiesModReg.HAMMERING_STATION.get().create(p_153215_,p_153216_);
+        return YoaBlockEntities.HAMMERING_STATION.get().create(p_153215_,p_153216_);
     }
 
     @Override

@@ -1,10 +1,12 @@
 package com.fuyuvulpes.yoamod.game.woldgen;
 
+import com.fuyuvulpes.yoamod.core.registries.YoaBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -41,8 +43,15 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> RUNE_GEODE_CREAK_PLACED = registerKey("rune_geode_creak_placed");
 
 
+    public static final ResourceKey<PlacedFeature> BLISSWOOD_PLACED = registerKey("blisswood_placed");
+
+
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
+
+        register(context,BLISSWOOD_PLACED,configuredFeatures.getOrThrow(ModConfigFeatures.BLISSWOOD_KEY),
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(1,0.1F,2),
+                        YoaBlocks.BLISSWOOD_SAPLING.get()));
 
         register(context, SILVER_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfigFeatures.SILVER_ORE_KEY),
                 ModOrePlacement.commonOrePlacement(12,

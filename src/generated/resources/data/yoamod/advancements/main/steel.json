@@ -1,0 +1,34 @@
+{
+  "parent": "yoamod:main/alloys",
+  "criteria": {
+    "steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:steel_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.yoamod.steel.description"
+    },
+    "icon": {
+      "item": "yoamod:steel_ingot"
+    },
+    "title": {
+      "translate": "advancement.yoamod.steel"
+    }
+  },
+  "requirements": [
+    [
+      "steel"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

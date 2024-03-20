@@ -1,7 +1,27 @@
 {
   "block.yoamod.hammering_station": "Hammering Station",
-  "block.yoamod.augmenting_station": "Augmenting Station",
   "block.yoamod.crucible": "Crucible",
+
+
+  "block.yoamod.blisswood_button": "Blisswood Button",
+  "block.yoamod.blisswood_door": "Blisswood Door",
+  "block.yoamod.blisswood_fence": "Blisswood Fence",
+  "block.yoamod.blisswood_fence_gate": "Blisswood Fence Gate",
+  "block.yoamod.blisswood_hanging_sign": "Blisswood Hanging Sign",
+  "block.yoamod.blisswood_leaves": "Blisswood Leaves",
+  "block.yoamod.blisswood_log": "Blisswood Log",
+  "block.yoamod.stripped_blisswood_log": "Stripped Blisswood Log",
+  "block.yoamod.blisswood_planks": "Blisswood Planks",
+  "block.yoamod.blisswood_pressure_plate": "Blisswood Pressure Plate",
+  "block.yoamod.blisswood_sapling": "Blisswood Sapling",
+  "block.yoamod.blisswood_sign": "Blisswood Sign",
+  "block.yoamod.blisswood_slab": "Blisswood Slab",
+  "block.yoamod.blisswood_stairs": "Blisswood Stairs",
+  "block.yoamod.blisswood_trapdoor": "Blisswood Trapdoor",
+  "block.yoamod.blisswood_wall_hanging_sign": "Blisswood Wall Hanging Sign",
+  "block.yoamod.blisswood_wall_sign": "Blisswood Wall Sign",
+  "block.yoamod.blisswood_wood": "Blisswood Wood",
+  "block.yoamod.stripped_blisswood_wood": "Stripped Blisswood Wood",
 
   "block.yoamod.creaks_gate": "The Creaks Gate",
   "block.yoamod.creakstone": "Creakstone",
@@ -51,7 +71,7 @@
 
 
   "item.yoamod.longbow": "Longbow",
-  "item.yoamod.return_talisman": "Talisman of Returnal",
+  "item.yoamod.return_talisman": "Talisman of Return",
   "item.yoamod.rune_crystal": "Rune Crystal",
   "item.yoamod.crystalic_shard": "Crystalic Shard",
   "item.yoamod.etherfructus": "Etherfructus",
@@ -527,7 +547,7 @@
 
   "itemGroup.yoa_main": "Your Own Adventure: Main",
   "itemGroup.yoa_wgen": "Your Own Adventure: World Gen",
-  "itemGroup.yoa_tools_gear": "Your Own Adventure: Tools & Gear",
+  "itemGroup.yoa_misc": "Your Own Adventure: Miscellaneous",
   "itemGroup.yoa_weapons": "Your Own Adventure: Weaponry",
   "itemGroup.yoa_spawn_eggs": "Your Own Adventure: Spawn Eggs",
   "itemGroup.yoa_vehicles": "Your Own Adventure: Vehicles",
@@ -549,6 +569,24 @@
 
   "advancement.yoamod.root": "Your Own Adventure",
   "advancement.yoamod.root.description": "The Beginning",
+
+  "advancement.yoamod.silver": "Weaker Iron",
+  "advancement.yoamod.silver.description": "Obtain Silver and smelt it into an Ingot",
+
+  "advancement.yoamod.crucible": "Blasting Furnace? Never Heard of It.",
+  "advancement.yoamod.crucible.description": "Craft the Crucible, a new tool to craft Alloys & Other materials",
+
+  "advancement.yoamod.hammering_station": "How to Craft Your Weaponry",
+  "advancement.yoamod.hammering_station.description": "Make a Hammering Station",
+
+  "advancement.yoamod.alloys": "Man-made Metals",
+  "advancement.yoamod.alloys.description": "Create your first Alloy",
+
+  "advancement.yoamod.steel": "Stronger Iron",
+  "advancement.yoamod.steel.description": "Obtain a Steel Ingot",
+
+  "advancement.yoamod.titanium": "Beyond Netherite",
+  "advancement.yoamod.titanium.description": "Find and obtain Titanium in any of its forms",
 
   "entity.yoamod.plane": "Plane",
   "entity.yoamod.brawler": "Brawler",
