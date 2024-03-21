@@ -1,0 +1,13 @@
+{
+  "type": "yoamod:crucible",
+  "experience": 10.0,
+  "ingredient": {
+    "item": "minecraft:diamond"
+  },
+  "result": "yoamod:molten_diamond",
+  "secondingredient": [],
+  "supportitem": {
+    "item": "minecraft:bucket"
+  },
+  "time": 10
+}

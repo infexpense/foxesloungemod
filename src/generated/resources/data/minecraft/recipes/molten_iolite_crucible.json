@@ -1,0 +1,13 @@
+{
+  "type": "yoamod:crucible",
+  "experience": 10.0,
+  "ingredient": {
+    "item": "yoamod:iolite"
+  },
+  "result": "yoamod:molten_iolite",
+  "secondingredient": [],
+  "supportitem": {
+    "item": "minecraft:bucket"
+  },
+  "time": 10
+}

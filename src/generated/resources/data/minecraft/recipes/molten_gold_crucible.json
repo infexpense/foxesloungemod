@@ -1,0 +1,13 @@
+{
+  "type": "yoamod:crucible",
+  "experience": 10.0,
+  "ingredient": {
+    "item": "minecraft:gold_ingot"
+  },
+  "result": "yoamod:molten_gold",
+  "secondingredient": [],
+  "supportitem": {
+    "item": "minecraft:bucket"
+  },
+  "time": 10
+}

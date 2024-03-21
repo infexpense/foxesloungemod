@@ -1,0 +1,15 @@
+{
+  "type": "yoamod:crucible",
+  "experience": 10.0,
+  "ingredient": {
+    "item": "minecraft:copper_ingot"
+  },
+  "result": "yoamod:molten_bronze",
+  "secondingredient": {
+    "item": "yoamod:silver_ingot"
+  },
+  "supportitem": {
+    "item": "minecraft:bucket"
+  },
+  "time": 10
+}

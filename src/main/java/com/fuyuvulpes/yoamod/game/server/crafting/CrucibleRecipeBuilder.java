@@ -46,18 +46,19 @@ public class CrucibleRecipeBuilder implements RecipeBuilder {
 
     public static CrucibleRecipeBuilder of(ItemLike pIngredient,@Nullable ItemLike assistItem,@Nullable ItemLike supportItem,ItemLike result) {
         return of(pIngredient,assistItem,supportItem,result,1);
+
     }
 
     public static CrucibleRecipeBuilder of(ItemLike pIngredient,@Nullable ItemLike assistItem,@Nullable ItemLike supportItem,ItemLike result,int count){
         Ingredient assistIngredient;
         Ingredient supportIngredient;
         if (assistItem == null){
-            assistIngredient = null;
+            assistIngredient = Ingredient.EMPTY;
         }else {
             assistIngredient = Ingredient.of(assistItem);
         }
         if (supportItem == null){
-            supportIngredient = null;
+            supportIngredient = Ingredient.EMPTY;
         }else {
             supportIngredient = Ingredient.of(supportItem);
         }
