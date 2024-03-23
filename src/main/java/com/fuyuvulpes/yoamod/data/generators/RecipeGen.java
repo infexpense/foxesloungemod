@@ -3,6 +3,7 @@ package com.fuyuvulpes.yoamod.data.generators;
 import com.fuyuvulpes.yoamod.core.registries.YoaBlocks;
 import com.fuyuvulpes.yoamod.core.registries.YoaItems;
 import com.fuyuvulpes.yoamod.game.server.crafting.CrucibleRecipeBuilder;
+import com.fuyuvulpes.yoamod.game.server.crafting.HammeringStationRecipeBuilder;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -98,16 +99,19 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
         stonecutterResultFromBase(output, RecipeCategory.MISC, YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_SLAB, YoaBlocks.CRYSTALIC_CREAKSTONE_TILES, 2);
         stonecutterResultFromBase(output, RecipeCategory.MISC, YoaBlocks.CRYSTALIC_CREAKSTONE_TILES_WALL, YoaBlocks.CRYSTALIC_CREAKSTONE_TILES);
 
-        CrucibleRecipeBuilder.of(Items.COPPER_INGOT,Items.IRON_INGOT, Items.GLOWSTONE, Items.COAL,2).timed(10).save(output, "coaliumz");
-        CrucibleRecipeBuilder.of(Items.COPPER_INGOT, Items.COPPER_INGOT,Items.BUCKET,YoaItems.MOLTEN_BRONZE,1).timed(10).save(output, "molten_bronze");
-        CrucibleRecipeBuilder.of(YoaItems.SILVER_INGOT,YoaItems.SILVER_INGOT,Items.BUCKET,YoaItems.MOLTEN_SILVER,1).timed(10).save(output, "molten_silver");
-        CrucibleRecipeBuilder.of(Items.GOLD_INGOT,Items.GOLD_INGOT,Items.BUCKET,YoaItems.MOLTEN_GOLD,1).timed(10).save(output, "molten_gold");
-        CrucibleRecipeBuilder.of(Items.IRON_INGOT,Items.IRON_INGOT,Items.BUCKET,YoaItems.MOLTEN_IRON,1).timed(10).save(output, "molten_iron");
-        CrucibleRecipeBuilder.of(Items.IRON_INGOT,Items.COAL,Items.BUCKET,YoaItems.MOLTEN_STEEL,1).timed(10).save(output, "molten_steel");
-        CrucibleRecipeBuilder.of(YoaItems.TITANIUM_INGOT,YoaItems.TITANIUM_INGOT,Items.BUCKET,YoaItems.MOLTEN_TITANIUM,1).timed(10).save(output, "molten_titanium");
-        CrucibleRecipeBuilder.of(Items.DIAMOND,Items.DIAMOND,Items.BUCKET,YoaItems.MOLTEN_DIAMOND,1).timed(10).save(output, "molten_diamond");
-        CrucibleRecipeBuilder.of(YoaItems.IOLITE,YoaItems.IOLITE,Items.BUCKET,YoaItems.MOLTEN_IOLITE,1).timed(10).save(output, "molten_iolite");
-        CrucibleRecipeBuilder.of(YoaItems.ALEXANDRITE,YoaItems.ALEXANDRITE,Items.BUCKET,YoaItems.MOLTEN_ALEXANDRITE,1).timed(10).save(output, "molten_alexandrite");
+        HammeringStationRecipeBuilder.of(Items.STICK,Items.STICK,1).setIngB(Items.STICK).setIngC(Items.STICK).setIngD(Items.STICK).save(output, "superstick");
+
+        CrucibleRecipeBuilder.of(Items.COPPER_INGOT,YoaItems.MOLTEN_BRONZE,1).setAssist(Ingredient.of(YoaItems.SILVER_INGOT)).setSupport(Ingredient.of(Items.BUCKET)).timed(10).save(output, "molten_bronze");
+        CrucibleRecipeBuilder.of(YoaItems.BRONZE_INGOT,YoaItems.MOLTEN_BRONZE,1).setSupport(Ingredient.of(Items.BUCKET)).timed(10).save(output, "molten_bronze2");
+        CrucibleRecipeBuilder.of(YoaItems.SILVER_INGOT,YoaItems.MOLTEN_SILVER,1).setSupport(Ingredient.of(Items.BUCKET)).timed(10).save(output, "molten_silver");
+        CrucibleRecipeBuilder.of(Items.GOLD_INGOT,YoaItems.MOLTEN_GOLD,1).setSupport(Ingredient.of(Items.BUCKET)).timed(10).save(output, "molten_gold");
+        CrucibleRecipeBuilder.of(Items.IRON_INGOT,YoaItems.MOLTEN_IRON,1).setSupport(Ingredient.of(Items.BUCKET)).timed(10).save(output, "molten_iron");
+        CrucibleRecipeBuilder.of(Items.COAL,YoaItems.MOLTEN_STEEL,1).setAssist(Ingredient.of(Items.IRON_INGOT)).setSupport(Ingredient.of(Items.BUCKET)).timed(10).save(output, "molten_steel");
+        CrucibleRecipeBuilder.of(YoaItems.STEEL_INGOT,YoaItems.MOLTEN_STEEL,1).setSupport(Ingredient.of(Items.BUCKET)).timed(10).save(output, "molten_steel2");
+        CrucibleRecipeBuilder.of(YoaItems.TITANIUM_INGOT,YoaItems.MOLTEN_TITANIUM,1).setSupport(Ingredient.of(Items.BUCKET)).timed(10).save(output, "molten_titanium");
+        CrucibleRecipeBuilder.of(Items.DIAMOND,YoaItems.MOLTEN_DIAMOND,1).setSupport(Ingredient.of(Items.BUCKET)).timed(10).save(output, "molten_diamond");
+        CrucibleRecipeBuilder.of(YoaItems.IOLITE,YoaItems.MOLTEN_IOLITE,1).setSupport(Ingredient.of(Items.BUCKET)).timed(10).save(output, "molten_iolite");
+        CrucibleRecipeBuilder.of(YoaItems.ALEXANDRITE,YoaItems.MOLTEN_ALEXANDRITE,1).setSupport(Ingredient.of(Items.BUCKET)).timed(10).save(output, "molten_alexandrite");
 
         oreSmelting(output, IRON_SMELTABLES, RecipeCategory.MISC, Items.IRON_INGOT, 0.7F, 200, "iron_ingot");
         oreSmelting(output, DIAMOND_SMELTABLES, RecipeCategory.MISC, Items.DIAMOND, 1.0F, 200, "diamond");

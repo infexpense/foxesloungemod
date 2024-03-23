@@ -5,7 +5,6 @@
     "item": "minecraft:iron_ingot"
   },
   "result": "yoamod:molten_iron",
-  "secondingredient": [],
   "supportitem": {
     "item": "minecraft:bucket"
   },

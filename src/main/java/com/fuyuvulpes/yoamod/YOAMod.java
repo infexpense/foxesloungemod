@@ -210,7 +210,7 @@ public class YOAMod {
 
         @SubscribeEvent
         public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-            event.registerBlockEntityRenderer(YoaBlockEntities.HAMMERING_STATION.get(), HammeringStationRenderer::new);
+            //event.registerBlockEntityRenderer(YoaBlockEntities.HAMMERING_STATION.get(), HammeringStationRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.PLANE_TYPE.get(), PlaneRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.BRAWLER_TYPE.get(), BrawlerRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.BRAWLING_TYPE.get(), BrawlerRenderer::new);

@@ -22,48 +22,45 @@ public class CrucibleRecipeBuilder implements RecipeBuilder {
     private int time = 200;
     private final ItemStack resultStack;
     private final Ingredient key;
-    private final Ingredient assist ;
-    private final Ingredient support;
+    private  Ingredient assist = Ingredient.EMPTY ;
+    private Ingredient support =  Ingredient.EMPTY;
     @javax.annotation.Nullable
     private String group;
     private boolean showNotification = true;
     private int xp = 10;
 
-    public CrucibleRecipeBuilder(Ingredient key, Ingredient assistItem, Ingredient supportItem, ItemLike pResult, int pCount) {
-        this(key,assistItem,supportItem,new ItemStack(pResult, pCount));
+    public CrucibleRecipeBuilder(Ingredient key, ItemLike pResult, int pCount) {
+        this(key,new ItemStack(pResult, pCount));
     }
 
 
-    public CrucibleRecipeBuilder(Ingredient keyItem,Ingredient assistItem, Ingredient supportItem, ItemStack result) {
+    public CrucibleRecipeBuilder(Ingredient keyItem, ItemStack result) {
         this.result = result.getItem();
         this.count = result.getCount();
         this.resultStack = result;
         this.key = keyItem;
+    }
+
+    public CrucibleRecipeBuilder setAssist(Ingredient assistItem) {
         this.assist = assistItem;
+        return this;
+    }
+
+    public CrucibleRecipeBuilder setSupport(Ingredient supportItem) {
         this.support = supportItem;
+        return this;
     }
 
 
-    public static CrucibleRecipeBuilder of(ItemLike pIngredient,@Nullable ItemLike assistItem,@Nullable ItemLike supportItem,ItemLike result) {
-        return of(pIngredient,assistItem,supportItem,result,1);
+    public static CrucibleRecipeBuilder of(ItemLike pIngredient,ItemLike result) {
+        return of(pIngredient,result,1);
 
     }
 
-    public static CrucibleRecipeBuilder of(ItemLike pIngredient,@Nullable ItemLike assistItem,@Nullable ItemLike supportItem,ItemLike result,int count){
-        Ingredient assistIngredient;
-        Ingredient supportIngredient;
-        if (assistItem == null){
-            assistIngredient = Ingredient.EMPTY;
-        }else {
-            assistIngredient = Ingredient.of(assistItem);
-        }
-        if (supportItem == null){
-            supportIngredient = Ingredient.EMPTY;
-        }else {
-            supportIngredient = Ingredient.of(supportItem);
-        }
+    public static CrucibleRecipeBuilder of(ItemLike pIngredient,ItemLike result,int count){
 
-        return new CrucibleRecipeBuilder(Ingredient.of(pIngredient),assistIngredient,supportIngredient,result,count);
+
+        return new CrucibleRecipeBuilder(Ingredient.of(pIngredient),result,count);
     }
     public CrucibleRecipeBuilder expReward(int experience){
         this.xp = experience;
@@ -102,12 +99,12 @@ public class CrucibleRecipeBuilder implements RecipeBuilder {
                 .requirements(AdvancementRequirements.Strategy.OR);
         CrucibleRecipe crucibleRecipe = new CrucibleRecipe(
                 Objects.requireNonNullElse(this.group, ""),
-                this.key,
-                this.assist,
-                this.support,
-                this.resultStack,
-                this.xp,
-                this.time
+                key,
+                assist,
+                support,
+                resultStack,
+                xp,
+                time
         );
         ResourceLocation newId = new ResourceLocation(pId + "_crucible");
         pRecipeOutput.accept(newId, crucibleRecipe,advancement$builder.build(pId.withPrefix("recipes/" + "crucible" + "/")));

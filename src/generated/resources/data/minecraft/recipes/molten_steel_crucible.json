@@ -2,11 +2,11 @@
   "type": "yoamod:crucible",
   "experience": 10.0,
   "ingredient": {
-    "item": "minecraft:iron_ingot"
+    "item": "minecraft:coal"
   },
   "result": "yoamod:molten_steel",
   "secondingredient": {
-    "item": "minecraft:coal"
+    "item": "minecraft:iron_ingot"
   },
   "supportitem": {
     "item": "minecraft:bucket"

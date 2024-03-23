@@ -19,9 +19,9 @@ public class HammeringStationSerializer<T extends HammeringStationRecipe> implem
                 instance -> instance.group(
                         ExtraCodecs.strictOptionalField(Codec.STRING, "group", "").forGetter(p_300832_ -> p_300832_.group),
                         Ingredient.CODEC_NONEMPTY.fieldOf("ingA").forGetter(p_300833_ -> p_300833_.ingA),
-                        Ingredient.CODEC.fieldOf("ingB").forGetter(p_300833_ -> p_300833_.ingB),
-                        Ingredient.CODEC.fieldOf("ingC").forGetter(p_300833_ -> p_300833_.ingC),
-                        Ingredient.CODEC.fieldOf("ingD").forGetter(p_300833_ -> p_300833_.ingD),
+                                ExtraCodecs.strictOptionalField(Ingredient.CODEC,"ingB",Ingredient.EMPTY).forGetter(p_300833_ -> p_300833_.ingB),
+                                ExtraCodecs.strictOptionalField(Ingredient.CODEC,"ingC",Ingredient.EMPTY).forGetter(p_300833_ -> p_300833_.ingC),
+                                ExtraCodecs.strictOptionalField(Ingredient.CODEC,"ingD",Ingredient.EMPTY).forGetter(p_300833_ -> p_300833_.ingD),
                         net.neoforged.neoforge.common.crafting.CraftingHelper.smeltingResultCodec().fieldOf("result").forGetter(p_300827_ -> p_300827_.result)
                 )
                         .apply(instance, factory::create)

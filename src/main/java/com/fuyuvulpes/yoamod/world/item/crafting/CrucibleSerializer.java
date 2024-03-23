@@ -20,8 +20,8 @@ public class CrucibleSerializer<T extends CrucibleRecipe> implements RecipeSeria
                 instance -> instance.group(
                                 ExtraCodecs.strictOptionalField(Codec.STRING, "group", "").forGetter(p_300832_ -> p_300832_.group),
                                 Ingredient.CODEC_NONEMPTY.fieldOf("ingredient").forGetter(p_300833_ -> p_300833_.ingredientA),
-                                Ingredient.CODEC.fieldOf("secondingredient").forGetter(p_300833_ -> p_300833_.ingredientB),
-                                Ingredient.CODEC.fieldOf("supportitem").forGetter(p_300833_ -> p_300833_.supportingItem),
+                                ExtraCodecs.strictOptionalField(Ingredient.CODEC,"secondingredient",Ingredient.EMPTY).forGetter(p_300833_ -> p_300833_.ingredientB),
+                                ExtraCodecs.strictOptionalField(Ingredient.CODEC,"supportitem", Ingredient.EMPTY).forGetter(p_300833_ -> p_300833_.supportingItem),
                                 net.neoforged.neoforge.common.crafting.CraftingHelper.smeltingResultCodec().fieldOf("result").forGetter(p_300827_ -> p_300827_.result),
                                 Codec.FLOAT.fieldOf("experience").orElse(0.0F).forGetter(p_300826_ -> p_300826_.experience),
                                 Codec.INT.fieldOf("time").forGetter(p_300834_ -> p_300834_.cookingTime)

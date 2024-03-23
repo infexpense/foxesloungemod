@@ -21,45 +21,43 @@ public class HammeringStationRecipeBuilder implements RecipeBuilder {
     private final int count;
     private final ItemStack resultStack;
     private final Ingredient ingA;
-    private Ingredient ingB;
-    private Ingredient ingC;
-    private Ingredient ingD;
+    private Ingredient ingB = Ingredient.EMPTY;
+    private Ingredient ingC = Ingredient.EMPTY;
+    private Ingredient ingD = Ingredient.EMPTY;
     @javax.annotation.Nullable
     private String group;
     private boolean showNotification = true;
 
-    public HammeringStationRecipeBuilder(Ingredient key,ItemLike pResult, int pCount) {
-        this(key,new ItemStack(pResult, pCount));
+    public HammeringStationRecipeBuilder(Ingredient ingA, ItemLike pResult, int pCount) {
+        this(ingA, new ItemStack(pResult, pCount));
     }
 
-
-    public HammeringStationRecipeBuilder( Ingredient ingA, ItemStack result) {
+    public HammeringStationRecipeBuilder(Ingredient ingA, ItemStack result) {
         this.result = result.getItem();
         this.count = result.getCount();
         this.resultStack = result;
         this.ingA = ingA;
     }
 
-
-    public static HammeringStationRecipeBuilder of(ItemLike pIngredient, ItemLike result) {
-        return of(pIngredient, result,1);
+    public static HammeringStationRecipeBuilder of(ItemLike ingA, ItemLike result) {
+        return of(ingA,result,1);
     }
 
-    public static HammeringStationRecipeBuilder of(ItemLike pIngredient, ItemLike result,int count){
-        return new HammeringStationRecipeBuilder(Ingredient.of(pIngredient),result,count);
+    public static HammeringStationRecipeBuilder of(ItemLike ingA, ItemLike result, int count){
+        return new HammeringStationRecipeBuilder(Ingredient.of(ingA),result,count);
     }
 
-    public HammeringStationRecipeBuilder withIngB(ItemLike item){
+    public HammeringStationRecipeBuilder setIngB(ItemLike item){
         this.ingB = Ingredient.of(item);
         return this;
     }
 
-    public HammeringStationRecipeBuilder withIngC(ItemLike item){
+    public HammeringStationRecipeBuilder setIngC(ItemLike item){
         this.ingC = Ingredient.of(item);
         return this;
     }
 
-    public HammeringStationRecipeBuilder withIngD(ItemLike item){
+    public HammeringStationRecipeBuilder setIngD(ItemLike item){
         this.ingD = Ingredient.of(item);
         return this;
     }

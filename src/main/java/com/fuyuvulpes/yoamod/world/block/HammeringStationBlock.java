@@ -1,12 +1,20 @@
 package com.fuyuvulpes.yoamod.world.block;
 
 import com.fuyuvulpes.yoamod.core.registries.YoaBlockEntities;
+import com.fuyuvulpes.yoamod.game.client.screens.HammeringStationMenu;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.StonecutterMenu;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -21,8 +29,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class HammeringStationBlock extends BaseEntityBlock {
+public class HammeringStationBlock extends Block {
     public static final MapCodec<HammeringStationBlock> CODEC = simpleCodec(HammeringStationBlock::new);
+    private static final Component TRANSLATION = Component.translatable("container.stonecutter");
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final VoxelShape SHAPE_COMMON = Block.box(0, 0, 0, 16, 13, 16);
@@ -34,7 +43,7 @@ public class HammeringStationBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
+    protected MapCodec<HammeringStationBlock> codec() {
         return CODEC;
     }
 
@@ -59,11 +68,12 @@ public class HammeringStationBlock extends BaseEntityBlock {
         }
     }
 
-    @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        return YoaBlockEntities.HAMMERING_STATION.get().create(p_153215_,p_153216_);
+    @Nullable
+    public MenuProvider getMenuProvider(BlockState state, Level pLevel, BlockPos pPos) {
+        return new SimpleMenuProvider((id, playerInventory, player) -> new HammeringStationMenu(id, playerInventory, ContainerLevelAccess.create(pLevel, pPos)), TRANSLATION);
     }
+
 
     @Override
     public boolean isPathfindable(BlockState p_60475_, BlockGetter p_60476_, BlockPos p_60477_, PathComputationType p_60478_) {
