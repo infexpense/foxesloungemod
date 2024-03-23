@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "yoamod:adamantite_ingot"
+  },
+  "base": {
+    "item": "yoamod:alexandrite_claymore"
+  },
+  "result": {
+    "item": "yoamod:adamantite_claymore"
+  },
+  "template": {
+    "item": "yoamod:adamantite_upgrade_smithing_template"
+  }
+}

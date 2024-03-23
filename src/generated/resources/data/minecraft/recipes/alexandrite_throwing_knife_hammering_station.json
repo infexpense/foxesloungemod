@@ -1,0 +1,11 @@
+{
+  "type": "yoamod:hammering_station",
+  "group": "hammering_station_group",
+  "ingA": {
+    "item": "yoamod:molten_alexandrite"
+  },
+  "ingC": {
+    "item": "minecraft:stick"
+  },
+  "result": "yoamod:alexandrite_throwing_knife"
+}

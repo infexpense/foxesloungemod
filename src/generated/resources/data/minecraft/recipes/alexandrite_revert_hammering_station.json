@@ -1,0 +1,8 @@
+{
+  "type": "yoamod:hammering_station",
+  "group": "hammering_station_group",
+  "ingA": {
+    "item": "yoamod:molten_alexandrite"
+  },
+  "result": "yoamod:alexandrite"
+}

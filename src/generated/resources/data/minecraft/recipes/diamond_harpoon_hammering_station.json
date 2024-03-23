@@ -1,0 +1,14 @@
+{
+  "type": "yoamod:hammering_station",
+  "group": "hammering_station_group",
+  "ingA": {
+    "item": "yoamod:molten_diamond"
+  },
+  "ingB": {
+    "item": "minecraft:stick"
+  },
+  "ingC": {
+    "item": "minecraft:stick"
+  },
+  "result": "yoamod:diamond_harpoon"
+}

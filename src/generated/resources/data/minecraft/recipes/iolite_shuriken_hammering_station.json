@@ -1,0 +1,11 @@
+{
+  "type": "yoamod:hammering_station",
+  "group": "hammering_station_group",
+  "ingA": {
+    "item": "yoamod:molten_iolite"
+  },
+  "ingB": {
+    "item": "minecraft:string"
+  },
+  "result": "yoamod:iolite_shuriken"
+}

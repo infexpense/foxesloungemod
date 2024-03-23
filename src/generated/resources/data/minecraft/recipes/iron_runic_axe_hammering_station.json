@@ -1,0 +1,17 @@
+{
+  "type": "yoamod:hammering_station",
+  "group": "hammering_station_group",
+  "ingA": {
+    "item": "yoamod:molten_iron"
+  },
+  "ingB": {
+    "item": "yoamod:molten_iron"
+  },
+  "ingC": {
+    "item": "minecraft:stick"
+  },
+  "ingD": {
+    "item": "yoamod:rune_crystal"
+  },
+  "result": "yoamod:iron_runic_axe"
+}

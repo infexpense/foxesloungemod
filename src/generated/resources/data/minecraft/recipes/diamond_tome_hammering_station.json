@@ -1,0 +1,14 @@
+{
+  "type": "yoamod:hammering_station",
+  "group": "hammering_station_group",
+  "ingA": {
+    "item": "yoamod:molten_diamond"
+  },
+  "ingB": {
+    "item": "minecraft:book"
+  },
+  "ingD": {
+    "item": "yoamod:rune_crystal"
+  },
+  "result": "yoamod:diamond_tome"
+}

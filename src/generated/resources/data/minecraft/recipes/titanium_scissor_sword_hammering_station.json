@@ -1,0 +1,14 @@
+{
+  "type": "yoamod:hammering_station",
+  "group": "hammering_station_group",
+  "ingA": {
+    "item": "yoamod:molten_titanium"
+  },
+  "ingC": {
+    "item": "minecraft:stick"
+  },
+  "ingD": {
+    "item": "yoamod:molten_titanium"
+  },
+  "result": "yoamod:titanium_scissors_sword"
+}

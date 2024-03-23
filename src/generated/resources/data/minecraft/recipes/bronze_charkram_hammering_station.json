@@ -1,0 +1,14 @@
+{
+  "type": "yoamod:hammering_station",
+  "group": "hammering_station_group",
+  "ingA": {
+    "item": "yoamod:molten_bronze"
+  },
+  "ingC": {
+    "item": "minecraft:stick"
+  },
+  "ingD": {
+    "item": "yoamod:molten_bronze"
+  },
+  "result": "yoamod:bronze_chakram"
+}

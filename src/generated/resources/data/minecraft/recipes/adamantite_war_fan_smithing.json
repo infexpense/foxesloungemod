@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "yoamod:adamantite_ingot"
+  },
+  "base": {
+    "item": "yoamod:alexandrite_war_fan"
+  },
+  "result": {
+    "item": "yoamod:adamantite_war_fan"
+  },
+  "template": {
+    "item": "yoamod:adamantite_upgrade_smithing_template"
+  }
+}

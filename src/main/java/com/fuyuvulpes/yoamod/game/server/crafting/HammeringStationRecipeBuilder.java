@@ -38,15 +38,6 @@ public class HammeringStationRecipeBuilder implements RecipeBuilder {
         this.resultStack = result;
         this.ingA = ingA;
     }
-
-    public static HammeringStationRecipeBuilder of(ItemLike ingA, ItemLike result) {
-        return of(ingA,result,1);
-    }
-
-    public static HammeringStationRecipeBuilder of(ItemLike ingA, ItemLike result, int count){
-        return new HammeringStationRecipeBuilder(Ingredient.of(ingA),result,count);
-    }
-
     public HammeringStationRecipeBuilder setIngB(ItemLike item){
         this.ingB = Ingredient.of(item);
         return this;
@@ -61,6 +52,15 @@ public class HammeringStationRecipeBuilder implements RecipeBuilder {
         this.ingD = Ingredient.of(item);
         return this;
     }
+
+    public static HammeringStationRecipeBuilder of(ItemLike ingA, ItemLike result) {
+        return of(ingA,result,1);
+    }
+
+    public static HammeringStationRecipeBuilder of(ItemLike ingA, ItemLike result, int count){
+        return new HammeringStationRecipeBuilder(Ingredient.of(ingA),result,count);
+    }
+
 
     @Override
     public RecipeBuilder unlockedBy(String pName, Criterion<?> pCriterion) {
@@ -87,11 +87,11 @@ public class HammeringStationRecipeBuilder implements RecipeBuilder {
                 .requirements(AdvancementRequirements.Strategy.OR);
         HammeringStationRecipe hammeringStationRecipe = new HammeringStationRecipe(
                 Objects.requireNonNullElse(this.group, "hammering_station_group"),
-                this.ingA,
-                this.ingB,
-                this.ingC,
-                this.ingD,
-                this.resultStack
+                ingA,
+                ingB,
+                ingC,
+                ingD,
+                resultStack
         );
         ResourceLocation newId = new ResourceLocation(pId + "_hammering_station");
         pRecipeOutput.accept(newId, hammeringStationRecipe,advancement$builder.build(pId.withPrefix("recipes/" + "hammering_station" + "/")));
