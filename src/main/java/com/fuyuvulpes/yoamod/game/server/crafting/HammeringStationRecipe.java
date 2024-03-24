@@ -34,9 +34,9 @@ public class HammeringStationRecipe implements Recipe<Container> {
     public boolean matches(Container pContainer, Level pLevel) {
 
         boolean conA = this.ingA.test(pContainer.getItem(0));
-        boolean conB = this.ingB == null || this.ingB.test(pContainer.getItem(1));
-        boolean conC = this.ingC == null || this.ingC.test(pContainer.getItem(2));
-        boolean conD = this.ingD == null || this.ingD.test(pContainer.getItem(3));
+        boolean conB = this.ingB.test(pContainer.getItem(1));
+        boolean conC = this.ingC.test(pContainer.getItem(2));
+        boolean conD = this.ingD.test(pContainer.getItem(3));
         return conA && conB && conC && conD;
     }
 

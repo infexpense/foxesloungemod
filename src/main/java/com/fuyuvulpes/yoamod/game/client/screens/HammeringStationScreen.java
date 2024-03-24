@@ -65,8 +65,8 @@ import java.util.List;
         protected void renderTooltip(GuiGraphics guiGraphics, int x, int y) {
             super.renderTooltip(guiGraphics, x, y);
             if (this.displayRecipes) {
-                int i = this.leftPos + 52;
-                int j = this.topPos + 14;
+                int i = this.leftPos + 49;
+                int j = this.topPos + 7;
                 int k = this.startIndex + 12;
                 List<RecipeHolder<HammeringStationRecipe>> list = this.menu.getRecipes();
                 for (int l = this.startIndex; l < k && l < this.menu.getNumRecipes(); ++l) {
@@ -115,8 +115,8 @@ import java.util.List;
         public boolean mouseClicked(double mouseX, double mouseY, int buttonId) {
             this.scrolling = false;
             if (this.displayRecipes) {
-                int i = this.leftPos + 52;
-                int j = this.topPos + 14;
+                int i = this.leftPos + 49;
+                int j = this.topPos + 7;
                 int k = this.startIndex + 12;
                 for (int l = this.startIndex; l < k; ++l) {
                     int i1 = l - this.startIndex;
@@ -130,8 +130,8 @@ import java.util.List;
                         return true;
                     }
                 }
-                i = this.leftPos + 119;
-                j = this.topPos + 14;
+                i = this.leftPos + 116;
+                j = this.topPos + 8;
                 if (mouseX >= (double) i && mouseX < (double) (i + 12) && mouseY >= (double) j && mouseY < (double) (j + 54)) {
                     this.scrolling = true;
                     // allows to click on the slide bar to change the position (without drag)
@@ -145,8 +145,8 @@ import java.util.List;
         @Override
         public boolean mouseDragged(double mouseX, double mouseY, int buttonId, double dragX, double dragY) {
             if (this.scrolling && isScrollBarActive()) {
-                int i = this.topPos + 14;
-                int j = i + 54;
+                int i = this.topPos + 7;
+                int j = i + 49;
                 this.scrollOffs = ((float) mouseY - (float) i - 7.5f) / ((float) (j - i) - 15f);
                 this.scrollOffs = Mth.clamp(this.scrollOffs, 0f, 1f);
                 this.startIndex = (int) ((double) (this.scrollOffs * (float) this.getOffscreenRows()) + 0.5d) * 4;
