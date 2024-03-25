@@ -85,6 +85,15 @@ public class HammeringStationRecipe implements Recipe<Container> {
         return YoaRecipes.HAMMERING_STATION_TYPE.get();
     }
 
+
+
+    public static class Type implements RecipeType<HammeringStationRecipe> {
+        public static final Type INSTANCE = new Type();
+        public static final String ID = "hammering_station";
+    }
+
+
+
     public interface Factory<T extends HammeringStationRecipe> {
         T create(String group, Ingredient ingA, Ingredient ingB, Ingredient ingC, Ingredient ingD, ItemStack result);
     }

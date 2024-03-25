@@ -37,12 +37,12 @@ public class Magic implements FeatureElement {
 
     public void targetInit(Entity caster){
         if (spellType.targetsSelf()){
-            targets.add(caster);
+            addTargets(caster);
         }
         if (spellType.targetsAllies()){
             caster.level().players().forEach(player -> {
                 if (player.isCloseEnough(caster, 32) && player.isAlliedTo(caster)){
-                    targets.add(player);
+                    addTargets(player);
                 }
             });
         }

@@ -115,8 +115,8 @@ public class BlisswoodTrunkPlacement extends TrunkPlacer {
                 if (pRandom.nextFloat() > 0.46F || l == length || l == 0){
                     attachmentList.add(new FoliagePlacer.FoliageAttachment(currentPos,0,true));
                 }
-                if (pRandom.nextFloat() < 0.30F){
-                    attachmentList.addAll(smallBranch(pLevel,pBlockSetter,pRandom,UniformInt.of(2,6).sample(pRandom),currentPos,pConfig,xDir,zDir));
+                if (pRandom.nextFloat() > 0.60F){
+                    attachmentList.addAll(smallBranch(pLevel,pBlockSetter,pRandom,UniformInt.of(4,13).sample(pRandom),currentPos,pConfig,xDir,zDir));
                 }
 
 

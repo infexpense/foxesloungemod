@@ -17,7 +17,7 @@ public class ModSpawnRules {
             EntityType<? extends Mob> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom
     ) {
         return pLevel.getDifficulty() != Difficulty.PEACEFUL
-                && checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom) && pLevel.getLevel().dimension() == ModDimensions.THE_CREAKS_LEVEL_KEY;
+                && checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom) && pLevel.getLevel().dimension() == ModDimensions.THE_CREAKS;
 
     }
 }

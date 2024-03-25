@@ -1,11 +1,9 @@
 package com.fuyuvulpes.yoamod.world.item.weaponry;
 
-import com.fuyuvulpes.yoamod.world.item.AttackAnim;
-import com.fuyuvulpes.yoamod.world.item.AttackAnims;
-import com.fuyuvulpes.yoamod.world.item.WeaponItem;
-import com.fuyuvulpes.yoamod.world.item.WeaponStats;
+import com.fuyuvulpes.yoamod.world.item.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
+import net.neoforged.neoforge.common.ToolAction;
 
 public class DaggerItem extends WeaponItem {
     public DaggerItem(Tier tier, Properties properties) {
@@ -16,4 +14,11 @@ public class DaggerItem extends WeaponItem {
     public AttackAnim getAttackAnimation(ItemStack itemStack) {
         return AttackAnims.SWING;
     }
+
+    @Override
+    public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
+        return YoaToolActions.DAGGER_ACTIONS.contains(toolAction);
+    }
+
+
 }

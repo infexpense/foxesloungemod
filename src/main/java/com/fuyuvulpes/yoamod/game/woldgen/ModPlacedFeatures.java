@@ -50,7 +50,7 @@ public class ModPlacedFeatures {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context,BLISSWOOD_PLACED,configuredFeatures.getOrThrow(ModConfigFeatures.BLISSWOOD_KEY),
-                VegetationPlacements.treePlacement(PlacementUtils.countExtra(1,0.1F,2),
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(0,0.005F,1),
                         YoaBlocks.BLISSWOOD_SAPLING.get()));
 
         register(context, SILVER_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfigFeatures.SILVER_ORE_KEY),

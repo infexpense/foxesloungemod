@@ -83,7 +83,7 @@ public class HammeringStationMenu extends AbstractContainerMenu {
                     access.execute((world, pos) -> {
                         long l = world.getGameTime();
                         if (lastSoundTime != l) {
-                            world.playSound(null, pos, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 1f, 1f);
+                            world.playSound(null, pos, SoundEvents.SMITHING_TABLE_USE, SoundSource.BLOCKS, 0.7f, 1.6f);
                             lastSoundTime = l;
                         }
                     });
@@ -91,7 +91,7 @@ public class HammeringStationMenu extends AbstractContainerMenu {
                 }
 
                 private List<ItemStack> getRelevantItems() {
-                    return List.of(inputA.getItem());
+                    return List.of(inputA.getItem(),inputB.getItem(),inputC.getItem(),inputD.getItem());
                 }
             });
             for (int i = 0; i < 3; ++i) {
@@ -118,7 +118,7 @@ public class HammeringStationMenu extends AbstractContainerMenu {
         }
 
         public boolean hasInputItem() {
-            return this.inputA.hasItem() && this.inputB.hasItem() && this.inputC.hasItem() && this.inputD.hasItem() && !this.recipes.isEmpty();
+            return this.inputA.hasItem() && !this.recipes.isEmpty();
         }
 
         @Override

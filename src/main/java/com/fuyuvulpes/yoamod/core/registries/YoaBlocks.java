@@ -234,6 +234,15 @@ public class YoaBlocks {
             .sound(SoundType.DEEPSLATE).noLootTable()));
 
 
+    public static final DeferredBlock<Block> CREAKS_PORTAL = registerBlock("creaks_portal", () -> new CreaksPortalBlock(BlockBehaviour.Properties.of()
+            .mapColor(MapColor.COLOR_BLACK)
+            .noCollission()
+            .lightLevel(p_187435_ -> 15)
+            .strength(-1.0F, 3600000.0F)
+            .noLootTable()
+            .pushReaction(PushReaction.BLOCK)));
+
+
 
     public static final DeferredBlock<Block> CREAKSTONE = registerBlock("creakstone", () -> new Block(BlockBehaviour.Properties.of()
             .requiresCorrectToolForDrops()

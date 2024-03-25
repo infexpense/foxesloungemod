@@ -23,11 +23,11 @@ import java.util.OptionalLong;
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
 public class ModDimensions {
-    public static final ResourceKey<LevelStem> THE_CREAKS_KEY = ResourceKey.create(Registries.LEVEL_STEM,
+    private static final ResourceKey<LevelStem> THE_CREAKS_KEY = ResourceKey.create(Registries.LEVEL_STEM,
             new ResourceLocation(MODID, "the_creaks"));
-    public static final ResourceKey<Level> THE_CREAKS_LEVEL_KEY = ResourceKey.create(Registries.DIMENSION,
+    public static final ResourceKey<Level> THE_CREAKS = ResourceKey.create(Registries.DIMENSION,
             new ResourceLocation(MODID, "the_creaks"));
-    public static final ResourceKey<DimensionType> THE_CREAKS_DIM_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE,
+    private static final ResourceKey<DimensionType> THE_CREAKS_DIM_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE,
             new ResourceLocation(MODID, "the_creaks"));
 
 

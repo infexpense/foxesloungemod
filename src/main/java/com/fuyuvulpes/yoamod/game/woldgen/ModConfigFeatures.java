@@ -22,13 +22,18 @@ import net.minecraft.world.level.levelgen.GeodeLayerSettings;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
+import net.minecraft.world.level.levelgen.feature.featuresize.ThreeLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.CherryFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FancyFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.RandomSpreadFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
 import java.util.List;
+import java.util.OptionalInt;
 
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
@@ -62,12 +67,12 @@ public class ModConfigFeatures {
         register(context, BLISSWOOD_KEY,Feature.TREE,new TreeConfiguration.TreeConfigurationBuilder(
 
                 BlockStateProvider.simple(YoaBlocks.BLISSWOOD_LOG.get()),
-                new BlisswoodTrunkPlacement(8,2,6,BlockStateProvider.simple(YoaBlocks.BLISSWOOD_WOOD.get())),
+                new BlisswoodTrunkPlacement(12,4,10,BlockStateProvider.simple(YoaBlocks.BLISSWOOD_WOOD.get())),
 
                 BlockStateProvider.simple(YoaBlocks.BLISSWOOD_LEAVES.get()),
-                new BlobFoliagePlacer(ConstantInt.of(3),ConstantInt.of(2),3),
+                new CherryFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), ConstantInt.of(5), 0.15F, 0.3F, 0.3F, 0.4F),
 
-                new TwoLayersFeatureSize(1,0,3)
+                new TwoLayersFeatureSize(1,0,1)
         ).build());
 
 

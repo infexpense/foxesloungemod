@@ -106,11 +106,8 @@ public class WeaponItem extends BaseToolItem{
             public boolean applyForgeHandTransform(PoseStack poseStack, LocalPlayer player, HumanoidArm arm, ItemStack item, float partialTick, float equipProcess, float swingProcess) {
                 int i = arm == HumanoidArm.RIGHT ? 1 : -1;
                 if (player.swinging) {
-
-
-
                     if (getAttackAnimation(item) == AttackAnims.STAB) {
-                        float stabPos = swingProcess <= 0.36 ? (float) Math.pow(7, swingProcess) : (float) (1 - Math.pow(swingProcess, 2));
+                        float stabPos = (float) (Math.sin(swingProcess * 2.6F) * 2);
                         poseStack.translate(0.1, -0.52, -0.52 - stabPos);
                         poseStack.mulPose(Axis.YP.rotationDegrees(110.0F));
                         poseStack.mulPose(Axis.XP.rotationDegrees(0.0F));
@@ -120,10 +117,10 @@ public class WeaponItem extends BaseToolItem{
 
 
                     } else if (getAttackAnimation(item) == AttackAnims.SWING) {
-                        float swing_pos = (1 - (3 * swingProcess)) * i;
-                        float swing_angle = (-90 + (220 * (float) Math.min(Math.pow(swingProcess + 0.5, 4),1))) * i;
-                        poseStack.translate(swing_pos, -0.52, -1.52);
-                        poseStack.mulPose(Axis.YP.rotationDegrees(110.0F + swing_angle));
+                        float swing_pos = (1 - (2 * swingProcess)) * i;
+                        float swing_angle = (-60 + (190 * swingProcess)) * i;
+                        poseStack.translate(swing_pos, -0.52, -0.82);
+                        poseStack.mulPose(Axis.YP.rotationDegrees(50.0F + swing_angle));
                         poseStack.mulPose(Axis.XP.rotationDegrees(arm == HumanoidArm.RIGHT ? 0.0F : 180.0F));
                         poseStack.mulPose(Axis.ZP.rotationDegrees(-90.0F));
                         poseStack.scale(1.5F, 1.5F, 1.5F);
@@ -131,12 +128,12 @@ public class WeaponItem extends BaseToolItem{
 
 
                     } else if (getAttackAnimation(item) == AttackAnims.SLAM) {
-                        float slamPos = (1.50F - (1 * swingProcess));
-                        float slamAngle = -30.0F + -50.0F * swingProcess;
-                        poseStack.translate(i * 0.1, -0.52 + slamPos, -0.52);
-                        poseStack.mulPose(Axis.YP.rotationDegrees(0.0F));
+                        float slamPos = (1.50F - (3 * swingProcess));
+                        float slamAngle = -5.0F + -10.0F * swingProcess;
+                        poseStack.translate(i * 0.1, 0.12 + slamPos, -0.52 - swingProcess);
+                        poseStack.mulPose(Axis.YP.rotationDegrees(i * 2.0F));
                         poseStack.mulPose(Axis.XP.rotationDegrees(slamAngle));
-                        poseStack.mulPose(Axis.ZP.rotationDegrees(0.0F));
+                        poseStack.mulPose(Axis.ZP.rotationDegrees(i * 5.0F));
                     }
                 }
 

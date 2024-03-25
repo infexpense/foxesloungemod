@@ -32,7 +32,7 @@ public class ScissorsSwordItem extends WeaponItem {
 
     @Override
     public AttackAnim getAttackAnimation(ItemStack itemStack) {
-        return new Random().nextFloat() > 0.5 ? AttackAnims.SWING : AttackAnims.STAB;
+        return AttackAnims.STAB;
     }
 
 }

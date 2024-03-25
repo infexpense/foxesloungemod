@@ -86,6 +86,12 @@ public class CrucibleRecipe implements Recipe<Container> {
         return experience;
     }
 
+
+    public static class Type implements RecipeType<CrucibleRecipe> {
+        public static final Type INSTANCE = new Type();
+        public static final String ID = "crucible";
+    }
+
     public interface Factory<T extends CrucibleRecipe> {
         T create(String group, Ingredient ingredient, Ingredient secondingredient, Ingredient supportitem, ItemStack result, float experience, int time);
     }

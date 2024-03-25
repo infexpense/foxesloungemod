@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.world.item;
 
-import com.fuyuvulpes.yoamod.game.server.teleporter.CreaksTeleporter;
+import com.fuyuvulpes.yoamod.world.CreaksPortalForcer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
@@ -60,7 +60,7 @@ public class ReturnTalismanItem extends Item {
 
             ServerLevel portalDimension = minecraftserver.getLevel(resourcekey);
             if (portalDimension != null && !player.isPassenger()) {
-                player.changeDimension(portalDimension, new CreaksTeleporter(pPos,true));
+                player.changeDimension(portalDimension, new CreaksPortalForcer(pPos,true));
                 stack.shrink(1);
             }
         }

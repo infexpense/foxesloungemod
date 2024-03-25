@@ -1,4 +1,4 @@
-package com.fuyuvulpes.yoamod.game.server.teleporter;
+package com.fuyuvulpes.yoamod.world;
 
 import com.fuyuvulpes.yoamod.game.woldgen.ModDimensions;
 import net.minecraft.core.BlockPos;
@@ -11,11 +11,11 @@ import net.neoforged.neoforge.common.util.ITeleporter;
 
 import java.util.function.Function;
 
-public class CreaksTeleporter implements ITeleporter {
+public class CreaksPortalForcer implements ITeleporter {
     public static BlockPos thisPos;
     public static boolean insideDimension;
 
-    public CreaksTeleporter(BlockPos pos, boolean insideDim) {
+    public CreaksPortalForcer(BlockPos pos, boolean insideDim) {
         thisPos = pos;
         insideDimension = insideDim;
     }
@@ -50,7 +50,7 @@ public class CreaksTeleporter implements ITeleporter {
         }
 
 
-        if (destinationWorld.dimension() == ModDimensions.THE_CREAKS_LEVEL_KEY) {
+        if (destinationWorld.dimension() == ModDimensions.THE_CREAKS) {
 
 
             for (BlockPos fillPos : BlockPos.betweenClosed(destinationPos.west(3).south(3), destinationPos.above(3).north(3).east(3))) {

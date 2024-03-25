@@ -12,6 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.common.ToolAction;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.List;
@@ -33,6 +34,11 @@ public class SingleScissorSwordItem extends WeaponItem {
             stack1.setCount(0);
             return InteractionResultHolder.success(stack2);
         }
+        /*
+        if (pUsedHand == InteractionHand.OFF_HAND){
+
+        }
+        */
         return InteractionResultHolder.fail(stack);
     }
 
@@ -47,6 +53,9 @@ public class SingleScissorSwordItem extends WeaponItem {
 
     @Override
     public AttackAnim getAttackAnimation(ItemStack itemStack) {
-        return new Random().nextFloat() > 0.62F ? AttackAnims.SWING : AttackAnims.STAB;
+        return  AttackAnims.SWING;
     }
+
+
+
 }

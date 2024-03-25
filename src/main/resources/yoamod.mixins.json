@@ -4,10 +4,11 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "yoamod.refmap.json",
   "mixins": [
+    "PlayerMixin",
+    "ServerPlayerMixin",
     "access.BlockEntityTypeAccess"
   ],
   "client": [
-
   ],
   "server": [
   ],

@@ -132,7 +132,7 @@ import java.util.List;
                 }
                 i = this.leftPos + 116;
                 j = this.topPos + 8;
-                if (mouseX >= (double) i && mouseX < (double) (i + 12) && mouseY >= (double) j && mouseY < (double) (j + 54)) {
+                if (mouseX >= (double) i && mouseX < (double) (i + 12) && mouseY >= (double) j && mouseY < (double) (j + 54) && this.menu.getNumRecipes() > 20) {
                     this.scrolling = true;
                     // allows to click on the slide bar to change the position (without drag)
                     this.scrollOffs = Mth.clamp((float) (mouseY - j - 7.5f) / 40f, 0f, 1f);
