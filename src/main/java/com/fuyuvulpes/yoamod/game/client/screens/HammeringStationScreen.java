@@ -124,7 +124,7 @@ import java.util.List;
                     double d1 = mouseY - (double) (j + i1 / 4 * 18);
                     assert this.minecraft != null && this.minecraft.player != null;
                     if (d0 >= 0d && d1 >= 0d && d0 < 16d && d1 < 18d && this.menu.clickMenuButton(this.minecraft.player, l)) {
-                        Minecraft.getInstance().getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.ANVIL_USE, 1f));
+                        Minecraft.getInstance().getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_STONECUTTER_SELECT_RECIPE, 1f));
                         assert this.minecraft.gameMode != null;
                         this.minecraft.gameMode.handleInventoryButtonClick((this.menu).containerId, l);
                         return true;

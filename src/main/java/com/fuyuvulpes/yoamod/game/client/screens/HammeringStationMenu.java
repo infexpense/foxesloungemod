@@ -39,7 +39,7 @@ public class HammeringStationMenu extends AbstractContainerMenu {
         private final Slot inputD;
         private final Slot resultSlot;
         private Runnable slotUpdateListener = () -> {};
-        private final Container container = new SimpleContainer(5) {
+        private final Container container = new SimpleContainer(4) {
             @Override
             public void setChanged() {
                 super.setChanged();
@@ -72,14 +72,18 @@ public class HammeringStationMenu extends AbstractContainerMenu {
                 public void onTake(Player playerIn, ItemStack stack) {
                     stack.onCraftedBy(playerIn.level(), playerIn, stack.getCount());
                     resultContainer.awardUsedRecipes(playerIn, getRelevantItems());
-                    ItemStack itemstack = inputA.remove(1);
-                    if (!itemstack.isEmpty()) {
+                    ItemStack itemStackA = inputA.remove(1);
+                    ItemStack itemStackB = inputB.remove(1);
+                    ItemStack itemStackC = inputC.remove(1);
+                    ItemStack itemStackD = inputD.remove(1);
+
+                    if (!itemStackA.isEmpty() || !itemStackB.isEmpty() || !itemStackC.isEmpty() || !itemStackD.isEmpty()) {
                         setupResultSlot();
                     }
                     access.execute((world, pos) -> {
                         long l = world.getGameTime();
                         if (lastSoundTime != l) {
-                            world.playSound(null, pos, SoundEvents.UI_STONECUTTER_TAKE_RESULT, SoundSource.BLOCKS, 1f, 1f);
+                            world.playSound(null, pos, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 1f, 1f);
                             lastSoundTime = l;
                         }
                     });
@@ -118,12 +122,13 @@ public class HammeringStationMenu extends AbstractContainerMenu {
         }
 
         @Override
-        public boolean clickMenuButton(Player playerIn, int id) {
-            if (isValidRecipeIndex(id)) {
-                this.selectedRecipeIndex.set(id);
+        public boolean clickMenuButton(Player playerIn, int pId) {
+            if (pId >= 0 && pId < this.recipes.size()) {
+                this.selectedRecipeIndex.set(pId);
                 setupResultSlot();
+                return true;
             }
-            return true;
+            else{return false;}
         }
 
         private boolean isValidRecipeIndex(int id) {
@@ -142,7 +147,7 @@ public class HammeringStationMenu extends AbstractContainerMenu {
             }
             if (stackB.getItem() != this.ingB.getItem()) {
                 this.ingB = stackB.copy();
-                setupRecipeList(inventoryIn, stackA);
+                setupRecipeList(inventoryIn, stackB);
             }
             if (stackC.getItem() != this.ingC.getItem()) {
                 this.ingC = stackC.copy();
