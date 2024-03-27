@@ -16,6 +16,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
+import static com.fuyuvulpes.yoamod.YOAMod.MODID;
+
 public class HammeringStationRecipeBuilder implements RecipeBuilder {
     private final Item result;
     private final int count;
@@ -79,22 +81,24 @@ public class HammeringStationRecipeBuilder implements RecipeBuilder {
 
     }
 
+
     @Override
     public void save(RecipeOutput pRecipeOutput, ResourceLocation pId) {
+        System.out.println(pId);
         Advancement.Builder advancement$builder = pRecipeOutput.advancement()
                 .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pId))
                 .rewards(AdvancementRewards.Builder.recipe(pId))
                 .requirements(AdvancementRequirements.Strategy.OR);
         HammeringStationRecipe hammeringStationRecipe = new HammeringStationRecipe(
                 Objects.requireNonNullElse(this.group, "hammering_station_group"),
-                ingA,
-                ingB,
-                ingC,
-                ingD,
-                resultStack
+                this.ingA,
+                this.ingB,
+                this.ingC,
+                this.ingD,
+                this.resultStack
         );
-        ResourceLocation newId = new ResourceLocation(pId + "_hammering_station");
-        pRecipeOutput.accept(newId, hammeringStationRecipe,advancement$builder.build(pId.withPrefix("recipes/" + "hammering_station" + "/")));
+        ResourceLocation newId = new ResourceLocation(MODID,pId.getPath() + "_hammering_station");
+        pRecipeOutput.accept(newId, hammeringStationRecipe,null);
     }
 }
 

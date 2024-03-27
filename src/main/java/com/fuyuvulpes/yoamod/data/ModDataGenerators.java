@@ -3,7 +3,6 @@ package com.fuyuvulpes.yoamod.data;
 
 import com.fuyuvulpes.yoamod.data.generators.*;
 import com.fuyuvulpes.yoamod.data.generators.advancement.YoaCoreAdvancements;
-import com.klikli_dev.modonomicon.api.datagen.LanguageProviderCache;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -49,12 +48,6 @@ public class ModDataGenerators {
         generator.addProvider(event.includeServer(),
                 new WorldGenDataGen(packOutput, lookupProvider));
 
-        var enUsCache = new LanguageProviderCache("en_us");
-        var esEsCache = new LanguageProviderCache("es_es");;
-
-        generator.addProvider(event.includeServer(), new YoaGuideBookProvider(generator.getPackOutput(), MODID,
-                enUsCache
-        ));
 
 
 

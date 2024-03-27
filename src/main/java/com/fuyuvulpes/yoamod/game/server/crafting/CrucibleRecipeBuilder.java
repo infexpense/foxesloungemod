@@ -16,6 +16,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
+import static com.fuyuvulpes.yoamod.YOAMod.MODID;
+
 public class CrucibleRecipeBuilder implements RecipeBuilder {
     private final Item result;
     private final int count;
@@ -91,22 +93,25 @@ public class CrucibleRecipeBuilder implements RecipeBuilder {
         return this.result;
     }
 
+
+
     @Override
     public void save(RecipeOutput pRecipeOutput, ResourceLocation pId) {
+
         Advancement.Builder advancement$builder = pRecipeOutput.advancement()
                 .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pId))
                 .rewards(AdvancementRewards.Builder.recipe(pId))
                 .requirements(AdvancementRequirements.Strategy.OR);
         CrucibleRecipe crucibleRecipe = new CrucibleRecipe(
                 Objects.requireNonNullElse(this.group, ""),
-                key,
-                assist,
-                support,
-                resultStack,
-                xp,
-                time
+                this.key,
+                this.assist,
+                this.support,
+                this.resultStack,
+                this.xp,
+                this.time
         );
-        ResourceLocation newId = new ResourceLocation(pId + "_crucible");
-        pRecipeOutput.accept(newId, crucibleRecipe,advancement$builder.build(pId.withPrefix("recipes/" + "crucible" + "/")));
+        ResourceLocation newId = new ResourceLocation(MODID,pId.getPath() + "_crucible");
+        pRecipeOutput.accept(newId, crucibleRecipe,null);
     }
 }
