@@ -53,6 +53,18 @@ public class CrucibleRecipe implements Recipe<Container> {
         return NonNullList.of(ingredientA,ingredientB,supportingItem);
     }
 
+    public Ingredient getIngredientA() {
+        return ingredientA;
+    }
+
+    public Ingredient getIngredientB() {
+        return ingredientB;
+    }
+
+    public Ingredient getSupportingItem() {
+        return supportingItem;
+    }
+
     @Override
     public boolean canCraftInDimensions(int pWidth, int pHeight) {
         return true;

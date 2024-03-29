@@ -1,0 +1,26 @@
+{
+  "parent": "yoamod:main/root",
+  "criteria": {
+    "unlock_right_away": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.yoamod.test_ver.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "item": "yoamod:adamantite_block"
+    },
+    "title": {
+      "translate": "advancement.yoamod.test_ver"
+    }
+  },
+  "requirements": [
+    [
+      "unlock_right_away"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

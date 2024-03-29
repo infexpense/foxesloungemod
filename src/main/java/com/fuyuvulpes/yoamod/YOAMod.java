@@ -2,22 +2,16 @@ package com.fuyuvulpes.yoamod;
 
 import com.fuyuvulpes.yoamod.core.ModRegistries;
 import com.fuyuvulpes.yoamod.core.YOAModCommonConfig;
-import com.fuyuvulpes.yoamod.game.client.entities.model.PlaneModel;
+import com.fuyuvulpes.yoamod.core.registries.*;
+import com.fuyuvulpes.yoamod.game.client.entities.model.*;
 import com.fuyuvulpes.yoamod.game.client.entities.renderers.*;
 import com.fuyuvulpes.yoamod.game.client.particle.BleedingParticle;
 import com.fuyuvulpes.yoamod.game.client.screens.CrucibleScreen;
 import com.fuyuvulpes.yoamod.game.client.screens.HammeringStationScreen;
 import com.fuyuvulpes.yoamod.mixin.access.BlockEntityTypeAccess;
 import com.fuyuvulpes.yoamod.world.block.state.ModWoodTypes;
-import com.fuyuvulpes.yoamod.world.entity.ArmedSpider;
-import com.fuyuvulpes.yoamod.world.entity.Blockling;
-import com.fuyuvulpes.yoamod.world.entity.BrawlerEntity;
-import com.fuyuvulpes.yoamod.world.entity.BrawlingEntity;
+import com.fuyuvulpes.yoamod.world.entity.*;
 import com.fuyuvulpes.yoamod.world.item.weaponry.WarFanItem;
-import com.fuyuvulpes.yoamod.game.client.entities.model.ArmedSpiderModel;
-import com.fuyuvulpes.yoamod.game.client.entities.model.BlocklingModel;
-import com.fuyuvulpes.yoamod.game.client.entities.model.BrawlerModel;
-import com.fuyuvulpes.yoamod.core.registries.*;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
@@ -30,7 +24,6 @@ import net.minecraft.client.resources.model.Material;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.FoliageColor;
@@ -40,7 +33,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.Event;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModLoadingContext;
@@ -55,9 +47,7 @@ import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
-import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.SpawnPlacementRegisterEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.registries.NewRegistryEvent;
 
@@ -221,6 +211,7 @@ public class YOAMod {
             event.registerEntityRenderer(YoaEntityTypes.BRAWLING_TYPE.get(), BrawlerRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.BLOCKLING_TYPE.get(), BlocklingRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.ARMED_SPIDER_TYPE.get(), ArmedSpiderRenderer::new);
+            event.registerEntityRenderer(YoaEntityTypes.FALLEN_SAMURAI.get(), FallenSamuraiRenderer::new);
         }
 
 
@@ -230,6 +221,7 @@ public class YOAMod {
             event.registerLayerDefinition(BrawlerModel.LAYER_LOCATION,BrawlerModel::createBodyLayer);
             event.registerLayerDefinition(BlocklingModel.LAYER_LOCATION, BlocklingModel::createBodyLayer);
             event.registerLayerDefinition(ArmedSpiderModel.LAYER_LOCATION, ArmedSpiderModel::createBodyLayer);
+            event.registerLayerDefinition(FallenSamuraiModel.LAYER_LOCATION, FallenSamuraiModel::createBodyLayer);
 
         }
 
@@ -287,6 +279,7 @@ public class YOAMod {
             event.put(YoaEntityTypes.BRAWLING_TYPE.get(), BrawlingEntity.createAttributes().build());
             event.put(YoaEntityTypes.BLOCKLING_TYPE.get(), Blockling.createAttributes().build());
             event.put(YoaEntityTypes.ARMED_SPIDER_TYPE.get(), ArmedSpider.createAttributes().build());
+            event.put(YoaEntityTypes.FALLEN_SAMURAI.get(), FallenSamurai.createAttributes().build());
         }
 
 
@@ -312,6 +305,11 @@ public class YOAMod {
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Blockling::canSpawn,
+                    SpawnPlacementRegisterEvent.Operation.OR);
+            event.register(YoaEntityTypes.FALLEN_SAMURAI.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    FallenSamurai::canSpawn,
                     SpawnPlacementRegisterEvent.Operation.OR);
         }
 

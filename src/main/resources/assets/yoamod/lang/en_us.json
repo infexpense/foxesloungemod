@@ -524,6 +524,7 @@
   "item.yoamod.brawling_spawn_egg": "Brawling Spawn Egg",
   "item.yoamod.blockling_spawn_egg": "Blockling Spawn Egg",
   "item.yoamod.armed_spider_spawn_egg": "Armed Spider Spawn Egg",
+  "item.yoamod.fallen_samurai_spawn_egg": "Fallen Samurai Spawn Egg",
 
   "item.yoamod.plane_item": "Airplane",
 
@@ -570,6 +571,9 @@
   "advancement.yoamod.root": "Your Own Adventure",
   "advancement.yoamod.root.description": "The Beginning",
 
+  "advancement.yoamod.test_ver": "YOA Tester!",
+  "advancement.yoamod.test_ver.description": "Thank you for trying out the Test version of Your Own Adventure! More features to come!!",
+
   "advancement.yoamod.silver": "Weaker Iron",
   "advancement.yoamod.silver.description": "Obtain Silver and smelt it into an Ingot",
 
@@ -588,9 +592,18 @@
   "advancement.yoamod.titanium": "Beyond Netherite",
   "advancement.yoamod.titanium.description": "Find and obtain Titanium in any of its forms",
 
+  "advancement.yoamod.iolite": "Sea-Blue Precious Gem",
+  "advancement.yoamod.iolite.description": "Obtain Iolite",
+
+  "advancement.yoamod.fallen_samurai": "Setting Souls Free",
+  "advancement.yoamod.fallen_samurai.description": "Give a proper end to this Samurai's existence",
+
   "entity.yoamod.plane": "Plane",
   "entity.yoamod.brawler": "Brawler",
   "entity.yoamod.brawling": "Brawling",
   "entity.yoamod.blockling": "Blockling",
-  "entity.yoamod.armed_spider": "Armed Spider"
+  "entity.yoamod.armed_spider": "Armed Spider",
+
+  "gui.yoamod.hammering_station": "Hammering Station",
+  "gui.yoamod.crucible": "Crucible"
 }

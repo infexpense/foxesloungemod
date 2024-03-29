@@ -21,10 +21,15 @@ import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ModBlockLoot extends BlockLootSubProvider {
+    private List<Block> knownBlocks = YoaBlocks.BLOCKS.getEntries().stream().map(Holder::value).collect(Collectors.toList());
+
     public ModBlockLoot() {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags());
     }
@@ -139,11 +144,18 @@ public class ModBlockLoot extends BlockLootSubProvider {
         this.add(pFlowerPot, p_304146_ -> this.createPotFlowerItemTable(((FlowerPotBlock)p_304146_).getPotted()));
     }
 
+    private void filterList(){
+        List<Block> filters = List.of(
+
+        );
+        this.knownBlocks.removeAll(filters);
+    }
+
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-
-        return YoaBlocks.BLOCKS.getEntries().stream().map(Holder::value).collect(Collectors.toList());
+        filterList();
+        return this.knownBlocks;
     }
 
 }

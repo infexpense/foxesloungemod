@@ -61,7 +61,6 @@ public class CrucibleRecipeBuilder implements RecipeBuilder {
 
     public static CrucibleRecipeBuilder of(ItemLike pIngredient,ItemLike result,int count){
 
-
         return new CrucibleRecipeBuilder(Ingredient.of(pIngredient),result,count);
     }
     public CrucibleRecipeBuilder expReward(int experience){
@@ -97,11 +96,6 @@ public class CrucibleRecipeBuilder implements RecipeBuilder {
 
     @Override
     public void save(RecipeOutput pRecipeOutput, ResourceLocation pId) {
-
-        Advancement.Builder advancement$builder = pRecipeOutput.advancement()
-                .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pId))
-                .rewards(AdvancementRewards.Builder.recipe(pId))
-                .requirements(AdvancementRequirements.Strategy.OR);
         CrucibleRecipe crucibleRecipe = new CrucibleRecipe(
                 Objects.requireNonNullElse(this.group, ""),
                 this.key,

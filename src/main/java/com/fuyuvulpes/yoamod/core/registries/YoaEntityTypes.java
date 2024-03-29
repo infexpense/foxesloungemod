@@ -1,9 +1,6 @@
 package com.fuyuvulpes.yoamod.core.registries;
 
-import com.fuyuvulpes.yoamod.world.entity.ArmedSpider;
-import com.fuyuvulpes.yoamod.world.entity.Blockling;
-import com.fuyuvulpes.yoamod.world.entity.BrawlerEntity;
-import com.fuyuvulpes.yoamod.world.entity.BrawlingEntity;
+import com.fuyuvulpes.yoamod.world.entity.*;
 import com.fuyuvulpes.yoamod.world.entity.vehicle.PlaneEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -28,6 +25,11 @@ public class YoaEntityTypes {
             () -> EntityType.Builder.<BrawlerEntity>of(BrawlerEntity::new, MobCategory.MONSTER)
                     .sized(4.0f,4.5F)
                     .build(new ResourceLocation(MODID,"brawler").toString()));
+
+    public static final DeferredHolder<EntityType<?>,EntityType<FallenSamurai>> FALLEN_SAMURAI = ENTITY.register("fallen_samurai",
+            () -> EntityType.Builder.<FallenSamurai>of(FallenSamurai::new, MobCategory.MONSTER)
+                    .sized(0.8f,2.2F)
+                    .build(new ResourceLocation(MODID,"fallen_samurai").toString()));
     public static final DeferredHolder<EntityType<?>,EntityType<BrawlingEntity>> BRAWLING_TYPE = ENTITY.register("brawling",
             () -> EntityType.Builder.<BrawlingEntity>of(BrawlingEntity::new, MobCategory.MONSTER)
                     .sized(1.2f,1.5F)

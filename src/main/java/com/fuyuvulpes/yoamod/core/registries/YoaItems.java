@@ -25,7 +25,6 @@ public class YoaItems {
     public static final DeferredItem<Item> BLISSWOOD_HANGING_SIGN = ITEMS.register(
             "blisswood_hanging_sign", () ->  new HangingSignItem(YoaBlocks.BLISSWOOD_HANGING_SIGN.get(), YoaBlocks.BLISSWOOD_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16))
     );
-    public static final DeferredItem<Item> RETURN_TALISMAN =  ITEMS.register("return_talisman", () -> new ReturnTalismanItem(new Item.Properties()));
 
 
     public static final DeferredItem<Item> CRYSTALIC_SHARD = ITEMS.registerSimpleItem("crystalic_shard", new Item.Properties());
@@ -599,8 +598,12 @@ public class YoaItems {
 
     public static final DeferredItem<Item> BLOCKLING_SPAWN_EGG =  ITEMS.register("blockling_spawn_egg",
             () -> new DeferredSpawnEggItem(YoaEntityTypes.BLOCKLING_TYPE::get,0x71A35F,0x71BFA7,new Item.Properties()));
+
     public static final DeferredItem<Item> ARMED_SPIDER_SPAWN_EGG =  ITEMS.register("armed_spider_spawn_egg",
             () -> new DeferredSpawnEggItem(YoaEntityTypes.ARMED_SPIDER_TYPE::get,0x908554,0xDBDF9C,new Item.Properties()));
+
+    public static final DeferredItem<Item> FALLEN_SAMURAI_SPAWN_EGG =  ITEMS.register("fallen_samurai_spawn_egg",
+            () -> new DeferredSpawnEggItem(YoaEntityTypes.FALLEN_SAMURAI::get,0x65706E,0x74606E,new Item.Properties()));
 
 
 

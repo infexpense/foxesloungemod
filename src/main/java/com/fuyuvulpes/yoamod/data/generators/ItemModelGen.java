@@ -47,13 +47,13 @@ public class ItemModelGen extends ItemModelProvider {
         spawnEggItem(YoaItems.BRAWLING_SPAWN_EGG);
         spawnEggItem(YoaItems.BLOCKLING_SPAWN_EGG);
         spawnEggItem(YoaItems.ARMED_SPIDER_SPAWN_EGG);
+        spawnEggItem(YoaItems.FALLEN_SAMURAI_SPAWN_EGG);
 
         simpleItem(YoaItems.ETHERFRUCTUS);
         simpleItem(YoaItems.PLANE_ITEM);
         simpleItem(YoaItems.CRYSTALIC_SHARD);
         simpleItem(YoaItems.RUNE_CRYSTAL);
         simpleItem(YoaItems.ADAMANTITE_TEMPLATE);
-        simpleItem(YoaItems.RETURN_TALISMAN);
 
         simpleItem(YoaItems.ADAMANTITE_INGOT);
         simpleItem(YoaItems.ADAMANTITE_NUGGET);

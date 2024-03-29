@@ -18,7 +18,7 @@ public class YoaTabs {
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> YOA_MAIN = TABS.register("yoa_main", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.OP_BLOCKS)
-            .icon(YoaItems.RETURN_TALISMAN.get()::getDefaultInstance)
+            .icon(YoaItems.RUNE_CRYSTAL.get()::getDefaultInstance)
             .title(Component.translatable("itemGroup.yoa_main"))
 
             .displayItems((parameters, output) -> {
@@ -636,6 +636,7 @@ public class YoaTabs {
                 output.accept(YoaItems.BRAWLING_SPAWN_EGG.get());
                 output.accept(YoaItems.BLOCKLING_SPAWN_EGG.get());
                 output.accept(YoaItems.ARMED_SPIDER_SPAWN_EGG.get());
+                output.accept(YoaItems.FALLEN_SAMURAI_SPAWN_EGG.get());
             }).build());
 
 

@@ -1,0 +1,60 @@
+{
+  "parent": "yoamod:main/titanium",
+  "criteria": {
+    "deepslate_titanium_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:iolite_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "titanium_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:iolite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "titanium_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:iolite_block"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.yoamod.iolite.description"
+    },
+    "icon": {
+      "item": "yoamod:iolite"
+    },
+    "title": {
+      "translate": "advancement.yoamod.iolite"
+    }
+  },
+  "requirements": [
+    [
+      "titanium_ingot",
+      "titanium_ore",
+      "deepslate_titanium_ore"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,5 +1,5 @@
 {
-  "parent": "yoamod:main/alloys",
+  "parent": "yoamod:main/silver",
   "criteria": {
     "steel": {
       "conditions": {

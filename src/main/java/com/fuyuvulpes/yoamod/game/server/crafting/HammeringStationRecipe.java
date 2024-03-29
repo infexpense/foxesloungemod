@@ -60,6 +60,22 @@ public class HammeringStationRecipe implements Recipe<Container> {
         return NonNullList.of(ingA,ingB,ingC,ingD);
     }
 
+    public Ingredient getIngA() {
+        return ingA;
+    }
+
+    public Ingredient getIngB() {
+        return ingB;
+    }
+
+    public Ingredient getIngC() {
+        return ingC;
+    }
+
+    public Ingredient getIngD() {
+        return ingD;
+    }
+
     @Override
     public boolean isSpecial() {
         return true;

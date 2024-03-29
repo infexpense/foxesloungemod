@@ -1,17 +1,17 @@
 package com.fuyuvulpes.yoamod.data.generators.advancement;
 
 import com.fuyuvulpes.yoamod.core.registries.YoaBlocks;
+import com.fuyuvulpes.yoamod.core.registries.YoaEntityTypes;
 import com.fuyuvulpes.yoamod.core.registries.YoaItems;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementType;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.advancements.critereon.PlayerTrigger;
-import net.minecraft.advancements.critereon.RecipeCraftedTrigger;
+import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -38,6 +38,21 @@ public class YoaCoreAdvancements implements AdvancementProvider.AdvancementGener
                 )
                 .addCriterion("unlock_right_away", PlayerTrigger.TriggerInstance.tick())
                 .save(consumer, new ResourceLocation(MODID,"main/root"),existingFileHelper);
+
+        var testingVersion = Advancement.Builder.advancement()
+                .parent(root)
+                .display(
+                        YoaBlocks.ADAMANTITE_BLOCK.get(),
+                        Component.translatable("advancement.yoamod.test_ver"),
+                        Component.translatable("advancement.yoamod.test_ver.description"),
+                        null,
+                        AdvancementType.GOAL,
+                        true /* showToast */,
+                        true /* announceChat */,
+                        false /* hidden */
+                )
+                .addCriterion("unlock_right_away", PlayerTrigger.TriggerInstance.tick())
+                .save(consumer, new ResourceLocation(MODID,"main/test_ver"),existingFileHelper);
 
         var silver = Advancement.Builder.advancement()
                 .parent(root)
@@ -105,7 +120,7 @@ public class YoaCoreAdvancements implements AdvancementProvider.AdvancementGener
 
 
         var steel = Advancement.Builder.advancement()
-                .parent(alloys)
+                .parent(silver)
                 .display(
                         YoaItems.STEEL_INGOT.get(),
                         Component.translatable("advancement.yoamod.steel"),
@@ -120,7 +135,7 @@ public class YoaCoreAdvancements implements AdvancementProvider.AdvancementGener
                 .save(consumer, new ResourceLocation(MODID,"main/steel"),existingFileHelper);
 
         var titanium = Advancement.Builder.advancement()
-                .parent(root)
+                .parent(steel)
                 .display(
                         YoaItems.TITANIUM_PICKAXE.get(),
                         Component.translatable("advancement.yoamod.titanium"),
@@ -141,6 +156,39 @@ public class YoaCoreAdvancements implements AdvancementProvider.AdvancementGener
                 .save(consumer, new ResourceLocation(MODID,"main/titanium"),existingFileHelper);
 
 
+        var iolite = Advancement.Builder.advancement()
+                .parent(titanium)
+                .display(
+                        YoaItems.IOLITE.get(),
+                        Component.translatable("advancement.yoamod.iolite"),
+                        Component.translatable("advancement.yoamod.iolite.description"),
+                        null,
+                        AdvancementType.TASK,
+                        true,
+                        true,
+                        false
+                )
+                .requirements(AdvancementRequirements.Strategy.OR)
+                .addCriterion("titanium_ingot",InventoryChangeTrigger.TriggerInstance.hasItems(YoaItems.IOLITE.get()))
+                .addCriterion("titanium_ore",InventoryChangeTrigger.TriggerInstance.hasItems(YoaBlocks.IOLITE_BLOCK.get()))
+                .addCriterion("deepslate_titanium_ore",InventoryChangeTrigger.TriggerInstance.hasItems(YoaBlocks.IOLITE_ORE.get()))
+                .save(consumer, new ResourceLocation(MODID,"main/iolite"),existingFileHelper);
+
+
+        var fallenSamurai = Advancement.Builder.advancement()
+                .parent(root)
+                .display(
+                        YoaItems.BRONZE_KATANA.get(),
+                        Component.translatable("advancement.yoamod.fallen_samurai"),
+                        Component.translatable("advancement.yoamod.fallen_samurai.description"),
+                        null,
+                        AdvancementType.TASK,
+                        true,
+                        true,
+                        false
+                )
+                .addCriterion("killed_fallen_samurai", KilledTrigger.TriggerInstance.entityKilledPlayer(EntityPredicate.Builder.entity().of(YoaEntityTypes.FALLEN_SAMURAI.get())))
+                .save(consumer, new ResourceLocation(MODID,"main/fallen_samurai"),existingFileHelper);
 
 /*
         var name = Advancement.Builder.advancement()

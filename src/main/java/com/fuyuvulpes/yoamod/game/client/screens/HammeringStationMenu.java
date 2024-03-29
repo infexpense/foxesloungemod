@@ -147,15 +147,15 @@ public class HammeringStationMenu extends AbstractContainerMenu {
             }
             if (stackB.getItem() != this.ingB.getItem()) {
                 this.ingB = stackB.copy();
-                setupRecipeList(inventoryIn, stackB);
+                setupRecipeList(inventoryIn, stackA);
             }
             if (stackC.getItem() != this.ingC.getItem()) {
                 this.ingC = stackC.copy();
-                setupRecipeList(inventoryIn, stackC);
+                setupRecipeList(inventoryIn, stackA);
             }
             if (stackD.getItem() != this.ingD.getItem()) {
                 this.ingD = stackD.copy();
-                setupRecipeList(inventoryIn, stackD);
+                setupRecipeList(inventoryIn, stackA);
             }
         }
 

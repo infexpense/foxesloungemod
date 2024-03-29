@@ -84,11 +84,6 @@ public class HammeringStationRecipeBuilder implements RecipeBuilder {
 
     @Override
     public void save(RecipeOutput pRecipeOutput, ResourceLocation pId) {
-        System.out.println(pId);
-        Advancement.Builder advancement$builder = pRecipeOutput.advancement()
-                .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pId))
-                .rewards(AdvancementRewards.Builder.recipe(pId))
-                .requirements(AdvancementRequirements.Strategy.OR);
         HammeringStationRecipe hammeringStationRecipe = new HammeringStationRecipe(
                 Objects.requireNonNullElse(this.group, "hammering_station_group"),
                 this.ingA,
