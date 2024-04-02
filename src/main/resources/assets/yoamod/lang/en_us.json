@@ -525,6 +525,7 @@
   "item.yoamod.blockling_spawn_egg": "Blockling Spawn Egg",
   "item.yoamod.armed_spider_spawn_egg": "Armed Spider Spawn Egg",
   "item.yoamod.fallen_samurai_spawn_egg": "Fallen Samurai Spawn Egg",
+  "item.yoamod.fennec_fox_spawn_egg": "Fennec Fox Spawn Egg",
 
   "item.yoamod.plane_item": "Airplane",
 
@@ -603,6 +604,7 @@
   "entity.yoamod.brawling": "Brawling",
   "entity.yoamod.blockling": "Blockling",
   "entity.yoamod.armed_spider": "Armed Spider",
+  "entity.yoamod.fennec_fox": "Fennec Fox",
 
   "gui.yoamod.hammering_station": "Hammering Station",
   "gui.yoamod.crucible": "Crucible"

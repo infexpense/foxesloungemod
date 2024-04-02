@@ -45,6 +45,11 @@ public class YoaEntityTypes {
                     .sized(2.0F,1.7F)
                     .build(new ResourceLocation(MODID,"armed_spider").toString()));
 
+    public static final DeferredHolder<EntityType<?>,EntityType<FennecFox>> FENNEC_FOX_TYPE = ENTITY.register("fennec_fox",
+            () -> EntityType.Builder.<FennecFox>of(FennecFox::new, MobCategory.CREATURE)
+                    .sized(2.0F,1.7F)
+                    .build(new ResourceLocation(MODID,"fennec_fox").toString()));
+
 
 
 
