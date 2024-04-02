@@ -1,10 +1,8 @@
-package com.fuyuvulpes.yoamod.game.client.screens;
+package com.fuyuvulpes.yoamod.game.client.gui;
 
-import com.fuyuvulpes.yoamod.core.registries.YoaBlocks;
 import com.fuyuvulpes.yoamod.core.registries.YoaMenus;
 import com.fuyuvulpes.yoamod.core.registries.YoaRecipes;
 import com.fuyuvulpes.yoamod.game.server.crafting.HammeringStationRecipe;
-import net.minecraft.core.NonNullList;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Container;
@@ -12,15 +10,11 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.StonecutterRecipe;
 import net.minecraft.world.level.Level;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class HammeringStationMenu extends AbstractContainerMenu {

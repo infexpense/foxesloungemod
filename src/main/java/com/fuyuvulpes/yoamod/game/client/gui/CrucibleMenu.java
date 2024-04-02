@@ -1,4 +1,4 @@
-package com.fuyuvulpes.yoamod.game.client.screens;
+package com.fuyuvulpes.yoamod.game.client.gui;
 
 import com.fuyuvulpes.yoamod.core.registries.YoaMenus;
 import com.fuyuvulpes.yoamod.core.registries.YoaRecipes;

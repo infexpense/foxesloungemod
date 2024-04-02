@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "yoamod:raw_big_meat"
+  },
+  "result": "yoamod:cooked_big_meat"
+}

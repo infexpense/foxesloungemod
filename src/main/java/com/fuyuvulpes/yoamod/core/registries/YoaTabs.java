@@ -525,6 +525,11 @@ public class YoaTabs {
             .title(Component.translatable("itemGroup.yoa_edibles"))
             .displayItems((parameters, output) -> {
                 output.accept(YoaItems.ETHERFRUCTUS.get());
+                output.accept(YoaItems.RAW_BIG_MEAT);
+                output.accept(YoaItems.COOKED_BIG_MEAT);
+                output.accept(YoaItems.SLICED_RAW_MEAT);
+                output.accept(YoaItems.SLICED_COOKED_MEAT);
+                output.accept(YoaItems.HAMBURGER);
             }).build());
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> YOA_MISC = TABS.register("yoa_misc", () -> CreativeModeTab.builder()
@@ -532,7 +537,7 @@ public class YoaTabs {
             .icon(YoaItems.ADAMANTITE_CHESTPLATE.get()::getDefaultInstance)
             .title(Component.translatable("itemGroup.yoa_misc"))
             .displayItems((parameters, output) -> {
-                output.accept(YoaItems.PLANE_ITEM.get());
+                //output.accept(YoaItems.PLANE_ITEM.get());
 
                 output.accept(YoaItems.TITANIUM_AXE.get());
                 output.accept(YoaItems.TITANIUM_PICKAXE.get());
@@ -583,6 +588,13 @@ public class YoaTabs {
 
                 output.accept(YoaItems.RUNE_CRYSTAL.get());
                 output.accept(YoaItems.CRYSTALIC_SHARD.get());
+
+                output.accept(YoaItems.ANCIENT_GEMSTONE.get());
+                output.accept(YoaItems.ECTOPLASM.get());
+                output.accept(YoaItems.INSECT_LEG.get());
+                output.accept(YoaItems.TUSK.get());
+
+
                 output.accept(YoaItems.ADAMANTITE_TEMPLATE.get());
                 output.accept(YoaItems.ADAMANTITE_INGOT.get());
                 output.accept(YoaItems.ADAMANTITE_NUGGET.get());

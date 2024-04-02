@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "yoamod:creaks_gateway_temple",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 115111407,
+    "spacing": 64,
+    "separation": 16
+  }
+}

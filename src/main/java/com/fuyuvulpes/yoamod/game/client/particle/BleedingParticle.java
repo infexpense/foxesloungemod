@@ -17,11 +17,9 @@ public class BleedingParticle extends TextureSheetParticle {
         this.setSprite(pSpriteSet.get(this.random.nextInt(2), 12));
         this.rotSpeed = (float)Math.toRadians(this.random.nextBoolean() ? -30.0 : 30.0);
         this.lifetime = 300;
-        this.gravity = 7.5E-4F;
         float f = this.random.nextBoolean() ? 0.05F : 0.075F;
         this.quadSize = f;
         this.setSize(f, f);
-        this.friction = 1.0F;
     }
 
     @Override
@@ -40,7 +38,7 @@ public class BleedingParticle extends TextureSheetParticle {
 
         if (!this.removed) {
             float f = (float)(300 - this.lifetime);
-            this.yd -= (double)this.gravity;
+            this.yd = -0.2;
             this.oRoll = this.roll;
             this.roll += this.rotSpeed / 20.0F;
             this.move(this.xd, this.yd, this.zd);

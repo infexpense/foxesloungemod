@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 // An example config class. This is not required, but it's a good idea to have one to keep your config organized.
 // Demonstrates how to use Forge's config APIs
 @Mod.EventBusSubscriber(modid = YOAMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class YOAModCommonConfig
+public class YOACommonConfig
 {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
@@ -30,7 +30,7 @@ public class YOAModCommonConfig
 
     private static final ModConfigSpec.IntValue STARTING_MANA = BUILDER
             .comment("The Starting Mana for a Player")
-            .defineInRange("startingMana", 100, 0, 3000);
+            .defineInRange("startingMana", 30, 0, 3000);
 
     public static final ModConfigSpec.ConfigValue<String> MAGIC_NUMBER_INTRODUCTION = BUILDER
             .comment("What you want the introduction message to be for the magic number")
@@ -39,7 +39,7 @@ public class YOAModCommonConfig
     // a list of strings that are treated as resource locations for items
     private static final ModConfigSpec.ConfigValue<List<? extends String>> ITEM_STRINGS = BUILDER
             .comment("A list of items to log on common setup.")
-            .defineListAllowEmpty("items", List.of("minecraft:iron_ingot"), YOAModCommonConfig::validateItemName);
+            .defineListAllowEmpty("items", List.of("minecraft:iron_ingot"), YOACommonConfig::validateItemName);
 
     public static final ModConfigSpec SPEC = BUILDER.build();
     public static boolean armedSpiderDebuff;

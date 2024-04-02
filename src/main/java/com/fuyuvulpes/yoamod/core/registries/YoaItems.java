@@ -3,7 +3,13 @@ package com.fuyuvulpes.yoamod.core.registries;
 import com.fuyuvulpes.yoamod.world.food.YoaFoods;
 import com.fuyuvulpes.yoamod.world.item.*;
 import com.fuyuvulpes.yoamod.world.item.weaponry.*;
+import com.fuyuvulpes.yoamod.world.magic.mana.IMana;
+import com.fuyuvulpes.yoamod.world.magic.mana.ManaHandler;
+import com.fuyuvulpes.yoamod.world.magic.mana.ManaHelper;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -19,6 +25,20 @@ public class YoaItems {
 
     public static final DeferredItem<Item> PLANE_ITEM = ITEMS.register("plane_item", () -> new PlaneItem(new Item.Properties().stacksTo(1)));
 
+    public static  final DeferredItem<Item> ANCIENT_GEMSTONE = ITEMS.registerSimpleItem("ancient_gemstone");
+    public static  final DeferredItem<Item> RAW_BIG_MEAT = ITEMS.registerSimpleItem("raw_big_meat", new Item.Properties()
+            .food(YoaFoods.BIG_MEAT));
+    public static  final DeferredItem<Item> COOKED_BIG_MEAT = ITEMS.registerSimpleItem("cooked_big_meat", new Item.Properties()
+            .food(YoaFoods.COOKED_BIG_MEAT));
+    public static  final DeferredItem<Item> SLICED_RAW_MEAT = ITEMS.registerSimpleItem("sliced_raw_meat", new Item.Properties()
+            .food(YoaFoods.SLICED_MEAT));
+    public static  final DeferredItem<Item> SLICED_COOKED_MEAT = ITEMS.registerSimpleItem("sliced_cooked_meat", new Item.Properties()
+            .food(YoaFoods.SLICED_COOKED_MEAT));
+    public static  final DeferredItem<Item> HAMBURGER = ITEMS.registerSimpleItem("hamburger", new Item.Properties()
+            .food(YoaFoods.HAMBURGER));
+    public static  final DeferredItem<Item> ECTOPLASM = ITEMS.registerSimpleItem("ectoplasm");
+    public static  final DeferredItem<Item> INSECT_LEG = ITEMS.registerSimpleItem("insect_leg");
+    public static  final DeferredItem<Item> TUSK = ITEMS.registerSimpleItem("tusk");
     public static final DeferredItem<Item> BLISSWOOD_SIGN = ITEMS.register(
             "blisswood_sign", () -> new SignItem(new Item.Properties().stacksTo(16), YoaBlocks.BLISSWOOD_SIGN.get(), YoaBlocks.BLISSWOOD_WALL_SIGN.get()));
 
@@ -586,7 +606,16 @@ public class YoaItems {
 
     //EDIBLES
 
-    public static final DeferredItem<Item> ETHERFRUCTUS = ITEMS.register("etherfructus", () -> new Item(new Item.Properties().food(YoaFoods.ETHERFRUCTUS)));
+    public static final DeferredItem<Item> ETHERFRUCTUS = ITEMS.register("etherfructus", () -> new Item(new Item.Properties().food(YoaFoods.ETHERFRUCTUS)){
+        @Override
+        public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity) {
+            if (pLivingEntity instanceof Player player){
+                IMana iMana = ManaHelper.getManaData(player);
+                iMana.addMana(8);
+            }
+            return super.finishUsingItem(pStack, pLevel, pLivingEntity);
+        }
+    });
 
 
     //SPAWN EGGS

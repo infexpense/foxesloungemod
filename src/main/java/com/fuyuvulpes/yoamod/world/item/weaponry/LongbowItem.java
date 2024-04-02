@@ -1,6 +1,7 @@
 package com.fuyuvulpes.yoamod.world.item.weaponry;
 
 
+import com.fuyuvulpes.yoamod.world.item.YoaBow;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -16,13 +17,10 @@ import net.minecraft.world.level.Level;
 
 import java.util.function.Predicate;
 
-public class LongbowItem extends ProjectileWeaponItem implements Vanishable {
-
-    public static final int drawLimit = 30;
-    public static final int baseRange = 32;
+public class LongbowItem extends YoaBow {
 
     public LongbowItem(Properties pProperties) {
-        super(pProperties.durability(2060));
+        super(pProperties.durability(2060),30,32);
     }
 
 

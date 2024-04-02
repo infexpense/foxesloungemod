@@ -1,11 +1,16 @@
 package com.fuyuvulpes.yoamod.world.magic;
 
+import com.fuyuvulpes.yoamod.core.YoaRegistries;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.flag.FeatureElement;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -30,6 +35,25 @@ public class Magic implements FeatureElement {
         targetInit(caster);
     }
 
+
+    public static Magic byId(int id){
+        return YoaRegistries.MAGIC.byId(id);
+    }
+
+    public static <T extends Magic> int getId(DeferredHolder<Magic,T> spellDeferredHolder){
+        return YoaRegistries.MAGIC.getId(spellDeferredHolder.get());
+    }
+    public static int getId(Magic spell){
+        return YoaRegistries.MAGIC.getId(spell);
+    }
+
+
+    public CompoundTag save(CompoundTag pCompoundTag) {
+        ResourceLocation resourcelocation = YoaRegistries.MAGIC.getKey(this);
+        pCompoundTag.putString("id", resourcelocation == null ? "yoamod:empty_spell" : resourcelocation.toString());
+
+        return pCompoundTag;
+    }
 
     public void addTargets(Entity entity){
         this.targets.add(entity);

@@ -2,12 +2,12 @@ package com.fuyuvulpes.yoamod.world.magic.mana;
 
 import com.fuyuvulpes.yoamod.world.magic.Magic;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
 
 import java.util.List;
 
 public interface IMana {
-    List<Magic> getSpells(Player player);
+    void tick();
+    List<Magic> getSpells();
 
     Magic getSpellAtIndex(int index);
 
@@ -21,11 +21,13 @@ public interface IMana {
     int getMana();
 
     int getLastMana();
+    void setLastMana(int count);
 
     int getTickTimer();
 
     void setMaxMana(int manaCount);
     void setMana(int manaCount);
+
 
     void setTickTimer(int timer);
 
@@ -33,10 +35,6 @@ public interface IMana {
 
     boolean isManaDeprived();
 
-    boolean drainMana(int manaCount);
-
-    boolean canRecharge(Level level, Player player);
-
-
+    void drainMana(int manaCount);
 
 }

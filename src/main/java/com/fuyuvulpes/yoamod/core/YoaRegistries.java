@@ -8,7 +8,7 @@ import net.neoforged.neoforge.registries.RegistryBuilder;
 
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
-public class ModRegistries {
+public class YoaRegistries {
 
     public static final Registry<Magic> MAGIC = new RegistryBuilder<>(Keys.MAGIC).create();;
 

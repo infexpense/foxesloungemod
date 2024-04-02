@@ -2,13 +2,17 @@ package com.fuyuvulpes.yoamod.world.block;
 
 import com.fuyuvulpes.yoamod.core.registries.YoaBlocks;
 import com.fuyuvulpes.yoamod.mixin.ServerPlayerMixin;
+import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.CriterionProgress;
 import net.minecraft.advancements.CriterionTrigger;
 import net.minecraft.advancements.critereon.CriterionValidator;
 import net.minecraft.advancements.critereon.PlayerTrigger;
+import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.StatType;
@@ -42,6 +46,15 @@ public class CreaksGateBlock extends RotatedPillarBlock {
             pLevel.playSound(null,pPos,SoundEvents.ENDERMAN_STARE, SoundSource.BLOCKS,2.0F,0.2F);
             return InteractionResult.SUCCESS;
         } else {
+            if (pLevel.isClientSide()) {
+                pPlayer.playSound(SoundEvents.LAVA_EXTINGUISH, 0.5F, 1.0F);
+                pPlayer.playSound(SoundEvents.BEACON_DEACTIVATE, 2.0F, 0.1F);
+                pPlayer.displayClientMessage(Component.translatable("yoamod.creaks_unworthy.gate").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD), true);
+
+            }
+            if (!pLevel.isClientSide()) {
+                pPlayer.hurt(pLevel.damageSources().magic(), 5.0F);
+            }
             return InteractionResult.FAIL;
         }
     }

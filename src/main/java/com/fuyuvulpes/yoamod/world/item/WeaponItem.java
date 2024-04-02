@@ -33,6 +33,7 @@ public class WeaponItem extends BaseToolItem{
 
 
 
+
     public AttackAnim getAttackAnimation(ItemStack itemStack){
         return AttackAnims.STAB;
     }

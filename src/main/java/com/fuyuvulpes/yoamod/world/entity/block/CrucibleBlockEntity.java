@@ -2,7 +2,7 @@ package com.fuyuvulpes.yoamod.world.entity.block;
 
 import com.fuyuvulpes.yoamod.core.registries.YoaBlockEntities;
 import com.fuyuvulpes.yoamod.core.registries.YoaRecipes;
-import com.fuyuvulpes.yoamod.game.client.screens.CrucibleMenu;
+import com.fuyuvulpes.yoamod.game.client.gui.CrucibleMenu;
 import com.fuyuvulpes.yoamod.game.server.crafting.CrucibleRecipe;
 import com.google.common.collect.Lists;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;

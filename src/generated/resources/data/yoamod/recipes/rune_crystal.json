@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "yoamod:ancient_gemstone"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "yoamod:rune_crystal"
+  }
+}
