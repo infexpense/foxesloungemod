@@ -203,9 +203,10 @@ public class YOAMod {
         }
         @SubscribeEvent
         public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-            //event.registerBlockEntityRenderer(YoaBlockEntities.HAMMERING_STATION.get(), HammeringStationRenderer::new);
             event.registerBlockEntityRenderer(YoaBlockEntities.CREAKS_PORTAL.get(), CreaksPortalRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.PLANE_TYPE.get(), PlaneRenderer::new);
+            event.registerEntityRenderer(YoaEntityTypes.DART.get(), DartRenderer::new);
+            event.registerEntityRenderer(YoaEntityTypes.CHAKRAM.get(), ChakramRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.BRAWLER_TYPE.get(), BrawlerRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.BRAWLING_TYPE.get(), BrawlerRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.BLOCKLING_TYPE.get(), BlocklingRenderer::new);
@@ -216,6 +217,8 @@ public class YOAMod {
         @SubscribeEvent
         public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
             event.registerLayerDefinition(PlaneModel.LAYER_LOCATION,PlaneModel::createBodyLayer);
+            event.registerLayerDefinition(DartModel.LAYER_LOCATION,DartModel::createBodyLayer);
+            event.registerLayerDefinition(ChakramModel.LAYER_LOCATION,ChakramModel::createBodyLayer);
             event.registerLayerDefinition(BrawlerModel.LAYER_LOCATION,BrawlerModel::createBodyLayer);
             event.registerLayerDefinition(BlocklingModel.LAYER_LOCATION, BlocklingModel::createBodyLayer);
             event.registerLayerDefinition(ArmedSpiderModel.LAYER_LOCATION, ArmedSpiderModel::createBodyLayer);

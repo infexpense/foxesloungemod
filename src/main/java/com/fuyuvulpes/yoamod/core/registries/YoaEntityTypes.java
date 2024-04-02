@@ -1,11 +1,14 @@
 package com.fuyuvulpes.yoamod.core.registries;
 
 import com.fuyuvulpes.yoamod.world.entity.*;
+import com.fuyuvulpes.yoamod.world.entity.projectile.ChakramEntity;
+import com.fuyuvulpes.yoamod.world.entity.projectile.DartProjectile;
 import com.fuyuvulpes.yoamod.world.entity.vehicle.PlaneEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.projectile.Arrow;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -50,7 +53,15 @@ public class YoaEntityTypes {
                     .sized(2.0F,1.7F)
                     .build(new ResourceLocation(MODID,"fennec_fox").toString()));
 
+    public static final DeferredHolder<EntityType<?>,EntityType<DartProjectile>> DART = ENTITY.register("dart",
+            () -> EntityType.Builder.<DartProjectile>of(DartProjectile::new, MobCategory.MISC).sized(0.5F, 0.5F)
+                    .clientTrackingRange(4).updateInterval(20)
+                    .build(new ResourceLocation(MODID,"dart").toString()));
 
+    public static final DeferredHolder<EntityType<?>,EntityType<ChakramEntity>> CHAKRAM = ENTITY.register("chakram",
+            () -> EntityType.Builder.<ChakramEntity>of(ChakramEntity::new, MobCategory.MISC).sized(0.5F, 0.5F)
+                    .clientTrackingRange(4).updateInterval(20)
+                    .build(new ResourceLocation(MODID,"chakram").toString()));
 
 
 

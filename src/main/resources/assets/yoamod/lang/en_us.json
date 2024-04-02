@@ -576,6 +576,10 @@
   "death.attack.bleeding.player": "%1$s bled out whilst fighting %2$s",
   "death.attack.bleeding": "%1$s couldn't cover their wound, and bled out",
 
+  "death.attack.yoa_projectile.item": "%1$s was shot by %2$s with %3$s",
+  "death.attack.yoa_projectile.player": "%1$s was shot by a projectile from %2$s",
+  "death.attack.yoa_projectile": "%1$s was shot by a projectile",
+
 
 
   "advancement.yoamod.root": "Your Own Adventure",

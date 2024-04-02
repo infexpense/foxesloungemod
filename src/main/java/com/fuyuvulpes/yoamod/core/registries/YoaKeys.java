@@ -10,5 +10,6 @@ import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 public class YoaKeys {
 
     public static final ResourceKey<DamageType> BLEEDING = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(MODID, "bleeding"));
+    public static final ResourceKey<DamageType> PROJECTILE = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(MODID, "projectile"));
 
 }
