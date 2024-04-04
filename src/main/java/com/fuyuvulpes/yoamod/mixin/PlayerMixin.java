@@ -1,7 +1,9 @@
 package com.fuyuvulpes.yoamod.mixin;
 
 import com.fuyuvulpes.yoamod.game.player.IYOAPlayer;
+import com.fuyuvulpes.yoamod.world.magic.mana.IMana;
 import com.fuyuvulpes.yoamod.world.magic.mana.ManaData;
+import com.fuyuvulpes.yoamod.world.magic.mana.ManaHandler;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -17,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class PlayerMixin extends LivingEntity implements IYOAPlayer {
 
     @Unique
-    private ManaData foxesloungemod$manaData = new ManaData();
+    private ManaData manaData = new ManaData();
 
     protected PlayerMixin(EntityType<? extends LivingEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -26,13 +28,26 @@ public abstract class PlayerMixin extends LivingEntity implements IYOAPlayer {
     @Inject(method="readAdditionalSaveData", at=@At(value="TAIL"))
     public void onReadAdditionalSaveData(CompoundTag nbt, CallbackInfo ci)
     {
-       // this.foxesloungemod$manaData.readAdditionalSaveData(nbt);
+       this.manaData.readAdditionalSaveData(nbt);
     }
 
     @Inject(method="addAdditionalSaveData", at=@At(value="TAIL"))
     public void onAddAdditionalSaveData(CompoundTag nbt, CallbackInfo ci)
     {
-        //this.foxesloungemod$manaData.addAdditionalSaveData(nbt);
+        this.manaData.addAdditionalSaveData(nbt);
     }
 
+    @Inject(method="tick", at=@At(value="TAIL"))
+    public void onTick(CallbackInfo ci)
+    {
+        Player player = (Player)(Object)this;
+        ManaHandler.onPlayerTick(player);
+    }
+
+
+    @Override
+    public IMana getManaData() {
+        return this.manaData;
+
+    }
 }

@@ -10,7 +10,7 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
@@ -33,6 +33,35 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
 
     @Override
     protected void buildRecipes(RecipeOutput output) {
+
+        yoaCookRecipes(output, "smoking", RecipeSerializer.SMOKING_RECIPE, SmokingRecipe::new, 100);
+        yoaCookRecipes(output, "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING_RECIPE, CampfireCookingRecipe::new, 600);
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(YoaItems.RAW_BIG_MEAT), RecipeCategory.FOOD, YoaItems.COOKED_BIG_MEAT, 0.35F, 200)
+                .unlockedBy("has_meat", has(YoaItems.RAW_BIG_MEAT))
+                .save(output,"big_meat_cooking");
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(YoaItems.SLICED_RAW_MEAT), RecipeCategory.FOOD, YoaItems.SLICED_COOKED_MEAT, 0.35F, 200)
+                .unlockedBy("has_meat_slice", has(YoaItems.SLICED_RAW_MEAT))
+                .save(output,"sliced_meat_cooking");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD,YoaItems.SLICED_RAW_MEAT,3).requires(YoaItems.RAW_BIG_MEAT)
+                .unlockedBy("has_raw_meat",has(YoaItems.RAW_BIG_MEAT))
+                .save(output,"sliced_raw_meat_from_cutting");
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD,YoaItems.SLICED_COOKED_MEAT,3).requires(YoaItems.COOKED_BIG_MEAT)
+                .unlockedBy("has_meat",has(YoaItems.COOKED_BIG_MEAT))
+                .save(output,"sliced_meat_from_cutting");
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,YoaItems.RUNE_CRYSTAL,8).requires(YoaItems.ANCIENT_GEMSTONE)
+                .unlockedBy("has_gemstone",has(YoaItems.ANCIENT_GEMSTONE))
+                .save(output);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,Items.BONE_MEAL,6).requires(YoaItems.TUSK)
+                .unlockedBy("has_tusk",has(YoaItems.TUSK)).save(output,"bone_meal_from_tusk");
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,YoaItems.HAMBURGER)
+                .define('M',YoaItems.SLICED_COOKED_MEAT).define('B',Items.BREAD).define('P',Items.POTATO)
+                .define('C', Items.CARROT)
+                .pattern(" B ")
+                .pattern("PMC")
+                .pattern(" B ")
+                .unlockedBy("has_meat",has(YoaItems.COOKED_BIG_MEAT))
+                .save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, YoaBlocks.CRUCIBLE.get())
                 .define('I', Items.IRON_INGOT).define('B', Items.BUCKET).define('C', ItemTags.STONE_TOOL_MATERIALS)
@@ -339,7 +368,12 @@ public class RecipeGen extends RecipeProvider implements IConditionBuilder {
                 .unlockedBy("has_material", has(material)).save(output);
 
     }
-
+    protected static <T extends AbstractCookingRecipe> void yoaCookRecipes(
+            RecipeOutput pRecipeOutput, String pCookingMethod, RecipeSerializer<T> pCookingSerializer, AbstractCookingRecipe.Factory<T> pRecipeFactory, int pCookingTime
+    ) {
+        simpleCookingRecipe(pRecipeOutput, pCookingMethod, pCookingSerializer, pRecipeFactory, pCookingTime, YoaItems.RAW_BIG_MEAT, YoaItems.COOKED_BIG_MEAT, 0.35F);
+        simpleCookingRecipe(pRecipeOutput, pCookingMethod, pCookingSerializer, pRecipeFactory, pCookingTime, YoaItems.SLICED_RAW_MEAT, YoaItems.SLICED_COOKED_MEAT, 0.35F);
+    }
 
 
     static {

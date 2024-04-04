@@ -52,6 +52,17 @@ public class ItemModelGen extends ItemModelProvider {
         spawnEggItem(YoaItems.TOUCAN_SPAWN_EGG);
 
         simpleItem(YoaItems.ETHERFRUCTUS);
+
+        simpleItem(YoaItems.ANCIENT_GEMSTONE);
+        simpleItem(YoaItems.RAW_BIG_MEAT);
+        simpleItem(YoaItems.COOKED_BIG_MEAT);
+        simpleItem(YoaItems.SLICED_RAW_MEAT);
+        simpleItem(YoaItems.SLICED_COOKED_MEAT);
+        simpleItem(YoaItems.HAMBURGER);
+        simpleItem(YoaItems.ECTOPLASM);
+        simpleItem(YoaItems.INSECT_LEG);
+        simpleItem(YoaItems.TUSK);
+
         simpleItem(YoaItems.PLANE_ITEM);
         simpleItem(YoaItems.CRYSTALIC_SHARD);
         simpleItem(YoaItems.RUNE_CRYSTAL);

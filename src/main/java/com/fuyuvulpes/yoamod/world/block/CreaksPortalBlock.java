@@ -35,10 +35,6 @@ public class CreaksPortalBlock extends BaseEntityBlock {
 
     @Override
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-        pEntity.setPos(pPos.west().north().getCenter());
-        pEntity.sendSystemMessage(Component.literal("Creaks Portal is still in the works!").withStyle(ChatFormatting.RED));
-        System.out.println("CreaksPortalForcer is still in the works, and current teleporter causes a crash upon entering.");
-        System.out.println("This feature will be fixed in the next Your Own Adventure Alpha version update.");
 
         if (pLevel instanceof ServerLevel
                 && pEntity.canChangeDimensions()
@@ -52,8 +48,11 @@ public class CreaksPortalBlock extends BaseEntityBlock {
             if (serverlevel == null) {
                 return;
             }
-
             pEntity.changeDimension(serverlevel, new CreaksPortalForcer(serverlevel));
+
+
+
+
         }
     }
 

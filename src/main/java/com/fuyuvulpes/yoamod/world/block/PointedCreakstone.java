@@ -100,6 +100,7 @@ public class PointedCreakstone extends Block implements Fallable, SimpleWaterlog
         pBuilder.add(TIP_DIRECTION, THICKNESS, WATERLOGGED);
     }
 
+
     @Override
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         return isValidPointedDripstonePlacement(pLevel, pPos, pState.getValue(TIP_DIRECTION));
@@ -589,4 +590,5 @@ public class PointedCreakstone extends Block implements Fallable, SimpleWaterlog
 
     static record FluidInfo(BlockPos pos, Fluid fluid, BlockState sourceState) {
     }
+
 }

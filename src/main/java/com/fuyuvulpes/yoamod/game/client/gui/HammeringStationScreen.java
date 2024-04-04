@@ -1,12 +1,10 @@
-package com.fuyuvulpes.yoamod.game.client.screens;
+package com.fuyuvulpes.yoamod.game.client.gui;
 
 import com.fuyuvulpes.yoamod.YOAMod;
 import com.fuyuvulpes.yoamod.game.server.crafting.HammeringStationRecipe;
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

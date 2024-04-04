@@ -1,27 +1,25 @@
 package com.fuyuvulpes.yoamod.world.item.weaponry;
 
+import com.fuyuvulpes.yoamod.world.item.IManaConsumingWeapon;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.entity.EntityTypeTest;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BellItem extends TieredItem implements Vanishable {
+public class BellItem extends TieredItem implements Vanishable, IManaConsumingWeapon {
     public BellItem(Tier tier, Properties pProperties) {
         super(tier,pProperties);
     }
@@ -30,37 +28,49 @@ public class BellItem extends TieredItem implements Vanishable {
 
     @Override
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity, int pTimeCharged) {
+        if (!(pLivingEntity instanceof Player)){
+            super.releaseUsing(pStack, pLevel, pLivingEntity, pTimeCharged);
+            return;
+        }
         float i = Math.min(this.getUseDuration(pStack) - pTimeCharged + 20 ,80);
         float power = 1 - ((80 - i) / 80);
+        if(!canConsumeMana((Player) pLivingEntity, (int) (6 * power))){
+            pLevel.playSound(null,pLivingEntity.getOnPos().above(), SoundEvents.BEACON_DEACTIVATE, SoundSource.PLAYERS,1.0F, 0.2F);
+        }
+        else {
+
+            List<LivingEntity> list = pLevel.getEntitiesOfClass(LivingEntity.class, pLivingEntity.getBoundingBox().inflate(6.0F * power, 2.0F * power, 6.0F * power));
+            List<LivingEntity> alliedTo = new ArrayList<>();
+
+            list.remove(pLivingEntity);
+            list.forEach(entity -> {
+                if (entity.isAlliedTo(pLivingEntity) && !(entity instanceof Monster)) {
+                    alliedTo.add(entity);
+                    list.remove(entity);
+                }
+            });
+
+            list.forEach(livingEntity -> {
+                livingEntity.hurt(pLivingEntity.damageSources().magic(), Math.max(8.0F * power * this.getTier().getAttackDamageBonus() / 2, 1.0F + 2.0F * this.getTier().getAttackDamageBonus()));
+                if (!livingEntity.level().isClientSide()) {
+                    ((ServerLevel) livingEntity.level()).sendParticles(ParticleTypes.SONIC_BOOM, livingEntity.getX(), livingEntity.getY() + (livingEntity.getBbHeight() / 2), livingEntity.getZ(), 1, 0.0, 0.0, 0.0, 0.0);}
+
+            });
+            alliedTo.forEach(ally -> {
+                ally.heal(2.0F * power * this.getTier().getAttackDamageBonus() / 2);
+            });
 
 
+            pLevel.playSound(null, pLivingEntity.getOnPos().above(), SoundEvents.BELL_RESONATE, SoundSource.PLAYERS, 2.0F, 0.2F);
+            pLevel.playSound(null, pLivingEntity.getOnPos().above(), SoundEvents.BELL_BLOCK, SoundSource.PLAYERS, 3.0F, 0.5F);
 
+            pStack.hurtAndBreak(1, pLivingEntity, (entity) -> {
+                entity.broadcastBreakEvent(pLivingEntity.getUsedItemHand());
+            });
+            consumeMana((Player) pLivingEntity, (int) (6 * power));
 
-        List<LivingEntity> list = pLevel.getEntitiesOfClass(LivingEntity.class, pLivingEntity.getBoundingBox().inflate(6.0F * power ,2.0F * power,6.0F * power));
-        List<LivingEntity> alliedTo = new ArrayList<>();
-
-        list.remove(pLivingEntity);
-        list.forEach(entity -> {
-            if (entity.isAlliedTo(pLivingEntity) && !(entity instanceof Monster)){
-                alliedTo.add(entity);
-                list.remove(entity);
-            }
-        });
-
-        list.forEach(livingEntity -> {
-            livingEntity.hurt(pLivingEntity.damageSources().magic(),Math.max(8.0F * power * this.getTier().getAttackDamageBonus() / 2, 1.0F + 2.0F * this.getTier().getAttackDamageBonus()));
-        });
-        alliedTo.forEach(ally -> {
-            ally.heal(2.0F * power * this.getTier().getAttackDamageBonus() / 2);
-        });
-
-        pLevel.playSound(null,pLivingEntity.getOnPos().above(), SoundEvents.BELL_RESONATE, SoundSource.PLAYERS,2.0F, 0.2F);
-        pLevel.playSound(null,pLivingEntity.getOnPos().above(), SoundEvents.BELL_BLOCK, SoundSource.PLAYERS,3.0F, 0.5F);
-
-        pStack.hurtAndBreak(1, pLivingEntity, (entity) -> {
-            entity.broadcastBreakEvent(pLivingEntity.getUsedItemHand());
-        });
-        super.releaseUsing(pStack, pLevel, pLivingEntity, pTimeCharged);
+            super.releaseUsing(pStack, pLevel, pLivingEntity, pTimeCharged);
+        }
     }
 
     public int getUseDuration(ItemStack pStack) {
@@ -102,4 +112,5 @@ public class BellItem extends TieredItem implements Vanishable {
         }
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
+
 }

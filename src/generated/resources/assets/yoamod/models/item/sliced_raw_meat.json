@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "yoamod:item/sliced_raw_meat"
+  }
+}

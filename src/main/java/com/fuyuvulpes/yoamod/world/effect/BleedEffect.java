@@ -2,6 +2,9 @@ package com.fuyuvulpes.yoamod.world.effect;
 
 import com.fuyuvulpes.yoamod.core.registries.YoaKeys;
 import com.fuyuvulpes.yoamod.core.registries.YoaParticles;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.valueproviders.UniformFloat;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
@@ -20,8 +23,9 @@ public class BleedEffect extends MobEffect {
 
         Level level = entity.level();
         for (int i = 5 + (pAmplifier * 3); i > 0; i--){
-            if (level.isClientSide){
-                level.addParticle(YoaParticles.BLEEDING.get(),entity.getX() - 0.5 + entity.level().getRandom().nextFloat() * 2,entity.getY() - 0.5 + entity.level().getRandom().nextFloat() * 2,entity.getZ() - 0.5 + entity.level().getRandom().nextFloat() * 2,level.random.nextFloat(),-0.2F,level.random.nextDouble());
+            if (!level.isClientSide){
+                ServerLevel serverLevel = (ServerLevel) level;
+                serverLevel.sendParticles(YoaParticles.BLEEDING.get(),entity.getX(),entity.getY() + 1,entity.getZ(),(int) (level.random.nextFloat() * 5), UniformFloat.of(-entity.getBbWidth()/2,entity.getBbWidth()/2).sample(level.getRandom()),UniformFloat.of(-entity.getBbHeight()/2,entity.getBbHeight()/2).sample(level.getRandom()), UniformFloat.of(-entity.getBbWidth()/2,entity.getBbWidth()/2).sample(level.getRandom()),0.0002F);
             }
         }
     }

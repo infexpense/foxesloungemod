@@ -74,6 +74,15 @@
   "item.yoamod.return_talisman": "Talisman of Return",
   "item.yoamod.rune_crystal": "Rune Crystal",
   "item.yoamod.crystalic_shard": "Crystalic Shard",
+  "item.yoamod.ancient_gemstone": "Ancient Gemstone",
+  "item.yoamod.insect_leg": "Insect Leg",
+  "item.yoamod.tusk": "Tusk",
+  "item.yoamod.ectoplasm": "Ectoplasm",
+  "item.yoamod.raw_big_meat": "Raw Big Meat",
+  "item.yoamod.cooked_big_meat": "Cooked Big Meat",
+  "item.yoamod.sliced_raw_meat": "Raw Sliced Meat",
+  "item.yoamod.sliced_cooked_meat": "Cooked Sliced Meat",
+  "item.yoamod.hamburger": "Hamburger",
   "item.yoamod.etherfructus": "Etherfructus",
   "item.yoamod.adamantite_ingot": "Adamantite Ingot",
   "item.yoamod.adamantite_upgrade_smithing_template": "Smithing Template",
@@ -568,6 +577,10 @@
   "death.attack.bleeding.player": "%1$s bled out whilst fighting %2$s",
   "death.attack.bleeding": "%1$s couldn't cover their wound, and bled out",
 
+  "death.attack.yoa_projectile.item": "%1$s was shot by %2$s with %3$s",
+  "death.attack.yoa_projectile.player": "%1$s was shot by a projectile from %2$s",
+  "death.attack.yoa_projectile": "%1$s was shot by a projectile",
+
 
 
   "advancement.yoamod.root": "Your Own Adventure",
@@ -608,5 +621,8 @@
   "entity.yoamod.fennec_fox": "Fennec Fox",
 
   "gui.yoamod.hammering_station": "Hammering Station",
-  "gui.yoamod.crucible": "Crucible"
+  "gui.yoamod.crucible": "Crucible",
+
+
+  "yoamod.creaks_unworthy.gate": "%1$s is Unworthy of Access"
 }

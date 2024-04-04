@@ -1,7 +1,7 @@
 package com.fuyuvulpes.yoamod.core.registries;
 
-import com.fuyuvulpes.yoamod.game.client.screens.CrucibleMenu;
-import com.fuyuvulpes.yoamod.game.client.screens.HammeringStationMenu;
+import com.fuyuvulpes.yoamod.game.client.gui.CrucibleMenu;
+import com.fuyuvulpes.yoamod.game.client.gui.HammeringStationMenu;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlags;

@@ -6,6 +6,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -47,7 +48,24 @@ public class ItemTagsGen extends ItemTagsProvider {
                         YoaItems.ADAMANTITE_HELMET.get(),
                         YoaItems.ADAMANTITE_CHESTPLATE.get(),
                         YoaItems.ADAMANTITE_LEGGINGS.get(),
-                        YoaItems.ADAMANTITE_BOOTS.get());
+                        YoaItems.ADAMANTITE_BOOTS.get()
+                );
 
+        this.tag(Tags.Items.NUGGETS)
+                .add(
+                    YoaItems.SILVER_NUGGET.get(),
+                    YoaItems.BRONZE_NUGGET.get(),
+                    YoaItems.BRASS_NUGGET.get(),
+                    YoaItems.STEEL_NUGGET.get(),
+                    YoaItems.TITANIUM_NUGGET.get(),
+                    YoaItems.ALEXANDRITE_SHARD.get(),
+                    YoaItems.BISMUTH_SHARD.get(),
+                    YoaItems.IOLITE_SHARD.get(),
+                    YoaItems.WITHERITE_SHARD.get(),
+                    YoaItems.DIAMOND_SHARD.get(),
+                    YoaItems.NETHERITE_NUGGET.get()
+            );
     }
+
 }
+

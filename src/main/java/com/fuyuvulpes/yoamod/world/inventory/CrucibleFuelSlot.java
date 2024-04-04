@@ -1,6 +1,6 @@
 package com.fuyuvulpes.yoamod.world.inventory;
 
-import com.fuyuvulpes.yoamod.game.client.screens.CrucibleMenu;
+import com.fuyuvulpes.yoamod.game.client.gui.CrucibleMenu;
 import net.minecraft.world.Container;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;

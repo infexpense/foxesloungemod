@@ -23,14 +23,12 @@ public class CreaksPortalRenderer<T extends CreaksPortalBlockEntity> implements 
     }
 
     private void renderCube(T pBlockEntity, Matrix4f pPose, VertexConsumer pConsumer) {
-        float f = this.getOffsetDown();
-        float f1 = this.getOffsetUp();
         this.renderFace(pBlockEntity, pPose, pConsumer, 0.0F, 1.0F, 0.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, Direction.SOUTH);
         this.renderFace(pBlockEntity, pPose, pConsumer, 0.0F, 1.0F, 1.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, Direction.NORTH);
         this.renderFace(pBlockEntity, pPose, pConsumer, 1.0F, 1.0F, 1.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.0F, Direction.EAST);
         this.renderFace(pBlockEntity, pPose, pConsumer, 0.0F, 0.0F, 0.0F, 1.0F, 0.0F, 1.0F, 1.0F, 0.0F, Direction.WEST);
-        this.renderFace(pBlockEntity, pPose, pConsumer, 0.0F, 1.0F, f, f, 0.0F, 0.0F, 1.0F, 1.0F, Direction.DOWN);
-        this.renderFace(pBlockEntity, pPose, pConsumer, 0.0F, 1.0F, f1, f1, 1.0F, 1.0F, 0.0F, 0.0F, Direction.UP);
+        this.renderFace(pBlockEntity, pPose, pConsumer, 0.0F, 1.0F, 0.0F, 0.0F, 0.0F, 0.0F, 1.0F, 1.0F, Direction.DOWN);
+        this.renderFace(pBlockEntity, pPose, pConsumer, 0.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 0.0F, 0.0F, Direction.UP);
     }
 
     private void renderFace(
@@ -53,14 +51,6 @@ public class CreaksPortalRenderer<T extends CreaksPortalBlockEntity> implements 
             pConsumer.vertex(pPose, pX1, pY1, pZ2).endVertex();
             pConsumer.vertex(pPose, pX0, pY1, pZ3).endVertex();
         }
-    }
-
-    protected float getOffsetUp() {
-        return 0.75F;
-    }
-
-    protected float getOffsetDown() {
-        return 0.375F;
     }
 
 

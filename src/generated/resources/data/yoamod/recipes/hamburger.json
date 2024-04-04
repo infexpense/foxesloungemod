@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bread"
+    },
+    "C": {
+      "item": "minecraft:carrot"
+    },
+    "M": {
+      "item": "yoamod:sliced_cooked_meat"
+    },
+    "P": {
+      "item": "minecraft:potato"
+    }
+  },
+  "pattern": [
+    " B ",
+    "PMC",
+    " B "
+  ],
+  "result": {
+    "item": "yoamod:hamburger"
+  }
+}

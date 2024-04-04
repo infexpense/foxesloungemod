@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:bone_meal_from_tusk"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tusk": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "yoamod:tusk"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tusk"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:bone_meal_from_tusk"
+    ]
+  }
+}

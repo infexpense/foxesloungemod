@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "yoamod:cooked_big_meat"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "yoamod:sliced_cooked_meat"
+  }
+}

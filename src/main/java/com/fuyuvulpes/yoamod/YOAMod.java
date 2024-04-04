@@ -1,17 +1,21 @@
 package com.fuyuvulpes.yoamod;
 
-import com.fuyuvulpes.yoamod.core.ModRegistries;
-import com.fuyuvulpes.yoamod.core.YOAModCommonConfig;
+import com.fuyuvulpes.yoamod.core.YOACommonConfig;
+import com.fuyuvulpes.yoamod.core.YoaRegistries;
 import com.fuyuvulpes.yoamod.core.registries.*;
 import com.fuyuvulpes.yoamod.game.client.entities.model.*;
 import com.fuyuvulpes.yoamod.game.client.entities.renderers.*;
+import com.fuyuvulpes.yoamod.game.client.gui.CrucibleScreen;
+import com.fuyuvulpes.yoamod.game.client.gui.HammeringStationScreen;
 import com.fuyuvulpes.yoamod.game.client.particle.BleedingParticle;
-import com.fuyuvulpes.yoamod.game.client.screens.CrucibleScreen;
-import com.fuyuvulpes.yoamod.game.client.screens.HammeringStationScreen;
 import com.fuyuvulpes.yoamod.mixin.access.BlockEntityTypeAccess;
+import com.fuyuvulpes.yoamod.network.UpdateManaPacket;
 import com.fuyuvulpes.yoamod.world.block.state.ModWoodTypes;
 import com.fuyuvulpes.yoamod.world.entity.*;
 import com.fuyuvulpes.yoamod.world.item.weaponry.WarFanItem;
+import com.fuyuvulpes.yoamod.world.magic.mana.ManaHelper;
+import com.fuyuvulpes.yoamod.world.magic.mana.ManaHelperImpl;
+import com.fuyuvulpes.yoamod.world.magic.mana.ManaHudOverlay;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
@@ -40,15 +44,14 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
-import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.SpawnPlacementRegisterEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlerEvent;
+import net.neoforged.neoforge.network.registration.IPayloadRegistrar;
 import net.neoforged.neoforge.registries.NewRegistryEvent;
 
 import java.util.Set;
@@ -66,6 +69,7 @@ public class YOAMod {
     public YOAMod(IEventBus modEventBus) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, YOACommonConfig.SPEC);
         YoaFeatures.register(modEventBus);
         YoaRecipes.register(modEventBus);
         YoaSerializers.register(modEventBus);
@@ -73,6 +77,7 @@ public class YOAMod {
         YoaEffects.register(modEventBus);
         YoaEntityTypes.register(modEventBus);
         YoaMenus.register(modEventBus);
+        ManaHelper.Impl.INSTANCE = new ManaHelperImpl();
         YoaMagicAndSpells.register(modEventBus);
         YoaPlacers.register(modEventBus);
         YoaBlocks.register(modEventBus);
@@ -87,7 +92,6 @@ public class YOAMod {
 
         modEventBus.addListener(this::addCreative);
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, YOAModCommonConfig.SPEC);
     }
 
 
@@ -161,9 +165,6 @@ public class YOAMod {
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
-
-
-
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
 
@@ -200,13 +201,12 @@ public class YOAMod {
 
 
         }
-
-
         @SubscribeEvent
         public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-            //event.registerBlockEntityRenderer(YoaBlockEntities.HAMMERING_STATION.get(), HammeringStationRenderer::new);
             event.registerBlockEntityRenderer(YoaBlockEntities.CREAKS_PORTAL.get(), CreaksPortalRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.PLANE_TYPE.get(), PlaneRenderer::new);
+            event.registerEntityRenderer(YoaEntityTypes.DART.get(), DartRenderer::new);
+            event.registerEntityRenderer(YoaEntityTypes.CHAKRAM.get(), ChakramRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.BRAWLER_TYPE.get(), BrawlerRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.BRAWLING_TYPE.get(), BrawlerRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.BLOCKLING_TYPE.get(), BlocklingRenderer::new);
@@ -215,11 +215,11 @@ public class YOAMod {
             event.registerEntityRenderer(YoaEntityTypes.FENNEC_FOX_TYPE.get(), FennecFoxRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.TOUCAN_TYPE.get(), ToucanRenderer::new);
         }
-
-
         @SubscribeEvent
         public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
             event.registerLayerDefinition(PlaneModel.LAYER_LOCATION,PlaneModel::createBodyLayer);
+            event.registerLayerDefinition(DartModel.LAYER_LOCATION,DartModel::createBodyLayer);
+            event.registerLayerDefinition(ChakramModel.LAYER_LOCATION,ChakramModel::createBodyLayer);
             event.registerLayerDefinition(BrawlerModel.LAYER_LOCATION,BrawlerModel::createBodyLayer);
             event.registerLayerDefinition(BlocklingModel.LAYER_LOCATION, BlocklingModel::createBodyLayer);
             event.registerLayerDefinition(ArmedSpiderModel.LAYER_LOCATION, ArmedSpiderModel::createBodyLayer);
@@ -228,16 +228,12 @@ public class YOAMod {
             event.registerLayerDefinition(ToucanModel.LAYER_LOCATION, ToucanModel::createBodyLayer);
 
         }
-
-
         @SubscribeEvent
         public static void registerParticleEvent(RegisterParticleProvidersEvent event) {
             event.registerSpriteSet(YoaParticles.BLEEDING.get(), (pSprites) ->
                     (pType, pLevel, pX, pY, pZ, pXSpeed, pYSpeed, pZSpeed) ->
                             new BleedingParticle(pLevel,pX,pY,pZ,pSprites));
         }
-
-
         @SubscribeEvent
         public static void registerItemColors(RegisterColorHandlersEvent.Item event)
         {
@@ -259,8 +255,10 @@ public class YOAMod {
                     YoaBlocks.BLISSWOOD_LEAVES.get()
             );
         }
-
-
+        @SubscribeEvent
+        public static void registerGuiOverlays(RegisterGuiOverlaysEvent event){
+            event.registerAboveAll(makeResLoc("mana"), ManaHudOverlay.MANA_OVERLAY);
+        }
 
 
 
@@ -268,13 +266,26 @@ public class YOAMod {
     }
 
 
+
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ModEvents {
+        @SubscribeEvent
+        public static void register(final RegisterPayloadHandlerEvent event) {
+            final IPayloadRegistrar registrar = event.registrar(MODID)
+                    .versioned("1.0.0")
+                    .optional();
 
+            registrar.play(UpdateManaPacket.ID,
+                    UpdateManaPacket::new,
+                    handler -> handler.client(UpdateManaPacket::handle));
+
+
+
+        }
 
         @SubscribeEvent
         public static void registryRegisterEvent(NewRegistryEvent event){
-            event.register(ModRegistries.MAGIC);
+            event.register(YoaRegistries.MAGIC);
         }
 
         @SubscribeEvent
@@ -334,6 +345,14 @@ public class YOAMod {
             event.register(CRUCIBLE_MENU.get(), CrucibleScreen::new);
             event.register(HAMMERING_STATION_MENU.get(), HammeringStationScreen::new);
         }
+    }
+
+    public static ResourceLocation makeTexture(String path){
+        return new ResourceLocation(MODID, "textures/" + path);
+    }
+
+    public static ResourceLocation makeResLoc(String path){
+        return new ResourceLocation(MODID, path);
     }
 
 }

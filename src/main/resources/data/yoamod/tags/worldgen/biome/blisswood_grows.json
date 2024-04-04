@@ -1,6 +1,7 @@
 {
   "values": [
     "minecraft:plains",
+    "minecraft:snowy_plains",
     "minecraft:meadow",
     "minecraft:cherry_grove",
     "#minecraft:is_mountain"

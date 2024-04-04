@@ -11,15 +11,15 @@ public class ManaHelper {
         return Impl.INSTANCE.canCastSpell(player,spell,element,magic);
     }
 
-    public void setMaxMana(Player player, int mana){
+    public static void setMaxMana(Player player, int mana){
         Impl.INSTANCE.setMaxMana(player,mana);
     }
 
-    public int getMaxMana(Player player){
+    public static int getMaxMana(Player player){
         return Impl.INSTANCE.getMaxMana(player);
     }
 
-    public IMana getManaData(Player player){
+    public static IMana getManaData(Player player){
         return Impl.INSTANCE.getManaData(player);
     }
 
