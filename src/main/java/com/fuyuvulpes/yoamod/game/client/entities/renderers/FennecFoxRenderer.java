@@ -7,6 +7,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.model.FoxModel;
 import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.layers.FoxHeldItemLayer;
@@ -30,6 +31,14 @@ public class FennecFoxRenderer extends MobRenderer<FennecFox, FennecFoxModel<Fen
             pPoseStack.mulPose(Axis.XP.rotationDegrees(f));
         }
 
+    }
+    @Override
+    public void render(FennecFox pFox, float pEntityYaw, float pParticalTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight){
+        if(pFox.isBaby()){
+            pMatrixStack.scale(0.5f, 0.5f, 0.5f);
+
+        }
+        super.render(pFox,pEntityYaw,pParticalTicks,pMatrixStack,pBuffer,pPackedLight);
     }
 
     public ResourceLocation getTextureLocation(FennecFox pEntity) {

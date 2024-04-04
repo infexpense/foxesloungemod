@@ -40,7 +40,10 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.CaveSpider;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Silverfish;
+import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -66,6 +69,9 @@ import java.util.function.IntFunction;
 import java.util.function.Predicate;
 
 public class FennecFox extends Animal {
+    public final AnimationState pounce = new AnimationState();
+    public final AnimationState jump = new AnimationState();
+    public final AnimationState sleep = new AnimationState();
     private static final EntityDataAccessor<Integer> DATA_TYPE_ID;
     private static final EntityDataAccessor<Byte> DATA_FLAGS_ID;
     private static final int FLAG_SITTING = 1;
@@ -83,7 +89,7 @@ public class FennecFox extends Animal {
     private static final Predicate<Entity> AVOID_PLAYERS;
     private static final int MIN_TICKS_BEFORE_EAT = 600;
     private Goal landTargetGoal;
-    private Goal turtleEggTargetGoal;
+    private Goal monsterTargetGoal;
     private Goal fishTargetGoal;
     private float interestedAngle;
     private float interestedAngleO;
@@ -110,16 +116,18 @@ public class FennecFox extends Animal {
 
     protected void registerGoals() {
         this.landTargetGoal = new NearestAttackableTargetGoal(this, Animal.class, 10, false, false, (p_28604_) -> {
-            return p_28604_ instanceof Chicken || p_28604_ instanceof Rabbit;
+            return p_28604_ instanceof Chicken || p_28604_ instanceof Rabbit || p_28604_ instanceof Spider || p_28604_ instanceof Silverfish;
         });
-        this.turtleEggTargetGoal = new NearestAttackableTargetGoal(this, Turtle.class, 10, false, false, Turtle.BABY_ON_LAND_SELECTOR);
+        this.monsterTargetGoal = new NearestAttackableTargetGoal(this, Monster.class, 10, false, false, (target) -> {
+            return target instanceof Silverfish || target instanceof Spider;
+        });
         this.fishTargetGoal = new NearestAttackableTargetGoal(this, AbstractFish.class, 20, false, false, (p_28600_) -> {
             return p_28600_ instanceof AbstractSchoolingFish;
         });
         this.goalSelector.addGoal(0, new FennecFox.FennecFoxFloatGoal());
         this.goalSelector.addGoal(0, new ClimbOnTopOfPowderSnowGoal(this, this.level()));
         this.goalSelector.addGoal(1, new FennecFox.FaceplantGoal());
-        this.goalSelector.addGoal(2, new FennecFox.FennecFoxPanicGoal(2.2));
+        this.goalSelector.addGoal(2, new FennecFox.FennecFoxPanicGoal(1.7));
         this.goalSelector.addGoal(3, new FennecFox.FennecFoxBreedGoal(1.0));
         this.goalSelector.addGoal(4, new AvoidEntityGoal(this, Player.class, 16.0F, 1.6, 1.4, (p_308730_) -> {
             return AVOID_PLAYERS.test((Entity) p_308730_) && !this.trusts(((Entity) p_308730_).getUUID()) && !this.isDefending();
@@ -237,7 +245,7 @@ public class FennecFox extends Animal {
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.30000001192092896).add(Attributes.MAX_HEALTH, 10.0).add(Attributes.FOLLOW_RANGE, 32.0).add(Attributes.ATTACK_DAMAGE, 2.0);
+        return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.5).add(Attributes.MAX_HEALTH, 8.0).add(Attributes.FOLLOW_RANGE, 32.0).add(Attributes.ATTACK_DAMAGE, 2.0);
     }
 
     @Nullable
@@ -284,12 +292,12 @@ public class FennecFox extends Animal {
     private void setTargetGoals() {
         if (this.getVariant() == FennecFox.Type.RED) {
             this.targetSelector.addGoal(4, this.landTargetGoal);
-            this.targetSelector.addGoal(4, this.turtleEggTargetGoal);
+            this.targetSelector.addGoal(4, this.monsterTargetGoal);
             this.targetSelector.addGoal(6, this.fishTargetGoal);
         } else {
             this.targetSelector.addGoal(4, this.fishTargetGoal);
             this.targetSelector.addGoal(6, this.landTargetGoal);
-            this.targetSelector.addGoal(6, this.turtleEggTargetGoal);
+            this.targetSelector.addGoal(6, this.monsterTargetGoal);
         }
 
     }
@@ -303,7 +311,7 @@ public class FennecFox extends Animal {
     }
 
     protected float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
-        return this.isBaby() ? pSize.height * 0.85F : 0.4F;
+        return this.isBaby() ? pSize.height * 0.55F : 0.35F;
     }
 
     public FennecFox.Type getVariant() {
@@ -465,6 +473,11 @@ public class FennecFox extends Animal {
     }
 
     public void tick() {
+        if (level().isClientSide()){
+            this.sleep.animateWhen(this.isSleeping(),this.tickCount);
+            this.pounce.animateWhen(this.isPouncing(), this.tickCount);
+            this.jump.animateWhen(this.isJumping(), this.tickCount);
+        }
         super.tick();
         if (this.isEffectiveAi()) {
             boolean flag = this.isInWater();
@@ -677,7 +690,7 @@ public class FennecFox extends Animal {
             }
         };
         STALKABLE_PREY = (p_28498_) -> {
-            return p_28498_ instanceof Chicken || p_28498_ instanceof Rabbit;
+            return p_28498_ instanceof Chicken || p_28498_ instanceof Rabbit || p_28498_ instanceof Silverfish || p_28498_ instanceof Spider;
         };
         AVOID_PLAYERS = (p_28463_) -> {
             return !p_28463_.isDiscrete() && EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(p_28463_);
@@ -1433,4 +1446,5 @@ public class FennecFox extends Animal {
             }
         }
     }
+
 }

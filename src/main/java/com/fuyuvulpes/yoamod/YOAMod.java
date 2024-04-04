@@ -213,6 +213,7 @@ public class YOAMod {
             event.registerEntityRenderer(YoaEntityTypes.ARMED_SPIDER_TYPE.get(), ArmedSpiderRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.FALLEN_SAMURAI.get(), FallenSamuraiRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.FENNEC_FOX_TYPE.get(), FennecFoxRenderer::new);
+            event.registerEntityRenderer(YoaEntityTypes.TOUCAN_TYPE.get(), ToucanRenderer::new);
         }
 
 
@@ -224,6 +225,7 @@ public class YOAMod {
             event.registerLayerDefinition(ArmedSpiderModel.LAYER_LOCATION, ArmedSpiderModel::createBodyLayer);
             event.registerLayerDefinition(FallenSamuraiModel.LAYER_LOCATION, FallenSamuraiModel::createBodyLayer);
             event.registerLayerDefinition(FennecFoxModel.LAYER_LOCATION, FennecFoxModel::createBodyLayer);
+            event.registerLayerDefinition(ToucanModel.LAYER_LOCATION, ToucanModel::createBodyLayer);
 
         }
 
@@ -282,7 +284,8 @@ public class YOAMod {
             event.put(YoaEntityTypes.BLOCKLING_TYPE.get(), Blockling.createAttributes().build());
             event.put(YoaEntityTypes.ARMED_SPIDER_TYPE.get(), ArmedSpider.createAttributes().build());
             event.put(YoaEntityTypes.FALLEN_SAMURAI.get(), FallenSamurai.createAttributes().build());
-            event.put(YoaEntityTypes.FENNEC_FOX_TYPE.get(), FallenSamurai.createAttributes().build());
+            event.put(YoaEntityTypes.FENNEC_FOX_TYPE.get(), FennecFox.createAttributes().build());
+            event.put(YoaEntityTypes.TOUCAN_TYPE.get(), Toucan.createAttributes().build());
         }
 
 
@@ -318,6 +321,11 @@ public class YOAMod {
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     FennecFox::canSpawn,
+                    SpawnPlacementRegisterEvent.Operation.OR);
+            event.register(YoaEntityTypes.TOUCAN_TYPE.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Toucan::canSpawn,
                     SpawnPlacementRegisterEvent.Operation.OR);
         }
 

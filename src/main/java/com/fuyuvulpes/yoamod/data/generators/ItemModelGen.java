@@ -49,6 +49,7 @@ public class ItemModelGen extends ItemModelProvider {
         spawnEggItem(YoaItems.ARMED_SPIDER_SPAWN_EGG);
         spawnEggItem(YoaItems.FALLEN_SAMURAI_SPAWN_EGG);
         spawnEggItem(YoaItems.FENNEC_FOX_SPAWN_EGG);
+        spawnEggItem(YoaItems.TOUCAN_SPAWN_EGG);
 
         simpleItem(YoaItems.ETHERFRUCTUS);
         simpleItem(YoaItems.PLANE_ITEM);

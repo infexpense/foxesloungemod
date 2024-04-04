@@ -638,6 +638,7 @@ public class YoaTabs {
                 output.accept(YoaItems.ARMED_SPIDER_SPAWN_EGG.get());
                 output.accept(YoaItems.FALLEN_SAMURAI_SPAWN_EGG.get());
                 output.accept(YoaItems.FENNEC_FOX_SPAWN_EGG.get());
+                output.accept(YoaItems.TOUCAN_SPAWN_EGG.get());
             }).build());
 
 
