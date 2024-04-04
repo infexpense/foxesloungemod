@@ -23,6 +23,7 @@ import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.resources.ResourceLocation;
@@ -214,6 +215,7 @@ public class YOAMod {
             event.registerEntityRenderer(YoaEntityTypes.FALLEN_SAMURAI.get(), FallenSamuraiRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.FENNEC_FOX_TYPE.get(), FennecFoxRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.TOUCAN_TYPE.get(), ToucanRenderer::new);
+            event.registerEntityRenderer(YoaEntityTypes.OWL_TYPE.get(), OwlRenderer::new);
         }
         @SubscribeEvent
         public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
@@ -226,6 +228,7 @@ public class YOAMod {
             event.registerLayerDefinition(FallenSamuraiModel.LAYER_LOCATION, FallenSamuraiModel::createBodyLayer);
             event.registerLayerDefinition(FennecFoxModel.LAYER_LOCATION, FennecFoxModel::createBodyLayer);
             event.registerLayerDefinition(ToucanModel.LAYER_LOCATION, ToucanModel::createBodyLayer);
+            event.registerLayerDefinition(OwlModel.LAYER_LOCATION, OwlModel::createBodyLayer);
 
         }
         @SubscribeEvent
@@ -297,6 +300,7 @@ public class YOAMod {
             event.put(YoaEntityTypes.FALLEN_SAMURAI.get(), FallenSamurai.createAttributes().build());
             event.put(YoaEntityTypes.FENNEC_FOX_TYPE.get(), FennecFox.createAttributes().build());
             event.put(YoaEntityTypes.TOUCAN_TYPE.get(), Toucan.createAttributes().build());
+            event.put(YoaEntityTypes.OWL_TYPE.get(), Owl.createAttributes().build());
         }
 
 
@@ -337,6 +341,11 @@ public class YOAMod {
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Toucan::canSpawn,
+                    SpawnPlacementRegisterEvent.Operation.OR);
+            event.register(YoaEntityTypes.OWL_TYPE.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Owl::canSpawn,
                     SpawnPlacementRegisterEvent.Operation.OR);
         }
 

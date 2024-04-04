@@ -55,8 +55,13 @@ public class YoaEntityTypes {
 
     public static final DeferredHolder<EntityType<?>,EntityType<Toucan>> TOUCAN_TYPE = ENTITY.register("toucan",
             () -> EntityType.Builder.<Toucan>of(Toucan::new, MobCategory.CREATURE)
-                    .sized(0.2F,0.4F)
+                    .sized(0.4F,0.5F)
                     .build(new ResourceLocation(MODID,"toucan").toString()));
+
+    public static final DeferredHolder<EntityType<?>,EntityType<Owl>> OWL_TYPE = ENTITY.register("owl",
+            () -> EntityType.Builder.<Owl>of(Owl::new, MobCategory.CREATURE)
+                    .sized(0.6F,0.8F)
+                    .build(new ResourceLocation(MODID,"owl").toString()));
 
     public static final DeferredHolder<EntityType<?>,EntityType<DartProjectile>> DART = ENTITY.register("dart",
             () -> EntityType.Builder.<DartProjectile>of(DartProjectile::new, MobCategory.MISC).sized(0.5F, 0.5F)
