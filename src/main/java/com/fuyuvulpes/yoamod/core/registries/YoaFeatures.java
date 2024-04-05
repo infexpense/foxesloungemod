@@ -1,10 +1,12 @@
 package com.fuyuvulpes.yoamod.core.registries;
 
 import com.fuyuvulpes.yoamod.game.woldgen.features.configuration.CreakstoneClusterConfiguration;
+import com.fuyuvulpes.yoamod.game.woldgen.features.feature.CreaksGatewayFeature;
 import com.fuyuvulpes.yoamod.game.woldgen.features.feature.CreakstoneClusterFeature;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -16,6 +18,11 @@ public class YoaFeatures {
 
     public static final Feature<CreakstoneClusterConfiguration> CREAKSTONE_CLUSTER = register(
             "creakstone_cluster_feature", new CreakstoneClusterFeature(CreakstoneClusterConfiguration.CODEC)
+    );
+
+
+    public static final Feature<NoneFeatureConfiguration> CREAKS_GATEWAY = register(
+            "creaks_gateway", new CreaksGatewayFeature(NoneFeatureConfiguration.CODEC)
     );
 
 

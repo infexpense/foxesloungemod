@@ -45,7 +45,8 @@
     ],
     [
       "minecraft:monster_room",
-      "minecraft:monster_room_deep"
+      "minecraft:monster_room_deep",
+      "yoamod:creaks_gateway_placed"
     ],
     [],
     [],
@@ -61,6 +62,10 @@
     ],
     [
       "yoamod:creakstone_cluster_placed"
+    ],
+    [],
+    [
+      "yoamod:etherflos_patch_placed"
     ]
   ],
   "has_precipitation": false,
