@@ -45,7 +45,7 @@ public class YoaTags {
         public static final TagKey<Biome> BLISSWOOD_GROWS = tag("blisswood_grows");
 
 
-        public static final TagKey<Biome> IS_THE_CREAK = tag("is_the_creak");
+        public static final TagKey<Biome> IS_THE_CREAK = tag("is_the_creaks");
         public static final TagKey<Biome> BLOCKLING_GRASS = tag("blocklings_grass");
         public static final TagKey<Biome> BLOCKLING_WOOD = tag("blocklings_wood");
         public static final TagKey<Biome> BLOCKLING_COBBLESTONE = tag("blocklings_cobblestone");
