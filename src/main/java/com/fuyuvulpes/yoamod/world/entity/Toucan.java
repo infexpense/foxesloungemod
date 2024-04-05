@@ -6,6 +6,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -14,7 +15,10 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.control.FlyingMoveControl;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.util.LandRandomPos;
 import net.minecraft.world.entity.animal.FlyingAnimal;
 import net.minecraft.world.entity.animal.Parrot;
@@ -35,10 +39,17 @@ import java.util.Iterator;
 
 public class Toucan extends ShoulderRidingEntity implements FlyingAnimal {
 
-
+    public float flap;
+    public float flapSpeed;
+    public float oFlapSpeed;
+    public float oFlap;
+    private float flapping = 1.0F;
+    private float nextFlap = 1.0F;
 
     public Toucan(EntityType<? extends ShoulderRidingEntity> pEntityType, Level pLevel) {
+
         super(pEntityType, pLevel);
+        this.moveControl = new FlyingMoveControl(this, 10, false);
     }
 
     @Override
@@ -57,9 +68,20 @@ public class Toucan extends ShoulderRidingEntity implements FlyingAnimal {
     public static AttributeSupplier.Builder createAttributes() {
         return ShoulderRidingEntity.createLivingAttributes()
                 .add(Attributes.MAX_HEALTH,7)
-                .add(Attributes.FLYING_SPEED, 0.4f)
+                .add(Attributes.FLYING_SPEED, 0.41f)
                 .add(Attributes.MOVEMENT_SPEED, 0.2f)
                 .add(Attributes.FOLLOW_RANGE, 32f);
+    }
+
+    protected PathNavigation createNavigation(Level pLevel) {
+        FlyingPathNavigation flyingpathnavigation = new FlyingPathNavigation(this, pLevel);
+        flyingpathnavigation.setCanOpenDoors(false);
+        flyingpathnavigation.setCanFloat(true);
+        flyingpathnavigation.setCanPassDoors(true);
+        return flyingpathnavigation;
+    }
+
+    protected void checkFallDamage(double pY, boolean pOnGround, BlockState pState, BlockPos pPos) {
     }
 
     @Nullable
@@ -81,6 +103,10 @@ public class Toucan extends ShoulderRidingEntity implements FlyingAnimal {
         return pSpawnData;
     }
 
+    public void aiStep() {
+        super.aiStep();
+        this.calculateFlapping();
+    }
 
     protected float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
         return 0.3F;
@@ -136,5 +162,31 @@ public class Toucan extends ShoulderRidingEntity implements FlyingAnimal {
 
             return Vec3.atBottomCenterOf(blockpos1);
         }
+    }
+    private void calculateFlapping() {
+        this.oFlap = this.flap;
+        this.oFlapSpeed = this.flapSpeed;
+        this.flapSpeed += (float)(!this.onGround() && !this.isPassenger() ? 4 : -1) * 0.3F;
+        this.flapSpeed = Mth.clamp(this.flapSpeed, 0.0F, 1.0F);
+        if (!this.onGround() && this.flapping < 1.0F) {
+            this.flapping = 1.0F;
+        }
+
+        this.flapping *= 0.9F;
+        Vec3 vec3 = this.getDeltaMovement();
+        if (!this.onGround() && vec3.y < 0.0) {
+            this.setDeltaMovement(vec3.multiply(1.0, 0.6, 1.0));
+        }
+
+        this.flap += this.flapping * 2.0F;
+    }
+
+    protected boolean isFlapping() {
+        return this.flyDist > this.nextFlap;
+    }
+
+    protected void onFlap() {
+        this.playSound(SoundEvents.PARROT_FLY, 0.15F, 1.0F);
+        this.nextFlap = this.flyDist + this.flapSpeed / 2.0F;
     }
 }

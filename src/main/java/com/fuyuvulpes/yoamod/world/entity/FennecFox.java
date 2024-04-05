@@ -259,7 +259,7 @@ public class FennecFox extends Animal {
     }
 
     public static boolean canSpawn(EntityType<FennecFox> pFox, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
-        return pLevel.getBlockState(pPos.below()).is(BlockTags.FOXES_SPAWNABLE_ON) && isBrightEnoughToSpawn(pLevel, pPos);
+        return Animal.checkAnimalSpawnRules(pFox,pLevel,pSpawnType,pPos,pRandom);
     }
 
     @Nullable
