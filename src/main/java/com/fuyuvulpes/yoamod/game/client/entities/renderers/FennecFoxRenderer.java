@@ -19,7 +19,7 @@ import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
 public class FennecFoxRenderer extends MobRenderer<FennecFox, FennecFoxModel<FennecFox>> {
     private static final ResourceLocation FENNEC_FOX_TEXTURE = new ResourceLocation(MODID,"textures/entity/fennec_fox/fennec_fox.png");
-    private static final ResourceLocation FENNEC_FOX_SLEEP_TEXTURE = new ResourceLocation(MODID,"textures/entity/fennec_fox/fennec_fox_sleep.png");
+    private static final ResourceLocation FENNEC_FOX_SLEEP_TEXTURE = new ResourceLocation(MODID,"textures/entity/fennec_fox/fennec_fox_sleeping.png");
 
     public FennecFoxRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new FennecFoxModel<>(pContext.bakeLayer(FennecFoxModel.LAYER_LOCATION)), 0.2F);
