@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.Musics;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.biome.*;
+import net.minecraft.world.level.levelgen.GenerationStep;
 
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
@@ -42,6 +43,8 @@ public class ModBiomes {
         BiomeDefaultFeatures.addDefaultCarversAndLakes(biomeBuilder);
         BiomeDefaultFeatures.addDefaultCrystalFormations(biomeBuilder);
         BiomeDefaultFeatures.addDefaultMonsterRoom(biomeBuilder);
+
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES,ModPlacedFeatures.CREAKS_GATEWAY_PLACED);
 
         ModBiomeFeatures.addCreakOres(biomeBuilder);
 

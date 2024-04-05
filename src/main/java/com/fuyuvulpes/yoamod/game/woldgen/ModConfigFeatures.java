@@ -5,6 +5,7 @@ import com.fuyuvulpes.yoamod.core.registries.YoaTags;
 import com.fuyuvulpes.yoamod.core.registries.YoaFeatures;
 import com.fuyuvulpes.yoamod.game.woldgen.features.configuration.CreakstoneClusterConfiguration;
 import com.fuyuvulpes.yoamod.game.woldgen.tree.placement.BlisswoodTrunkPlacement;
+import com.fuyuvulpes.yoamod.world.block.EtherflosBlock;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
@@ -16,6 +17,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformFloat;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.levelgen.GeodeBlockSettings;
 import net.minecraft.world.level.levelgen.GeodeCrackSettings;
 import net.minecraft.world.level.levelgen.GeodeLayerSettings;
@@ -58,6 +60,8 @@ public class ModConfigFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?,?>> CREAKSTONE_CLUSTER = registerKey("creakstone_cluster");
     public static final ResourceKey<ConfiguredFeature<?,?>> RUNE_CLUSTER_RANDOM = registerKey("rune_cluster_random");
+    public static final ResourceKey<ConfiguredFeature<?,?>> CREAKS_GATEWAY = registerKey("creaks_gateway");
+    public static final ResourceKey<ConfiguredFeature<?,?>> ETHERFLOS_PATCH = registerKey("etherflos_patch");
 
 
     public static final ResourceKey<ConfiguredFeature<?,?>> BLISSWOOD_KEY = registerKey("blisswood");
@@ -184,6 +188,21 @@ public class ModConfigFeatures {
                 3,
                 8
         ));
+        FeatureUtils.register(context, CREAKS_GATEWAY, YoaFeatures.CREAKS_GATEWAY);
+
+        FeatureUtils.register(
+                context,
+                ETHERFLOS_PATCH,
+                Feature.RANDOM_PATCH,
+                FeatureUtils.simplePatchConfiguration(
+                        Feature.SIMPLE_BLOCK,
+                        new SimpleBlockConfiguration(
+                                BlockStateProvider.simple(YoaBlocks.ETHERFRLOS.get().defaultBlockState().setValue(EtherflosBlock.AGE, 2))
+                        ),
+                        List.of(YoaBlocks.OVERGROWN_CREAKSTONE.get())
+                )
+        );
+
     }
 
 

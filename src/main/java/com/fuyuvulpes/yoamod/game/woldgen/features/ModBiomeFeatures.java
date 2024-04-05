@@ -38,7 +38,12 @@ public class ModBiomeFeatures {
         spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(YoaEntityTypes.BRAWLER_TYPE.get(), 100, 1, 2));
         spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(YoaEntityTypes.BRAWLING_TYPE.get(), 80, 1, 7));
     }
-        public static void addOvergrownGrottoFeatures(BiomeGenerationSettings.Builder biomeBuilder){
+
+    public static void addOvergrownGrottoFeatures(BiomeGenerationSettings.Builder biomeBuilder){
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,ModPlacedFeatures.ETHERFLOS_PATCH_PLACED);
+
 
     }
+
+
 }

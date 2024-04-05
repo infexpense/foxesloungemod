@@ -41,6 +41,8 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> CREAKSTONE_CLUSTER_PLACED = registerKey("creakstone_cluster_placed");
     public static final ResourceKey<PlacedFeature> RUNE_GEODE_PLACED = registerKey("rune_geode_placed");
     public static final ResourceKey<PlacedFeature> RUNE_GEODE_CREAK_PLACED = registerKey("rune_geode_creak_placed");
+    public static final ResourceKey<PlacedFeature> CREAKS_GATEWAY_PLACED = registerKey("creaks_gateway_placed");
+    public static final ResourceKey<PlacedFeature> ETHERFLOS_PATCH_PLACED = registerKey("etherflos_patch_placed");
 
 
     public static final ResourceKey<PlacedFeature> BLISSWOOD_PLACED = registerKey("blisswood_placed");
@@ -130,6 +132,22 @@ public class ModPlacedFeatures {
         register(context,RUNE_CLUSTER_PLACED,configuredFeatures.getOrThrow(ModConfigFeatures.RUNE_CLUSTER_RANDOM),
                 CountPlacement.of(UniformInt.of(2,12)),
                 InSquarePlacement.spread(),PlacementUtils.FULL_RANGE
+        );
+
+        register(context,CREAKS_GATEWAY_PLACED,configuredFeatures.getOrThrow(ModConfigFeatures.CREAKS_GATEWAY),
+                RarityFilter.onAverageOnceEvery(16),
+                InSquarePlacement.spread(),
+                PlacementUtils.FULL_RANGE
+        );
+
+        PlacementUtils.register(
+                context,
+                ETHERFLOS_PATCH_PLACED,
+                configuredFeatures.getOrThrow(ModConfigFeatures.ETHERFLOS_PATCH),
+                CountPlacement.of(UniformInt.of(6,16)),
+                InSquarePlacement.spread(),
+                PlacementUtils.FULL_RANGE,
+                BiomeFilter.biome()
         );
 
 
