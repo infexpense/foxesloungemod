@@ -51,7 +51,7 @@ public class BellItem extends TieredItem implements Vanishable, IManaConsumingWe
             });
 
             list.forEach(livingEntity -> {
-                livingEntity.hurt(pLivingEntity.damageSources().magic(), Math.max(8.0F * power * this.getTier().getAttackDamageBonus() / 2, 1.0F + 2.0F * this.getTier().getAttackDamageBonus()));
+                livingEntity.hurt(pLivingEntity.damageSources().magic(), Math.max(2.0F + 8.0F * power * this.getTier().getAttackDamageBonus() / 2, 1.0F + 2.0F * this.getTier().getAttackDamageBonus()));
                 if (!livingEntity.level().isClientSide()) {
                     ((ServerLevel) livingEntity.level()).sendParticles(ParticleTypes.SONIC_BOOM, livingEntity.getX(), livingEntity.getY() + (livingEntity.getBbHeight() / 2), livingEntity.getZ(), 1, 0.0, 0.0, 0.0, 0.0);}
 
@@ -106,7 +106,7 @@ public class BellItem extends TieredItem implements Vanishable, IManaConsumingWe
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         if (pStack.getItem() instanceof BellItem bellItem) {
-            pTooltipComponents.add(Component.translatable("yoamod.bell.damage_max").append(": " + (8.0F * bellItem.getTier().getAttackDamageBonus())).withStyle(ChatFormatting.GOLD));
+            pTooltipComponents.add(Component.translatable("yoamod.bell.damage_max").append(": " + (2.0F + 8.0F * bellItem.getTier().getAttackDamageBonus())).withStyle(ChatFormatting.GOLD));
             pTooltipComponents.add(Component.translatable("yoamod.bell.damage_min").append(": " + (1.0F + 2.0F * bellItem.getTier().getAttackDamageBonus())).withStyle(ChatFormatting.RED));
             pTooltipComponents.add(Component.translatable("yoamod.bell.healing").append(": " + (2.0F * bellItem.getTier().getAttackDamageBonus() / 2)).withStyle(ChatFormatting.GREEN));
         }

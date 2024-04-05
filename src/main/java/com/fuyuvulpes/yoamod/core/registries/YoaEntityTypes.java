@@ -1,8 +1,7 @@
 package com.fuyuvulpes.yoamod.core.registries;
 
 import com.fuyuvulpes.yoamod.world.entity.*;
-import com.fuyuvulpes.yoamod.world.entity.projectile.ChakramEntity;
-import com.fuyuvulpes.yoamod.world.entity.projectile.DartProjectile;
+import com.fuyuvulpes.yoamod.world.entity.projectile.*;
 import com.fuyuvulpes.yoamod.world.entity.vehicle.PlaneEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -69,9 +68,32 @@ public class YoaEntityTypes {
                     .build(new ResourceLocation(MODID,"dart").toString()));
 
     public static final DeferredHolder<EntityType<?>,EntityType<ChakramEntity>> CHAKRAM = ENTITY.register("chakram",
-            () -> EntityType.Builder.<ChakramEntity>of(ChakramEntity::new, MobCategory.MISC).sized(0.5F, 0.5F)
+            () -> EntityType.Builder.<ChakramEntity>of(ChakramEntity::new, MobCategory.MISC).sized(1.0F, 0.3F)
                     .clientTrackingRange(4).updateInterval(20)
                     .build(new ResourceLocation(MODID,"chakram").toString()));
+
+    public static final DeferredHolder<EntityType<?>,EntityType<BoomerangEntity>> BOOMERANG = ENTITY.register("boomerang",
+            () -> EntityType.Builder.<BoomerangEntity>of(BoomerangEntity::new, MobCategory.MISC).sized(0.6F, 0.2F)
+                    .clientTrackingRange(4).updateInterval(20)
+                    .build(new ResourceLocation(MODID,"boomerang").toString()));
+
+
+    public static final DeferredHolder<EntityType<?>,EntityType<HarpoonEntity>> HARPOON = ENTITY.register("harpoon",
+            () -> EntityType.Builder.<HarpoonEntity>of(HarpoonEntity::new, MobCategory.MISC).sized(0.3F, 0.3F)
+                    .clientTrackingRange(4).updateInterval(20)
+                    .build(new ResourceLocation(MODID,"harpoon").toString()));
+
+
+    public static final DeferredHolder<EntityType<?>,EntityType<ThrowingKnifeEntity>> THROWING_KNIFE = ENTITY.register("throwing_knife",
+            () -> EntityType.Builder.<ThrowingKnifeEntity>of(ThrowingKnifeEntity::new, MobCategory.MISC).sized(0.3F, 0.2F)
+                    .clientTrackingRange(4).updateInterval(20)
+                    .build(new ResourceLocation(MODID,"throwing_knife").toString()));
+
+
+    public static final DeferredHolder<EntityType<?>,EntityType<ShurikenEntity>> SHURIKEN = ENTITY.register("shuriken",
+            () -> EntityType.Builder.<ShurikenEntity>of(ShurikenEntity::new, MobCategory.MISC).sized(0.1F, 0.1F)
+                    .clientTrackingRange(4).updateInterval(20)
+                    .build(new ResourceLocation(MODID,"shuriken").toString()));
 
 
 

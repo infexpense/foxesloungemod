@@ -2,15 +2,20 @@ package com.fuyuvulpes.yoamod.world.entity.projectile;
 
 import com.fuyuvulpes.yoamod.core.registries.YoaEntityTypes;
 import com.fuyuvulpes.yoamod.core.registries.YoaKeys;
+import com.fuyuvulpes.yoamod.world.entity.Blockling;
 import com.fuyuvulpes.yoamod.world.item.weaponry.BlowDartItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
+import net.minecraft.util.valueproviders.UniformFloat;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -28,9 +33,10 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.UUID;
 
 public class ChakramEntity extends ThrowableItem{
+
     UUID lastEntityUUID = null;
     public ChakramEntity(Level pLevel, ItemStack item, Entity owner) {
-        super(1.0F, 800, 100, YoaEntityTypes.CHAKRAM.get(), pLevel, item, owner);
+        super(2.8F, 800, 100, YoaEntityTypes.CHAKRAM.get(), pLevel, item, owner);
     }
     public ChakramEntity(EntityType<? extends ChakramEntity> entityType, Level plevel){
         super(entityType,plevel);
@@ -159,79 +165,81 @@ public class ChakramEntity extends ThrowableItem{
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
-        System.out.println("a");
         Entity entity = pResult.getEntity();
 
         float f = (float) this.getDeltaMovement().length();
-        System.out.println("b");
         Entity entity1 = this.getOwner();
-        DamageSource damagesource = this.damageSources().source(YoaKeys.PROJECTILE);
+        DamageSource damagesource = this.damageSources().source(YoaKeys.PROJECTILE,(Entity)(entity1 == null ? this : entity1));
         if (entity1 instanceof LivingEntity) {
-            System.out.println("c");
 
             ((LivingEntity) entity1).setLastHurtMob(entity);
         }
-        this.lastEntityUUID = entity.getUUID();
-
-        System.out.println("e");
-
-        this.deflect(entity.getOnPos().getCenter().add(0, entity.getBbHeight() / 2, 0).subtract(this.getX(), this.getY(), this.getZ()));
-
-        System.out.println("f");
+        this.deflect(entity.getOnPos().getCenter().add(0, entity.getBbHeight() / 2, 0));
 
         boolean flag = entity.getType() == EntityType.ENDERMAN;
         if (this.isOnFire() && !flag) {
             entity.setSecondsOnFire(5);
         }
-        System.out.println("h");
         if (flag) return;
 
-        entity.hurt(damagesource, (float) Mth.ceil(Mth.clamp((double) f * this.getConcreteDamage(), 0.0, 1000)));
+        entity.hurt(damagesource, (float) Mth.ceil(Mth.clamp(this.getConcreteDamage(), 0.0, 1000)));
 
-        this.deflect(entity.getOnPos().getCenter().add(0, entity.getBbHeight() / 2, 0).subtract(this.getX(), this.getY(), this.getZ()));
-
-        System.out.println("i");
+        this.deflect(entity.getOnPos().getCenter().add(0, entity.getBbHeight() / 2, 0));
 
         this.playSound(this.getDefaultHitGroundSoundEvent(), 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
 
 
     }
 
-    @Override
-    protected boolean canHitEntity(Entity pTarget) {
-        if (pTarget.getUUID() != lastEntityUUID) {
-            return super.canHitEntity(pTarget);
-        }
-        else return false;
-    }
-
     public void deflect(Vec3 hitPos) {
         this.life += 50;
-        Vec3 offset = this.position().subtract(hitPos);
-        Direction.Axis direction = Direction.getNearest((int) offset.x, (int) offset.y, (int) offset.z).getAxis();
-        Vec3 deflect = offset.normalize().scale(0.7F);
-        switch (direction){
-            case X:
-                this.setDeltaMovement(this.getDeltaMovement().multiply(-1, deflect.y, deflect.z));
-                break;
-            case Y:
-                this.setDeltaMovement(this.getDeltaMovement().multiply(deflect.x,-1,deflect.z));
-                break;
-            case Z:
-                this.setDeltaMovement(this.getDeltaMovement().multiply(deflect.x,deflect.y,-1));
-                break;
+        Vec3 delta = hitPos.subtract(this.position()).normalize().reverse();
+
+
+        float f = (float) (this.getYRot() * ((delta.x + delta.y)/2));
+
+        this.setYRot(this.getYRot() + f);
+
+        this.yRotO += f;
+
+        this.setDeltaMovement(this.getDeltaMovement().yRot(f * (float) (Math.PI / 180.0)));
+
+        if (this.getDeltaMovement().y > 0 && hitPos.y > this.getY() || this.getDeltaMovement().y < 0 && hitPos.y < this.getY()){
+            this.setDeltaMovement(this.getDeltaMovement().multiply(1,-1,1));
         }
+        Vec3 nHitPos = new Vec3(Math.sqrt(hitPos.x * hitPos.x),
+                Math.sqrt(hitPos.y * hitPos.y),
+                Math.sqrt(hitPos.z * hitPos.z));
+        Vec3 nPos = new Vec3(Math.sqrt(this.getX() * this.getX()),
+                Math.sqrt(this.getY() * this.getY()),
+                Math.sqrt(this.getZ() * this.getZ()));
+
+        Vec3 nEDelta = new Vec3(Math.sqrt(this.getDeltaMovement().x * this.getDeltaMovement().x),
+                Math.sqrt(this.getDeltaMovement().y * this.getDeltaMovement().y),
+                Math.sqrt(this.getDeltaMovement().z * this.getDeltaMovement().z));
+
+        Vec3 nDelta = new Vec3(Math.sqrt(delta.x * delta.x), Math.sqrt(delta.y * delta.y), Math.sqrt(delta.z * delta.z));
+
+        if (nDelta.x > nDelta.z & hitPos.x < nPos.x){
+            this.setDeltaMovement(this.getDeltaMovement().multiply(-1,1,1));
+        }
+
+        if (nDelta.x < nDelta.z & hitPos.z < nPos.z){
+            this.setDeltaMovement(this.getDeltaMovement().multiply(1,1,-1));
+        }
+
 
     }
     @Override
     protected void onHitBlock(BlockHitResult pResult) {
         super.onHitBlock(pResult);
-        Vec3 vec3 = pResult.getBlockPos().getCenter().subtract(this.getX(), this.getY(), this.getZ());
+        Vec3 vec3 = pResult.getLocation();
         this.deflect(vec3);
         Vec3 vec31 = vec3.normalize().scale(0.05F);
         this.setPosRaw(this.getX() - vec31.x, this.getY() - vec31.y, this.getZ() - vec31.z);
         this.playSound(this.getHitGroundSoundEvent(), 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
     }
+
 
 
     protected SoundEvent getDefaultHitGroundSoundEvent() {
@@ -240,12 +248,6 @@ public class ChakramEntity extends ThrowableItem{
 
     protected final SoundEvent getHitGroundSoundEvent() {
         return SoundEvents.SHULKER_BULLET_HURT;
-    }
-
-
-    @Override
-    protected void defineSynchedData() {
-
     }
 
 

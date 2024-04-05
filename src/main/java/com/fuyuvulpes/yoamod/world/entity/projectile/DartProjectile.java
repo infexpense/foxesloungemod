@@ -217,7 +217,7 @@ public class DartProjectile extends Projectile {
         }
 
         if (entity instanceof LivingEntity livingB) {
-            if (item != null && item.getItem() instanceof BlowDartItem dartItem && dartItem.getEffects(item) != null) {
+            if (item != null && item.getItem() instanceof BlowDartItem dartItem && dartItem.getEffects(item).getEffects().stream().findFirst().isPresent()) {
                 livingB.addEffect(new MobEffectInstance(dartItem.getEffects(item).getEffects().stream().findFirst().get()));
             }
         }

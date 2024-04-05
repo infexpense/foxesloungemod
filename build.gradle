@@ -18,6 +18,10 @@ repositories {
         url = "https://maven.terraformersmc.com/"
     }
 
+    maven {
+        name "KosmX's maven"
+        url 'https://maven.kosmx.dev/'
+    }
 
     maven {
         url = 'https://maven.neoforged.net'
@@ -107,6 +111,7 @@ dependencies {
 
     implementation "curse.maven:attributefix-280510:5074738"
     implementation "curse.maven:armorpoints-396094:4981317"
+    implementation "dev.kosmx.player-anim:player-animation-lib-forge:${player_anim_version}"
 
 
 
@@ -127,6 +132,7 @@ tasks.withType(ProcessResources).configureEach {
             neo_version         : neo_version, neo_version_range: neo_version_range,
             emi_version         : emi_version, emi_version_range: emi_version_range,
             structure_gel_version         : structure_gel_version, structure_gel_version_range: structure_gel_version_range,
+            player_anim_version         : player_anim_version, player_anim_version_range: player_anim_version_range,
             loader_version_range: loader_version_range,
             mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
             mod_authors         : mod_authors, mod_description: mod_description, pack_format_number: pack_format_number,

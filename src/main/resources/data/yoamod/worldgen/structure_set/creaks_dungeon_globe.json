@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "yoamod:creaks_dungeon_globe",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 31590627,
+    "frequency": 1,
+    "spacing": 18,
+    "separation": 4
+  }
+}

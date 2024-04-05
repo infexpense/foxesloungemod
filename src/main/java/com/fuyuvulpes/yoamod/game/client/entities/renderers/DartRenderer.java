@@ -26,6 +26,7 @@ public class DartRenderer<T extends DartProjectile> extends EntityRenderer<T> {
 
     public void render(T pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
         pPoseStack.pushPose();
+
         VertexConsumer vertexconsumer = pBuffer.getBuffer(this.model.renderType(TEXTURE));
         this.model.renderToBuffer(pPoseStack, vertexconsumer, pPackedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 0.15F);
         pPoseStack.popPose();

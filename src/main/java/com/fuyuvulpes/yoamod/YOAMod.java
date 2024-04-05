@@ -208,6 +208,10 @@ public class YOAMod {
             event.registerEntityRenderer(YoaEntityTypes.PLANE_TYPE.get(), PlaneRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.DART.get(), DartRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.CHAKRAM.get(), ChakramRenderer::new);
+            event.registerEntityRenderer(YoaEntityTypes.BOOMERANG.get(), BoomerangRenderer::new);
+            event.registerEntityRenderer(YoaEntityTypes.SHURIKEN.get(), ShurikenRenderer::new);
+            event.registerEntityRenderer(YoaEntityTypes.THROWING_KNIFE.get(), ThrowingKnifeRenderer::new);
+            event.registerEntityRenderer(YoaEntityTypes.HARPOON.get(), HarpoonRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.BRAWLER_TYPE.get(), BrawlerRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.BRAWLING_TYPE.get(), BrawlerRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.BLOCKLING_TYPE.get(), BlocklingRenderer::new);
@@ -221,6 +225,11 @@ public class YOAMod {
         public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
             event.registerLayerDefinition(PlaneModel.LAYER_LOCATION,PlaneModel::createBodyLayer);
             event.registerLayerDefinition(DartModel.LAYER_LOCATION,DartModel::createBodyLayer);
+            event.registerLayerDefinition(ChakramModel.LAYER_LOCATION,ChakramModel::createBodyLayer);
+            event.registerLayerDefinition(BoomerangModel.LAYER_LOCATION,BoomerangModel::createBodyLayer);
+            event.registerLayerDefinition(HarpoonModel.LAYER_LOCATION,HarpoonModel::createBodyLayer);
+            event.registerLayerDefinition(ShurikenModel.LAYER_LOCATION,ShurikenModel::createBodyLayer);
+            event.registerLayerDefinition(ThrowingKnifeModel.LAYER_LOCATION,ThrowingKnifeModel::createBodyLayer);
             event.registerLayerDefinition(ChakramModel.LAYER_LOCATION,ChakramModel::createBodyLayer);
             event.registerLayerDefinition(BrawlerModel.LAYER_LOCATION,BrawlerModel::createBodyLayer);
             event.registerLayerDefinition(BlocklingModel.LAYER_LOCATION, BlocklingModel::createBodyLayer);

@@ -34,12 +34,14 @@ public class ModBiomes {
         BiomeDefaultFeatures.addDefaultUndergroundVariety(builder);
         BiomeDefaultFeatures.addDefaultSprings(builder);
         BiomeDefaultFeatures.addSurfaceFreezing(builder);
+
     }
 
 
     private static void globalCreaksGeneration(BiomeGenerationSettings.Builder biomeBuilder) {
         BiomeDefaultFeatures.addDefaultCarversAndLakes(biomeBuilder);
         BiomeDefaultFeatures.addDefaultCrystalFormations(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultMonsterRoom(biomeBuilder);
         BiomeDefaultFeatures.addDefaultMonsterRoom(biomeBuilder);
 
         ModBiomeFeatures.addCreakOres(biomeBuilder);

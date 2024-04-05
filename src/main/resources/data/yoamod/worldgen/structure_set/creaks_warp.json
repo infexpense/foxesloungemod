@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "yoamod:creaks_warp",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1299446655,
+    "frequency": 1,
+    "spacing": 24,
+    "separation": 8
+  }
+}

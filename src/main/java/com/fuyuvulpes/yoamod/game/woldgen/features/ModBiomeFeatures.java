@@ -11,7 +11,6 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 
 public class ModBiomeFeatures {
     public static void addCreakOres(BiomeGenerationSettings.Builder biomeBuilder) {
-
         biomeBuilder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, ModPlacedFeatures.RUNE_GEODE_CREAK_PLACED);
 
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ModPlacedFeatures.CREAKSTONE_CLUSTER_PLACED);

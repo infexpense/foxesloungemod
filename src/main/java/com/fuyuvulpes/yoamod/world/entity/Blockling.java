@@ -86,20 +86,6 @@ public class Blockling extends PathfinderMob implements VariantHolder<Blockling.
                 .add(Attributes.FOLLOW_RANGE, 12.0F);
     }
 
-    @Nullable
-    @Override
-    public SpawnGroupData finalizeSpawn(
-            ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag
-    ) {
-        pSpawnData = super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
-        BlockPos pos = this.blockPosition();
-        Blockling.Type type = Blockling.Type.byPos(pos, pLevel.getLevel());
-        this.setVariant(type);
-        return pSpawnData;
-    }
-
-
-
     public static boolean canSpawn(EntityType<Blockling> entityType, ServerLevelAccessor level, MobSpawnType type, BlockPos pos, RandomSource randomSource){
         return Mob.checkMobSpawnRules(entityType,level,type,pos,randomSource);
     }
@@ -136,24 +122,6 @@ public class Blockling extends PathfinderMob implements VariantHolder<Blockling.
 
         public static Blockling.Type byId(int pIndex) {
             return BY_ID.apply(pIndex);
-        }
-
-        public static Blockling.Type byPos(BlockPos blockPos, Level level) {
-            if (level.getBrightness(LightLayer.SKY,blockPos) > 8){
-                if (level.getBiome(blockPos).is(YoaTags.Biomes.BLOCKLING_WOOD)){
-                    return WOOD;
-                }
-                else if (level.getBiome(blockPos).is(YoaTags.Biomes.BLOCKLING_GRASS)){
-                    return GRASS;
-                }
-                else if (level.getBiome(blockPos).is(YoaTags.Biomes.BLOCKLING_COBBLESTONE)){
-                    return COBBLESTONE;
-                }
-            }else if (level.getBrightness(LightLayer.SKY,blockPos) <= 8) {
-                return COBBLESTONE;
-            }
-
-                return GRASS;
         }
     }
 
