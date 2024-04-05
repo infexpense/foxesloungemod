@@ -42,7 +42,7 @@ public class ModBiomes {
         BiomeDefaultFeatures.addDefaultCarversAndLakes(biomeBuilder);
         BiomeDefaultFeatures.addDefaultCrystalFormations(biomeBuilder);
         BiomeDefaultFeatures.addDefaultMonsterRoom(biomeBuilder);
-        BiomeDefaultFeatures.addDefaultMonsterRoom(biomeBuilder);
+        // BiomeDefaultFeatures.addDefaultMonsterRoom(biomeBuilder); Do not add the same placedfeature twice. This causes a cycle. make a new placedfeature with twice the spawnrate instead
 
         ModBiomeFeatures.addCreakOres(biomeBuilder);
 

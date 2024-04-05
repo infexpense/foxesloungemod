@@ -1,6 +1,6 @@
 {
   "values": [
-    "minecraft:desert",
-    "minecraft:windswept_savanna"
+    "#forge:is_desert",
+    "#minecraft:is_savanna"
   ]
 }
