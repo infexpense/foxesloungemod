@@ -5,6 +5,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
@@ -109,12 +111,12 @@ public class Toucan extends ShoulderRidingEntity implements FlyingAnimal {
     }
 
     protected float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
-        return 0.3F;
+        return 0.6F;
     }
 
     @Override
     public boolean isFlying() {
-        return !this.onGround();
+        return this.onGround();
     }
     public static boolean canSpawn(EntityType<Toucan> pToucan, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
         return pLevel.getBlockState(pPos.below()).is(BlockTags.PARROTS_SPAWNABLE_ON) && isBrightEnoughToSpawn(pLevel, pPos);
