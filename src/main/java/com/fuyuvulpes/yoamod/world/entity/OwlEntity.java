@@ -51,6 +51,7 @@ public class OwlEntity extends Animal implements FlyingAnimal {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
+        this.goalSelector.addGoal(0, new PanicGoal(this, 1.3F));
         this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(1, new TemptGoal(this, 1.0f, Ingredient.of(Items.WHEAT_SEEDS), false));
         this.goalSelector.addGoal(3, new FollowMobGoal(this, 1.0, 3.0F, 7.0F));
@@ -61,7 +62,7 @@ public class OwlEntity extends Animal implements FlyingAnimal {
 
     public static AttributeSupplier.Builder createAttributes() {
         return ShoulderRidingEntity.createLivingAttributes()
-                .add(Attributes.MAX_HEALTH,7)
+                .add(Attributes.MAX_HEALTH,10)
                 .add(Attributes.FLYING_SPEED, 0.35f)
                 .add(Attributes.MOVEMENT_SPEED, 0.1f)
                 .add(Attributes.FOLLOW_RANGE, 32f);
