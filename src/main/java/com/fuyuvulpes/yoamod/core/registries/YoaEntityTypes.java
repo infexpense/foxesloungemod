@@ -7,7 +7,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.projectile.Arrow;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -47,18 +46,18 @@ public class YoaEntityTypes {
                     .sized(2.0F,1.7F)
                     .build(new ResourceLocation(MODID,"armed_spider").toString()));
 
-    public static final DeferredHolder<EntityType<?>,EntityType<FennecFox>> FENNEC_FOX_TYPE = ENTITY.register("fennec_fox",
-            () -> EntityType.Builder.<FennecFox>of(FennecFox::new, MobCategory.CREATURE)
-                    .sized(1.0F,0.6F)
+    public static final DeferredHolder<EntityType<?>,EntityType<FennecFoxEntity>> FENNEC_FOX_TYPE = ENTITY.register("fennec_fox",
+            () -> EntityType.Builder.<FennecFoxEntity>of(FennecFoxEntity::new, MobCategory.CREATURE)
+                    .sized(0.8F,0.7F)
                     .build(new ResourceLocation(MODID,"fennec_fox").toString()));
 
-    public static final DeferredHolder<EntityType<?>,EntityType<Toucan>> TOUCAN_TYPE = ENTITY.register("toucan",
-            () -> EntityType.Builder.<Toucan>of(Toucan::new, MobCategory.CREATURE)
+    public static final DeferredHolder<EntityType<?>,EntityType<ToucanEntity>> TOUCAN_TYPE = ENTITY.register("toucan",
+            () -> EntityType.Builder.<ToucanEntity>of(ToucanEntity::new, MobCategory.CREATURE)
                     .sized(0.4F,0.5F)
                     .build(new ResourceLocation(MODID,"toucan").toString()));
 
-    public static final DeferredHolder<EntityType<?>,EntityType<Owl>> OWL_TYPE = ENTITY.register("owl",
-            () -> EntityType.Builder.<Owl>of(Owl::new, MobCategory.CREATURE)
+    public static final DeferredHolder<EntityType<?>,EntityType<OwlEntity>> OWL_TYPE = ENTITY.register("owl",
+            () -> EntityType.Builder.<OwlEntity>of(OwlEntity::new, MobCategory.CREATURE)
                     .sized(0.6F,0.8F)
                     .build(new ResourceLocation(MODID,"owl").toString()));
 

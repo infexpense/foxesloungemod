@@ -1,28 +1,20 @@
 package com.fuyuvulpes.yoamod.game.client.entities.model;
 
-import com.fuyuvulpes.yoamod.world.entity.FennecFox;
-import com.google.common.collect.ImmutableList;
+import com.fuyuvulpes.yoamod.world.entity.FennecFoxEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.animation.AnimationChannel;
 import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.animation.Keyframe;
 import net.minecraft.client.animation.KeyframeAnimations;
-import net.minecraft.client.model.AgeableListModel;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.animal.Fox;
 
-import static com.fuyuvulpes.yoamod.YOAMod.MODID;
-
-public class FennecFoxModel<T extends FennecFox> extends HierarchicalModel<T> {
+public class FennecFoxModel<T extends FennecFoxEntity> extends HierarchicalModel<T> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "fennecfoxmodel"), "main");
     private final ModelPart root;
@@ -59,20 +51,29 @@ public class FennecFoxModel<T extends FennecFox> extends HierarchicalModel<T> {
         return LayerDefinition.create(meshdefinition, 64, 32);
     }
 
+
     @Override
     public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         root().getAllParts().forEach(ModelPart::resetPose);
-    if(!entity.isInWaterOrBubble() && !entity.isPouncing() && !entity.isJumping() && !entity.isSleeping() ){
-        animateWalk(FennecFoxModelAnimation.walk, limbSwing, limbSwingAmount, 1.5F, 2.5F);
-    }
-        this.animate(entity.sleep,FennecFoxModelAnimation.sleep, ageInTicks);
-        this.animate(entity.pounce,FennecFoxModelAnimation.pounce_readyUp, ageInTicks);
-        this.animate(entity.jump, FennecFoxModelAnimation.jump_pounce, ageInTicks);
+        if (!entity.isPouncing() && (entity.onGround() || entity.isInWaterOrBubble()) && !entity.isJumping() && !entity.isSleeping()) {
+            animateWalk(FennecFoxModelAnimation.walk, limbSwing, limbSwingAmount, 1.5F, 2.5F);
         }
 
+        if (entity.isJumping()) {
+            this.animate(entity.jump, FennecFoxModelAnimation.jump_pounce, ageInTicks * 1.5F);
+
+        }
+        this.animate(entity.sleep, FennecFoxModelAnimation.sleep, ageInTicks);
+
+        if (entity.isPouncing()) {
+            this.animate(entity.pounce, FennecFoxModelAnimation.pounce_readyUp, ageInTicks);
+        }
+
+    }
 
     @Override
     public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+
         root.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
     }
 

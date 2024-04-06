@@ -4,9 +4,6 @@ import com.fuyuvulpes.yoamod.core.registries.YoaEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
@@ -14,7 +11,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.FlyingMoveControl;
@@ -23,7 +19,6 @@ import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.util.LandRandomPos;
 import net.minecraft.world.entity.animal.FlyingAnimal;
-import net.minecraft.world.entity.animal.Parrot;
 import net.minecraft.world.entity.animal.ShoulderRidingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -39,7 +34,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Iterator;
 
-public class Toucan extends ShoulderRidingEntity implements FlyingAnimal {
+public class ToucanEntity extends ShoulderRidingEntity implements FlyingAnimal {
 
     public float flap;
     public float flapSpeed;
@@ -48,7 +43,7 @@ public class Toucan extends ShoulderRidingEntity implements FlyingAnimal {
     private float flapping = 1.0F;
     private float nextFlap = 1.0F;
 
-    public Toucan(EntityType<? extends ShoulderRidingEntity> pEntityType, Level pLevel) {
+    public ToucanEntity(EntityType<? extends ShoulderRidingEntity> pEntityType, Level pLevel) {
 
         super(pEntityType, pLevel);
         this.moveControl = new FlyingMoveControl(this, 10, false);
@@ -70,9 +65,9 @@ public class Toucan extends ShoulderRidingEntity implements FlyingAnimal {
     public static AttributeSupplier.Builder createAttributes() {
         return ShoulderRidingEntity.createLivingAttributes()
                 .add(Attributes.MAX_HEALTH,7)
-                .add(Attributes.FLYING_SPEED, 0.41f)
-                .add(Attributes.MOVEMENT_SPEED, 0.2f)
-                .add(Attributes.FOLLOW_RANGE, 32f);
+                .add(Attributes.FLYING_SPEED, 1.0F)
+                .add(Attributes.MOVEMENT_SPEED, 0.2F)
+                .add(Attributes.FOLLOW_RANGE, 32F);
     }
 
     protected PathNavigation createNavigation(Level pLevel) {
@@ -89,7 +84,7 @@ public class Toucan extends ShoulderRidingEntity implements FlyingAnimal {
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob ageableMob) {
-        Toucan toucan = YoaEntityTypes.TOUCAN_TYPE.get().create(pLevel);
+        ToucanEntity toucan = YoaEntityTypes.TOUCAN_TYPE.get().create(pLevel);
 
 
         return toucan;
@@ -116,9 +111,9 @@ public class Toucan extends ShoulderRidingEntity implements FlyingAnimal {
 
     @Override
     public boolean isFlying() {
-        return this.onGround();
+        return !this.onGround();
     }
-    public static boolean canSpawn(EntityType<Toucan> pToucan, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+    public static boolean canSpawn(EntityType<ToucanEntity> pToucan, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
         return pLevel.getBlockState(pPos.below()).is(BlockTags.PARROTS_SPAWNABLE_ON) && isBrightEnoughToSpawn(pLevel, pPos);
     }
     static class ToucanWanderGoal extends WaterAvoidingRandomFlyingGoal {

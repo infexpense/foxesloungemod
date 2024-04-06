@@ -20,9 +20,7 @@ import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.util.LandRandomPos;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.FlyingAnimal;
-import net.minecraft.world.entity.animal.Parrot;
 import net.minecraft.world.entity.animal.ShoulderRidingEntity;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -37,7 +35,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Iterator;
 
-public class Owl extends Animal implements FlyingAnimal {
+public class OwlEntity extends Animal implements FlyingAnimal {
     public float flap;
     public float flapSpeed;
     public float oFlapSpeed;
@@ -45,7 +43,7 @@ public class Owl extends Animal implements FlyingAnimal {
     private float flapping = 1.0F;
     private float nextFlap = 1.0F;
 
-    public Owl(EntityType<? extends Animal> pEntityType, Level pLevel) {
+    public OwlEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.moveControl = new FlyingMoveControl(this, 10, false);
     }
@@ -83,7 +81,7 @@ public class Owl extends Animal implements FlyingAnimal {
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob ageableMob) {
-        Owl owl = YoaEntityTypes.OWL_TYPE.get().create(pLevel);
+        OwlEntity owl = YoaEntityTypes.OWL_TYPE.get().create(pLevel);
 
 
         return owl;
@@ -104,7 +102,7 @@ public class Owl extends Animal implements FlyingAnimal {
         return 0.3F;
     }
 
-    public static boolean canSpawn(EntityType<Owl> pOwl, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+    public static boolean canSpawn(EntityType<OwlEntity> pOwl, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
         return pLevel.getBlockState(pPos.below()).is(BlockTags.PARROTS_SPAWNABLE_ON) && isBrightEnoughToSpawn(pLevel, pPos);
     }
 

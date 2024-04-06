@@ -23,7 +23,6 @@ import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.resources.ResourceLocation;
@@ -307,9 +306,9 @@ public class YOAMod {
             event.put(YoaEntityTypes.BLOCKLING_TYPE.get(), Blockling.createAttributes().build());
             event.put(YoaEntityTypes.ARMED_SPIDER_TYPE.get(), ArmedSpider.createAttributes().build());
             event.put(YoaEntityTypes.FALLEN_SAMURAI.get(), FallenSamurai.createAttributes().build());
-            event.put(YoaEntityTypes.FENNEC_FOX_TYPE.get(), FennecFox.createAttributes().build());
-            event.put(YoaEntityTypes.TOUCAN_TYPE.get(), Toucan.createAttributes().build());
-            event.put(YoaEntityTypes.OWL_TYPE.get(), Owl.createAttributes().build());
+            event.put(YoaEntityTypes.FENNEC_FOX_TYPE.get(), FennecFoxEntity.createAttributes().build());
+            event.put(YoaEntityTypes.TOUCAN_TYPE.get(), ToucanEntity.createAttributes().build());
+            event.put(YoaEntityTypes.OWL_TYPE.get(), OwlEntity.createAttributes().build());
         }
 
 
@@ -344,17 +343,17 @@ public class YOAMod {
             event.register(YoaEntityTypes.FENNEC_FOX_TYPE.get(),
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    FennecFox::canSpawn,
+                    FennecFoxEntity::canSpawn,
                     SpawnPlacementRegisterEvent.Operation.OR);
             event.register(YoaEntityTypes.TOUCAN_TYPE.get(),
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Toucan::canSpawn,
+                    ToucanEntity::canSpawn,
                     SpawnPlacementRegisterEvent.Operation.OR);
             event.register(YoaEntityTypes.OWL_TYPE.get(),
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Owl::canSpawn,
+                    OwlEntity::canSpawn,
                     SpawnPlacementRegisterEvent.Operation.OR);
         }
 

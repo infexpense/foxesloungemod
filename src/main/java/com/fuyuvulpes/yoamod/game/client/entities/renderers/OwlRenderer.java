@@ -1,15 +1,14 @@
 package com.fuyuvulpes.yoamod.game.client.entities.renderers;
 
-import com.fuyuvulpes.yoamod.game.client.entities.model.FennecFoxModel;
 import com.fuyuvulpes.yoamod.game.client.entities.model.OwlModel;
-import com.fuyuvulpes.yoamod.world.entity.Owl;
+import com.fuyuvulpes.yoamod.world.entity.OwlEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
-public class OwlRenderer extends MobRenderer<Owl, OwlModel<Owl>> {
+public class OwlRenderer extends MobRenderer<OwlEntity, OwlModel<OwlEntity>> {
     private static final ResourceLocation OWL_TEXTURE = new ResourceLocation(MODID,"textures/entity/owl.png");
 
     public OwlRenderer(EntityRendererProvider.Context pContext) {
@@ -17,7 +16,7 @@ public class OwlRenderer extends MobRenderer<Owl, OwlModel<Owl>> {
     }
 
     @Override
-    public ResourceLocation getTextureLocation(Owl owl) {
+    public ResourceLocation getTextureLocation(OwlEntity owl) {
         return OWL_TEXTURE;
     }
 }

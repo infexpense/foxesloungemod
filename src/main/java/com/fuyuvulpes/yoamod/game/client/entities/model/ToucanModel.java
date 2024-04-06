@@ -1,10 +1,9 @@
 package com.fuyuvulpes.yoamod.game.client.entities.model;
 
-import com.fuyuvulpes.yoamod.world.entity.Toucan;
+import com.fuyuvulpes.yoamod.world.entity.ToucanEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HierarchicalModel;
-import net.minecraft.client.model.ParrotModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -12,11 +11,10 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.animal.Parrot;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 
-public class ToucanModel<T extends Entity> extends HierarchicalModel<Toucan> {
+public class ToucanModel<T extends Entity> extends HierarchicalModel<ToucanEntity> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "toucanmodel"), "main");
     private final ModelParts parts;
@@ -63,7 +61,7 @@ public class ToucanModel<T extends Entity> extends HierarchicalModel<Toucan> {
     }
 
     @Override
-    public void setupAnim(Toucan entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(ToucanEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.setupAnim(getState(entity), entity.tickCount, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
     }
 
@@ -84,35 +82,42 @@ public class ToucanModel<T extends Entity> extends HierarchicalModel<Toucan> {
 
 
     private void setupAnim(ToucanModel.State pState, int pTickCount, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        this.parts.head.xRot = pHeadPitch * 0.017453292F;
-        this.parts.head.yRot = pNetHeadYaw * 0.017453292F;
+        double dtr =  Mth.DEG_TO_RAD;
+        this.parts.head.xRot = (float) (pHeadPitch * (Math.PI / 180.0) - (45 * dtr));
+        this.parts.head.yRot = (float) (pNetHeadYaw * (Math.PI / 180.0));
         this.parts.head.zRot = 0.0F;
         switch (pState) {
             case SITTING:
                 break;
             case STANDING:
-                ModelPart var10000 = this.parts.left_leg;
-                var10000.xRot += Mth.cos(pLimbSwing * 0.6662F) * 1.4F * pLimbSwingAmount;
-                var10000 = this.parts.right_leg;
-                var10000.xRot += Mth.cos(pLimbSwing * 0.6662F + 3.1415927F) * 1.4F * pLimbSwingAmount;
+                ModelPart theLEG = this.parts.left_leg;
+                theLEG.xRot = Mth.cos(pLimbSwing * 0.6662F) * 1.4F * pLimbSwingAmount;
+                theLEG = this.parts.right_leg;
+                theLEG.xRot = Mth.cos(pLimbSwing * 0.6662F + 3.1415927F) * 1.4F * pLimbSwingAmount;
+                this.parts.left_wing.zRot = 0.0F;
+                this.parts.right_wing.zRot = 0.0F;
                 break;
             case FLYING:
+                double m = (Math.sin(pAgeInTicks) * 90 + 45) * dtr;
+                this.parts.left_wing.zRot = -0.5f * (float) m + 55.5f;
+                this.parts.right_wing.zRot = 0.5f * (float) m - 55.5f;
+                this.parts.left_leg.xRot = 0.0F;
+                this.parts.right_leg.xRot = 0.0F;
+                break;
             case ON_SHOULDER:
             default:
-                this.parts.left_wing.zRot = -0.5f * (float) ((Math.sin(pAgeInTicks) * 90 + 45) * Mth.DEG_TO_RAD) + 55.5f;
-                this.parts.right_wing.zRot = 0.5f * (float) ((Math.sin(pAgeInTicks) * 90 + 45) * Mth.DEG_TO_RAD) - 55.5f;
+                this.parts.left_wing.zRot = 0.0F;
+                this.parts.right_wing.zRot = 0.0F;
         }
 
     }
 
 
-    private static ToucanModel.State getState(Toucan pToucan) {
+    private static ToucanModel.State getState(ToucanEntity pToucan) {
         if (pToucan.isInSittingPose()) {
             return ToucanModel.State.SITTING;
-        } else if(pToucan.isFlying()){
-            return ToucanModel.State.FLYING;
         } else {
-            return ToucanModel.State.STANDING;
+            return pToucan.isFlying() ? ToucanModel.State.FLYING : ToucanModel.State.STANDING;
         }
     }
 
