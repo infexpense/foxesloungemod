@@ -17,9 +17,13 @@ import com.fuyuvulpes.yoamod.world.item.weaponry.WarFanItem;
 import com.fuyuvulpes.yoamod.world.magic.mana.ManaHelper;
 import com.fuyuvulpes.yoamod.world.magic.mana.ManaHelperImpl;
 import com.fuyuvulpes.yoamod.world.magic.mana.ManaHudOverlay;
+import dev.kosmx.playerAnim.api.layered.IAnimation;
+import dev.kosmx.playerAnim.api.layered.ModifierLayer;
+import dev.kosmx.playerAnim.minecraftApi.PlayerAnimationFactory;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
+import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -200,7 +204,20 @@ public class YOAMod {
 
             });
 
+            PlayerAnimationFactory.ANIMATION_DATA_FACTORY.registerFactory(
+                    new ResourceLocation(MODID, "swing"),
+                    42,
+                    YOAMod::registerPlayerAnimation);
 
+            PlayerAnimationFactory.ANIMATION_DATA_FACTORY.registerFactory(
+                    new ResourceLocation(MODID, "stab"),
+                    42,
+                    YOAMod::registerPlayerAnimation);
+
+            PlayerAnimationFactory.ANIMATION_DATA_FACTORY.registerFactory(
+                    new ResourceLocation(MODID, "slam"),
+                    42,
+                    YOAMod::registerPlayerAnimation);
         }
         @SubscribeEvent
         public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
@@ -381,5 +398,11 @@ public class YOAMod {
         return new ResourceLocation(MODID, path);
     }
 
+
+    //This method will set your mods animation into the library.
+    private static IAnimation registerPlayerAnimation(AbstractClientPlayer player) {
+        //This will be invoked for every new player
+        return new ModifierLayer<>();
+    }
 }
 
