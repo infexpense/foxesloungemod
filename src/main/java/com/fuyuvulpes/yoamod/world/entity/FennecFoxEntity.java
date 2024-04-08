@@ -134,9 +134,9 @@ public class FennecFoxEntity extends Animal {
         this.goalSelector.addGoal(0, new FennecFoxEntity.FennecFoxFloatGoal());
         this.goalSelector.addGoal(0, new ClimbOnTopOfPowderSnowGoal(this, this.level()));
         this.goalSelector.addGoal(1, new FennecFoxEntity.FaceplantGoal());
-        this.goalSelector.addGoal(2, new FennecFoxEntity.FennecFoxMeleeAttackGoal(1.2000000476837158, true));
-        this.goalSelector.addGoal(2, new FennecFoxEntity.FennecFoxPanicGoal(1.7));
-        this.goalSelector.addGoal(2, new LeapAtTargetGoal(this, 0.4F));
+        this.goalSelector.addGoal(1, new FennecFoxEntity.FennecFoxMeleeAttackGoal(1, true));
+        this.goalSelector.addGoal(2, new FennecFoxEntity.FennecFoxPanicGoal(1.3F));
+        this.goalSelector.addGoal(2, new LeapAtTargetGoal(this, 0.8F));
 
         this.goalSelector.addGoal(3, new FennecFoxEntity.FennecFoxBreedGoal(1.0));
         this.goalSelector.addGoal(4, new AvoidEntityGoal<>(this, Player.class, 16.0F, 1.6, 1.4, (p_308730_) -> {
@@ -303,9 +303,9 @@ public class FennecFoxEntity extends Animal {
 
     private void setTargetGoals() {
 
-            this.targetSelector.addGoal(2, this.landTargetGoal);
-            this.targetSelector.addGoal(3, this.monsterTargetGoal);
-            this.targetSelector.addGoal(6, this.fishTargetGoal);
+            this.targetSelector.addGoal(1, this.landTargetGoal);
+            this.targetSelector.addGoal(4, this.monsterTargetGoal);
+            this.targetSelector.addGoal(2, this.fishTargetGoal);
         }
 
     protected void usePlayerItem(Player pPlayer, InteractionHand pHand, ItemStack pStack) {

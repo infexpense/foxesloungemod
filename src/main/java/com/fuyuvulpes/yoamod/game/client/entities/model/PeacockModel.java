@@ -3,7 +3,7 @@ package com.fuyuvulpes.yoamod.game.client.entities.model;// Made with Blockbench
 // Paste this class into your mod and generate all required imports
 
 
-import com.fuyuvulpes.yoamod.world.entity.vehicle.PeacockEntity;
+import com.fuyuvulpes.yoamod.world.entity.PeacockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HierarchicalModel;

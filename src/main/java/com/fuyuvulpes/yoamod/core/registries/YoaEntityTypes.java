@@ -2,7 +2,7 @@ package com.fuyuvulpes.yoamod.core.registries;
 
 import com.fuyuvulpes.yoamod.world.entity.*;
 import com.fuyuvulpes.yoamod.world.entity.projectile.*;
-import com.fuyuvulpes.yoamod.world.entity.vehicle.PeacockEntity;
+import com.fuyuvulpes.yoamod.world.entity.PeacockEntity;
 import com.fuyuvulpes.yoamod.world.entity.vehicle.PlaneEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;

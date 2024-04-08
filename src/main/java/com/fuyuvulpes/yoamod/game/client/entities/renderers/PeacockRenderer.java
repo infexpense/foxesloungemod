@@ -1,11 +1,10 @@
 package com.fuyuvulpes.yoamod.game.client.entities.renderers;
 
 import com.fuyuvulpes.yoamod.game.client.entities.model.PeacockModel;
-import com.fuyuvulpes.yoamod.world.entity.vehicle.PeacockEntity;
+import com.fuyuvulpes.yoamod.world.entity.PeacockEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.animal.Parrot;
 
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 

@@ -12,7 +12,7 @@ import com.fuyuvulpes.yoamod.mixin.access.BlockEntityTypeAccess;
 import com.fuyuvulpes.yoamod.network.UpdateManaPacket;
 import com.fuyuvulpes.yoamod.world.block.state.ModWoodTypes;
 import com.fuyuvulpes.yoamod.world.entity.*;
-import com.fuyuvulpes.yoamod.world.entity.vehicle.PeacockEntity;
+import com.fuyuvulpes.yoamod.world.entity.PeacockEntity;
 import com.fuyuvulpes.yoamod.world.item.weaponry.WarFanItem;
 import com.fuyuvulpes.yoamod.world.magic.mana.ManaHelper;
 import com.fuyuvulpes.yoamod.world.magic.mana.ManaHelperImpl;

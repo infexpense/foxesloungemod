@@ -1,17 +1,14 @@
-package com.fuyuvulpes.yoamod.world.entity.vehicle;
+package com.fuyuvulpes.yoamod.world.entity;
 
-import com.fuyuvulpes.yoamod.world.entity.FennecFoxEntity;
-import com.fuyuvulpes.yoamod.world.entity.OwlEntity;
+import com.fuyuvulpes.yoamod.core.registries.YoaEntityTypes;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.BiomeTags;
-import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ByIdMap;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
@@ -20,19 +17,21 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Fox;
-import net.minecraft.world.entity.animal.Parrot;
 import net.minecraft.world.entity.animal.ShoulderRidingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.biome.Biome;
+import net.neoforged.neoforge.common.Tags;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.function.IntFunction;
 
 public class PeacockEntity extends Animal implements VariantHolder<PeacockEntity.Type> {
@@ -48,7 +47,7 @@ public class PeacockEntity extends Animal implements VariantHolder<PeacockEntity
         this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(1, new TemptGoal(this, 1.0f, Ingredient.of(Items.WHEAT_SEEDS), false));
         this.goalSelector.addGoal(3, new FollowMobGoal(this, 1.0, 3.0F, 7.0F));
-        this.goalSelector.addGoal(1, new BreedGoal(this, 1.0F));
+        this.goalSelector.addGoal(1, new PeafowlBreedGoal(this, 1.0F));
 
     }
 
@@ -59,11 +58,21 @@ public class PeacockEntity extends Animal implements VariantHolder<PeacockEntity
                 .add(Attributes.FOLLOW_RANGE, 32f);
     }
 
+
+    @Override
+    public boolean isFood(ItemStack pStack) {
+        return pStack.is(Tags.Items.SEEDS);
+    }
+
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
-        return null;
-    }
+        PeacockEntity peacock = YoaEntityTypes.PEACOCK_TYPE.get().create(pLevel);
+        if (peacock != null) {
+            peacock.setVariant(this.random.nextBoolean() ? this.getVariant() : ((PeacockEntity)pOtherParent).getVariant());
+        }
+
+        return peacock;    }
 
     public Type getVariant() {
         return Type.byId(this.entityData.get(DATA_TYPE_ID));
@@ -137,5 +146,42 @@ public class PeacockEntity extends Animal implements VariantHolder<PeacockEntity
         public static Type byId(int pIndex) {
             return BY_ID.apply(pIndex);
         }
+
+        public Type getOpposite() {
+            return this.id == 0 ? byId(1) : byId(0);
+        }
     }
+
+
+    public class PeafowlBreedGoal extends BreedGoal {
+        private static final TargetingConditions PARTNER_TARGETING = TargetingConditions.forNonCombat().range(8.0).ignoreLineOfSight();
+
+
+        public PeafowlBreedGoal(Animal pAnimal, double pSpeedModifier) {
+            super(pAnimal, pSpeedModifier);
+        }
+
+        @Nullable
+        @Override
+        protected Animal getFreePartner() {
+            List<? extends PeacockEntity> list = this.level
+                    .getNearbyEntities(PeacockEntity.class, PARTNER_TARGETING, this.animal, this.animal.getBoundingBox().inflate(8.0))
+                    .stream().filter(animal -> animal.getVariant() == ((PeacockEntity)this.animal).getVariant().getOpposite())
+                    .toList();
+
+            double d0 = Double.MAX_VALUE;
+            PeacockEntity animal = null;
+
+            for(PeacockEntity animal1 : list) {
+                if (this.animal.canMate(animal1) && !animal1.isPanicking() && this.animal.distanceToSqr(animal1) < d0) {
+                    animal = animal1;
+                    d0 = this.animal.distanceToSqr(animal1);
+                }
+            }
+
+            return animal;
+        }
+    }
+
+
 }
