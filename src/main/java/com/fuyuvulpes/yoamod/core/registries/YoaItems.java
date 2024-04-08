@@ -643,6 +643,9 @@ public class YoaItems {
     public static final DeferredItem<Item> OWL_SPAWN_EGG =  ITEMS.register("owl_spawn_egg",
             () -> new DeferredSpawnEggItem(YoaEntityTypes.OWL_TYPE::get,0x6d5c51,0xd69332,new Item.Properties()));
 
+    public static final DeferredItem<Item> PEACOCK_SPAWN_EGG =  ITEMS.register("peacock_spawn_egg",
+            () -> new DeferredSpawnEggItem(YoaEntityTypes.PEACOCK_TYPE::get,0x6d5c22,0xd69312,new Item.Properties()));
+
 
 
 
