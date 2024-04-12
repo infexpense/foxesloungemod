@@ -25,6 +25,11 @@ public abstract class PlayerMixin extends LivingEntity implements IYOAPlayer {
         super(pEntityType, pLevel);
     }
 
+
+
+
+
+
     @Inject(method="readAdditionalSaveData", at=@At(value="TAIL"))
     public void onReadAdditionalSaveData(CompoundTag nbt, CallbackInfo ci)
     {

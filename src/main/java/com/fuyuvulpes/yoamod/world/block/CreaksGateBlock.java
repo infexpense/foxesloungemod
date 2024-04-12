@@ -49,7 +49,7 @@ public class CreaksGateBlock extends RotatedPillarBlock {
             if (pLevel.isClientSide()) {
                 pPlayer.playSound(SoundEvents.LAVA_EXTINGUISH, 0.5F, 1.0F);
                 pPlayer.playSound(SoundEvents.BEACON_DEACTIVATE, 2.0F, 0.1F);
-                pPlayer.displayClientMessage(Component.translatable("yoamod.creaks_unworthy.gate",pPlayer)
+                pPlayer.displayClientMessage(Component.translatable("yoamod.creaks_unworthy.gate",pPlayer.getDisplayName())
                         .withStyle(ChatFormatting.RED)
                         .withStyle(ChatFormatting.BOLD),
                         true);

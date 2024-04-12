@@ -7,7 +7,7 @@ public enum ElementTypes implements ElementType{
     EARTH("earth",3),
     WIND("wind",4),
     ICE("ice",5),
-    LIGHT("light",6),
+    LIGHTNING("lightning",6),
     DARK("dark",7),
 
 
