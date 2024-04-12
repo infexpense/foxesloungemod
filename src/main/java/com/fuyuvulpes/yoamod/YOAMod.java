@@ -12,7 +12,7 @@ import com.fuyuvulpes.yoamod.mixin.access.BlockEntityTypeAccess;
 import com.fuyuvulpes.yoamod.network.UpdateManaPacket;
 import com.fuyuvulpes.yoamod.world.block.state.ModWoodTypes;
 import com.fuyuvulpes.yoamod.world.entity.*;
-import com.fuyuvulpes.yoamod.world.entity.PeacockEntity;
+import com.fuyuvulpes.yoamod.world.entity.PeafowlEntity;
 import com.fuyuvulpes.yoamod.world.item.weaponry.WarFanItem;
 import com.fuyuvulpes.yoamod.world.magic.mana.ManaHelper;
 import com.fuyuvulpes.yoamod.world.magic.mana.ManaHelperImpl;
@@ -220,7 +220,7 @@ public class YOAMod {
             event.registerEntityRenderer(YoaEntityTypes.FENNEC_FOX_TYPE.get(), FennecFoxRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.TOUCAN_TYPE.get(), ToucanRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.OWL_TYPE.get(), OwlRenderer::new);
-            event.registerEntityRenderer(YoaEntityTypes.PEACOCK_TYPE.get(), PeacockRenderer::new);
+            event.registerEntityRenderer(YoaEntityTypes.PEAFOWL_TYPE.get(), PeafowlRenderer::new);
         }
         @SubscribeEvent
         public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
@@ -239,7 +239,7 @@ public class YOAMod {
             event.registerLayerDefinition(FennecFoxModel.LAYER_LOCATION, FennecFoxModel::createBodyLayer);
             event.registerLayerDefinition(ToucanModel.LAYER_LOCATION, ToucanModel::createBodyLayer);
             event.registerLayerDefinition(OwlModel.LAYER_LOCATION, OwlModel::createBodyLayer);
-            event.registerLayerDefinition(PeacockModel.LAYER_LOCATION, PeacockModel::createBodyLayer);
+            event.registerLayerDefinition(PeafowlModel.LAYER_LOCATION, PeafowlModel::createBodyLayer);
 
         }
         @SubscribeEvent
@@ -312,7 +312,7 @@ public class YOAMod {
             event.put(YoaEntityTypes.FENNEC_FOX_TYPE.get(), FennecFoxEntity.createAttributes().build());
             event.put(YoaEntityTypes.TOUCAN_TYPE.get(), ToucanEntity.createAttributes().build());
             event.put(YoaEntityTypes.OWL_TYPE.get(), OwlEntity.createAttributes().build());
-            event.put(YoaEntityTypes.PEACOCK_TYPE.get(), PeacockEntity.createAttributes().build());
+            event.put(YoaEntityTypes.PEAFOWL_TYPE.get(), PeafowlEntity.createAttributes().build());
         }
 
 
@@ -359,10 +359,10 @@ public class YOAMod {
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     OwlEntity::canSpawn,
                     SpawnPlacementRegisterEvent.Operation.OR);
-            event.register(YoaEntityTypes.PEACOCK_TYPE.get(),
+            event.register(YoaEntityTypes.PEAFOWL_TYPE.get(),
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    PeacockEntity::canSpawn,
+                    PeafowlEntity::canSpawn,
                     SpawnPlacementRegisterEvent.Operation.OR);
         }
 

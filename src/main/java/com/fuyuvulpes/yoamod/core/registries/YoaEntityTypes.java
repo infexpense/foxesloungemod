@@ -2,7 +2,7 @@ package com.fuyuvulpes.yoamod.core.registries;
 
 import com.fuyuvulpes.yoamod.world.entity.*;
 import com.fuyuvulpes.yoamod.world.entity.projectile.*;
-import com.fuyuvulpes.yoamod.world.entity.PeacockEntity;
+import com.fuyuvulpes.yoamod.world.entity.PeafowlEntity;
 import com.fuyuvulpes.yoamod.world.entity.vehicle.PlaneEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -62,10 +62,10 @@ public class YoaEntityTypes {
                     .sized(0.6F,0.8F)
                     .build(new ResourceLocation(MODID,"owl").toString()));
 
-    public static final DeferredHolder<EntityType<?>,EntityType<PeacockEntity>> PEACOCK_TYPE = ENTITY.register("peacock",
-            () -> EntityType.Builder.<PeacockEntity>of(PeacockEntity::new, MobCategory.CREATURE)
-                    .sized(1.0F,1.2F)
-                    .build(new ResourceLocation(MODID,"peacock").toString()));
+    public static final DeferredHolder<EntityType<?>,EntityType<PeafowlEntity>> PEAFOWL_TYPE = ENTITY.register("peafowl",
+            () -> EntityType.Builder.<PeafowlEntity>of(PeafowlEntity::new, MobCategory.CREATURE)
+                    .sized(0.8F,0.8F)
+                    .build(new ResourceLocation(MODID,"peafowl").toString()));
 
     public static final DeferredHolder<EntityType<?>,EntityType<DartProjectile>> DART = ENTITY.register("dart",
             () -> EntityType.Builder.<DartProjectile>of(DartProjectile::new, MobCategory.MISC).sized(0.5F, 0.5F)

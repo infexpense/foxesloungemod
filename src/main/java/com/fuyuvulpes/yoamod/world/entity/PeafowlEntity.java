@@ -8,7 +8,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ByIdMap;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
@@ -19,7 +18,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.animal.Fox;
 import net.minecraft.world.entity.animal.ShoulderRidingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -34,10 +32,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.IntFunction;
 
-public class PeacockEntity extends Animal implements VariantHolder<PeacockEntity.Type> {
-    private static final EntityDataAccessor<Integer> DATA_TYPE_ID = SynchedEntityData.defineId(PeacockEntity.class, EntityDataSerializers.INT);
+public class PeafowlEntity extends Animal implements VariantHolder<PeafowlEntity.Type> {
+    private static final EntityDataAccessor<Integer> DATA_TYPE_ID = SynchedEntityData.defineId(PeafowlEntity.class, EntityDataSerializers.INT);
 
-    public PeacockEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
+    public PeafowlEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
@@ -67,9 +65,9 @@ public class PeacockEntity extends Animal implements VariantHolder<PeacockEntity
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
-        PeacockEntity peacock = YoaEntityTypes.PEACOCK_TYPE.get().create(pLevel);
+        PeafowlEntity peacock = YoaEntityTypes.PEAFOWL_TYPE.get().create(pLevel);
         if (peacock != null) {
-            peacock.setVariant(this.random.nextBoolean() ? this.getVariant() : ((PeacockEntity)pOtherParent).getVariant());
+            peacock.setVariant(this.random.nextBoolean() ? this.getVariant() : ((PeafowlEntity)pOtherParent).getVariant());
         }
 
         return peacock;    }
@@ -94,20 +92,20 @@ public class PeacockEntity extends Animal implements VariantHolder<PeacockEntity
 
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
-        this.setVariant(PeacockEntity.Type.byId(pCompound.getInt("Type")));
+        this.setVariant(PeafowlEntity.Type.byId(pCompound.getInt("Type")));
     }
 
     protected float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
-        return 1.0F;
+        return 0.7F;
     }
 
-    public static boolean canSpawn(EntityType<PeacockEntity> pPeacock, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+    public static boolean canSpawn(EntityType<PeafowlEntity> pPeacock, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
         return Animal.checkAnimalSpawnRules(pPeacock,pLevel,pSpawnType,pPos,pRandom);
     }
 
     @javax.annotation.Nullable
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @javax.annotation.Nullable SpawnGroupData pSpawnData, @javax.annotation.Nullable CompoundTag pDataTag) {
-        this.setVariant(Util.getRandom(PeacockEntity.Type.values(), pLevel.getRandom()));
+        this.setVariant(Util.getRandom(PeafowlEntity.Type.values(), pLevel.getRandom()));
         if (pSpawnData == null) {
             pSpawnData = new AgeableMob.AgeableMobGroupData(false);
         }
@@ -162,17 +160,16 @@ public class PeacockEntity extends Animal implements VariantHolder<PeacockEntity
         }
 
         @Nullable
-        @Override
         protected Animal getFreePartner() {
-            List<? extends PeacockEntity> list = this.level
-                    .getNearbyEntities(PeacockEntity.class, PARTNER_TARGETING, this.animal, this.animal.getBoundingBox().inflate(8.0))
-                    .stream().filter(animal -> animal.getVariant() == ((PeacockEntity)this.animal).getVariant().getOpposite())
+            List<? extends PeafowlEntity> list = this.level
+                    .getNearbyEntities(PeafowlEntity.class, PARTNER_TARGETING, this.animal, this.animal.getBoundingBox().inflate(8.0))
+                    .stream().filter(animal -> animal.getVariant() == ((PeafowlEntity)this.animal).getVariant().getOpposite())
                     .toList();
 
             double d0 = Double.MAX_VALUE;
-            PeacockEntity animal = null;
+            PeafowlEntity animal = null;
 
-            for(PeacockEntity animal1 : list) {
+            for(PeafowlEntity animal1 : list) {
                 if (this.animal.canMate(animal1) && !animal1.isPanicking() && this.animal.distanceToSqr(animal1) < d0) {
                     animal = animal1;
                     d0 = this.animal.distanceToSqr(animal1);

@@ -652,7 +652,7 @@ public class YoaTabs {
                 output.accept(YoaItems.FENNEC_FOX_SPAWN_EGG.get());
                 output.accept(YoaItems.TOUCAN_SPAWN_EGG.get());
                 output.accept(YoaItems.OWL_SPAWN_EGG.get());
-                output.accept(YoaItems.PEACOCK_SPAWN_EGG.get());
+                output.accept(YoaItems.PEAFOWL_SPAWN_EGG.get());
             }).build());
 
 

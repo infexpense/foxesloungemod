@@ -31,6 +31,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.common.Tags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Iterator;
@@ -54,6 +55,7 @@ public class OwlEntity extends Animal implements FlyingAnimal {
         this.goalSelector.addGoal(0, new PanicGoal(this, 1.3F));
         this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(1, new TemptGoal(this, 1.0f, Ingredient.of(Items.WHEAT_SEEDS), false));
+        this.goalSelector.addGoal(1, new BreedGoal(this, 1.2F));
         this.goalSelector.addGoal(3, new FollowMobGoal(this, 1.0, 3.0F, 7.0F));
         this.goalSelector.addGoal(2, new OwlWanderGoal(this, 1.0f));
 
@@ -95,7 +97,7 @@ public class OwlEntity extends Animal implements FlyingAnimal {
 
     @Override
     public boolean isFood(ItemStack pStack) {
-        return pStack.is(Items.WHEAT_SEEDS);
+        return pStack.is(Tags.Items.SEEDS);
     }
 
 
