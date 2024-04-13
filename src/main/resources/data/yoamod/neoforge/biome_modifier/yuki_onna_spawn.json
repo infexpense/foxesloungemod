@@ -1,0 +1,11 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#forge:is_cold/overworld",
+  "spawners": {
+    "type": "yoamod:yuki_onna",
+    "weight": 30,
+    "minCount": 1,
+    "maxCount": 1
+
+  }
+}

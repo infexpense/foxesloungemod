@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
-public class FallenSamuraiRenderer<T extends FallenSamurai,M extends FallenSamuraiModel<T>> extends MobRenderer<T, FallenSamuraiModel<T>> {
+public class FallenSamuraiRenderer<T extends FallenSamurai> extends MobRenderer<T, FallenSamuraiModel<T>> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(MODID,"textures/entity/fallen_samurai.png");
 
     public FallenSamuraiRenderer(EntityRendererProvider.Context pContext) {

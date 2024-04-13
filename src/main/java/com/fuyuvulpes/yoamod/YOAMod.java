@@ -90,6 +90,8 @@ public class YOAMod {
         YoaItems.register(modEventBus);
         YoaBlockEntities.register(modEventBus);
 
+        YoaSounds.register(modEventBus);
+
 
         YoaTabs.register(modEventBus);
 
@@ -238,6 +240,7 @@ public class YOAMod {
             event.registerEntityRenderer(YoaEntityTypes.TOUCAN_TYPE.get(), ToucanRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.OWL_TYPE.get(), OwlRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.PEAFOWL_TYPE.get(), PeafowlRenderer::new);
+            event.registerEntityRenderer(YoaEntityTypes.YUKI_ONNA_TYPE.get(), YukiOnnaRenderer::new);
         }
         @SubscribeEvent
         public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
@@ -257,6 +260,7 @@ public class YOAMod {
             event.registerLayerDefinition(ToucanModel.LAYER_LOCATION, ToucanModel::createBodyLayer);
             event.registerLayerDefinition(OwlModel.LAYER_LOCATION, OwlModel::createBodyLayer);
             event.registerLayerDefinition(PeafowlModel.LAYER_LOCATION, PeafowlModel::createBodyLayer);
+            event.registerLayerDefinition(YukiOnnaModel.LAYER_LOCATION, YukiOnnaModel::createBodyLayer);
 
         }
         @SubscribeEvent
@@ -330,6 +334,7 @@ public class YOAMod {
             event.put(YoaEntityTypes.TOUCAN_TYPE.get(), ToucanEntity.createAttributes().build());
             event.put(YoaEntityTypes.OWL_TYPE.get(), OwlEntity.createAttributes().build());
             event.put(YoaEntityTypes.PEAFOWL_TYPE.get(), PeafowlEntity.createAttributes().build());
+            event.put(YoaEntityTypes.YUKI_ONNA_TYPE.get(), YukiOnnaEntity.createAttributes().build());
         }
 
 
@@ -381,6 +386,12 @@ public class YOAMod {
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     PeafowlEntity::canSpawn,
                     SpawnPlacementRegisterEvent.Operation.OR);
+            event.register(YoaEntityTypes.YUKI_ONNA_TYPE.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    YukiOnnaEntity::canSpawn,
+                    SpawnPlacementRegisterEvent.Operation.OR);
+
         }
 
         @SubscribeEvent

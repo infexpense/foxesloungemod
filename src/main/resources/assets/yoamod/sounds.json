@@ -1,0 +1,24 @@
+{
+  "yuki_onna_ambient": {
+    "subtitles": "sounds.yoamod.yuki_onna_ambient",
+    "sounds": [
+      "yoamod:monster/yuki_onna_ambient_0",
+      "yoamod:monster/yuki_onna_ambient_1"
+    ]
+
+  },
+  "yuki_onna_hurt": {
+    "subtitles": "sounds.yoamod.yuki_onna_hurt",
+    "sounds": [
+      "yoamod:monster/yuki_onna_hurt"
+    ]
+
+  },
+  "yuki_onna_death": {
+    "subtitles": "sounds.yoamod.yuki_onna_death",
+    "sounds": [
+      "yoamod:monster/yuki_onna_death"
+    ]
+
+  }
+}

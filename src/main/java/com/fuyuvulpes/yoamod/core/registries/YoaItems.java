@@ -633,6 +633,9 @@ public class YoaItems {
     public static final DeferredItem<Item> FALLEN_SAMURAI_SPAWN_EGG =  ITEMS.register("fallen_samurai_spawn_egg",
             () -> new DeferredSpawnEggItem(YoaEntityTypes.FALLEN_SAMURAI::get,0x65706E,0x74606E,new Item.Properties()));
 
+    public static final DeferredItem<Item> YUKI_ONNA_SPAWN_EGG =  ITEMS.register("yuki_onna_spawn_egg",
+            () -> new DeferredSpawnEggItem(YoaEntityTypes.YUKI_ONNA_TYPE::get,0xD8DEEF,0xB5D8F4,new Item.Properties()));
+
     public static final DeferredItem<Item> FENNEC_FOX_SPAWN_EGG =  ITEMS.register("fennec_fox_spawn_egg",
             () -> new DeferredSpawnEggItem(YoaEntityTypes.FENNEC_FOX_TYPE::get,0xe3d5bd,0x564a3e,new Item.Properties()));
 

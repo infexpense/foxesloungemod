@@ -10,6 +10,7 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
@@ -48,6 +49,9 @@ public class HarpoonModel<T extends HarpoonEntity> extends HierarchicalModel<T> 
 
     @Override
     public void setupAnim(T pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+        this.root.yRot = pEntity.getYRot() * Mth.DEG_TO_RAD  * -1;
+        this.root.xRot = pEntity.getXRot() * Mth.DEG_TO_RAD;
+
     }
 
 

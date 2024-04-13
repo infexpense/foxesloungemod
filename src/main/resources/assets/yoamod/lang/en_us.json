@@ -538,6 +538,7 @@
   "item.yoamod.toucan_spawn_egg": "Toucan Spawn Egg",
   "item.yoamod.owl_spawn_egg": "Owl Spawn Egg",
   "item.yoamod.peafowl_spawn_egg": "Peafowl Spawn Egg",
+  "item.yoamod.yuki_onna_spawn_egg": "Yuki Onna Spawn Egg",
 
   "item.yoamod.plane_item": "Airplane",
 
@@ -574,6 +575,7 @@
 
   "effect.yoamod.bleeding": "Bleeding",
   "effect.yoamod.stun": "Stun",
+  "effect.yoamod.freeze": "Freezing",
 
   "death.attack.bleeding.item": "%1$s bled too much from the wound %2$s made using %3$s",
   "death.attack.bleeding.player": "%1$s bled out whilst fighting %2$s",
@@ -620,11 +622,20 @@
   "entity.yoamod.brawling": "Brawling",
   "entity.yoamod.blockling": "Blockling",
   "entity.yoamod.armed_spider": "Armed Spider",
+  "entity.yoamod.fallen_samurai": "Fallem Samurai",
+  "entity.yoamod.yuki_onna": "Yuki Onna",
+  "entity.yoamod.toucan": "Toucan",
+  "entity.yoamod.owl": "Owl",
+  "entity.yoamod.peafowl": "Peafowl",
   "entity.yoamod.fennec_fox": "Fennec Fox",
 
   "gui.yoamod.hammering_station": "Hammering Station",
   "gui.yoamod.crucible": "Crucible",
 
 
-  "yoamod.creaks_unworthy.gate": "%1$s is Unworthy of Access"
+  "yoamod.creaks_unworthy.gate": "%1$s is Unworthy of Access",
+
+  "sounds.yoamod.yuki_onna_ambient": "Yuki Onna Groans",
+  "sounds.yoamod.yuki_onna_hurt": "Yuki Onna gets Hurt",
+  "sounds.yoamod.yuki_onna_death": "Yuki Onna Dies"
 }

@@ -1,8 +1,6 @@
 package com.fuyuvulpes.yoamod.game.client.entities.model;
 
 import com.fuyuvulpes.yoamod.world.entity.FallenSamurai;
-import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.model.ArmedModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -10,7 +8,6 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.HumanoidArm;
 
 import static com.fuyuvulpes.yoamod.YOAMod.MODID;
 
@@ -86,11 +83,6 @@ public class FallenSamuraiModel<T extends FallenSamurai> extends HierarchicalMod
         } else {
             this.head.xRot = pHeadPitch * (float) (Math.PI / 180.0);
         }
-
-        this.rightArm.z = 0.0F;
-        this.rightArm.x = -5.0F;
-        this.leftArm.z = 0.0F;
-        this.leftArm.x = 5.0F;
         float f = 1.0F;
         if (flag) {
             f = (float) pEntity.getDeltaMovement().lengthSqr();

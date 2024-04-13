@@ -67,6 +67,13 @@ public class YoaEntityTypes {
                     .sized(0.8F,0.8F)
                     .build(new ResourceLocation(MODID,"peafowl").toString()));
 
+    public static final DeferredHolder<EntityType<?>,EntityType<YukiOnnaEntity>> YUKI_ONNA_TYPE = ENTITY.register("yuki_onna",
+            () -> EntityType.Builder.<YukiOnnaEntity>of(YukiOnnaEntity::new, MobCategory.MONSTER)
+                    .sized(0.6F,2.0F)
+                    .build(new ResourceLocation(MODID,"yuki_onna").toString()));
+
+
+
     public static final DeferredHolder<EntityType<?>,EntityType<DartProjectile>> DART = ENTITY.register("dart",
             () -> EntityType.Builder.<DartProjectile>of(DartProjectile::new, MobCategory.MISC).sized(0.5F, 0.5F)
                     .clientTrackingRange(4).updateInterval(20)

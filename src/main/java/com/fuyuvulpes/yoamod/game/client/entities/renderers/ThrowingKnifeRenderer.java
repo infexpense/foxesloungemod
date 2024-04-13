@@ -30,13 +30,9 @@ public class ThrowingKnifeRenderer<T extends ThrowingKnifeEntity> extends Entity
     @Override
     public void render(T pEntity, float pEntityYaw, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
         pPoseStack.pushPose();
-        pPoseStack.scale(-1.0F, -1.0F, -1.0F);
-        pPoseStack.translate(-1.5,-0.25,0);
-
-        pPoseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(pPartialTick, pEntity.yRotO, pEntity.getYRot())));
-        pPoseStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(pPartialTick, pEntity.xRotO, pEntity.getXRot()) + 90.0F));
-
-        VertexConsumer vertexconsumer = pBuffer.getBuffer(this.model.renderType(this.getTextureLocation(pEntity)));
+        pPoseStack.scale(-1.0F, -1.0F, 1.0F);
+        pPoseStack.translate(0,-1.5,0);
+        VertexConsumer vertexconsumer = pBuffer.getBuffer(this.model.renderType( this.getTextureLocation(pEntity)));
 
         this.model.setupAnim(pEntity, pPartialTick, 0.0F, pEntity.tickCount + pPartialTick, 0.0F, 0.0F);
 
