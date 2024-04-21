@@ -54,7 +54,7 @@ public class OwlEntity extends Animal implements FlyingAnimal {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(0, new PanicGoal(this, 1.3F));
         this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.goalSelector.addGoal(1, new TemptGoal(this, 1.0f, Ingredient.of(Items.WHEAT_SEEDS), false));
+        this.goalSelector.addGoal(1, new TemptGoal(this, 1.0f, Ingredient.of(Tags.Items.SEEDS), false));
         this.goalSelector.addGoal(1, new BreedGoal(this, 1.2F));
         this.goalSelector.addGoal(3, new FollowMobGoal(this, 1.0, 3.0F, 7.0F));
         this.goalSelector.addGoal(2, new OwlWanderGoal(this, 1.0f));

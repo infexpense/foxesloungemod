@@ -241,6 +241,7 @@ public class YOAMod {
             event.registerEntityRenderer(YoaEntityTypes.OWL_TYPE.get(), OwlRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.PEAFOWL_TYPE.get(), PeafowlRenderer::new);
             event.registerEntityRenderer(YoaEntityTypes.YUKI_ONNA_TYPE.get(), YukiOnnaRenderer::new);
+            event.registerEntityRenderer(YoaEntityTypes.BEETLE_TYPE.get(), BeetleRenderer::new);
         }
         @SubscribeEvent
         public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
@@ -261,6 +262,7 @@ public class YOAMod {
             event.registerLayerDefinition(OwlModel.LAYER_LOCATION, OwlModel::createBodyLayer);
             event.registerLayerDefinition(PeafowlModel.LAYER_LOCATION, PeafowlModel::createBodyLayer);
             event.registerLayerDefinition(YukiOnnaModel.LAYER_LOCATION, YukiOnnaModel::createBodyLayer);
+            event.registerLayerDefinition(BeetleModel.LAYER_LOCATION, BeetleModel::createBodyLayer);
 
         }
         @SubscribeEvent
@@ -335,6 +337,7 @@ public class YOAMod {
             event.put(YoaEntityTypes.OWL_TYPE.get(), OwlEntity.createAttributes().build());
             event.put(YoaEntityTypes.PEAFOWL_TYPE.get(), PeafowlEntity.createAttributes().build());
             event.put(YoaEntityTypes.YUKI_ONNA_TYPE.get(), YukiOnnaEntity.createAttributes().build());
+            event.put(YoaEntityTypes.BEETLE_TYPE.get(), BeetleEntity.createAttributes().build());
         }
 
 
@@ -390,6 +393,11 @@ public class YOAMod {
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     YukiOnnaEntity::canSpawn,
+                    SpawnPlacementRegisterEvent.Operation.OR);
+            event.register(YoaEntityTypes.BEETLE_TYPE.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    BeetleEntity::canSpawn,
                     SpawnPlacementRegisterEvent.Operation.OR);
 
         }

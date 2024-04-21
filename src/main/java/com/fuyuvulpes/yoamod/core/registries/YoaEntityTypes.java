@@ -72,6 +72,11 @@ public class YoaEntityTypes {
                     .sized(0.6F,2.0F)
                     .build(new ResourceLocation(MODID,"yuki_onna").toString()));
 
+    public static final DeferredHolder<EntityType<?>,EntityType<BeetleEntity>> BEETLE_TYPE = ENTITY.register("beetle",
+            () -> EntityType.Builder.<BeetleEntity>of(BeetleEntity::new, MobCategory.CREATURE)
+                    .sized(0.4F,0.2F)
+                    .build(new ResourceLocation(MODID,"beetle").toString()));
+
 
 
     public static final DeferredHolder<EntityType<?>,EntityType<DartProjectile>> DART = ENTITY.register("dart",
